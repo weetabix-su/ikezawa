@@ -3859,252 +3859,218 @@ label en_A19j:
 #	show emi gymbounce	#WEETABIX NOTE: Locate similar image. If possible, simulate animation present in PC version.
 	"As if to confirm her statement she bounces up and down a couple of times, giving a passing impression of standing on a pair of springs. Her legblades seem to be quite elastic."
 	emi "Let's go!"
-stop music fadeout 1.0
-play ambient sfx_emijogging fadein 0.3
-scene bg school_track_running
-with locationchange
-"So we both take off around the track, and I can immediately see that she wasn't lying about being good at running."
-"Emi moves fluidly, throwing herself into the run with a sort of wild abandon."
-"I find myself concentrating more on running properly."
+	play music "bgm/blank.ogg"
+#	play ambient "sfx/emijogging.ogg"
+	scene bg school_track_running
+	"So we both take off around the track, and I can immediately see that she wasn't lying about being good at running."
+	"Emi moves fluidly, throwing herself into the run with a sort of wild abandon."
+	"I find myself concentrating more on running properly."
+	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
 label en_A19d:
-"Hands spread, right?"
-"And something about hitting on the balls of your feet, rather than the heels…"
-"I try to match my stride to Emi's, but it's pretty difficult."
-"Apparently I'm not very good at it."
-"Maybe Emi could help me with that sometime."
+	"Hands spread, right?"
+	"And something about hitting on the balls of your feet, rather than the heels…"
+	"I try to match my stride to Emi's, but it's pretty difficult."
+	"Apparently I'm not very good at it."
+	"Maybe Emi could help me with that sometime."
+	jump en_A19f
 label en_A19e:
-"Frankly, I don't remember if there's any particular form for running, but I can't help but feel like I'm doing it wrong, somehow."
-"I feel awkward in comparison to Emi, who never seems to break stride."
-"…"
-"I don't think I want to do this any more."
+	"Frankly, I don't remember if there's any particular form for running, but I can't help but feel like I'm doing it wrong, somehow."
+	"I feel awkward in comparison to Emi, who never seems to break stride."
+	"..."
+	"I don't think I want to do this any more."
+	jump en_A19f
 label en_A19f:
-"I'm really not feeling up to more than a couple of laps today, and slow to a walk pretty quickly."
-scene bg school_track_on
-with Dissolve(4.0)
-"Emi keeps running, and doesn't seem to notice I've stopped until she passes me a second time."
-stop ambient
-"She quickly skids to a halt, breathing steadily in contrast to my own somewhat gasping demeanor."
-play music music_emi fadein 2.0
-show emi basic_confused_gym at center
-with charamoveinleft
-emi "Finished already?"
-"I hang my head ruefully."
-hi "Heh, yeah."
-hi "I'm not in very good shape right now."
-show emi basic_grin_gym
-with charachange
-"Emi nods, and then grins at me again."
-"She seems to do a lot of smiling."
-emi "Well, the important thing is you started, right?"
-show emi excited_amused_gym
-with charachange
-emi "Next time, you just have to try to hold out longer, and then longer, and longer, and eventually you'll be great!"
-hi "I'll keep that in mind."
-hi "But I think right now I'm going to go get ready for class."
-hi "Shouldn't you?"
-"Emi shrugs unconcernedly."
-show emi basic_grin_gym
-with charachange
-emi "Nah, I've got plenty of time."
-"I notice that she's not wearing a watch."
-hi "Are you sure?"
-"Another careless shrug."
-emi "Not really… but I've got to finish my routine!"
-show emi basic_closedgrin_gym
-with charachange
-emi "See you later, Hisao!"
-hi "Er, yeah. See ya."
-stop music fadeout 5.0
-play ambient sfx_emisprinting
-hide emi
-with easeoutleft
-stop ambient fadeout 2.0
+	"I'm really not feeling up to more than a couple of laps today, and slow to a walk pretty quickly."
+	scene bg school_track_on
+	"Emi keeps running, and doesn't seem to notice I've stopped until she passes me a second time."
+#	stop ambient
+	"She quickly skids to a halt, breathing steadily in contrast to my own somewhat gasping demeanor."
+	play music "bgm/Standing_Tall.ogg"
+	show emi basic_confused_gym
+	emi "Finished already?"
+	"I hang my head ruefully."
+	hi "Heh, yeah."
+	hi "I'm not in very good shape right now."
+	show emi basic_grin_gym
+	"Emi nods, and then grins at me again."
+	"She seems to do a lot of smiling."
+	emi "Well, the important thing is you started, right?"
+	show emi excited_amused_gym
+	emi "Next time, you just have to try to hold out longer, and then longer, and longer, and eventually you'll be great!"
+	hi "I'll keep that in mind."
+	hi "But I think right now I'm going to go get ready for class."
+	hi "Shouldn't you?"
+	"Emi shrugs unconcernedly."
+	show emi basic_grin_gym
+	emi "Nah, I've got plenty of time."
+	"I notice that she's not wearing a watch."
+	hi "Are you sure?"
+	"Another careless shrug."
+	emi "Not really… but I've got to finish my routine!"
+	show emi basic_closedgrin_gym
+	emi "See you later, Hisao!"
+	hi "Er, yeah. See ya."
+	play music "bgm/blank.ogg"
+#	play ambient "sfx/emisprinting.ogg"
+	hide emi
+#	stop ambient fadeout 2.0
+	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
 label en_A19g:
-"I'm not sure whether this morning's experiment was a success or a failure, but I'll admit that I do feel slightly good about getting out there this morning."
-"And like Emi said, I just need to keep at it in order to get better, right?"
-"Practice makes perfect, or something like that."
-"It's nice at least to feel like I've taken some semblance of control over my own health."
-"I'll have to try to keep this up."
-scene black
-with locationskip_in
+	"I'm not sure whether this morning's experiment was a success or a failure, but I'll admit that I do feel slightly good about getting out there this morning."
+	"And like Emi said, I just need to keep at it in order to get better, right?"
+	"Practice makes perfect, or something like that."
+	"It's nice at least to feel like I've taken some semblance of control over my own health."
+	"I'll have to try to keep this up."
+	scene black
+	jump en_A20
 label en_A19h:
-"Apart from feeling more tired than before, I don't think I accomplished anything today."
-"I'm so out of shape it's embarrassing."
-"The whole thing might have been a waste of time. I'll find some other way."
-scene black
-with locationskip_in
+	"Apart from feeling more tired than before, I don't think I accomplished anything today."
+	"I'm so out of shape it's embarrassing."
+	"The whole thing might have been a waste of time. I'll find some other way."
+	scene black
+	jump en_A20
 label en_A20:
-scene bg school_dormext_half
-with locationskip_out
-"I head back to the dorms to wash and change into my uniform, trying to resist the urge to take a really long and hot shower."
-"I'm tired from all the running, so I just want to unwind, but I don't want to break my slowly building routine of getting to school before the morning rush."
-scene bg school_dormbathroom
-show steam
-show steam2
-with shorttimeskip
-"After taking a long shower anyway, I dry myself off and get out of the stall to put on my clothes."
-show kenji silhouette_naked at center  behind steam
-with charaenter
-"Out of nowhere, a shadow appears within the mist, looming and radiating malicious intent. It bursts through the fog."
-play music music_kenji fadein 0.3
-hide steam
-hide steam2
-show kenji neutral_naked
-show steam as newsteam behind kenji
-show steam2 as newsteam2 behind kenji
-with charachange
-ke "Sup?"
-hi "What are you doing here? What the hell, you scared me! What's your problem?!"
-show kenji tsun_naked
-with charachange
-ke "I should be asking you that. I've been looking for you all over the place, man."
-hi "What do you mean “all over the place”?"
-"I want to ask if he's been looking for me like that, stark naked, but hold my tongue back."
-"I finally realize I'm still naked too and quickly hold up my shirt in front of me, but Kenji doesn't seem to notice a thing."
-"His glasses are fogged up. But then, why doesn't he wipe them off? Is his vision so bad it's like he's perpetually seeing through fog?"
-ke "You know, your room, and… Yeah, that's it. Hey, I mean, I still had to get up, though. Whatever. It's not important. Can I borrow some money?"
-show kenji neutral_naked
-with charachange
-"He puts on an innocent face and looks away, trying very hard to look very casual. It doesn't work; he's as transparent as his windowpane-sized glasses."
-"Talking neutrally like this, wearing nothing, feels awkward."
-"Actually, somehow it's even more awkward to be naked in front of someone when they can't see me being naked. To say nothing of the fact that he's naked as well."
-"I try to brush the feeling off, with little success."
-hi "Money? Sure."
-show kenji happy_naked
-hide newsteam
-with charachange
-ke "Awesome."
-hi "Wait, why do you need it?"
-show kenji tsun_naked
-with charachange
-ke "Ehhhh…"
-show kenji neutral_naked
-with charachange
-ke "Can't you just give it to me because I had the good will not to run through your pockets while you were in the shower? I could have, but I exercised restraint. And in the end, isn't it the thought that counts? Come on, be a pal."
-"This makes no sense. If it's the thought that counts, I should withhold payment, since his thoughts were so clearly impure and his intentions are probably even more sinister since he can't tell me what they are. I say as much to him."
-show kenji tsun_naked
-with charachange
-ke "I'm offended man, but if that is your game, then fine, I guess I have no choice. I want to order a pizza, and I already have most of the cost of the pizza. I need your help for the rest."
-hi "I get some of that pizza too, right?"
-ke "No."
-hi "Are you serious?"
-show kenji neutral_naked
-with charachange
-ke "Yeah. I would give you some, but you have class, you don't have time to eat a pizza."
-hi "What about you?!"
-ke "I'm not going to class, I have to wait for the pizza and pay the guy. And then eat it. It's not easy. You have to obtain the pizza stealthily. If you don't, everyone will see you. And the pizza. And they will ask for a slice."
-show kenji tsun_naked
-with charachange
-ke "It's a hard world out there. Everyone wants a piece. Then you're left pizzaless in an unforgiving world. It's happened before, that's how I know."
-ke "Every day, I plan my vengeance, so that when the people who wronged me order a pizza, I will be there. Ever vigilant!"
-"Kenji strikes a dramatic pose, completely without irony."
-show kenji neutral_naked
-with charachange
-ke "But yeah, I only need like 400 yen. Please! You're my only hope! I can't go outside and buy my own pizza, it's too far!"
-ke "I try not to go out unless it's absolutely necessary. Let me tell you what happened the last time I went out without carefully planning it out in advance."
-ke "I was outside. I can't remember what I was doing. Something. Standing? Maybe wondering how I got there."
-show kenji tsun_naked
-with charachange
-ke "And then, out of nowhere, it happened."
-ke "Like a flash of lightning, splitting the sky, like how you split a sandwich into two equal pieces to make it more manageable to hold and eat, a bird crapped on my head."
-ke "It was the second most shocking moment of my life."
-hi "What was the first?"
-"He ignores me and keeps going. I want to grab him and shake him. Is he just trying to keep momentum? I'll go with that, even if it's more likely he just didn't hear me."
-ke "It was like in the openings to some kind of anime show, you know how there is always a part where the main dude is fighting his rival, and they fly at each other and clash swords and there's like, big dramatic colored auras and zoom?"
-show kenji neutral_naked
-with charachange
-ke "It was like that, but with poo."
-hi "Okay."
-show kenji happy_naked
-with charachange
-ke "So yeah, I need some money. Please? Don't leave me hanging, man. I only need like 1000 yen."
-hi "I thought it was 400."
-ke "Okay."
-hi "What?"
-ke "I'll pay you back, I swear."
-hi "You better, that's what it means to borrow stuff."
-show kenji neutral_naked
-with charachange
-ke "I don't know when I'll be able to pay you back."
-hi "You have one week."
-show kenji tsun_naked
-with charachange
-ke "Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhggggggggggghhhhhhhh……"
-"Kenji winces and makes a noise like a dying cow, a particularly disturbing fact given that his baton is conducting freely."
-ke "You're not supposed to be so tight assed about money between brothers in arms, man. Men have it bad enough as it is. Did you know that male porn stars only make about half of what female porn stars make?"
-hi "That doesn't mean anything unless you're a porn star."
-ke "So maybe I am a porn star, on the side, struggling to make ends meet as I fight the feminist agenda, and you can't even spot me your crumbs, you bastard. Nobody understands. Nobody."
-"Wouldn't feminists be against pornography in the first place?"
-hi "This feminist agenda stuff again?"
-ke "This stuff is important. I can see that you don't give a shit, but this is serious, here. Feminists… are a dangerous enemy, make no mistake. You take them lightly, and you'll wake up in the morning with a knife in your back, bam! Out of nowhere!"
-hi "How do you wake up in the morning if someone stabbed you in your sleep?"
-show kenji happy_naked
-with charachange
-ke "Women are terrible at stabbing things."
-hi "I thought you just said don't take them lightly."
-show kenji neutral_naked
-with charachange
-ke "Well, I mean don't take them lightly for the big things. Individually they're not a threat, but if there was some kind of war, like a big war, with men on one side, and the feminist forces on the other side, it would be pretty ugly."
-show kenji tsun_naked
-with charachange
-ke "And that day will come, when the feminists come out of their central top secret worldwide feminist headquarters, and say “It's on now, motherfuckers!”"
-hi "You're being ridiculous, there's no big worldwide feminist headquarters building, where would they even hide that? I mean, it'd have to be massive, you couldn't hide that on Earth, someone would notice a big fortress with women only in it."
-show kenji happy_naked
-with charachange
-ke "Who said it was on Earth?"
-"I turn away from Kenji and start practicing frowning faces in a mirror so that I can figure out what kind of frown will best express my emotions. He can't see me from this distance anyway."
-"Which, unfortunately, means that he just keeps on ranting without any regard to sense or sensibility."
-show kenji tsun_naked
-with charachange
-ke "Yeah, there is a war going on. A war not many know about, but it's a great one that will one day boil over, and encompass all of the known world. Then, we will have to pick sides. We will have to make a stand. In fact, it's happening right now."
-ke "Imagine it, the bloody battlefield. A vicious conflict without end."
-ke "I almost gave up, when I thought this cause was silly… When I grew tired of the bleakness of our fight… When I mistook the time the power went out for a feminist raid and thought the end was near…"
-ke "But then I realized that if I gave up, it would all be over, and I was like, “whoa” and knew I had to get serious. Because I am the last sane man in an insane world. It's about duty."
-hi "Must be a pretty crappy movement if it all hinges on one naked guy, ranting in a bathroom at another naked guy."
-show kenji neutral_naked
-with charachange
-ke "So can I have the money?"
-"He's blocking the way out, it's getting cold because I'm still naked, and I want to go to class, so I agree to spot him the money."
-show kenji happy_naked
-with charachange
-ke "Awesome. Thanks, dude. We should go bowling later on."
-hi "Bowling?"
-ke "Yeah, it's the ultimate sport. There are almost no women bowlers either, making it also the manliest sport."
-ke "Should I wear my pink bowling shirt with matching shoes or the pastel green with flower accents?"
-hi "There are bowling clothes?"
-show kenji neutral_naked
-with charachange
-ke "Maybe."
-hi "Anyway, you had better pay me back."
-ke "I can pay you back in stuff, right?"
-"I don't have the time to ask him to elaborate on what that means."
-hi "I don't know. I have to get to class, you're kind of in the way."
-show kenji tsun_naked
-with charachange
-ke "Oh. Sorry. Yeah, I don't want to hold you up, and I have some stuff to do myself. The time has come."
-hi "The time for what?"
-show kenji happy_naked
-with charachange
-ke "I just like saying that."
-ke "Okay, now the time has really come."
-hi "For what?"
-show kenji tsun_naked
-with charachange
-ke "I have to use the bathroom. Get out of it."
-hi "I was just going to! And what does that mean? It's a big bathroom."
-ke "So? I have to be alone or I can't go. The pressure…"
-hi "Okay. What if someone else comes in?"
-ke "…"
-ke "I'll think of something."
-"I give him my practiced frown and it looks kind of silly reflected in his glasses. He either doesn't notice or doesn't see, anyway, so I get dressed and run back to my room, feeling as though an eternity has passed since I woke up."
-stop music fadeout 2.0
-scene bg school_dormhisao
-with locationskip
-"That is time I will never get back. I'll get him for this somehow."
-"But right now, I have to get to class."
+	scene bg school_dormext_half
+	"I head back to the dorms to wash and change into my uniform, trying to resist the urge to take a really long and hot shower."
+	"I'm tired from all the running, so I just want to unwind, but I don't want to break my slowly building routine of getting to school before the morning rush."
+	scene bg school_dormbathroom
+	show steam
+	show steam2
+	"After taking a long shower anyway, I dry myself off and get out of the stall to put on my clothes."
+	show kenji silhouette_naked at center	#WEETABIX NOTE: MAKE SILHOUETTE NAKED KENJI
+	"Out of nowhere, a shadow appears within the mist, looming and radiating malicious intent. It bursts through the fog."
+	play music "bgm/Out_of_the_Loop.ogg"
+	hide steam
+	hide steam2
+	show kenji neutral_naked
+	#WEETABIX NOTE: Let's just not render the steam.
+#	show steam as newsteam behind kenji
+#	show steam2 as newsteam2 behind kenji
+	ke "Sup?"
+	hi "What are you doing here? What the hell, you scared me! What's your problem?!"
+	show kenji tsun_naked
+	ke "I should be asking you that. I've been looking for you all over the place, man."
+	hi "What do you mean “all over the place”?"
+	"I want to ask if he's been looking for me like that, stark naked, but hold my tongue back."
+	"I finally realize I'm still naked too and quickly hold up my shirt in front of me, but Kenji doesn't seem to notice a thing."
+	"His glasses are fogged up. But then, why doesn't he wipe them off? Is his vision so bad it's like he's perpetually seeing through fog?"
+	ke "You know, your room, and… Yeah, that's it. Hey, I mean, I still had to get up, though. Whatever. It's not important. Can I borrow some money?"
+	show kenji neutral_naked
+	"He puts on an innocent face and looks away, trying very hard to look very casual. It doesn't work; he's as transparent as his windowpane-sized glasses."
+	"Talking neutrally like this, wearing nothing, feels awkward."
+	"Actually, somehow it's even more awkward to be naked in front of someone when they can't see me being naked. To say nothing of the fact that he's naked as well."
+	"I try to brush the feeling off, with little success."
+	hi "Money? Sure."
+	show kenji happy_naked
+#	hide newsteam
+	ke "Awesome."
+	hi "Wait, why do you need it?"
+	show kenji tsun_naked
+	ke "Ehhhh…"
+	show kenji neutral_naked
+	ke "Can't you just give it to me because I had the good will not to run through your pockets while you were in the shower? I could have, but I exercised restraint. And in the end, isn't it the thought that counts? Come on, be a pal."
+	"This makes no sense. If it's the thought that counts, I should withhold payment, since his thoughts were so clearly impure and his intentions are probably even more sinister since he can't tell me what they are. I say as much to him."
+	show kenji tsun_naked
+	ke "I'm offended man, but if that is your game, then fine, I guess I have no choice. I want to order a pizza, and I already have most of the cost of the pizza. I need your help for the rest."
+	hi "I get some of that pizza too, right?"
+	ke "No."
+	hi "Are you serious?"
+	show kenji neutral_naked
+	ke "Yeah. I would give you some, but you have class, you don't have time to eat a pizza."
+	hi "What about you?!"
+	ke "I'm not going to class, I have to wait for the pizza and pay the guy. And then eat it. It's not easy. You have to obtain the pizza stealthily. If you don't, everyone will see you. And the pizza. And they will ask for a slice."
+	show kenji tsun_naked
+	ke "It's a hard world out there. Everyone wants a piece. Then you're left pizzaless in an unforgiving world. It's happened before, that's how I know."
+	ke "Every day, I plan my vengeance, so that when the people who wronged me order a pizza, I will be there. Ever vigilant!"
+	"Kenji strikes a dramatic pose, completely without irony."
+	show kenji neutral_naked
+	ke "But yeah, I only need like 400 yen. Please! You're my only hope! I can't go outside and buy my own pizza, it's too far!"
+	ke "I try not to go out unless it's absolutely necessary. Let me tell you what happened the last time I went out without carefully planning it out in advance."
+	ke "I was outside. I can't remember what I was doing. Something. Standing? Maybe wondering how I got there."
+	show kenji tsun_naked
+	ke "And then, out of nowhere, it happened."
+	ke "Like a flash of lightning, splitting the sky, like how you split a sandwich into two equal pieces to make it more manageable to hold and eat, a bird crapped on my head."
+	ke "It was the second most shocking moment of my life."
+	hi "What was the first?"
+	"He ignores me and keeps going. I want to grab him and shake him. Is he just trying to keep momentum? I'll go with that, even if it's more likely he just didn't hear me."
+	ke "It was like in the openings to some kind of anime show, you know how there is always a part where the main dude is fighting his rival, and they fly at each other and clash swords and there's like, big dramatic colored auras and zoom?"
+	show kenji neutral_naked
+	ke "It was like that, but with poo."
+	hi "Okay."
+	show kenji happy_naked
+	ke "So yeah, I need some money. Please? Don't leave me hanging, man. I only need like 1000 yen."
+	hi "I thought it was 400."
+	ke "Okay."
+	hi "What?"
+	ke "I'll pay you back, I swear."
+	hi "You better, that's what it means to borrow stuff."
+	show kenji neutral_naked
+	ke "I don't know when I'll be able to pay you back."
+	hi "You have one week."
+	show kenji tsun_naked
+	ke "Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhggggggggggghhhhhhhh......"
+	"Kenji winces and makes a noise like a dying cow, a particularly disturbing fact given that his baton is conducting freely."
+	ke "You're not supposed to be so tight assed about money between brothers in arms, man. Men have it bad enough as it is. Did you know that male porn stars only make about half of what female porn stars make?"
+	hi "That doesn't mean anything unless you're a porn star."
+	ke "So maybe I am a porn star, on the side, struggling to make ends meet as I fight the feminist agenda, and you can't even spot me your crumbs, you bastard. Nobody understands. Nobody."
+	"Wouldn't feminists be against pornography in the first place?"
+	hi "This feminist agenda stuff again?"
+	ke "This stuff is important. I can see that you don't give a shit, but this is serious, here. Feminists… are a dangerous enemy, make no mistake. You take them lightly, and you'll wake up in the morning with a knife in your back, bam! Out of nowhere!"
+	hi "How do you wake up in the morning if someone stabbed you in your sleep?"
+	show kenji happy_naked
+	ke "Women are terrible at stabbing things."
+	hi "I thought you just said don't take them lightly."
+	show kenji neutral_naked
+	ke "Well, I mean don't take them lightly for the big things. Individually they're not a threat, but if there was some kind of war, like a big war, with men on one side, and the feminist forces on the other side, it would be pretty ugly."
+	show kenji tsun_naked
+	ke "And that day will come, when the feminists come out of their central top secret worldwide feminist headquarters, and say “It's on now, motherfuckers!”"
+	hi "You're being ridiculous, there's no big worldwide feminist headquarters building, where would they even hide that? I mean, it'd have to be massive, you couldn't hide that on Earth, someone would notice a big fortress with women only in it."
+	show kenji happy_naked
+	ke "Who said it was on Earth?"
+	"I turn away from Kenji and start practicing frowning faces in a mirror so that I can figure out what kind of frown will best express my emotions. He can't see me from this distance anyway."
+	"Which, unfortunately, means that he just keeps on ranting without any regard to sense or sensibility."
+	show kenji tsun_naked
+	ke "Yeah, there is a war going on. A war not many know about, but it's a great one that will one day boil over, and encompass all of the known world. Then, we will have to pick sides. We will have to make a stand. In fact, it's happening right now."
+	ke "Imagine it, the bloody battlefield. A vicious conflict without end."
+	ke "I almost gave up, when I thought this cause was silly… When I grew tired of the bleakness of our fight… When I mistook the time the power went out for a feminist raid and thought the end was near…"
+	ke "But then I realized that if I gave up, it would all be over, and I was like, “whoa” and knew I had to get serious. Because I am the last sane man in an insane world. It's about duty."
+	hi "Must be a pretty crappy movement if it all hinges on one naked guy, ranting in a bathroom at another naked guy."
+	show kenji neutral_naked
+	ke "So can I have the money?"
+	"He's blocking the way out, it's getting cold because I'm still naked, and I want to go to class, so I agree to spot him the money."
+	show kenji happy_naked
+	ke "Awesome. Thanks, dude. We should go bowling later on."
+	hi "Bowling?"
+	ke "Yeah, it's the ultimate sport. There are almost no women bowlers either, making it also the manliest sport."
+	ke "Should I wear my pink bowling shirt with matching shoes or the pastel green with flower accents?"
+	hi "There are bowling clothes?"
+	show kenji neutral_naked
+	ke "Maybe."
+	hi "Anyway, you had better pay me back."
+	ke "I can pay you back in stuff, right?"
+	"I don't have the time to ask him to elaborate on what that means."
+	hi "I don't know. I have to get to class, you're kind of in the way."
+	show kenji tsun_naked
+	ke "Oh. Sorry. Yeah, I don't want to hold you up, and I have some stuff to do myself. The time has come."
+	hi "The time for what?"
+	show kenji happy_naked
+	ke "I just like saying that."
+	ke "Okay, now the time has really come."
+	hi "For what?"
+	show kenji tsun_naked
+	ke "I have to use the bathroom. Get out of it."
+	hi "I was just going to! And what does that mean? It's a big bathroom."
+	ke "So? I have to be alone or I can't go. The pressure…"
+	hi "Okay. What if someone else comes in?"
+	ke "..."
+	ke "I'll think of something."
+	"I give him my practiced frown and it looks kind of silly reflected in his glasses. He either doesn't notice or doesn't see, anyway, so I get dressed and run back to my room, feeling as though an eternity has passed since I woke up."
+	play music "bgm/blank.ogg"
+	scene bg school_dormhisao
+	"That is time I will never get back. I'll get him for this somehow."
+	"But right now, I have to get to class."
 label en_A21:
 scene bg school_scienceroom
-with locationskip
 play music music_normal fadein 2.0
 "I'm the first person in class today, although I think I'm a little too early. Then again, sitting alone here for twenty minutes sure beats having to suffer that time with Kenji."
 "The combination of fatigue, frustration and boredom starts making me feel very tired."
@@ -4128,7 +4094,7 @@ hi "Well, I was already here, just asleep until now."
 show lilly cane_listen
 with charachange
 li "Oh. Have you seen Hanako today, by any chance?"
-hi "No, she seems to come in only just before the bells ring… or after that. Do you want me to tell her something for you?"
+hi "No, she seems to come in only just before the bells ring... or after that. Do you want me to tell her something for you?"
 show lilly cane_weaksmile
 with charachange
 li "No, it's fine. It's strange, but I think we're the only two people in the school right now. I didn't hear anyone else on my way here."
