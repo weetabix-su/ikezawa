@@ -3559,6 +3559,7 @@ label en_choiceA17:
 		"Maybe.":
 			jump en_A17b
 label en_A17a:
+	$a17aTrigger = true
 	hi "Yeah, I promise. Definitely."
 	jump en_A17c
 label en_A17b:
@@ -3733,13 +3734,11 @@ label en_A18:
 	"As if there was some need to conserve words and breath and sound."
 	scene bg school_dormext_half_ni
 	"We stay there late into the evening until it becomes too dark to paint properly."
-#	TEMPORARY STOP
-	$renpy.quit()
 label en_A19:
 	scene black
 #	play sound "sfx/alarmclock.ogg"
 	show bg school_dormhisao
-	play music "bgm/Raindrops_and_Puddles.ogg"	#WEETABIX NOTE: Music Variable [music_dreamy] is used, re-read port extracts and verify if BGM is correct
+	play music "bgm/Raindrops_and_Puddles.ogg"
 	"The sound of an alarm pulls me out of a fitful slumber and into the unpleasant state of wakefulness."
 	"I linger under the blanket for a few minutes, gathering energy to rise up while making excuses as for why I already haven't."
 	"Honestly, I wouldn't mind staying here for all day. School is surprisingly exhausting after a long pause, and the culture shock still has not faded, I think."
@@ -3749,7 +3748,10 @@ label en_A19:
 	"Thanks to my condition, I was exempted from taking part in gym classes at Yamaku, so I didn't get issued with a gym outfit."
 	"I'd order some to cover such a contingency, but wearing my old soccer clothes is kind of nostalgic."
 	"I can't use them for that any more, so maybe they can get a new life this way. A bit like me."
-	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
+	if a17aTrigger == true:
+		jump en_A19a
+	elseif a17aTrigger == false:
+		jump en_A19b
 label en_A19a:
 	"After all, if I'm going to start taking care of myself, I can't afford to slack around. I'll start from the basics."
 	"Basics which include keeping the rest of my body in shape along with what little I can do to strengthen my heart."
@@ -3764,7 +3766,6 @@ label en_A19b:
 	play music "bgm/blank.ogg"
 	jump en_A19c
 label en_A19c:
-	#WEETABIX NOTE: NO NEW DECLARED IMAGE DATA FROM THIS POINT ON. WILL RESULT IN ERROR WHEN EXECUTED IN RENPSP.
 	show bg school_track
 	#WEETABIX NOTE: [ambient] channel commented out for future purposes.
 #	$ renpy.music.set_volume(1.0, 0.0, channel="ambient")
@@ -3785,11 +3786,14 @@ label en_A19c:
 	emi_ "Good morning! Your name is Hisao, right?"
 	play music "bgm/Standing_Tall.ogg"
 	"She grins, seemingly pleased that she'd remembered my name."
-	show emi basic_closedgrin_gym at center
+	show emi basic_closedgrin_gym
 	emi_ "You may not remember me."
 	show emi basic_grin_gym
 	emi_ "Emi? I knocked you over in the hall yesterday."
-	#WEETABIX NOTE: Check Hanako/Lilly route trigger and jump to en_A19i if false.
+	if a10bTrigger == false:
+		jump en_A19i
+	elseif a10bTrigger == true:
+		jump en_A19j
 label en_A19i:
 	show emi excited_circle_gym
 	emi "'Miss Ibarazaki?'"
@@ -3855,8 +3859,8 @@ label en_A19j:
 	show emi excited_laugh_gym_close
 	"She laughs suddenly."
 	emi "Heck, and I don't even have to stretch my legs!"
-#	play sound "sfx/gymbounce.ogg"
-#	show emi gymbounce	#WEETABIX NOTE: Locate similar image. If possible, simulate animation present in PC version.
+#	play sound "sfx/emibounce.ogg"
+	show emi basic_grin_gym	#WEETABIX NOTE: [gymbounce] is used in the PC version. Until then, use only basic_grin_gym
 	"As if to confirm her statement she bounces up and down a couple of times, giving a passing impression of standing on a pair of springs. Her legblades seem to be quite elastic."
 	emi "Let's go!"
 	play music "bgm/blank.ogg"
@@ -3865,10 +3869,13 @@ label en_A19j:
 	"So we both take off around the track, and I can immediately see that she wasn't lying about being good at running."
 	"Emi moves fluidly, throwing herself into the run with a sort of wild abandon."
 	"I find myself concentrating more on running properly."
-	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
+	if a17aTrigger == true:
+		jump en_A19d
+	elseif a17aTrigger == false:
+		jump en_A19e
 label en_A19d:
 	"Hands spread, right?"
-	"And something about hitting on the balls of your feet, rather than the heels…"
+	"And something about hitting on the balls of your feet, rather than the heels..."
 	"I try to match my stride to Emi's, but it's pretty difficult."
 	"Apparently I'm not very good at it."
 	"Maybe Emi could help me with that sometime."
@@ -3906,7 +3913,7 @@ label en_A19f:
 	"I notice that she's not wearing a watch."
 	hi "Are you sure?"
 	"Another careless shrug."
-	emi "Not really… but I've got to finish my routine!"
+	emi "Not really... but I've got to finish my routine!"
 	show emi basic_closedgrin_gym
 	emi "See you later, Hisao!"
 	hi "Er, yeah. See ya."
@@ -3914,7 +3921,10 @@ label en_A19f:
 #	play ambient "sfx/emisprinting.ogg"
 	hide emi
 #	stop ambient fadeout 2.0
-	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
+	if a17aTrigger == True:
+		jump en_A19g
+	elseif a17aTrigger == False:
+		jump en_A19h
 label en_A19g:
 	"I'm not sure whether this morning's experiment was a success or a failure, but I'll admit that I do feel slightly good about getting out there this morning."
 	"And like Emi said, I just need to keep at it in order to get better, right?"
@@ -3930,6 +3940,8 @@ label en_A19h:
 	scene black
 	jump en_A20
 label en_A20:
+#	TEMPORARY STOP
+	$renpy.quit()
 	scene bg school_dormext_half
 	"I head back to the dorms to wash and change into my uniform, trying to resist the urge to take a really long and hot shower."
 	"I'm tired from all the running, so I just want to unwind, but I don't want to break my slowly building routine of getting to school before the morning rush."
@@ -3954,7 +3966,7 @@ label en_A20:
 	"I want to ask if he's been looking for me like that, stark naked, but hold my tongue back."
 	"I finally realize I'm still naked too and quickly hold up my shirt in front of me, but Kenji doesn't seem to notice a thing."
 	"His glasses are fogged up. But then, why doesn't he wipe them off? Is his vision so bad it's like he's perpetually seeing through fog?"
-	ke "You know, your room, and… Yeah, that's it. Hey, I mean, I still had to get up, though. Whatever. It's not important. Can I borrow some money?"
+	ke "You know, your room, and... Yeah, that's it. Hey, I mean, I still had to get up, though. Whatever. It's not important. Can I borrow some money?"
 	show kenji neutral_naked
 	"He puts on an innocent face and looks away, trying very hard to look very casual. It doesn't work; he's as transparent as his windowpane-sized glasses."
 	"Talking neutrally like this, wearing nothing, feels awkward."
@@ -3966,7 +3978,7 @@ label en_A20:
 	ke "Awesome."
 	hi "Wait, why do you need it?"
 	show kenji tsun_naked
-	ke "Ehhhh…"
+	ke "Ehhhh..."
 	show kenji neutral_naked
 	ke "Can't you just give it to me because I had the good will not to run through your pockets while you were in the shower? I could have, but I exercised restraint. And in the end, isn't it the thought that counts? Come on, be a pal."
 	"This makes no sense. If it's the thought that counts, I should withhold payment, since his thoughts were so clearly impure and his intentions are probably even more sinister since he can't tell me what they are. I say as much to him."
@@ -4015,7 +4027,7 @@ label en_A20:
 	ke "So maybe I am a porn star, on the side, struggling to make ends meet as I fight the feminist agenda, and you can't even spot me your crumbs, you bastard. Nobody understands. Nobody."
 	"Wouldn't feminists be against pornography in the first place?"
 	hi "This feminist agenda stuff again?"
-	ke "This stuff is important. I can see that you don't give a shit, but this is serious, here. Feminists… are a dangerous enemy, make no mistake. You take them lightly, and you'll wake up in the morning with a knife in your back, bam! Out of nowhere!"
+	ke "This stuff is important. I can see that you don't give a shit, but this is serious, here. Feminists... are a dangerous enemy, make no mistake. You take them lightly, and you'll wake up in the morning with a knife in your back, bam! Out of nowhere!"
 	hi "How do you wake up in the morning if someone stabbed you in your sleep?"
 	show kenji happy_naked
 	ke "Women are terrible at stabbing things."
@@ -4032,7 +4044,7 @@ label en_A20:
 	show kenji tsun_naked
 	ke "Yeah, there is a war going on. A war not many know about, but it's a great one that will one day boil over, and encompass all of the known world. Then, we will have to pick sides. We will have to make a stand. In fact, it's happening right now."
 	ke "Imagine it, the bloody battlefield. A vicious conflict without end."
-	ke "I almost gave up, when I thought this cause was silly… When I grew tired of the bleakness of our fight… When I mistook the time the power went out for a feminist raid and thought the end was near…"
+	ke "I almost gave up, when I thought this cause was silly... When I grew tired of the bleakness of our fight... When I mistook the time the power went out for a feminist raid and thought the end was near..."
 	ke "But then I realized that if I gave up, it would all be over, and I was like, “whoa” and knew I had to get serious. Because I am the last sane man in an insane world. It's about duty."
 	hi "Must be a pretty crappy movement if it all hinges on one naked guy, ranting in a bathroom at another naked guy."
 	show kenji neutral_naked
@@ -4060,7 +4072,7 @@ label en_A20:
 	show kenji tsun_naked
 	ke "I have to use the bathroom. Get out of it."
 	hi "I was just going to! And what does that mean? It's a big bathroom."
-	ke "So? I have to be alone or I can't go. The pressure…"
+	ke "So? I have to be alone or I can't go. The pressure..."
 	hi "Okay. What if someone else comes in?"
 	ke "..."
 	ke "I'll think of something."
@@ -4130,7 +4142,7 @@ mi "Hi, Hicchan~!"
 hi "Hi."
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Look, it's the class representative~! Hello~!"
@@ -4142,7 +4154,7 @@ with charachange
 li "Good morning."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha cross_smile
 with charachange
 mi "Of course, you're not the representative of this class, right, right~?"
@@ -4156,7 +4168,7 @@ li "I'm not."
 hi "You're here early, Shizune."
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "You were here even earlier than us!"
@@ -4166,13 +4178,13 @@ mi "You were here even earlier than us!"
 "Before I can start weighing whether or not I should apologize, Shizune has already moved on."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Class rep~! It's a good thing you're here~! We have to talk."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "The festival is coming up in three days, right? Every other class has already handed in their projected budget reports for their events! Even the first-years! Except you~!"
@@ -4185,7 +4197,7 @@ li "There is still time to hand it in, isn't there?"
 stop music fadeout 2.0
 show shizu cross_angry
 with charachange
-shi "…"
+shi "..."
 show misha cross_frown
 with charachange
 mi "Today! The deadline is today! You're certainly taking your time, aren't you? If I had it my way, I'd have had all of the necessary paperwork days ago, but someone~! had to say “the deadline, please extend it~!”"
@@ -4194,7 +4206,7 @@ with charachange
 li "Yes, that was me. Planning something on this scale is not a small task, and a week is too small a time frame to expect a whole class to work out such a complex issue completely."
 show shizu adjust_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Do you want to know what's harder than distributing the funds for one class' event? Handling the same matter for every class in the school and then some~! The one who does that is me!"
@@ -4209,7 +4221,7 @@ with charachange
 li "If this is about the budget, then I'm disappointed you think I have forgotten about it. I understand how important it is."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Then~! Can I have it, please?"
@@ -4218,10 +4230,10 @@ show lilly cane_displeased
 with charachange
 li "It's not here right now. I asked two students to take care of it for me. Students from my class."
 "She emphasizes the last sentence much to my surprise. She knows about Shizune and Misha's efforts to rope me into the Student Council?"
-"I guess word must've gotten around, so now she's using me as ammo against Shizune. This just gets better and better…"
+"I guess word must've gotten around, so now she's using me as ammo against Shizune. This just gets better and better..."
 show shizu cross_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "It was your responsibility~! A budget report isn't something you should just be delegating away; as class rep, it's your job to be on top of things! This kind of disregard for proper procedure is really just terrible~!"
@@ -4234,16 +4246,16 @@ mi "Okay~!"
 "Although Misha misses Lilly's little jab entirely, Shizune doesn't, and she seems torn between being offended by Lilly's daring and jumping for joy at the prospect of a challenge."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Lilly, don't they live here at the school? That's a five minute walk, you know~."
-mi "What could they possibly have that prevents them from taking five minutes out of their busy lives… to drop off something that will affect the enjoyment of their entire class?"
+mi "What could they possibly have that prevents them from taking five minutes out of their busy lives... to drop off something that will affect the enjoyment of their entire class?"
 show shizu adjust_angry
 with charachange
 "Lilly opens her mouth to say something, but Shizune closes the gap between them and starts signing furiously, waving her hands around like an orchestra conductor."
 "Misha tries her best to convey the same passion, but can't seem to lose her normal cheerful tone. The result is interesting and somewhat surreal."
-shi "…"
+shi "..."
 show misha cross_frown
 with charachange
 mi "And what's with that attitude~? I said that it's not something you should be delegating away; are you the class representative or aren't you?"
@@ -4257,7 +4269,7 @@ li "One form isn't the full extent of what I am supposed to take care of."
 "Shizune, on the other hand, wraps her fingers cheerfully along the edge of her glasses, knowing Lilly can neither hear nor see how excited she is."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Of course, you do so much, class rep~! It must be so difficult being you~!"
@@ -4322,14 +4334,14 @@ show lilly cane_listen at left
 show misha perky_confused at center
 show shizu basic_angry at right
 with flash
-shi "…"
+shi "..."
 show misha sign_confused
 with charachange
 mi "Hicchan~! Don't you slack off either~!"
 hi "What are you talking about?"
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Aren't you taking part in the festival, Hicchan? You are, aren't you? Then~! I hope you're going to do a lot more to make sure it goes smoothly than this person~!"
@@ -4339,19 +4351,19 @@ menu:
     "I don't understand why Shizune is suddenly getting mad at me."
     "Don't drag me into this! I've done my part!":
         return m1
-    "Hey, come on. Cut me and Lilly some slack…":
+    "Hey, come on. Cut me and Lilly some slack...":
         return m2
 label en_A21a:
 hi "Why am I being dragged into this, again? I've done more than enough, I think."
 hi "If you're angry with Lilly, that has nothing to do with me."
 show lilly cane_reminisce
 with charachange
-li "Now, wait just a second… are you implying the president is more right in scolding me than yourself?"
+li "Now, wait just a second... are you implying the president is more right in scolding me than yourself?"
 "Ah damn, I think I could've worded that better."
-hi "No, I don't know about that but… I mean…"
+hi "No, I don't know about that but... I mean..."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "What are you saying, Hicchan?"
@@ -4360,15 +4372,15 @@ hi "It's just that I hardly think it's fair you can say that, seeing that I've h
 "And so is Lilly's, though she keeps quiet. I'm afraid I inadvertently pissed her off."
 show shizu cross_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Are you saying I'm wrong?"
 "What a dangerous situation."
-hi "It's too early to argue with you. …Yes, I think it's unfair of you to get on my case."
+hi "It's too early to argue with you. ...Yes, I think it's unfair of you to get on my case."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Hicchan, you want too much~! But~! You have a point. Okay, okay okay~! You're not lazy, Hicchan."
@@ -4378,7 +4390,7 @@ mi "Hahaha~!"
 "Shizune pushes her glasses up with her thumb, almost approvingly."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "That's good! If you're not useless, you shouldn't let anyone say you are~! But the next time I say it, it'll really be because you are disappointing me like Miss Class Rep here, so don't let this go to your head!"
@@ -4411,7 +4423,7 @@ mi "It's true, Shicchan, just a little~."
 "If I had been expecting Shizune to grudgingly admit I have a point there as well, I think I was expecting too much. She doesn't respond."
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha cross_laugh
 with charachange
 mi "Hahaha~! Shicchan thinks you should mind your own business."
@@ -4436,12 +4448,12 @@ li "That's right, you shouldn't expect a transfer student to jump right into it 
 hi "Yeah you're being unreasonable with us both."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Excuses, excuses. Miss Class Rep has had plenty of time to deal with her report."
 mi "And we repeatedly offered you a position to help with the student council work, but you refused to commit yourself to making the festival a success."
-hi "Yeah, but as I said back then, I'm not sure if…"
+hi "Yeah, but as I said back then, I'm not sure if..."
 "I don't have time for this right now; no matter what I do, it will mean being drawn into a confrontation with Shizune, and that is what she wants."
 hi "Whatever. Forget it."
 label en_A21c:
@@ -4501,7 +4513,7 @@ mi "What are you doing, Hicchan~?"
 hi "I'm copying down that stuff, what are you doing? Why so loud?"
 show misha perky_confused_close
 with charachange
-mi "Aw~, really? But it's all in the book… That's why no one else is copying it down~!"
+mi "Aw~, really? But it's all in the book... That's why no one else is copying it down~!"
 hi "I know, why are you so loud?"
 show misha hips_grin_close
 with charachange
@@ -4547,7 +4559,7 @@ with charachange
 "Shizune starts signing at me and Misha perks up, looking at her hands with slightly unfocused eyes."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 "She signs with harsh, heavy, dramatic strokes."
 "Misha translates her signing into speech for me."
 "She does it so well it's almost like Shizune is actually speaking, transmitting her thoughts directly through Misha."
@@ -4578,12 +4590,12 @@ show shizu adjust_angry
 with charachange
 show misha hips_frown
 with charachange
-mi "If students would show their dedication and school spirit, and offer some help, well, I don't exactly need it…"
+mi "If students would show their dedication and school spirit, and offer some help, well, I don't exactly need it..."
 show shizu behind_smile
 with charachange
 show misha hips_smile
 with charachange
-mi "But I wouldn't necessarily refuse it… So~! it would be nice if someone would…"
+mi "But I wouldn't necessarily refuse it... So~! it would be nice if someone would..."
 stop music fadeout 2.0
 show shizu adjust_blush
 show misha perky_confused
@@ -4605,7 +4617,7 @@ with charachange
 "Hanako blushes hard at Misha's straightforward jab, even if it was only in jest."
 show shizu basic_angry at Transform(xanchor=0.5, xpos=0.35)
 with charamove
-shi "…"
+shi "..."
 show hanako emb_downsad
 with charachange
 show hanako emb_downsad at Transform(xanchor=0.5, xpos=0.97)
@@ -4617,7 +4629,7 @@ with charamove
 hi "What is it, Hanako?"
 show hanako emb_timid
 with charachange
-ha "H… has Lilly been here?"
+ha "H... has Lilly been here?"
 mi "Sorry, Satou is not here. She, eh, came by in the morning though."
 show hanako emb_downtimid
 with charachange
@@ -4626,10 +4638,10 @@ with charachange
 "It is a little funny though, watching Hanako's reaction to Shizune's normal behavior. This is what happens when two people of two different extremes meet, it seems."
 show hanako emb_timid
 with charachange
-ha "Do… do you know where she is?"
+ha "Do... do you know where she is?"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "If she has any sense in her head, she's in her classroom, working on their festival project. But who knows where that woman is loitering at."
@@ -4660,7 +4672,7 @@ show shizu behind_smile
 with charachange
 mi "But Hicchan is not useless, right? Right? He said so himself~! Wahaha~!"
 "I can see where this is going, and I do not want any part of it, not after that experience yesterday."
-hi "Well, good luck with your preparations…"
+hi "Well, good luck with your preparations..."
 "I start packing my bag, ready to make a break for the exit."
 "Unfortunately I'm all the way on the other side of the room."
 "The short distance to the doorway seems like a vast No Man's Land to me now."
@@ -4689,18 +4701,18 @@ with charachange
 mi "Hammering boards together, over and over again, for hours, it's really hard!"
 mi "I'm so used to it I was doing swinging motions in class, and I didn't even know it!"
 "She bangs her desk a few times, imitating hammer blows."
-mi "It's so repetitive, I can't stand it! And yesterday, I actually hammered all the boards on top of each other…"
+mi "It's so repetitive, I can't stand it! And yesterday, I actually hammered all the boards on top of each other..."
 mi "It was just a stack of boards all nailed together, and then I had to take it apart and do it all over again, and I got yelled at and laughed at~!"
-hi "Uh…"
+hi "Uh..."
 show misha perky_smile
 with charachange
-mi "So…"
+mi "So..."
 show misha hips_grin_close
 with characlose
 "She clamps a hand down on my shoulder and grins, quickly running her tongue across her teeth mischievously."
 mi "Do you have any plans for today, Hicchan?"
 mi "I wonder if you do~."
-hi "Sure I have plans…"
+hi "Sure I have plans..."
 show misha perky_confused_close
 with characlose
 mi "Really~?"
@@ -4709,8 +4721,8 @@ mi "You're going to help us, right?"
 "She's signing everything we both say so that Shizune can understand."
 "Shizune is being somewhat quiet today. Is she still angry? Well, probably at least a bit. I can see it in her eyes. But, this could also just be another way of trying to guilt me into lending her a hand."
 "I have to find a way out of this."
-hi "Hey, I should go now, to the library. You know, homework…"
-hi "I should get going, shouldn't I? I have to be diligent, because I'm a new student, and all, so I have to make a good first impression, right? Yeah…"
+hi "Hey, I should go now, to the library. You know, homework..."
+hi "I should get going, shouldn't I? I have to be diligent, because I'm a new student, and all, so I have to make a good first impression, right? Yeah..."
 hi "See you later, then!"
 show misha perky_confused_close at offscreenleft
 show shizu behind_blank at twoleft
@@ -4741,7 +4753,7 @@ with charachange
 mi "Hahaha~! Wahaha~! You're surrounded~!"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Let's go to the student council room~!"
@@ -4751,19 +4763,19 @@ with charachange
 mi "I'm sorry, Hicchan, I feel bad, but this works out for everyone, right?"
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "That's right, Shicchan! Yes~, that's a good point too."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Yes, this is beneficial to everyone, it solves all our problems."
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Yeah yeah~!, I also thought he'd be more appreciative of our efforts."
@@ -4774,13 +4786,13 @@ with characlose
 hi "Hey guys, two-on-one isn't very fair, is it?"
 show shizu behind_blank_close
 with charachange
-shi "…"
+shi "..."
 "She keeps looking forward, impassive, then gives a sinister smile."
 show shizu basic_sparkle_close
 show misha hips_grin_close
 with characlose
 mi "Come on, we have a lot of work to do! Let's go to the student council room~!"
-hi "Gee, I don't know…"
+hi "Gee, I don't know..."
 show misha cross_laugh_close
 with characlose
 "Misha laughs."
@@ -4824,14 +4836,14 @@ with None
 show shizu cross_angry at tworight
 show misha cross_frown at twoleft
 with ease
-shi "…"
+shi "..."
 mi "That wasn't very nice, there. Hahaha, you really got us good, though. Didn't he, Shicchan?"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
-mi "Right, right… …Hahaha!"
+mi "Right, right... ...Hahaha!"
 show misha cross_frown
 with charachange
 mi "What was that about? I thought you said you'd help us!"
@@ -4841,11 +4853,11 @@ with charachange
 "The indignant expression vanishes and she begins to laugh hysterically, calming down only after an aggravated look from Shizune."
 show misha cross_grin
 with charachange
-mi "Oh, ah… Yeah~, you thought you could get away with it! But, a criminal always returns to the scene of the crime!"
+mi "Oh, ah... Yeah~, you thought you could get away with it! But, a criminal always returns to the scene of the crime!"
 "I didn't even manage to leave the classroom in the first place. No, wait, I didn't even agree to help in the first place."
 show misha perky_smile
 with charachange
-mi "Not very bright, are you, criminal? Thinking you can just shirk your duties like that… How low, Hicchan~!"
+mi "Not very bright, are you, criminal? Thinking you can just shirk your duties like that... How low, Hicchan~!"
 hi "I'm a criminal? What did I do? What's the charge? What am I guilty of?"
 show misha hips_grin
 with charachange
@@ -4860,10 +4872,10 @@ mi "No, what's that, Hicchan~? What does that have to do with this?"
 hi "I read it a few months ago. It's about these people who run a kangaroo court on a guy who just wants to live his life. They refuse to leave him alone, and he can't fight the power."
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Hicchan, what does that have to do with anything?"
@@ -4876,15 +4888,15 @@ with charachange
 mi "You know, we're both a little disappointed in you. You've let us down, Hisao."
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 mi "Dropped the ball."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 mi "Left us hanging. And out in the cold~."
 show shizu cross_angry
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Is that any way to treat a person? To run away from your responsibilities, to abandon your comrades?"
@@ -4895,7 +4907,7 @@ hi "What? But I didn't commit to anything~!"
 "My breathing catches in my throat and I momentarily start choking."
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 show misha cross_smile
 with charachange
 mi "That's not true, Hicchan! You said you are not useless, you definitely said it, yes, definitely, definitely definitely~!"
@@ -4906,11 +4918,11 @@ mi "Your honor will be soiled forever if you try to get out of this~!"
 mi "So for the rest of the day, we are going to hang out together, just the three of us, and work hard!"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "You can't fool us!"
-mi "You should be happy, you're doing your school a great service. Ask not what your school can do for you…"
+mi "You should be happy, you're doing your school a great service. Ask not what your school can do for you..."
 mi "But what you can do for your school!"
 show misha cross_laugh
 with charachange
@@ -4927,12 +4939,12 @@ with charachange
 mi "Hahahaha!"
 "I guess they are right. I did blurt those words out."
 stop music fadeout 3.0
-"Accepting my fate, I follow them to the student council room…"
+"Accepting my fate, I follow them to the student council room..."
 scene bg school_council_ss
 with shorttimeskip
 play sound sfx_hammer
 play music music_tranquil fadein 3.0
-"…And hammer the final nail into the stall. It took all of the afternoon, and dinner time is nearly over. But it is done now."
+"...And hammer the final nail into the stall. It took all of the afternoon, and dinner time is nearly over. But it is done now."
 show shizu basic_normal_ss at center
 with charaenter
 "Shizune pulls out a roll of measuring tape and a small level, and inspects it thoroughly."
@@ -4941,7 +4953,7 @@ with charachange
 "She smiles, looking pleased, then motions for Misha to come over."
 show shizu adjust_happy_ss
 with charachange
-shi "…"
+shi "..."
 show shizu adjust_happy_ss at tworight
 show bg school_council_ss at bgright
 with charamove
@@ -4956,11 +4968,11 @@ hi "Never before."
 hi "And I never will again."
 show shizu behind_smile_ss
 with charachange
-shi "…"
+shi "..."
 mi "Well, our quota for the day is six stalls. In a few minutes, me and Shicchan should finish this one."
 show misha hips_grin_ss
 with charachange
-mi "That means~… four more to go!"
+mi "That means~... four more to go!"
 show misha sign_smile_ss
 with charachange
 mi "We're making good time, she says~!"
@@ -4972,26 +4984,26 @@ hi "What?"
 hi "You're both lucky that I'm helping you two out, if I really didn't want to, I could have gotten out of it easily."
 show shizu basic_normal2_ss
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_ss
 with charachange
 mi "Really, Hicchan?"
 show shizu adjust_smug_ss
 with charachange
-shi "…"
+shi "..."
 show misha cross_laugh_ss
 with charachange
 mi "Wahaha~! Shicchan thinks you are just running your mouth! Japanese people have no flight or fight reflex, Hicchan~!"
 "Shizune tents her fingers deviously."
 show shizu basic_happy_ss
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_ss
 with charachange
 mi "Definitely~! Definitely, definitely~! If you really wanted to escape, you would have taken immediate action~! That is how you know someone is serious; when they have no doubts, no regrets!"
 show shizu basic_normal_ss
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile_ss
 with charachange
 mi "Maybe it was a bad idea to tell you that, since now Hicchan knows what to do next time~."
@@ -4999,7 +5011,7 @@ mi "Maybe it was a bad idea to tell you that, since now Hicchan knows what to do
 "That only makes me want to do it more, and I almost want the opportunity to do so to arise again. But if that happens, she might get me again somehow."
 show shizu behind_smile_ss
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_ss
 with charachange
 mi "Shicchan says she is happy now."
@@ -5025,7 +5037,7 @@ show bg school_council_ni at bgleft
 with charamove
 show shizu adjust_happy at tworight
 with charaenter
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Ah, wait a second."
@@ -5034,7 +5046,7 @@ with charachange
 mi "Hm? What is it, Shicchan? Do you want him to get you a drink too? Hahaha!"
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "Hicchan, you've really helped us out, so today I - I mean Shicchan, will treat you."
@@ -5043,7 +5055,7 @@ with charachange
 mi "Hey, what about me?"
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "What would you like? I'm feeling thirsty myself?"
@@ -5053,7 +5065,7 @@ mi "So am I!"
 hi "Hm, I don't know. Anything's fine. I guess the melon soda."
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha perky_sad
 with charachange
 mi "Hey, wait, Shicchan! I also want a drink!"
@@ -5062,12 +5074,12 @@ with charaexit
 show misha perky_sad at center
 show bg school_council_ni at center
 with charamove
-mi "Aw…!"
+mi "Aw...!"
 show misha perky_confused
 with charachange
 mi "You know, it's times like this that I think she is just teasing me."
 hi "That's probably it. I'm sure she'll get you something, right?"
-mi "Yeah, she usually does. But… you never know…"
+mi "Yeah, she usually does. But... you never know..."
 hi "Heh."
 show misha perky_confused at twoleft
 show bg school_council_ni at bgleft
@@ -5084,7 +5096,7 @@ with charachange
 mi "But how did you know this was what I wanted? I usually get something else."
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "What? You knew I'd want to try it? And that I like these kinds of childish things? Hahahaha!"
@@ -5094,15 +5106,15 @@ mi "Hahahaha!"
 "I gesture my thanks to Shizune, who smiles and nods."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 stop music fadeout 4.0
 show misha sign_smile
 with charachange
-mi "Hey, Hicchan…"
+mi "Hey, Hicchan..."
 hi "Yes?"
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "We've been spending a lot of time together. Already, in such a short time, we've done so much."
@@ -5112,10 +5124,10 @@ mi "We should both stop beating around the bush. What I'm trying to say is,"
 "I feel myself blushing all the way to the ears."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
-mi "What I'm trying to say is…"
+mi "What I'm trying to say is..."
 show misha hips_grin
 with charachange
 play music music_ease
@@ -5132,7 +5144,7 @@ mi "Hahahahahahahaha!"
 "Shizune also tries to hide a blush after Misha translates, and then puts a few sheets of paper in front of me."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha cross_grin
 with charachange
 mi "So, how about it? All the paperwork is right here."
@@ -5141,7 +5153,7 @@ with charachange
 mi "And you are sitting down, anyway. You look very at home here. Drinks and everything~!"
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "What do you say?"
@@ -5178,14 +5190,14 @@ mi "If you don't want to join, I promise we won't ask again, but if you did, we 
 hi "All right. I guess it can't hurt, so, why not?"
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Wonderful. Wonderful! Ahahaha~!"
 "Shizune tents her fingers in satisfaction."
 show shizu basic_happy
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "She'll fill everything out, Hicchan. Congratulations, you are officially a member of the Student Council now!"
@@ -5198,15 +5210,15 @@ with charachange
 mi "Congratulations, Hicchan!"
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 mi "Congratulations!"
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 mi "Congratulations!"
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 mi "Congratulations!"
 hi "I get the message."
 "I can't help but smile, finding such a display childishly cute."
@@ -5264,7 +5276,7 @@ with charachange
 "Misha perks up, looking at her hands with slightly unfocused eyes."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 "She signs with harsh, heavy, dramatic strokes."
 "Misha translates her signing into speech for me."
 "She does it so well it's almost like Shizune is actually speaking, transmitting her thoughts directly through Misha."
@@ -5274,22 +5286,22 @@ with charachange
 mi "Well of course, we're in the Student Council, you know, so we're pretty busy."
 show shizu basic_frown
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "It's an important duty of ours, to ensure the success of the festival with all our strength."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "We would shame ourselves in front of the past student council generations if the festival were to fail."
 show shizu adjust_angry
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
-mi "That's why there must be no flaws, no… errr I think that was “incumbrances,” no nothing that might make the festival short of perfect."
+mi "That's why there must be no flaws, no... errr I think that was “incumbrances,” no nothing that might make the festival short of perfect."
 "Shizune's passionate speech and Misha's enacting are really oddly fitting of them."
 stop music fadeout 2.0
 show shizu adjust_blush
@@ -5312,7 +5324,7 @@ with charachange
 "Hanako blushes hard at Misha's straightforward jab, even if it was only in jest."
 show shizu basic_angry at Transform(xanchor=0.5, xpos=0.35)
 with charamove
-shi "…"
+shi "..."
 show hanako emb_downsad
 with charachange
 show hanako emb_downsad at Transform (xanchor=0.5, xpos=0.97)
@@ -5323,7 +5335,7 @@ with charamove
 hi "What is it, Hanako?"
 show hanako emb_timid
 with charachange
-ha "H… has Lilly been here?"
+ha "H... has Lilly been here?"
 mi "Sorry, haven't seen Satou. She, eh, came by in the morning though."
 show hanako emb_downtimid
 with charachange
@@ -5332,10 +5344,10 @@ with charachange
 "It is a little uncomfortable, watching Hanako's reaction to Shizune's normal behavior. This is what happens when two people of two different extremes meet, it seems."
 show hanako emb_timid
 with charachange
-ha "Do… do you know where she is?"
+ha "Do... do you know where she is?"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "If she has any sense in her head, she's in her classroom, working on their festival project. But who knows where that woman is loitering at."
@@ -5360,7 +5372,7 @@ with locationchange
 "The halls are somewhat quiet, as expected. Everyone must be in club meetings or at festival preparations. Or both."
 "Shizune's words about being a slacker echo in my head."
 "I feel a bit guilty about not contributing, but I seem to lack the resolve to do something concrete about the matter."
-"For the festival, it's too late already unless I count helping Shizune and Misha which I naturally don't. And clubs… I don't know."
+"For the festival, it's too late already unless I count helping Shizune and Misha which I naturally don't. And clubs... I don't know."
 "Maybe I'm not a club type of a person."
 play music music_soothing fadein 4.0
 scene bg school_dormext_half
@@ -5381,12 +5393,12 @@ rin "Wait."
 "She doesn't even turn to check who it is."
 "I'll wait."
 stop music fadeout 6.0
-"…"
-"…"
-"…"
-"…"
+"..."
+"..."
+"..."
+"..."
 with shorttimeskip
-"…"
+"..."
 "Fifteen minutes later I decide that her concentration is indeed unbroken, and also that I have waited long enough to warrant poking her gently on the shoulder to remind her of my presence."
 "Rin turns her head mechanically to my direction, ending up staring at my crotch level."
 show rin basic_deadpan_close
@@ -5410,7 +5422,7 @@ show rin relaxed_nonchalant_close
 with charachange
 rin "Could you mix some of this color? I am running out of it."
 "She looks down at a half-empty bowl with the remains of the same pinkish paint in it."
-"I didn't really intend to stay and help her with this project though… I guess I didn't intend to do anything much."
+"I didn't really intend to stay and help her with this project though... I guess I didn't intend to do anything much."
 show rin basic_absent_close
 with charachange
 "I look at Rin, she looks emptily back at me."
@@ -5450,7 +5462,7 @@ show rin basic_deadpannormal_close
 with charachange
 "This gives her a pause."
 "A long one too, feeling like a mental yawn."
-"…"
+"..."
 show rin basic_deadpan_close
 with charachange
 rin "I don't think so, Hisao."
@@ -5470,7 +5482,7 @@ hi "Where?"
 show rin basic_deadpannormal_close
 with charachange
 rin "At the art club."
-hi "Err… and?"
+hi "Err... and?"
 show rin basic_deadpan_close
 with charachange
 rin "He is blind."
@@ -5522,7 +5534,7 @@ show rin basic_absent_close
 with charachange
 rin "Maybe you have."
 hi "Maybe."
-"…"
+"..."
 show rin basic_awayabsent_close
 with charachange
 rin "But that boy is interesting."
@@ -5569,12 +5581,12 @@ with charachange
 "It’s not like I dislike her, despite the confusion her being herself causes, and I don't dislike art either. I’ve even drawn for fun sometimes. I just don’t have a real creative drive, or any technical skill."
 "So usually, if I were to draw something, I get white paper syndrome and just freeze completely."
 "That, or I manage to draw something disfigured and promptly get frustrated at my inability to put the picture in my head down on the paper, then call it quits without really even trying to make an effort."
-"Rin clearly doesn't have this problem… but she frustrates me in another way. Being with her is like looking into a mirror that doesn't reflect anything."
+"Rin clearly doesn't have this problem... but she frustrates me in another way. Being with her is like looking into a mirror that doesn't reflect anything."
 "It makes one question the sanity of the act."
 show rin basic_absent_close
 with charachange
 "Rin sits down on her box, swaying from side to side, apparently comfortable with the uncomfortable silence. She is staring at me again, or maybe over my shoulder. I can’t quite figure out where her eyes are focused on."
-"I'm thinking of leaving so she can carry on working undistracted and that I can do whatever I'm going to do alone. It's not like I have anything that must be done today…"
+"I'm thinking of leaving so she can carry on working undistracted and that I can do whatever I'm going to do alone. It's not like I have anything that must be done today..."
 hi "Oh, shoot."
 show rin basic_deadpan_close
 with charachange
@@ -5594,11 +5606,11 @@ hi "That's why you call her Mystery Toilet Girl?"
 show rin basic_absent_close
 with charachange
 rin "What other reason could there possibly be? Well, if there is, it's an eternal mystery. I didn't follow her in there."
-"…"
+"..."
 show rin basic_awayabsent_close
 with charachange
 rin "Maybe it was the week before that? Could have been."
-"…"
+"..."
 rin "Looking at her makes me hungry."
 hi "Don't say that."
 hi "At least, not around her."
@@ -5637,7 +5649,7 @@ hi "You need to find her? She was looking for you in the morning but I guess you
 "She waits a little without answering the simple question, looking awfully like she's not sure if it's proper to answer such a question."
 show hanako emb_blushtimid
 with charachange
-ha "Y…yeah."
+ha "Y...yeah."
 hi "I can come with you."
 hi "If it's okay."
 show hanako emb_downtimid
@@ -5646,7 +5658,7 @@ show hanako emb_blushtimid
 with charachange
 "Hanako nods fractionally, still on guard, her shoulders stiff like wood. I get the feeling that she might be more comfortable by herself after all, but it's too late to back off now."
 "She has this really troubled expression she seems to wear almost constantly, one that makes me constantly be on guard myself. I wonder why."
-"I kind of understand why she always seems to be so wary… or maybe more like, why there could be a person like her."
+"I kind of understand why she always seems to be so wary... or maybe more like, why there could be a person like her."
 "But I still have no idea how I should act around such a person."
 hi "It's dinnertime soon. Were you planning to eat with Lilly?"
 show hanako emb_downtimid
@@ -5676,7 +5688,7 @@ with charaenter
 hi "Have you looked somewhere else already?"
 show hanako basic_worry
 with charachange
-ha "J-just at the library… I was reading…"
+ha "J-just at the library... I was reading..."
 "So she does spend the classes she skips at the library."
 hi "Ah, so not exactly a thorough search then. Well, if I had to guess, she'd be in her own class like Shizune said, right?"
 show hanako cover_worry
@@ -5698,7 +5710,7 @@ hi "Must be a pain being in different classes, I'm guessing."
 "She gives a sharp, almost reflexive nod. Compared to Lilly's careful thought about her actions and speech, Hanako hastens to make her answers as prompt and short as possible."
 show hanako emb_downsmile
 with charachange
-ha "Lilly… comes by the classroom, though. Even when she's busy…"
+ha "Lilly... comes by the classroom, though. Even when she's busy..."
 "She gives a small smile as she says it, evidently appreciating the fact that Lilly goes out of her way to help her."
 "It's pretty cute, really. There isn't any need to say more, both of us content that the discussion's reached an end."
 scene bg school_staircase2
@@ -5710,7 +5722,7 @@ with easeinleft
 hi "Hey, are you all right?"
 show hanako basic_worry_close
 with charachange
-ha "J-just keep going…"
+ha "J-just keep going..."
 hide hanako
 with easeoutleft
 "The students pass us without as much as a second glance, and Hanako takes up position to my side again as we enter the building, her momentary reprieve from her anxiety all but snatched away."
@@ -5727,7 +5739,7 @@ stop music fadeout 4.0
 $ renpy.music.set_volume(0.1, 0.0, channel="ambient")
 play ambient sfx_crowd_indoors fadein 2.0
 "After we make our way up the stairs, the noise coming from Lilly's classroom is audible from halfway down the hallway. I wasn't expecting such a din at all."
-hi "Well, I guess we found her…"
+hi "Well, I guess we found her..."
 "This wasn't hard. Did Hanako come here first then come to me for backup, I wonder?"
 "Well, if that's true, then at least she's starting to trust me a little. That can only be a good thing."
 "Eventually, the two of us reach the door to class 3-2. With Hanako less than subtly positioning herself behind me, I open the door."
@@ -5738,8 +5750,8 @@ scene bg school_room32 at bgright
 with locationchange
 "Inside is a hive of activity, seemingly every student in the class talking at once as they work hurriedly on their separate tasks."
 "Going by the paint cans, decorations and banners being made, it must be for the upcoming school festival."
-"I guess my first priority should be finding Lilly…"
-"…{w} There."
+"I guess my first priority should be finding Lilly..."
+"...{w} There."
 "Finding her among the din is surprisingly easy, not the least because of her looks."
 "With a couple of students gathered around her as she stands at the front of the class, she seems to be in charge of the preparations, or at least busy organizing them."
 "Carefully negotiating a path through the various students hunched over the floor for lack of desk space, I raise a hand entirely out of habit as we finally reach Lilly."
@@ -5747,7 +5759,7 @@ hi "Hi, Lilly."
 show lilly basic_surprised at center
 with charaenter
 "She perks her head up as she breaks off talking to a noticeably smaller girl who must be her classmate, trying to listen as best she can."
-li "Sorry, who…"
+li "Sorry, who..."
 hi "Ah, sorry. Hisao. I have Hanako too."
 show lilly basic_smile
 with charachange
@@ -5764,7 +5776,7 @@ with charachange
 li "For the moment, just ask Moriya for his advice. Kenji's busy with painting one of the banners already."
 "A quick nod and she bounces off, fingers carefully sliding along the wall's face for orientation."
 $ renpy.music.set_volume(0.1,1.0)
-"Wait… Kenji? That Kenji?"
+"Wait... Kenji? That Kenji?"
 "I quickly turn about, leaning to the side to see past Hanako."
 "Sure enough, in a corner of the room, Kenji's hunched over a sheet of cloth as he paints it. His eyes remain only inches from the brush, reminding me of how close he had to be to make out my face when I met him."
 $ renpy.music.set_volume(1.0,1.0)
@@ -5790,7 +5802,7 @@ hi "Our rooms in the dorm are right next to each other. Hard to miss each other,
 show lilly basic_ara
 with charachange
 li "Well, it's good to see you're getting friends so fast."
-"Friend… I wonder if that's the right word to use for him."
+"Friend... I wonder if that's the right word to use for him."
 "Hanako's silence during the proceedings reminds me of the reason I put her up to helping in the first place."
 hi "We'll go help him then. He knows what needs doing, right?"
 show lilly basic_smileclosed
@@ -5805,7 +5817,7 @@ $ renpy.music.set_volume(0.5, 2.0, channel="ambient")
 show kenji tsun at Transform(yanchor=0.45, ypos=1.0, xalign=0.5)
 with charaenter
 hi "Hey Kenji."
-"…No answer. He continues dragging his paint-soaked brush along the large half-painted kanji that's sketched on the sheet in pencil."
+"...No answer. He continues dragging his paint-soaked brush along the large half-painted kanji that's sketched on the sheet in pencil."
 hi "Kenji?"
 show kenji tsun at center
 with charamove
@@ -5824,7 +5836,7 @@ with charaenter
 hi "I was just going to help with the banner. Hanako and I, that is."
 show hanako cover_worry
 with charachange
-ha "H… Hello…"
+ha "H... Hello..."
 show kenji happy
 with charachange
 ke "Oh. Er, hey. I guess that's okay."
@@ -5836,7 +5848,7 @@ show kenji neutral_close at left
 show hanako basic_distant_close at right
 with locationskip
 "Hanako and I grudgingly set ourselves down on the opposite side of the cloth banner to Kenji, noting the several small paint tins on the ground around it."
-"Class 3-2… noodle stall?"
+"Class 3-2... noodle stall?"
 hi "You guys selling noodles at the festival on Sunday?"
 show kenji happy_close
 with charachange
@@ -5912,7 +5924,7 @@ with charachange
 "She looks surprised for a moment before noticing that I mean the banner."
 show hanako basic_bashful
 with charachange
-ha "It does… I guess."
+ha "It does... I guess."
 "Her smile shows that she feels a slight sense of pride in the result, just as I do."
 hide hanako
 with charaexit
@@ -5924,7 +5936,7 @@ with charaenter
 "Lilly gives an appreciative nod."
 show lilly basic_smile
 with charachange
-li "Thank you Hisao, Hanako. If there's any way I can thank you…?"
+li "Thank you Hisao, Hanako. If there's any way I can thank you...?"
 hi "It's fine. Beats sitting in my room studying, at any rate."
 show hanako basic_normal
 with charachange
@@ -5968,7 +5980,7 @@ with charachange
 li "My my, I'm sure a lot of us would be glad to hear that. At least now there's not much work to do until the festival itself."
 show hanako basic_smile
 with charachange
-ha "Umm… It's getting pretty late. Should we go?"
+ha "Umm... It's getting pretty late. Should we go?"
 show lilly basic_smileclosed
 with charachange
 li "That's probably a good idea. Are you going back to the dorms as well, Hisao?"
@@ -5985,12 +5997,12 @@ show hanako basic_normal_ni at tworight
 with charaenter
 li "Tired?"
 hi "Yeah. Still getting used to the flow of things, I guess."
-hi "The… uh… thing… with Shizune took me kind of off guard, though."
+hi "The... uh... thing... with Shizune took me kind of off guard, though."
 "I grit my teeth a little at the candid mention of their rather public spat. That said, I do want to sort out what in the world was behind it."
 show lilly cane_displeased_ni
 with charachange
-li "Ah… about that…"
-li "I'm sorry about it being so public. Shizune and I… go back some ways."
+li "Ah... about that..."
+li "I'm sorry about it being so public. Shizune and I... go back some ways."
 label en_A24c:
 "Her voice seems slightly irritated as she remembers Shizune, and on second thought, possibly my part in the proceedings."
 show lilly cane_listen_ni
@@ -6096,7 +6108,7 @@ with charachange
 "She frowns, seemingly annoyed by a passing thought."
 emi "Like the rest of the track team, for instance."
 emi "Still, it was only supposed to be on a volunteer basis, so it's not that big of a shock."
-emi "And I guess it's pretty early in the morning…"
+emi "And I guess it's pretty early in the morning..."
 "A shrug, and suddenly it appears that she's forgotten what she was talking about."
 show emi basic_happy_gym
 with charachange
@@ -6119,7 +6131,7 @@ with locationchange
 "Things seem to be set on mirroring yesterday's run."
 "That is, I seem to be struggling, while Emi moves with an effortlessness that I find enviable."
 "It's incredibly bothersome, to be so easily worn out."
-"I know I should be patient, work toward things gradually, but…"
+"I know I should be patient, work toward things gradually, but..."
 "It's difficult to stay positive about this."
 "We round the track and start on our second lap."
 play ambient sfx_emirunning
@@ -6177,7 +6189,7 @@ hide emi
 with charamoveoutleft
 play ambient sfx_emipacing
 "Emi laughs - without breaking her stride, no less - and speeds up even more."
-"Well, if this is the way we're going to play things…"
+"Well, if this is the way we're going to play things..."
 "I increase my own pace as well."
 "I can feel my lungs burning, and my legs are starting to question just what the hell I think I'm doing."
 "Lactic acid screams in my muscles, but I close my ears."
@@ -6209,7 +6221,7 @@ show emi basic_shock_gym:
 with charamoveinright
 stop ambient fadeout 0.1
 emi "What's wrong?"
-hi "Nngh—Nothing, just…"
+hi "Nngh—Nothing, just..."
 play sound sfx_heartfast
 show heartattack alpha
 with Dissolve (0.1)
@@ -6249,7 +6261,7 @@ with Dissolve (0.7)
 "My heart struggles to regain its rhythm."
 "Slowly, the pain in my chest begins to subside."
 "Soon it's gone like nothing happened."
-"It was… nothing? No, something happened there."
+"It was... nothing? No, something happened there."
 play music music_rain fadein 2.0
 scene bg school_track_on
 show emi basic_hes_gym_close at center
@@ -6302,16 +6314,16 @@ show nurse concern
 with charachange
 "The nurse frowns, as if to say that “just a flutter” is some kind of oxymoron."
 nk "I didn't mean quite this when I suggested to get some exercise. You've got to be more careful, Hisao."
-hi "I was being careful, I just…"
+hi "I was being careful, I just..."
 "Come to think of it, “I just got into a race with a member of the track team” doesn't seem as well reasoned as I thought it would."
 nk "You just what?"
-hi "Er… that is…"
+hi "Er... that is..."
 hi "I was racing Emi."
 nk "Emi, is this true?"
 show emi basic_hes_gym
 with charachange
 "Emi fidgets, looking adorably contrite."
-emi "Um, well…"
+emi "Um, well..."
 show emi basic_closedsweat_gym
 with charachange
 "Finally she can't seem to bring herself to say it aloud, and merely nods."
@@ -6355,7 +6367,7 @@ show emi sad_shy_gym
 with charachange
 emi "So you have to come to lunch with me."
 emi "I'll bring it for you, okay? Something really really good!"
-"I start with a “You don't have to…” but then shut up and just nod at her when I see her face."
+"I start with a “You don't have to...” but then shut up and just nod at her when I see her face."
 show emi excited_proud_gym
 with charachange
 emi "Good!"
@@ -6395,10 +6407,10 @@ with shuteye
 "It was just a reflex, to push it away, to keep it inside."
 "I didn't want it to happen."
 "I didn't want Emi to see it."
-"Aaah…"
+"Aaah..."
 "Stupidstupidstupid."
 "I have to be more careful, or I will end up in the hospital again, or worse."
-"…"
+"..."
 "That's my final thought before I give in to the tiredness."
 scene black
 with Dissolve(1.0)
@@ -6431,7 +6443,7 @@ nk "You didn't answer my question, Hisao."
 hi "Oh. Fine."
 show nurse neutral
 with charachange
-nk "Climb down from that bed then, and let’s see how you are doing. Don’t…"
+nk "Climb down from that bed then, and let’s see how you are doing. Don’t..."
 $ renpy.music.set_volume(0.5, 0.2, channel="music")
 show bg school_nurseoffice as dizzy_bg behind nurse:
     pause 0 xalign 0.5 yalign 0.5 rotate 0 zoom 1.0 alpha 0.0
@@ -6449,7 +6461,7 @@ show nurse concern
 hide dizzy_bg
 hide dizzy_fg
 with charachange
-nk "…stand up too quickly, is what I was going to say. Just sit there, I’ll check your pressure to make sure."
+nk "...stand up too quickly, is what I was going to say. Just sit there, I’ll check your pressure to make sure."
 $ renpy.music.set_volume(1.0, 2.0, channel="music")
 "My good intentions sure lasted for a long time. I shut up, embarrassed with myself, while the nurse gets busy with an old-fashioned contraption and my arm. After a couple of minutes, he puts it away, looking neither pleased nor unhappy."
 show nurse neutral
@@ -6500,7 +6512,7 @@ scene bg school_dormhisao
 with locationskip
 "Back in my room, the first thing I see is the familiar row of medication bottles lined up on top of my dresser, and it makes me depressed, as usual."
 "It's annoying. I thought I was okay. I thought I had made my peace with this thing, gotten over it."
-"But what I really did… I allowed myself to forget that I have a problem. Being here really reminds me of the reality, and trying to fight against it just hurts."
+"But what I really did... I allowed myself to forget that I have a problem. Being here really reminds me of the reality, and trying to fight against it just hurts."
 "Reflecting on it is only going to do so much. I've done this before, for months. It seems like it's time to get over it."
 "If I allow myself to forget that my life is definitely not going to be as long as those of others, I won't get anywhere."
 "My life may be different from others. But it is a life in progress."
@@ -6519,7 +6531,7 @@ ke "Oh, hey, man. I didn't notice you there. I'm really tired."
 hi "Where have you been this early? Shopping?"
 show kenji tsun
 with charachange
-ke "Nah, I wasn't shopping. Sometimes I have to visit… the math teacher. Yeah, I figured it would be a good idea to find out when the next exam is, since he tells you in advance if you want."
+ke "Nah, I wasn't shopping. Sometimes I have to visit... the math teacher. Yeah, I figured it would be a good idea to find out when the next exam is, since he tells you in advance if you want."
 hi "So then, what's in the bag?"
 show kenji neutral
 with charachange
@@ -6535,7 +6547,7 @@ hi "I'm surprised you went out of your way to find out a test date. Trying to ta
 show kenji tsun
 with charachange
 ke "I never study."
-hi "Oh…"
+hi "Oh..."
 show kenji neutral
 with charachange
 ke "I just wanted to know when the next test day was. I'm still going to take it, duh. I need to know so I know what day I can't afford to skip class. He usually sends out updates on that crap by phone, so I had to step out and check up on it."
@@ -6603,7 +6615,7 @@ scene bg school_dormhisao
 with locationskip
 show shizu behind_smile at center
 with charaenter
-shi "…"
+shi "..."
 show shizu behind_smile at tworight
 with charamove
 show misha hips_grin at twoleft
@@ -6614,7 +6626,7 @@ hi "What are you two doing here?"
 "I wonder if the pause between those two sentences was politely long enough."
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Hicchan, that's rude~! We came to pick you up!"
@@ -6630,15 +6642,15 @@ show misha hips_grin
 with charachange
 mi "Aren't you happy, Hicchan, to be able to help the whole~ school~! You are like, a hero~! The future generations will tell stories of this day!"
 "Interesting. I didn't think joining the Student Council would be a heroic deed worthy of Hercules."
-hi "Well… I guess I did promise so…"
+hi "Well... I guess I did promise so..."
 show shizu adjust_happy
 with charachange
 stop music fadeout 7.0
-"I've neglected Shizune, and only now do I notice her in the corner of my vision, peering around my room over my shoulder, her analytical eyes darting from object to object…"
+"I've neglected Shizune, and only now do I notice her in the corner of my vision, peering around my room over my shoulder, her analytical eyes darting from object to object..."
 "This is kinda intrusive, the feeling of being exposed crawls in my balls. Luckily I don't have dirty laundry on the floor or anything like that."
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "Hm~? What is it, Shicchan?"
@@ -6668,19 +6680,19 @@ with charachange
 "I hope if I avoid it, she'll understand that I don't want her to keep prodding me about it."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "Really? What are you hiding, Hicchan~?"
 hi "Nothing."
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha sign_confused
 with charachange
 mi "Is that so~?"
 "I realize I can't really squirm my way out of this. They are nosy by nature and hiding it is just going to pique their curiosity more."
-hi "Yeah okay, it is {b}something{/b}, but I don't really want to talk about it, okay? Not… yet."
+hi "Yeah okay, it is {b}something{/b}, but I don't really want to talk about it, okay? Not... yet."
 hi "Can we just put this aside for now?"
 show misha perky_smile
 with charachange
@@ -6690,12 +6702,12 @@ with charachange
 play music music_dreamy fadein 2.0
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Okay~! Then, we'll wait, and become better and better friends, and one day when you feel like it, you can tell us about it~!"
 "Both of them smile widely at me, and I feel shocked and a little stupid about being like this."
-"They are not stupid, and probably can at least halfway guess what's going on with me. And…"
+"They are not stupid, and probably can at least halfway guess what's going on with me. And..."
 "Such simple, kind words. I feel relieved that they don't think any worse of me even if I'm like this. Even if I'm not like the rest here. Even if I can't be at ease about it."
 "Seems that behind the obnoxious, mischievous acts, both of these girls are really kind and good people. That's what I think."
 hi "Thanks."
@@ -6710,29 +6722,29 @@ mi "No no no~! Now!"
 hi "Now? But what about class? You are going to skip again?"
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha cross_laugh
 with charachange
 mi "Hahaha~! It's for the common good, so we sacrifice our math lessons, and maybe the social studies too~!"
 hi "Well, I guess I'm fine with it."
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Awesome, Hicchan~! You said it, okay? Remember: “I'm fine with helping out~,” that's what you said, right~?"
 hi "Yeah."
-"That tone… I suddenly regret saying it."
+"That tone... I suddenly regret saying it."
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Okay~! Are you ready to go then? We can go to the office together~!"
 hi "No. You're probably going to make me carry all your stuff for you or something."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "Don't be silly, Hicchan."
@@ -6741,18 +6753,18 @@ with charachange
 mi "We've never walked to school together, Hicchan~."
 "I almost want to ask why we would, but then it dawns on me. The both of them consider me their friend, like Misha said before. And they want to become better friends with me, even."
 "It's weird, I've never really thought about them that way. Or any of the people I've met so far this week. Is it really so easy?"
-"Just like that…"
+"Just like that..."
 hi "Okay, let's go, then."
 show shizu behind_smile
 with charachange
 "Shizune grins craftily and puts her hands behind her back."
 show misha hips_grin
 with charachange
-mi "Hahaha~! That's great, Hicchan~! Okay, okay, but first~! You had a really great idea, Shicchan liked it a lot… So~! it's time for a game!"
+mi "Hahaha~! That's great, Hicchan~! Okay, okay, but first~! You had a really great idea, Shicchan liked it a lot... So~! it's time for a game!"
 hi "Oh no."
 show misha hips_smile
 with charachange
-mi "Shicchan is holding a 1000-yen note in one hand, Hicchan~! If you guess which one, you can have it! If you don't…"
+mi "Shicchan is holding a 1000-yen note in one hand, Hicchan~! If you guess which one, you can have it! If you don't..."
 show misha hips_grin
 with charachange
 mi "You're carrying all our books to school~! Right, Shicchan~? Right~!"
@@ -6777,17 +6789,17 @@ with charachange
 mi "Really~, Hicchan? It doesn't look like it's nothing to me."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "What a long line of bottles, right~? Right~! What are all of those, Hicchan?"
 hi "Just a few things."
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
-mi "That looks like a lot more than “just a few things”…"
+mi "That looks like a lot more than “just a few things”..."
 "I can't fault either of them for being this way. Misha's just talking for Shizune, and Shizune is just curious by nature. Still, I wish the two of them would stop digging and take the hint. But Misha wouldn't pick up on it, and Shizune can't."
 "Because of that, they keep pressing on."
 hi "It's really none of your business."
@@ -6795,7 +6807,7 @@ hi "Shouldn't you be leaving? A man's room is private, you know."
 "Shizune seems to take that as a challenge."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "What does that mean, Hicchan? When someone sees something interesting, their first instinct is to ask what it is, that's obvious. What's wrong with that?"
@@ -6806,7 +6818,7 @@ mi "Hicchan, I think Shicchan is just concerned."
 hi "What I have in my room isn't any of your business, that's all."
 show misha sign_confused
 with charachange
-mi "But…"
+mi "But..."
 hi "Damn it! Sometimes, I wish you two would just stop playing around so much. It's not funny all the time. You know that, right?"
 "I say it way more strongly than I meant to, almost yelling straight at Misha's face. She flinches and freezes in mid-sign, and even Shizune reacts to it even though she didn't hear me."
 stop music fadeout 6.0
@@ -6817,7 +6829,7 @@ with charachange
 "After Misha slowly finishes the translation, the girls look at each other regretfully."
 show shizu behind_sad
 with charachange
-shi "…"
+shi "..."
 mi "Okay, Hicchan, we'll leave you alone."
 "It's the first time I've heard Misha speak without that familiar lilting up-and-down quality in her voice. It feels so strange to hear, and I want to apologize, but they have already turned to leave."
 "As the silence settles in, I regret what I said more and more."
@@ -6874,7 +6886,7 @@ show bg school_scienceroom at center
 show misha perky_confused_close at offscreenleft
 with charamove
 "However, Misha backs off. She's unexpectedly fast to give up today."
-"…"
+"..."
 "In a minute, she's back at poking me with her finger."
 show misha hips_grin_close
 with None
@@ -6899,7 +6911,7 @@ label en_choiceA27:
 mi "As a member of the Student Council, it's your duty to tell us why you are skipping class! Especially if it's something fun fun fun~!"
 menu:
     with menueffect
-    "Yeah, I sure was having fun fun fun at the nurse's office…":
+    "Yeah, I sure was having fun fun fun at the nurse's office...":
         return m1
     "I don't want to talk about it, okay?":
         return m2
@@ -6922,7 +6934,7 @@ show misha sign_sad_close
 with charachange
 mi "But Hicchan!"
 "Misha sounds concerned, or maybe panicky. I wonder if she realizes herself that it wasn't the best of ideas to be so damn intrusive."
-"…"
+"..."
 "I let her simmer in her own juices for a while before replying. It won't translate to Shizune but I don't care."
 hi "Piss off, Misha."
 hi "And tell Shizune to do so too."
@@ -6958,7 +6970,7 @@ with None
 show bg school_scienceroom at bgright
 show misha hips_smile_close at Transform(xalign=-0.3) 
 with charamove
-mi "I think we should have lunch together and discuss more about this… Shicchan says."
+mi "I think we should have lunch together and discuss more about this... Shicchan says."
 show misha hips_grin_close
 with charachange
 mi "It's our treat."
@@ -6983,14 +6995,14 @@ hi "Sorry, I can't. I promised to have lunch with someone else already."
 show misha perky_confused_close
 with charachange
 mi "Eeeh? Who? Is it a girl~?"
-hi "Yeah…"
+hi "Yeah..."
 show misha hips_grin_close
 with charachange
 "Her giggle compels me to quickly follow with something so she doesn't get the wrong idea."
-hi "It's nothing like that! It's… a bit complicated."
+hi "It's nothing like that! It's... a bit complicated."
 show misha perky_smile_close
 with charachange
-"Complicated… yeah, that's what my life is, despite already setting into a daily routine of school life."
+"Complicated... yeah, that's what my life is, despite already setting into a daily routine of school life."
 "All things must be put into a new kind of perspective in this second life, reconsidered from the point of view of this new me."
 "The me with a broken heart."
 hi "Also, I don't know if I can come to the council after all."
@@ -7049,7 +7061,7 @@ with charaenter
 mu "So, as you know, the festival is on the day after tomorrow. I hope everyone's projects are going to be successful this year."
 show muto smile
 with charachange
-mu "Have a good time, but also come Sunday, please keep the meaning of this festival in your minds…"
+mu "Have a good time, but also come Sunday, please keep the meaning of this festival in your minds..."
 mi "Games and fried food!"
 "Everyone bursts out in laughter, and so do I."
 show muto irritated
@@ -7066,7 +7078,7 @@ scene bg school_hallway3
 show crowd
 with locationchange
 play ambient sfx_crowd_indoors fadein 0.3
-"It's crowded in the hallway… or as crowded as hallways in this school probably get. Most of the students seem to be heading down for the cafeteria."
+"It's crowded in the hallway... or as crowded as hallways in this school probably get. Most of the students seem to be heading down for the cafeteria."
 label en_A27f:
 scene bg school_scienceroom
 with shorttimeskip
@@ -7078,7 +7090,7 @@ scene bg school_hallway3
 show crowd
 with locationchange
 play ambient sfx_crowd_indoors fadein 0.3
-"It's crowded in the hallway… or as crowded as hallways in this school probably get. Most of the students seem to be heading down for the cafeteria."
+"It's crowded in the hallway... or as crowded as hallways in this school probably get. Most of the students seem to be heading down for the cafeteria."
 label en_A28:
 scene bg school_council
 with locationchange
@@ -7099,10 +7111,10 @@ with charachange
 "Shizune looks as if she's stuck wondering whether to be ashamed or explode with anger, and Misha is equally divided between laughing and trying to stop her."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
-mi "Well, then, Hicchan, you'll be happy to know that since it's just us three, we have a lot to do! A lot~! A lot~ lot~ lot~…"
+mi "Well, then, Hicchan, you'll be happy to know that since it's just us three, we have a lot to do! A lot~! A lot~ lot~ lot~..."
 hi "That does not make me happy."
 show shizu adjust_happy
 with charachange
@@ -7128,7 +7140,7 @@ label en_A28b:
 $ renpy.music.play(music_ease, fadein=4.0, if_changed=True)
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "It's actually not that much work, Hicchan~. So~, we can afford to enjoy a little lunch first."
@@ -7138,30 +7150,30 @@ mi "Hahaha~!"
 "The two of them produce a small array of plastic containers seemingly out of thin air."
 show misha hips_grin
 with charachange
-mi "Hm~ hm~… It's chicken cutlet with tomatoes and soybean sprouts~! Doesn't it sound delicious, Hicchan?"
+mi "Hm~ hm~... It's chicken cutlet with tomatoes and soybean sprouts~! Doesn't it sound delicious, Hicchan?"
 mi "It was just made this morning, and it's still warm, so eat eat eat~!"
 "I take one of the containers and open it. It looks nice, and certainly smells good. The fact that I'm really hungry adds to that even more."
 hi "Wow, this looks great. Where did you get this?"
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "That isn't important, Hicchan!"
 show misha sign_smile
 with charachange
 mi "There was supposed to be a stall selling lunchboxes, but the girl who was to run it suddenly said she couldn't do it. Shicchan said, “What a waste, it was a lot of work to trick Hicchan into making this~”—"
-hi "Hey, what the hell…"
+hi "Hey, what the hell..."
 show misha hips_grin
 with charachange
-mi "…So~! Shicchan wanted to see if she could do it, but then decided not to, right, Shicchan~?"
+mi "...So~! Shicchan wanted to see if she could do it, but then decided not to, right, Shicchan~?"
 show shizu basic_angry
 with charachange
 "Shizune sulks angrily, shooting Misha a displeased look. I don't think I was supposed to hear that story."
 hi "This is your test food?"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "I'm eating it too, Hicchan~!"
@@ -7177,10 +7189,10 @@ with charachange
 show misha sign_smile
 with charachange
 mi "Hicchan~! Don't talk with food in your mouth~!"
-hi "It's not like I enjoy doing it. Anyway, how motherly to show that kind of concern…"
+hi "It's not like I enjoy doing it. Anyway, how motherly to show that kind of concern..."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "You can't even eat right, Hicchan~! That's all it is~!"
@@ -7195,7 +7207,7 @@ play sound sfx_warningbell
 "After a while the bell rings, but Misha makes no attempt to tell Shizune, so I'm sure they're planning to skip classes and spend the rest of the day in here again."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Hicchan, do you have any plans for the festival?"
@@ -7206,7 +7218,7 @@ mi "Wahaha~! Hicchan, you helped us out so much, don't sell yourself short!"
 hi "Okay."
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "We're serious~!"
@@ -7214,10 +7226,10 @@ hi "Okay!"
 "The two of them seem to get indignant over the strangest things."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
-mi "You're going though, right, Hicchan? You should at least see what we've ac—complished…? Everyone should be able to look at what they have done so they can fully understand their work, that's my belief~! You're no exception!"
+mi "You're going though, right, Hicchan? You should at least see what we've ac—complished...? Everyone should be able to look at what they have done so they can fully understand their work, that's my belief~! You're no exception!"
 show misha perky_smile
 with charachange
 mi "Hicchan, you should definitely go~! If you don't have anything planned, then maybe we can even go together~!"
@@ -7225,11 +7237,11 @@ show shizu adjust_blush
 with charachange
 hi "Do you need a hand? If there's anything you need help with, I'm fine with sticking around."
 "I feel much more at ease than I did earlier; my previous concerns and fears long gone. I'd forgotten about this morning's trouble entirely until now, having fun with Shizune like this."
-"Having fun with Shizune… It seems like an unfamiliar concept to think of, but, looking back on it, I've really enjoyed the moments I've spent with Shizune and Misha these past few days, in spite of everything else."
+"Having fun with Shizune... It seems like an unfamiliar concept to think of, but, looking back on it, I've really enjoyed the moments I've spent with Shizune and Misha these past few days, in spite of everything else."
 "If we might be going together, then maybe I can afford to stick around a little longer. And I guess it beats class."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Really, Hicchan? Okay~! We can consider this you repaying us for the free lunch~!"
@@ -7240,10 +7252,10 @@ mi "Great, this is great, really~ really~ great~! Shicchan was hoping to bring t
 "Helping them out turns out to consist mostly of stamping forms and making what seems like ten thousand copies apiece of fifty different budget reports."
 "It's not hard, but very boring, and according to Misha, the simplest of the tasks they deal with."
 "I feel myself getting more and more tired, and with that, less eager to return to class. This is especially bad because the more time I spend out of class, the harder it seems to just get up and go back."
-"These two, they're a terrible influence. Terrible role models. Not that it bothers me all that much, and I'm sure no one looks up to them, but it's the principle of the thing…"
+"These two, they're a terrible influence. Terrible role models. Not that it bothers me all that much, and I'm sure no one looks up to them, but it's the principle of the thing..."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Done~!"
@@ -7254,17 +7266,17 @@ mi "No, no, Hicchan, everything is done. So, you're done, too~!"
 hi "That doesn't make any sense, are you telling me this is all arbitrary and you've been keeping me here for the hell of it?"
 show misha hips_grin
 with charachange
-mi "No~…"
+mi "No~..."
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "But we have kept you long enough~! You should go back to class, Hicchan~! You can still make it for most of this period!"
 hi "What about you?"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Of course we're coming too, of course; we'll be right behind you!"
@@ -7274,7 +7286,7 @@ with locationchange
 "Reassured, I start heading back to class, but the period is almost halfway over, so I start thinking it would be pointless halfway there and pass the difference between this class and the next drinking juice in the hallway."
 "I keep an eye on the door to the student council room, but it doesn't open. What's taking them so long? Are they busy wrapping up my share of the work? Well, it shouldn't take so long, unless there's more, and they just wanted me to leave."
 "The more I think about it, the likelier it seems."
-"Shizune is… well, not an idiot, but clearly, she's unable to just come out with things."
+"Shizune is... well, not an idiot, but clearly, she's unable to just come out with things."
 "Maybe it's because she can't talk, so it's harder for her. She has Misha, but all in all, as easy as they make it look, there's still a difference between casual speech and sign language."
 play sound sfx_normalbell
 "I contemplate going back there to check on them, but the bell rings, and I have to go to class."
@@ -7313,7 +7325,7 @@ emi "You stood there looking really lost and sad so I thought you could use some
 show emi basic_closedgrin
 with charachange
 emi "So how about it? You're probably really lonely and would eat that awful cafeteria food all alone, otherwise."
-hi "Eeeh…"
+hi "Eeeh..."
 show emi excited_proud
 with charachange
 emi "I'm kidding, I'm kidding!"
@@ -7395,7 +7407,7 @@ with charachange
 show emi basic_hes at twoleft
 with charamove
 emi "Yipes! You scared me, Rin!"
-"Wait, isn't she…"
+"Wait, isn't she..."
 show rin relaxed_surprised
 with charachange
 play music music_rin fadein 2.0
@@ -7411,7 +7423,7 @@ with charachange
 "Rin has turned her gaze towards the clouds drifting above the school."
 rin "I didn't know you knew this person, Emi."
 stop music fadeout 2.0
-"…"
+"..."
 "The awkward silence lasts only for a few seconds until Emi lets out a tiny giggle, shrugging the coincidence off."
 show emi basic_closedgrin
 with charachange
@@ -7513,7 +7525,7 @@ with charachange
 $ doublespeak(emi, rin, "Talk like what?", "Like what?")
 "I think that answers my question."
 hi "Er, never mind."
-hi "So, uh…"
+hi "So, uh..."
 "I struggle to think of small talk and settle on the obvious question."
 hi "How'd you two meet?"
 show rin basic_awayabsent_close
@@ -7543,15 +7555,15 @@ hi "I see."
 show rin basic_deadpan_close
 with charachange
 rin "I have trouble with shirts."
-hi "Right, that seems… fairly obvious."
+hi "Right, that seems... fairly obvious."
 show rin basic_surprised_close
 with charachange
 rin "Really?"
-hi "Kind of…?"
+hi "Kind of...?"
 "This isn't helping, but at least Emi seems to find the whole thing funny."
 "That, combined with the fact that Rin is genuinely curious, makes me feel slightly better and yet, confused."
 hi "I mean, you've got no arms."
-hi "So uh, putting on a shirt seems like one of those things that would be… difficult."
+hi "So uh, putting on a shirt seems like one of those things that would be... difficult."
 "You know what? I'm going to just stop talking now."
 "It'll save me a lot of trouble in the long run."
 "Rin nods in what I suspect is meant to be a sage manner."
@@ -7603,7 +7615,7 @@ show emi excited_proud_close
 with charachange
 emi "Feel free to eat with us next time too, okay?"
 emi "I won't make you a lunch, but you can bring your own up here."
-hi "No lunch service? I don't know…"
+hi "No lunch service? I don't know..."
 show emi basic_annoyed_close
 with charachange
 "Emi looks mock offended."
@@ -7614,7 +7626,7 @@ with charachange
 "She giggles."
 show emi sad_depressed_close
 with charachange
-emi "Well, if that's your answer, I guess Rin and I will just keep eating lunch all alone…"
+emi "Well, if that's your answer, I guess Rin and I will just keep eating lunch all alone..."
 "I am suddenly assaulted by the most heart-rending puppy-dog eyes I've ever seen as Emi pouts."
 hi "Kidding! I was kidding!"
 hi "I'd love to eat lunch up here again."
@@ -7660,7 +7672,7 @@ play music music_happiness fadein 2.0
 hi "Ah, sorry Yuuko. Didn't mean to startle you."
 show yuuko worried_up
 with charachange
-yu "No, no. That's fine. It happens… a lot. I'm used to it by now."
+yu "No, no. That's fine. It happens... a lot. I'm used to it by now."
 show yuuko neurotic_up
 with charachange
 yu "Um, can I help you?"
@@ -7673,7 +7685,7 @@ stop music fadeout 5.0
 "As I do, I look over to the corner where Hanako had been the last time I was here, not really expecting anything to come of it."
 scene ev hana_library_read_std
 with locationskip
-"…surprisingly, though, she's there, absorbed completely in a fairly thick book. I decide against intruding on her like last time and get back to finding reading material."
+"...surprisingly, though, she's there, absorbed completely in a fairly thick book. I decide against intruding on her like last time and get back to finding reading material."
 scene bg school_library_ss
 with shorttimeskip
 play music music_tranquil fadein 6.0
@@ -7689,7 +7701,7 @@ with locationskip
 "The first is “Alice's Adventures in Wonderland”. I know the story, of course, but I've never actually read the original book."
 "It's just as trippy as I remember the story to be, with the wacky characters and nonsense plot."
 "I start thinking of myself as some kind of an Alice too, haplessly tumbling down the rabbit hole into this Cripple Wonderland."
-"…Okay, that's a rather strong expression. Still, the isolated location and the overt way the school accommodates to absolutely everything is unsettling. It is like another world."
+"...Okay, that's a rather strong expression. Still, the isolated location and the overt way the school accommodates to absolutely everything is unsettling. It is like another world."
 "I wonder why I can't shake the feeling of being an outsider like Alice, despite most everyone being so hospitable and friendly with me."
 "Turning another page, my mind starts drifting further away from the book. It's quiet, I can hear my heartbeat thumping against the fabric of my shirt."
 "For some reason, it makes me feel really bad like it has since that time in the forest with Iwanako. Like I was locked in a cage with something nasty and scary."
@@ -7723,7 +7735,7 @@ with charachange
 "She takes a moment to place the voice, slightly adjusting her head to face a bit more towards the source of my voice as she does."
 show lilly cane_smile_ss
 with charachange
-li "…Hisao?"
+li "...Hisao?"
 hi "Yep, that's me."
 "She seems to have a good memory for voices. The fact that she actually remembered is a pleasant surprise."
 li "Good evening. What brings you here?"
@@ -7741,7 +7753,7 @@ li "Mm. I usually go shopping on Fridays."
 show lilly cane_surprised_ss
 with charachange
 "She pauses for a moment, suddenly looking a little lost."
-li "That said, Hanako usually comes into town with me…"
+li "That said, Hanako usually comes into town with me..."
 "Ah. Not lost, but worried. The two do seem to keep pretty close tabs on one another. It's kind of surprising that Hanako would just forget Lilly like that."
 hi "I noticed her reading in the library. She probably just got caught up in a book."
 show lilly cane_weaksmile_ss
@@ -7764,12 +7776,12 @@ show lilly cane_giggle_ss
 with charachange
 li "Tired?"
 hi "Yeah, been running ragged these past few days."
-"That's an understatement, to be sure. Transferring into a different school would be bad enough, but nothing like this…"
+"That's an understatement, to be sure. Transferring into a different school would be bad enough, but nothing like this..."
 show lilly cane_smile_ss
 with charachange
 li "Well, hopefully everything should settle down for you. The festival's got everyone in a spin right now, and you've been plopped right in the middle of things."
 "For a moment I hesitate, but given her apparent tolerance for frankness I decide to give my full thoughts."
-hi "I guess. Yamaku's kind of different though. I mean, the formality surrounding everything, the isolation around it… not to mention the most obvious difference."
+hi "I guess. Yamaku's kind of different though. I mean, the formality surrounding everything, the isolation around it... not to mention the most obvious difference."
 hi "It's kind of a whole different mindset. I suppose I'll get used to it though, in time."
 show lilly cane_smileclosed_ss
 with charachange
@@ -7791,7 +7803,7 @@ li "So, where in town were you going?"
 "That's actually a pretty good question. I'd come in to buy food, but the layout of the place is still totally foreign to me."
 "I had intended to just wander around and see what I could find, but with sunset already approaching and nightfall not too far away, that doesn't seem very wise."
 "I'm going to have to ask her for directions. Again."
-hi "I was just going to get some food… but now that you mention it, I don't really know the way."
+hi "I was just going to get some food... but now that you mention it, I don't really know the way."
 show lilly cane_planned_ss
 with charachange
 li "Well now, this is quite lucky. I was just about to go to the convenience store myself."
@@ -7806,7 +7818,7 @@ with locationchange
 "Without further ado, we make our way inside with a greeting from the counter."
 show lilly cane_weaksmile at center
 with charaenter
-li "Mind if I tag along with you? Usually Hanako would help me, but seeing as she's not here…"
+li "Mind if I tag along with you? Usually Hanako would help me, but seeing as she's not here..."
 "It takes a moment before I realize what she means."
 "Considering she wouldn't be able to read any of the labels, shopping without any help would be a big pain for her."
 "That said, I can't shake the feeling that she'd had this idea since I said I was coming here."
@@ -7819,7 +7831,7 @@ with charachange
 show lilly basic_smileclosed at center
 with charamove
 "She lays it on the ground, putting her schoolbag in, retracting her cane and sliding it through the basket's handles before picking it back up in her right hand."
-"Wait, if she doesn't use her cane…"
+"Wait, if she doesn't use her cane..."
 show lilly basic_smileclosed at Slide(0.5,0.5,0.3,0.5,1.0, time_warp=_ease_time_warp)
 with None
 show lilly basic_smileclosed_close at Slide(0.5,0.5,0.3,0.5,1.0, time_warp=_ease_time_warp)
@@ -7865,7 +7877,7 @@ li "I suppose. I'm going to enjoy relaxing in town tomorrow, that's for certain.
 scene bg suburb_roadcenter_ni at bgright
 with locationchange
 "We walk out into the quiet street, talking between ourselves as we carry our bags of food and supplies from the store."
-"…Wait, what's that?"
+"...Wait, what's that?"
 "I notice a very distinctive figure making its way towards us, silhouetted by the streetlamps."
 "For a second I think it's another male student from my class, but as he, or should I say she, gets closer I recognize her quickly."
 show bg suburb_roadcenter_ni at center
@@ -7877,7 +7889,7 @@ show lilly cane_surprised_ni at center
 with charaenter
 li "Rin?"
 "Lilly perks her head, looking like she's trying to focus on listening more keenly. It suddenly comes to me that I should probably interpret the scene for her."
-hi "It's Rin… Tezuka, I think was her last name, from our school."
+hi "It's Rin... Tezuka, I think was her last name, from our school."
 show lilly cane_weaksmile_ni
 with charachange
 "She stiffens at the name and gives a complicated-looking expression, something like a forced fusion of a composed smile and a painful cringe."
@@ -7900,11 +7912,11 @@ with charachange
 show rin basic_absent_ni
 with charachange
 rin "Hello."
-"…"
+"..."
 "There is an awkward pause, everyone waiting for someone else to say something."
 hi "What are you doing here this late?"
-"…"
-rin "I…"
+"..."
+rin "I..."
 show rin basic_deadpan_ni
 with charachange
 rin "I was wondering about that myself too. Just now."
@@ -7914,7 +7926,7 @@ with charachange
 rin "Some people asked that just before. I assume they were wondering the same."
 rin "I didn't know. They didn't know either. I asked. That's why I'm wondering."
 rin "So that was pretty much it. It's a murder mystery without a murder."
-"…"
+"..."
 show rin negative_spaciness_ni
 with charachange
 rin "They were going that way."
@@ -7929,7 +7941,7 @@ with charachange
 "As if bull elephant-grade sedatives were flowing in her veins in the place of blood."
 show lilly cane_concerned_ni
 with charachange
-li "Do you have amnesia? I don't recall you having anything of the sort, though…"
+li "Do you have amnesia? I don't recall you having anything of the sort, though..."
 hi "No, I don't think it's that."
 hi "The other passersby were probably just worried, though. You do look really lost, the way you're standing in the middle of the street."
 show rin basic_deadpan_ni
@@ -7944,7 +7956,7 @@ rin "Maybe I should've taken some other kind of pose in that case."
 "Talking with Rin is like playing chess with a supercomputer who does seemingly completely random moves as if to mock everything you know about chess. It's like that, except with human interaction."
 "And even if I win, it feels like losing."
 "Damn, it's just like Kenji said. Even when I win, I lose. Is this the power of the girls of Yamaku?"
-"…"
+"..."
 "I push the thought aside as too dangerous to consider further. It's probably just Kenji's anti-female propaganda getting to me during a moment of weakness."
 hi "Yeah, maybe taking another pose might have worked."
 hi "So anyway, you have no idea what you're doing here?"
@@ -7960,22 +7972,22 @@ rin "Yes, there is some. Definitely. The rest will come later."
 show rin basic_deadpanupset_ni
 show lilly cane_weaksmile_ni
 with charachange
-rin "I'm sure of it. I always have… reasons."
+rin "I'm sure of it. I always have... reasons."
 "The ensuing silence kills Lilly's hopes all too visibly. That didn't last long."
-"Rin's, as far as I can tell unbased, assurances aside… what should be done?"
-"We could just leave her to her own devices, whatever those are… but it's late and I don't think we'll be getting any thanks if Rin is found standing here in the middle of the night."
+"Rin's, as far as I can tell unbased, assurances aside... what should be done?"
+"We could just leave her to her own devices, whatever those are... but it's late and I don't think we'll be getting any thanks if Rin is found standing here in the middle of the night."
 "Which she probably will, unless she manages to remember what she was doing here in the first place."
 "As for me trying to guess what might've been going on in her mind when she decided to embark on this adventure, the chances seem to be on par with winning the lottery."
 "Several times in a row."
 "Lilly is oddly quiet too. I'd appreciate some support from the sidelines here, especially if she's more familiar with Rin than I am."
 "But it can't be helped. It seems her familiarity with Rin is exactly why she's staying subdued."
-hi "So, I assume you were going somewhere, not coming back to the school… any idea where?"
+hi "So, I assume you were going somewhere, not coming back to the school... any idea where?"
 show rin relaxed_surprised_ni
 show lilly cane_surprised_ni
 with charachange
 "Her eyes widen in shock and she jolts back in a somewhat artificial way, making it seem like an act rehearsed for situations like this."
 rin "Are you a mind reader? Is that your disability? How unique!"
-hi "No… What? Why would you think that?"
+hi "No... What? Why would you think that?"
 show rin relaxed_disgust_ni
 show lilly cane_listen_ni
 with charachange
@@ -8040,15 +8052,15 @@ hi "Anything wrong, Lilly?"
 "For a moment she seems to debate whether she should even bring it up, but goes for it anyway."
 show lilly cane_concerned_ni
 with charachange
-li "Is everything… all right?"
+li "Is everything... all right?"
 hi "All right? How do you mean?"
 "The fact I can't interpret her incredibly vague question puts her off, for a second."
-li "It's just… you seem unusually tired, I guess."
+li "It's just... you seem unusually tired, I guess."
 "Now that she brings it up, I notice that my breathing is strangely heavy. The uphill walk has really done a job on me."
 label en_choiceA30:
 menu:
     with menueffect
-    "Lilly noticed it all too quickly…"
+    "Lilly noticed it all too quickly..."
     "Sorry, I'm not in very good condition.":
         return m1
     "I don't really want to talk about it.":
@@ -8056,7 +8068,7 @@ menu:
 label en_A30a:
 $ renpy.music.set_volume(0.1, 1.0, channel="ambient")
 stop music fadeout 5.0
-hi "I… I'm fine."
+hi "I... I'm fine."
 hi "There's nothing to worry about, the hill is just surprisingly steep, don't you think?"
 hi "I wonder what they have the school so high up here for anyway, don't we have students in wheelchairs and everything?"
 show lilly cane_sad_ni
@@ -8067,7 +8079,7 @@ with charachange
 "Lilly's forehead wrinkles in concern, and I don't really want her to have that kind of an expression over me. We barely know each other."
 hi "Yeah, my thoughts exactly. Not that you can find a place like this wherever, I guess, but it makes me wonder what they were thinking."
 "My voice is overly calm, it sounds weird to my own ear and I speak way too fast. I briefly wonder how much Lilly can sense from someone's voice alone."
-li "Mmm…"
+li "Mmm..."
 hi "Let's continue. We're almost there anyway."
 hide lilly
 hide rin
@@ -8082,7 +8094,7 @@ hi "It's all right, I just need to catch my breath. My condition isn't the best,
 show lilly cane_oops_ni
 with charachange
 li "Oh."
-li "Is it something that… is related to you being transferred here? I mean…"
+li "Is it something that... is related to you being transferred here? I mean..."
 show lilly cane_concerned_ni
 with charachange
 "She cuts herself off rather abruptly, maybe realizing she was being a bit intrusive. Her instincts are sharp though, and while I don't like the subject it's not like I should lie about it."
@@ -8090,14 +8102,14 @@ with charachange
 hi "I'm just a little weak for the time being."
 show lilly cane_oops_ni
 with charachange
-li "Hanako said you look fairly… healthy, so I naturally thought…"
+li "Hanako said you look fairly... healthy, so I naturally thought..."
 show lilly cane_sad_ni
 with charachange
 "Lilly doesn't finish her sentence again, letting it trail off with a measure of concern."
 "As she furrows her brow, Lilly's uncomfortable expression spurs me to say at least something to ease her feelings."
 "It's surprising she's this flustered, considering her straightforward attitude with her own blindness. She must know that not all share her own comfort about such things."
 hi "No, it's okay."
-hi "I have a pretty… I guess the best way to put it would be messed-up… heart. Arrhythmia."
+hi "I have a pretty... I guess the best way to put it would be messed-up... heart. Arrhythmia."
 hi "I had a bad heart attack a while ago because of it, and spent most of the spring in a hospital. Ended in Yamaku on doctor's orders."
 "She silently nods her head in acknowledgment."
 "My answer, though, only seems to make Lilly furrow her brow even further. She doesn't seem to quite know how to react, given we don't really know each other that well."
@@ -8106,7 +8118,7 @@ label en_A30c:
 "To my surprise, in a moment's time her face shows that she comes to some sort of realization."
 show lilly cane_oops_ni
 with charachange
-li "Wait… so the time when Emi and you collided in the hallway…?"
+li "Wait... so the time when Emi and you collided in the hallway...?"
 "I grimace slightly. Her ability to connect the dots quite so fast is unexpected."
 hi "Yeah. I guess I'm a textbook example of why those rules about running in the corridors exist."
 show lilly cane_sad_ni
@@ -8130,7 +8142,7 @@ with charachange
 rin "It's Friday, isn't it?"
 show lilly cane_smile_ni
 with charachange
-li "Yes… Friday, the eighth of June."
+li "Yes... Friday, the eighth of June."
 show rin basic_upset_ni
 with charachange
 play music music_rin fadein 0.5
@@ -8175,7 +8187,7 @@ with charamove
 hi "Maybe we should call someone? She sounded like she was going into shock or something."
 show lilly cane_oops_ni
 with charachange
-li "I'm sure she will be just fine. She's just a… eeeh… how to say…"
+li "I'm sure she will be just fine. She's just a... eeeh... how to say..."
 "Lilly cocks her head a little, trying to find a polite way of calling Rin crazy without calling her crazy."
 hi "Unique?"
 show lilly cane_weaksmile_ni
@@ -8187,7 +8199,7 @@ with charachange
 "She giggles at the notion melodiously, nodding in agreement."
 show lilly cane_weaksmile_ni
 with charachange
-li "Sorry about leaving you stranded as you talked to her. I… don't really understand her, so I keep my distance."
+li "Sorry about leaving you stranded as you talked to her. I... don't really understand her, so I keep my distance."
 "So my guess was right. Lilly offers a slight, apologetic smile as if she was sorry that her own shortcomings have prevented her from becoming closer to Rin."
 "I'm not one to blame her. At all."
 "Lilly lets slip a long breath, probably a disguised yawn. I imagine she's as exhausted by all this as I am."
@@ -8197,7 +8209,7 @@ li "I'd better leave now and give these to Hanako. Thank you for the company, Hi
 "She smiles very sweetly at me. It feels different than normal, despite the fact that she seems to be smiling so often."
 "I can't put my finger on what the difference is. It's just different."
 "Relaxed, I'd say, but that's probably just relief over getting rid of Rin. Maybe."
-hi "Yeah… good night. Say hi to Hanako for me."
+hi "Yeah... good night. Say hi to Hanako for me."
 show lilly cane_smile_ni
 with charachange
 li "I will. Good night."
@@ -8231,8 +8243,8 @@ with charaenter
 stop music fadeout 2.0
 mu "Nakai, can I speak to you for a moment?"
 "I'm so engrossed in thinking about Misha that I don't even notice Mutou approaching my desk."
-hi "Sure… what's this about?"
-mu "It's probably better if we speak outside the classroom…"
+hi "Sure... what's this about?"
+mu "It's probably better if we speak outside the classroom..."
 play sound sfx_dooropen
 hide muto
 with charaexit
@@ -8275,7 +8287,7 @@ mu "You know. Things. You've had a week to settle in now, so how are things?"
 hi "Er, fine I guess."
 show muto normal
 with charachange
-mu "I see. And how is your… condition?"
+mu "I see. And how is your... condition?"
 "The pause before “condition” seemed a little unnecessary."
 hi "Haven't had any problems so far."
 show muto smile
@@ -8283,7 +8295,7 @@ with charachange
 "A brief shimmer of relief passes across Mutou's face."
 mu "Good, that's good. The school nurse was a little concerned that you might have been pushing yourself a bit too hard."
 mu "He asked me to keep an eye on you when he couldn't."
-hi "That makes sense…"
+hi "That makes sense..."
 show muto normal
 with charachange
 mu "I'd ask that you don't blow us off so freely. As much as we try to give you the level of education that you would get at a normal school, you have to realize that you have limits."
@@ -8301,7 +8313,7 @@ hi "I don't really think so. I tried to keep up when I was in the hospital, so i
 show muto irritated
 with charachange
 "Mutou taps his chin and raises an eyebrow as he absorbs this information."
-mu "Is that so… I suppose there are still students out there that realize the importance of learning…"
+mu "Is that so... I suppose there are still students out there that realize the importance of learning..."
 "I wouldn't go that far, I was only trying to keep myself occupied in my little life-support prison."
 hi "Well, yeah. You've got to keep up with these things, right?"
 show muto smile
@@ -8311,7 +8323,7 @@ hi "Er, right. Wouldn't want that to happen."
 show muto normal
 with charachange
 mu "No, no you wouldn't. Every week there's a new scientific discovery. Most of them mean nothing to the layperson, but any one of them could be the key to the Next Big Thing."
-hi "I'll keep that in mind…"
+hi "I'll keep that in mind..."
 "It's obvious that Mutou's Serious Talk is over, and he's gone back to his standard, slightly scatterbrained approach to life."
 "I think, in hindsight, that I prefer him this way. He's slightly more predictable in his unpredictability."
 show muto smile
@@ -8429,7 +8441,7 @@ play ambient sfx_crowd_outdoors fadein 0.2
 "I feel the opposite. The midday sun seems to be draining all the spirit out of my body, making it feel limp all over."
 "Warm, soft air flows inside my shirt, feeling like a cushion."
 "I yawn lazily, thinking about what I'd do."
-"I'll drop off my books at the dorms first, and then… something I haven't decided yet."
+"I'll drop off my books at the dorms first, and then... something I haven't decided yet."
 "Maybe Kenji is in his room."
 stop ambient fadeout 2.0
 scene bg school_dormext_half
@@ -8465,14 +8477,14 @@ scene bg school_hallway3
 show crowd
 with locationchange
 "We go all the way back to the third floor and to the seniors' hallway, ending up where I left five minutes ago. I could just as well have stayed here waiting for Emi, had I known."
-hi "So are you… is Rin working on that mural, still?"
+hi "So are you... is Rin working on that mural, still?"
 show emi basic_closedgrin at center
 with charaenter
 emi "That's right! She needs all kinds of paints and brushes and stuff, so I went to get them from the art classroom."
 hi "And you need me to help with that."
 show emi basic_grin
 with charaenter
-emi "Well… Rin told me you had already helped her so I thought you wouldn't mind."
+emi "Well... Rin told me you had already helped her so I thought you wouldn't mind."
 hi "I see."
 stop ambient fadeout 1.0
 scene bg school_classroomart at bgright
@@ -8524,7 +8536,7 @@ show emi basic_grin at center
 with shorttimeskip
 "Only after we have almost all the items collected and spread out on a desk like a treasure hunter's spoils do I realize that it wasn't necessarily the height jab that got her riled up."
 "She might not like to be told that she can't do something. Like jump."
-"But Emi herself seems to have forgotten all about it already. Quick to anger, quick to forgive… she is that type of a person?"
+"But Emi herself seems to have forgotten all about it already. Quick to anger, quick to forgive... she is that type of a person?"
 "At least she doesn't seem to have taken anything to heart, as she chatters away happily while we pick up the rest of the items and then make our way back to Rin."
 scene bg school_courtyard
 show crowd
@@ -8544,18 +8556,18 @@ emi "I found her this morning lying in front of the dorm in fetal position. She 
 show emi basic_grin
 with charachange
 emi "And now she's painting again like crazy."
-hi "Yeah, I've… noticed that she comes off as kinda… unhinged. So to speak."
+hi "Yeah, I've... noticed that she comes off as kinda... unhinged. So to speak."
 show emi basic_closedhappy
 with charachange
 "Emi giggles at that, as well as at my likely too-obvious awkwardness."
 show emi basic_happy
 with charachange
 emi "I don't mind it. She's just a little weird sometimes."
-"On that I can agree with her. Unlike me, Emi seems to be cool with Rin's… whatever it is that feels so off about her."
+"On that I can agree with her. Unlike me, Emi seems to be cool with Rin's... whatever it is that feels so off about her."
 "Still, they don't feel close like Misha and Shizune do. With them working as a single entity sometimes, it's hard to say where one ends and the other begins."
 "Even though they're so different, just like Emi and Rin are."
 "And Rin is the most different of them all, different from anyone else I've met."
-hi "Yeah, I guess she's a very… unique person."
+hi "Yeah, I guess she's a very... unique person."
 "I return to that word again, as if it encompasses Rin's personality by itself, but really it's just a substitute for a lengthy description of her oddities."
 show emi basic_closedhappy
 with charachange
@@ -8579,8 +8591,8 @@ scene bg school_dormext_half
 with locationskip
 play music music_happiness fadein 2.0
 "The working area is a mess, but the mural itself has taken over even more of the wall since I last saw it."
-"The disfigured human figures have been mostly colored in tones of red, pink, and orange; weird, imaginary… things populating the spaces between."
-"It looks… nice. I can't think of any word that would describe the work concisely and comprehensively so I settle myself on a nondescript “nice.”"
+"The disfigured human figures have been mostly colored in tones of red, pink, and orange; weird, imaginary... things populating the spaces between."
+"It looks... nice. I can't think of any word that would describe the work concisely and comprehensively so I settle myself on a nondescript “nice.”"
 "But honestly, it seems that the area around the wall becomes untidier at the same rate as the mural progresses."
 "The ground is littered with dozens of paint cans, various art supplies and empty soda bottles."
 show rin negative_spaciness at center
@@ -8654,7 +8666,7 @@ rin "Don't you think that would be a good idea?"
 show rin basic_lucid
 with charachange
 hi "That only blind people should become artists? No, not as such."
-"…"
+"..."
 show rin basic_deadpan
 with charachange
 rin "You might have a point."
@@ -8669,7 +8681,7 @@ with charachange
 rin "Emi, I need the Prussian blue paint."
 show emi basic_confused
 with charachange
-emi "Which one's Prussian blue…"
+emi "Which one's Prussian blue..."
 "She is staring helplessly at seven or eight cans, each with a different tone of blue."
 show rin basic_deadpan
 with charachange
@@ -8678,7 +8690,7 @@ show emi basic_annoyed
 with charachange
 emi "Geez, Rin! You're not helping at all!"
 "I look around as well, even though I don't know what Prussian blue looks like, either. I wonder what blue has to do with Prussia."
-"…Or what Prussia even is. The name sounds vaguely familiar, but I can't place it."
+"...Or what Prussia even is. The name sounds vaguely familiar, but I can't place it."
 "While none of the blues looks more Prussian than the others, the small print on the labels is legible enough to determine that none say anything about the contents being Prussian."
 hi "There is no Prussian blue here."
 label en_A33:
@@ -8711,7 +8723,7 @@ with charaexit
 "Her foot works the brush steadily against the plastered wall. Layers of paint on top of layers of paint. The mural slowly gains more form."
 "I turn the pages at a leisurely pace. In this chapter they are drinking beer at the protagonist's friend's place. In the previous ones it was the protagonist's own apartment."
 "It's not a page-turner kind of book, a slice of someone's imaginary life that makes me wonder why it had to be written."
-"Why indeed. The reason for doing something creative… it's something incomprehensible."
+"Why indeed. The reason for doing something creative... it's something incomprehensible."
 "Like why Rin does paintings. It feels like she and Emi are the same, going squarely against their fates as if it's just out of spite."
 "Rin even said something like that. “Do something you can't just because you can.”"
 "Is that what she meant? Is that her reason? It might be Emi's, she comes off as quite a headstrong person."
@@ -8722,7 +8734,7 @@ with charaexit
 "What a grim thought. I can't really decide whether it's true or not, either."
 "Am I content being this way? I can't deny I'm feeling a little bit envious of Rin, but I can't really consider it a flaw of any kind."
 "I'm myself and she is herself."
-"Still, I do need to find something. Something that could… make me feel a little less lost about myself, instead of just drowning myself in these books as I did in the hospital."
+"Still, I do need to find something. Something that could... make me feel a little less lost about myself, instead of just drowning myself in these books as I did in the hospital."
 "I can't help but feel disoriented; the new school, lifestyle and people around me contribute heavily to this sensation."
 "I'm trying my best to fit into existing social circles, and most of the people I've met have been really nice."
 "It still feels like I'm an outsider, though; like I don't belong."
@@ -8774,7 +8786,7 @@ no_ "What bold composition you have here!"
 "He moves to inspect the mural closer, talking to himself about it in a way that makes it obvious he wants us to hear it too."
 show nomiya veryhappy
 with charachange
-no_ "Very good, very good indeed…"
+no_ "Very good, very good indeed..."
 "I don't really know what to make of it but Rin doesn't seem to care much. She's looking around her working space, the various bowls of different tones scattered all over."
 show rin basic_deadpan
 with charachange
@@ -8787,7 +8799,7 @@ hi "Give me a second."
 "I pour a 50-50 mix of two paints into the bowl to create more of the same pale pink tone Rin was using to fill up the shape of a man's face."
 "Rin watches me doing so, which makes me feel nervous somehow. Her face is so unassuming that it feels she's just waiting for me to do something wrong."
 "The man turns to reckon me as well, looking surprised as if he noticed my presence only just now."
-"…Maybe he did."
+"...Maybe he did."
 show nomiya talk
 with charachange
 no_ "Why, hello there. Who might you be?"
@@ -8809,7 +8821,7 @@ no "How did you come to end up assisting my protégée?"
 label en_choiceA33:
 menu:
     with menueffect
-    "I wish I knew…"
+    "I wish I knew..."
     "I just kinda stuck with her, I think.":
         return m1
     "I'm interested in the art club.":
@@ -8820,9 +8832,9 @@ hi "I guess I'm a little interested in the art club."
 show nomiya talk
 with charachange
 no "What do you mean?"
-hi "Nothing… specific."
+hi "Nothing... specific."
 hi "I wonder if I could come by sometime. Even if it's just to observe or something."
-hi "I've been thinking that I should join some club or something, so…"
+hi "I've been thinking that I should join some club or something, so..."
 "It's in no way a premeditated move, but a vague sense of determination has really been building inside of me for this past week."
 "I want to do something. I want to belong somewhere."
 "It might as well be the art club, my shortcomings notwithstanding."
@@ -8886,12 +8898,12 @@ hi "But that's pretty fitting, don't you think?"
 show rin basic_deadpan
 with charachange
 "Rin gives me a look, the laconic kind that looks like it doesn't mean anything but it does."
-hi "Anyway… I don't know, I guess I just rarely can come up with anything to say about art."
+hi "Anyway... I don't know, I guess I just rarely can come up with anything to say about art."
 hi "I mean, like this one you're doing now. I have no idea what to think about it, except that it looks nice. What is this painting about?"
 show rin basic_deadpannormal
 with charachange
 rin "It's not about anything at all."
-"…"
+"..."
 show rin basic_deadpandelight
 with charachange
 rin "That's what I'd like to say. So I did. "
@@ -8902,7 +8914,7 @@ rin "Teacher wanted me to do this, but I didn't have any ideas. I tried to have 
 show rin negative_spaciness
 with charachange
 rin "So now this is a painting without any ideas."
-hi "But… what are you painting then?"
+hi "But... what are you painting then?"
 show rin basic_absent
 with charachange
 rin "No idea."
@@ -9060,7 +9072,7 @@ play ambient sfx_crowd_indoors fadein 0.5
 "Maybe."
 scene bg school_staircase2
 with locationskip
-"…"
+"..."
 scene bg school_hallway3
 show crowd
 with locationskip
@@ -9090,12 +9102,12 @@ hi "Takes all kinds, right?"
 show emi basic_annoyed
 with charachange
 "Emi frowns. It's not a particularly good frown."
-hi "Er, that is…"
-hi "I should… get in shape?"
+hi "Er, that is..."
+hi "I should... get in shape?"
 "Not that I hadn't already decided to try for that."
 "After that flutter on the track I figure there's a real need to get in some sort of running habit."
 "I was, after all, feeling pretty good until I had my false alarm."
-"Well, actually I wasn't. But it was… fun?"
+"Well, actually I wasn't. But it was... fun?"
 "Meanwhile, my comment seems to have helped Emi come to some sort of a decision."
 show emi basic_closedgrin
 with charachange
@@ -9105,7 +9117,7 @@ show emi basic_annoyed
 with charachange
 "She gives me a serious look."
 emi "You're joining me."
-"…"
+"..."
 hi "I beg your pardon?"
 show emi basic_grin
 with charachange
@@ -9113,7 +9125,7 @@ emi "In the mornings."
 emi "You and I are now running partners."
 show emi basic_closedhappy
 with charachange
-emi "I've got a routine all planned out. In fact…"
+emi "I've got a routine all planned out. In fact..."
 play sound sfx_paper
 "She produces a crumpled sheet of paper."
 show emi excited_amused
@@ -9122,7 +9134,7 @@ emi "I've got it right here with me."
 play music music_running
 "I take the sheet of paper and give it a once-over."
 "Times, dates, and laps, all laid out."
-"A slow increase from just a few laps a day to…"
+"A slow increase from just a few laps a day to..."
 "My God, does she expect to have me running marathons?"
 "And where did she find the time to get this all together?"
 "And how long has she been planning this, anyway?"
@@ -9138,7 +9150,7 @@ with charachange
 emi "He told me to keep an eye on you to make sure you exercised like he told you to!"
 label en_A34a:
 "A vast conspiracy?"
-"Maybe Kenji's on to something here…"
+"Maybe Kenji's on to something here..."
 hi "This seems a bit much for just “keeping an eye on me.”"
 show emi sad_grin
 with charachange
@@ -9151,10 +9163,10 @@ emi "It's easier to keep up a workout if you're not the only one doing it."
 emi "Isn't that obvious?"
 emi "You're less likely to quit if someone else is counting on you to be there, right?"
 hi "I see. And this won't only keep you running, but it'll make sure that I keep running as well."
-hi "Meaning that I'll be obeying the nurse…"
+hi "Meaning that I'll be obeying the nurse..."
 show emi excited_proud
 with charachange
-emi "…and I'll be keeping an eye on you just like he asked!"
+emi "...and I'll be keeping an eye on you just like he asked!"
 show emi basic_closedgrin
 with charachange
 emi "You caught on quick, Hisao."
@@ -9173,7 +9185,7 @@ with charachange
 "As if to demonstrate, Emi begins pouting."
 "It is the most adorable, heart-wrenching thing I've ever seen."
 hi "Okay! I'll do it!"
-hi "Just… don't do that!"
+hi "Just... don't do that!"
 hi "I feel like I just hit a puppy!"
 show emi basic_closedgrin
 with charachange
@@ -9237,7 +9249,7 @@ scene black
 with Dissolve(3.0)
 label en_A34b:
 stop music fadeout 1.0
-"Damn, why do all these people insist on meddling with my matters? I guess the nurse is allowed, even obliged but…"
+"Damn, why do all these people insist on meddling with my matters? I guess the nurse is allowed, even obliged but..."
 hi "You know, I don't think that would be a good idea."
 hi "This is my problem, I don't really want to make anyone else involved."
 hi "I gotta figure it out myself."
@@ -9247,14 +9259,14 @@ emi "Are you angry about yesterday?"
 "She's pouting, looking distantly like a hurt puppy. I couldn't be angry now, even if I wanted."
 hi "No, it's not that. If anything, it was my own fault."
 "I lean against the wall, looking away from Emi."
-hi "I just… I don't know, it feels like a bad idea."
+hi "I just... I don't know, it feels like a bad idea."
 label en_A35:
 scene bg school_scienceroom at bgleft
 show hanako emb_downtimid at right
 with None
 "But why would Lilly leave her to her own devices? It seems to be quite out of the ordinary, going by Hanako's reaction."
-"…"
-"…Ah, that's right. I think Lilly mentioned something about going into town today before Rin bumped into us."
+"..."
+"...Ah, that's right. I think Lilly mentioned something about going into town today before Rin bumped into us."
 "The thought of that walk makes me look outside."
 $ renpy.music.set_volume(0.5, 1.0, channel="music")
 scene bg misc_sky at Fullpan(15.0)
@@ -9270,7 +9282,7 @@ with Dissolve(1.5)
 label en_choiceA35:
 menu:
     with menueffect
-    "There's got to be something to do that can kill the time…"
+    "There's got to be something to do that can kill the time..."
     "Go for a walk into town.":
         return m1
     "Go to the library.":
@@ -9321,18 +9333,18 @@ play music music_dreamy fadein 2.0
 show yuukoshang neutral_down at center
 with charaenter
 "Eventually a door some ways behind the counter opens, the person emerging from it taking me by complete surprise."
-hi "Yu… Yuuko?"
+hi "Yu... Yuuko?"
 hi "Hi, I had no idea you worked here."
 "I really have no idea how to address her either, given that she is technically school staff as well as, apparently, a waitress."
 show yuukoshang neurotic_up
 with charachange
-yu "Ah, yes, um…"
+yu "Ah, yes, um..."
 "She quickly paces up to the counter, before flinging her upper half downwards in an overacted bow."
 show yuukoshang closedhappy_down
 with charachange
 yu "Welcome to the Shanghai! May I take your order?"
 "Straight down to business, I see."
-hi "I don't know… well, some coffee, please?"
+hi "I don't know... well, some coffee, please?"
 show yuukoshang neutral_down
 with charachange
 yu "Yes, certainly. I'll make it right away and bring it to you when it's done."
@@ -9348,22 +9360,22 @@ show lilly basic_smileclosed at twoleft
 show akira basic_lost at tworight
 with charaenter
 "Sure enough, no more than a glance is needed to ascertain that it's a certain Satou at the table. That said, I don't recognize the suited figure across the table from her."
-"Blonde, fair-skinned and only a little shorter, he… she? I think she, must be a relative."
+"Blonde, fair-skinned and only a little shorter, he... she? I think she, must be a relative."
 "Since the two are all but silent as the suited figure takes a swig from a cup of coffee, I decide to greet Lilly. Some part of my coming here was in order to meet her, after all."
 hi "Hi, Lilly."
 show lilly basic_smile
 with charachange
-li "…Hisao?"
+li "...Hisao?"
 hi "Yeah. Nice to see you again."
 show akira basic_smile
 with charachange
 "The suited girl looks up, noting my uniform with a relaxed smile."
 aki_ "Know each other?"
-hi "I… guess."
+hi "I... guess."
 "It's as good an approximation of our relationship as I can think of."
 show lilly basic_smileclosed
 with charachange
-li "Hmm… care to take a seat?"
+li "Hmm... care to take a seat?"
 "She says this to the air beside me, but the message is clear enough and I take a seat beside her."
 show lilly basic_weaksmile
 with charachange
@@ -9407,7 +9419,7 @@ with charachange
 aki "Whoa, so cold. Weren't ya just cooking for yourself anyway? I only ever got leftovers."
 show lilly basic_displeased
 with charachange
-li "That's not the point… are you managing to feed yourself, at least?"
+li "That's not the point... are you managing to feed yourself, at least?"
 show akira basic_resigned
 with charachange
 aki "I can cook without blowing myself up, you know."
@@ -9416,7 +9428,7 @@ with charachange
 aki "Mostly."
 show lilly basic_listen
 with charachange
-li "That's…"
+li "That's..."
 show akira basic_laugh
 with charachange
 aki "Hahaha! It's fine, it's fine. I needed to learn sometime anyway."
@@ -9441,15 +9453,15 @@ with charachange
 aki "Well, I'd better be off. It was nice talking to ya, Lilly."
 show lilly basic_oops
 with charachange
-li "Akira, do you have to…"
+li "Akira, do you have to..."
 "Lilly looks genuinely mournful at her sister suddenly leaving. It does seem like she might have the wrong idea."
 show akira basic_resigned
 with charachange
 aki "Sorry, I need to get back to work. They'll be on my neck again if I don't make it back quickly."
-"So informal… Akira's trim and tidy appearance would give anyone the wrong impression of her."
+"So informal... Akira's trim and tidy appearance would give anyone the wrong impression of her."
 show lilly basic_concerned
 with charachange
-li "Bye, Akira…"
+li "Bye, Akira..."
 show akira basic_smile
 with charachange
 aki "C'mon, don't look so down. I'll be around again soon. Seeyas."
@@ -9470,7 +9482,7 @@ li "It was pretty far south, so the trip into Yamaku was fairly long."
 show lilly basic_reminisce
 with charachange
 li "With her working hours getting longer and Yamaku being so far away, there was little choice in the end but to move into the dormitories."
-"Well, that explains the chatter about cooking. Evidently regaining her composure, she livens back up… at least, in part."
+"Well, that explains the chatter about cooking. Evidently regaining her composure, she livens back up... at least, in part."
 show lilly basic_weaksmile
 with charachange
 li "I take it you're better rested, now?"
@@ -9478,7 +9490,7 @@ hi "Sorry?"
 show lilly basic_smileclosed
 with charachange
 li "You sound less exhausted than you did when you first came in."
-"To be able to pick out my breathing like that… she must have pretty good ears."
+"To be able to pick out my breathing like that... she must have pretty good ears."
 hi "Yeah. Ended up walking all over town, despite only planning on taking a short walk down here."
 "Reminded of my thirst from the walk, I lean forward to take a sip."
 play sound sfx_teacup
@@ -9496,7 +9508,7 @@ show lilly basic_smile
 with charachange
 li "Yuuko, could we have one more coffee please?"
 yu "Okay, I'll bring it right away!"
-hi "That's… not subtle."
+hi "That's... not subtle."
 show lilly basic_giggle
 with charachange
 "She gives a short giggle at my frank assessment of her maneuver. It's surprisingly childish and carefree, given her otherwise collected appearance."
@@ -9505,7 +9517,7 @@ with charachange
 hi "Wanting company, then?"
 show lilly basic_cheerful
 with charachange
-li "Hmm… I'd say that it's more that I was wondering…"
+li "Hmm... I'd say that it's more that I was wondering..."
 "I see she's in questioning mode, again. She does seem to be unusually interested in me, or at least curious."
 show lilly basic_smile
 with charachange
@@ -9514,7 +9526,7 @@ li "Do you have any siblings?"
 hi "No, only child. To be honest, the idea of having someone that close makes me a bit envious."
 show lilly basic_smileclosed
 with charachange
-li "Interesting…"
+li "Interesting..."
 "I raise an eyebrow, which of course goes unseen. The short silence communicates the question well enough."
 show lilly basic_smile
 with charachange
@@ -9527,7 +9539,7 @@ li "It's a difficult subject to try and think about objectively, given that I've
 "Despite always seeming to be on her guard and in control of herself when talking to others, she has an almost childlike curiosity about other people."
 "That said, those rare moments she seems to slightly lower her guard are the most insightful into how she thinks."
 "Reaching forward for my drink, I realize something I probably should've noticed earlier."
-"…I think I'm starting to become kind of curious about her."
+"...I think I'm starting to become kind of curious about her."
 stop music fadeout 2.0
 scene bg school_gate_ni
 with shorttimeskip
@@ -9575,13 +9587,13 @@ hi "No, I thought I'd sleep a bit later since it's the weekend and all, and I've
 "I wonder if she missed the poison in my words."
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Then it's a good thing we came to wake you up!"
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Anyway, Hicchan, I guess you would like to know why we're here, wouldn't you?"
@@ -9602,7 +9614,7 @@ with charachange
 hi "Aren't you two worried about constantly missing class?"
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "Well, it doesn't seem to be a problem! Hicchan, this school is pretty much at a standstill whenever this time rolls around."
@@ -9612,23 +9624,23 @@ mi "It's a Saturday, too~. Don't you want to do something fun?"
 "I'm amazed by how little they seem to care."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "Not that we're pressuring you to give us your company, but we thought you might like to hang out!"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
-mi "So… would you like to join us? Come on, you'll have a lot more fun than just sitting here with your head on your desk~!"
+mi "So... would you like to join us? Come on, you'll have a lot more fun than just sitting here with your head on your desk~!"
 "I guess I won't be missing anything important; nor will I be missed."
 hi "All right, then, I don't think I'd be missing much. What do you have in mind?"
 "My eyes narrow with suspicion as a thought crosses into my mind."
-hi "Wait… this isn't just some trick to get me to do some more student council stuff, right?"
+hi "Wait... this isn't just some trick to get me to do some more student council stuff, right?"
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "No, of course not!"
@@ -9637,10 +9649,10 @@ with charachange
 mi "And that's a really mean thing to just assume like that, Hicchan."
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
-mi "…And besides, you're in the Student Council now, remember?"
+mi "...And besides, you're in the Student Council now, remember?"
 show misha hips_grin
 with charachange
 mi "If we wanted you to do something for us, we wouldn't have to trick you~!"
@@ -9652,12 +9664,12 @@ with charachange
 "This is a kind of coercion that is new to me. Only two pretty girls could pull it off."
 stop music fadeout 3.0
 "I allow myself to relax a bit. Maybe I'm being too paranoid; it seems like they may really just want to hang out."
-"Nevertheless…"
+"Nevertheless..."
 hi "No tricks?"
 play music music_shizune fadein 4.0
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "No tricks! Stop being so paranoid!"
@@ -9666,7 +9678,7 @@ hi "Well, if you say so."
 hi "I wonder if you'd let me dress up first?"
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "Eh? Why, Hicchan? You look just fine!"
@@ -9685,14 +9697,14 @@ with locationchange
 show shizu behind_frown_close
 with characlose
 "While I'm contemplating this, Shizune taps me on the shoulder impatiently."
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "So, we're planning on slipping into town! Remember that tea shop we were at on Wednesday?"
 hi "Tea shop?"
 show shizu behind_frustrated_close
 with characlose
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "You don't remember?"
@@ -9702,11 +9714,11 @@ with charachange
 mi "Tea shop! It's called the Shanghai. China is the birthplace of tea, you know. Come on, Hicchan! I'll even treat you today!"
 show misha hips_grin
 with charachange
-mi "Ah… not me, not me, I mean Shicchan! Ahaha~!"
-hi "I don't know…"
+mi "Ah... not me, not me, I mean Shicchan! Ahaha~!"
+hi "I don't know..."
 show misha sign_smile
 with charachange
-mi "It's nice, it's really relaxing! It's like… half café, half restaurant, half sophisticated, half… library…"
+mi "It's nice, it's really relaxing! It's like... half café, half restaurant, half sophisticated, half... library..."
 "What?"
 hi "That's a lot of halves."
 "But Misha doesn't seem to notice that."
@@ -9715,7 +9727,7 @@ with charachange
 mi "So~! Come on, it's not often that we have this much free time!"
 show shizu adjust_smug_close
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "If you're busy, though, you don't have to! It's not like your presence is absolutely, absolutely required!"
@@ -9744,7 +9756,7 @@ hi "Is it always this quiet in the morning?"
 "By that, I mean is it always this empty."
 show shizu basic_normal
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "No, this is kind of weird. Hey, this isn't a bad thing though, right?"
@@ -9759,7 +9771,7 @@ mi "Nope!"
 "That was a strange amount of zest."
 scene ev shizu_shanghai_smirklaugh
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai_smirknormal
 with charachange
 mi "So, Hicchan, have you decided what you're going to order?"
@@ -9774,15 +9786,15 @@ with locationchange
 hi "I don't know, the last time I think I just got coffee? What do they serve here?"
 scene ev shizu_shanghai_smirknormal
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai_smirklaugh
 with charachange
 mi "Tea!"
-hi "Ah, well, that's…"
+hi "Ah, well, that's..."
 hi "Not just tea, right? Not only tea? There's other stuff too, right?"
 scene ev shizu_shanghai_normallaugh
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai
 with locationchange
 mi "Clearly~!"
@@ -9794,13 +9806,13 @@ hi "Clearly? Like what? There are no menus here. Where are the menus?"
 hi "Why don't you two order before me? Ladies first."
 scene ev shizu_shanghai_smirknormal
 with charachange
-shi "…"
+shi "..."
 mi "Well played, Hicchan, but~ we already ordered!"
 hi "How is that possible? When? How? From who?"
 mi "We're regulars, we come here so often that we don't have to do that any more!"
 scene ev shizu_shanghai
 with charachange
-shi "…"
+shi "..."
 mi "Well, I guess you've had enough. We're sitting on the menus, of course~!"
 scene ev shizu_shanghai_normallaugh
 with charachange
@@ -9809,14 +9821,14 @@ mi "Hahaha!"
 hi "Well, whatever. Can I have one, then?"
 scene ev shizu_shanghai_smirklaugh
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai_smirknormal
 with charachange
 mi "You can take one if you want, but you're not the kind of person who would do something that la—sci—vious?, isn't that right?"
 "I tell them that I'd just like some coffee and put my head down on the cool tabletop."
 scene ev shizu_shanghai_borednormal
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai_boredlaugh
 with charachange
 mi "Coffee? This is a very high class establishment, and you're going to order coffee?"
@@ -9824,7 +9836,7 @@ mi "Coffee? This is a very high class establishment, and you're going to order c
 hi "In that case, I'll have whatever you're having."
 scene ev shizu_shanghai_smirklaugh
 with charachange
-shi "…"
+shi "..."
 scene ev shizu_shanghai_smirknormal
 with charachange
 mi "Hicchan, Shicchan is drinking a special tea that is only grown in remote areas of India."
@@ -9838,7 +9850,7 @@ mi "I don't know what I'm drinking."
 "How?"
 hi "Fine, then I want the tea that people died for."
 hi "No, never mind. I'll have coffee."
-hi "If this is a very high class establishment, then they should have very high class coffee, right? … No one died for it, right?"
+hi "If this is a very high class establishment, then they should have very high class coffee, right? ... No one died for it, right?"
 scene ev shizu_shanghai
 with charachange
 "The perfect answer, there is no way they can stand against it. Shizune shrugs, as if to say “well played.”"
@@ -9862,7 +9874,7 @@ mi "Hicchan, do you have any plans for tomorrow?"
 play music music_running fadein 8.0
 hi "Plans? Yes."
 hi "Yes, I am incredibly busy tomorrow. In fact, I have so much to do that I will not have any free time at all."
-hi "That's right… none whatsoever. And everything I have to do is extremely important. Very, very important."
+hi "That's right... none whatsoever. And everything I have to do is extremely important. Very, very important."
 show misha hips_grin_close at tworight
 with charachange
 "Misha giggles, clearly not buying it, and then signs it all back to Shizune, who nods slowly and deliberately while looking very unamused."
@@ -9872,7 +9884,7 @@ with characlose
 "After at least a minute of this, she sits back down in her seat and takes a sip of tea."
 show shizu behind_blank
 with charadistant
-shi "…"
+shi "..."
 show misha perky_smile_close
 with charachange
 mi "Okay, Hicchan, if you're that busy. We don't have anything to do tomorrow, so we thought maybe you would want to hang out with us at the festival!"
@@ -9881,7 +9893,7 @@ with charachange
 mi "You're new here, anyway, right? Right? So~ we thought we would show you around and have some fun together, but if you're that busy, we understand!"
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 mi "Oh well, oh well!"
 show misha cross_grin_close
 show shizu basic_normal2
@@ -9895,10 +9907,10 @@ with charachange
 mi "Hicchan, you're so paranoid."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha cross_smile_close
 with charachange
-mi "…And you'll never beat me anyway, so why bother getting so worked up about it?"
+mi "...And you'll never beat me anyway, so why bother getting so worked up about it?"
 show misha cross_laugh_close
 with charachange
 mi "Haha! Wow, Shicchan~!"
@@ -9906,44 +9918,44 @@ hi "Beat you? What are you talking about?"
 "Is she talking about the coercion? I never realized that was just a game to her. I thought I was the only one who saw it as competition."
 show shizu basic_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_close
 with charachange
-mi "You know~! …Eh? Do you, Hicchan? Because I don't."
+mi "You know~! ...Eh? Do you, Hicchan? Because I don't."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile_close
 with charachange
-mi "You can't outwit me! —Ah, well, Hicchan, not me…"
+mi "You can't outwit me! —Ah, well, Hicchan, not me..."
 show shizu basic_sparkle
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused_close
 with charachange
-mi "What? What are you talking about, Shicchan…"
+mi "What? What are you talking about, Shicchan..."
 "I can see Shizune smiling craftily, daring me to enter this battle of wills and wits with her."
 "When he is pushed to the edges of despair, a man has no choice but to sink, or grasp at the fleeting wisps of hope, fight with all his power against the inevitabilities of his fate and struggle against the impossible."
-"For even if he fails, at least fail knowing that he dared greatly…"
-"…Or something like that."
+"For even if he fails, at least fail knowing that he dared greatly..."
+"...Or something like that."
 hi "Well, we'll see about that. Don't underestimate me."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_close
 with charachange
 mi "Don't you have to follow through to make good on that, Hicchan?"
 hi "Ah, well, I could get lucky. Don't count out that possibility."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha cross_grin_close
 with charachange
 mi "You won't~."
 hi "I will! Wait—"
 show shizu basic_happy
 with charachange
-shi "…"
+shi "..."
 show misha cross_smile_close
 with charachange
 mi "Let's make a wager on it, then!"
@@ -9955,14 +9967,14 @@ with charachange
 mi "That's okay if you don't know, neither do I! Wahahaha!"
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_close
 with charachange
 mi "So it's settled, then! All right, all right!"
 hi "What? Didn't you hear what I just said?"
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile_close
 with charachange
 mi "Now all that's left is the stakes! What the winner wins, or, more interestingly, what the loser loses!"
@@ -9970,7 +9982,7 @@ hi "Hey!"
 "This is a very dangerous game I'm playing. Shizune herself is a very dangerous girl, if she can only think in terms of winning and losing."
 "If she views every time that I talk with her as some kind of battle of wills, I don't think I could take it."
 "That kind of thing drives people insane. She's too Machiavellian; before this I'd assumed she was just kind of stoic."
-"But nevertheless, I'm interested. In hindsight, I realize that I just challenged her to what is essentially a duel without any rules that won't end until one of us… what?"
+"But nevertheless, I'm interested. In hindsight, I realize that I just challenged her to what is essentially a duel without any rules that won't end until one of us... what?"
 "I guess that's it. That's so vague. What are the conditions for winning or losing? The first person to feel stupid loses?"
 hi "I don't know, I've never had to think of anything like this before."
 show misha hips_smile_close
@@ -9983,29 +9995,29 @@ mi "So you have never gambled, Hicchan?"
 hi "I'm surprised you two have."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_close
 with charachange
-mi "Oh, come on… It's just for fun, anyway! Between friends~!"
+mi "Oh, come on... It's just for fun, anyway! Between friends~!"
 show misha sign_smile_close
 with charachange
 mi "It's about causing humiliation, suffering, and absolute despair! Isn't that the point?"
 "Shizune puts a finger to her temple thoughtfully."
 show shizu adjust_happy
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_smile_close
 with charachange
-mi "Hm… Ah, how about this, Hicchan: If you lose, you have to go to school one day without any pants on."
+mi "Hm... Ah, how about this, Hicchan: If you lose, you have to go to school one day without any pants on."
 hi "Are you insane?"
 "Although in comparison to what I was afraid she would say, it's pretty mild."
 hi "Can't we just bet money, like normal people?"
 show shizu basic_sparkle
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_close
 with charachange
-mi "It's not like you could match my wager if we did~! Now, it's your turn! …But nothing perverted! Understand?"
+mi "It's not like you could match my wager if we did~! Now, it's your turn! ...But nothing perverted! Understand?"
 show misha hips_laugh_close
 with charachange
 mi "Hahaha!"
@@ -10024,21 +10036,21 @@ mi "Hicchan, are you sure you don't want to hang out tomorrow? A lot of people a
 "I mumble unintelligibly at her."
 show misha perky_confused_close
 with charachange
-mi "I don't really understand…"
+mi "I don't really understand..."
 "It's time to think. Shizune's drink is smaller, but I can consume mine faster."
 "If Shizune finishes her drink first, she might skip out on paying, leaving me to pick up the tab, even though she said the drinks were on her."
 "Because I have no money on me, I would be humiliated, and therefore this could be considered a loss."
 "If I finish first, the laws of chivalry would make me look like a jerk, as I would need to run out of this teahouse, leaving her to pay for everything. That could also be considered a loss. She would use that."
-"In the event of a draw, she may attempt to run out the door, and I'll probably do the same. This might lead to a collision at the door, which would be humiliating, but not overly so. …And Misha would be left to pick up the tab."
+"In the event of a draw, she may attempt to run out the door, and I'll probably do the same. This might lead to a collision at the door, which would be humiliating, but not overly so. ...And Misha would be left to pick up the tab."
 "This is really childish. I'm a little disappointed in Shizune, and myself."
 show misha perky_smile_close
 with charachange
-mi "Well, Hicchan, it'd be really nice if we could all celebrate how well we put everything together for the festival by taking a look at our handiwork…"
+mi "Well, Hicchan, it'd be really nice if we could all celebrate how well we put everything together for the festival by taking a look at our handiwork..."
 "Misha seems oblivious to the fact that an epic battle of wills is raging in front of her. I nod slowly and down the last of my coffee."
 hi "Well, I am finished enjoying my drink. I guess it's time for me to leave. And I am going to leave now. Calmly."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused_close
 with charachange
 mi "You too, Shicchan?"
@@ -10096,7 +10108,7 @@ with charachange
 mi "We need your help~!"
 show shizu cross_angry
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "You will help us!"
@@ -10105,7 +10117,7 @@ hi "That sounds like an order."
 mi "Really? Is it?"
 show shizu behind_frown
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "Eh? It is?"
@@ -10118,7 +10130,7 @@ with charachange
 mi "I thought we had almost everything done by now, but it turns out we have all these signs to attach to backing boards."
 show shizu adjust_angry
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "More hands make light work!"
@@ -10127,7 +10139,7 @@ with charachange
 mi "And everybody wins! Hahahahaha!"
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "This is your duty, after all, as a member of the Student Council. Which you are a part of."
@@ -10138,13 +10150,13 @@ with charachange
 mi "Ahahaha~!"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile
 with charachange
 mi "It's a simple task, so getting it out of the way now would be good. It's not that much work. A small thing, really!"
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 mi "And we'd really appreciate your help!"
 mi "Really, really appreciate it!"
 show misha hips_grin
@@ -10153,7 +10165,7 @@ mi "Besides, it's time to pay back for us treating you so nicely!"
 hi "So the tea shop was a trap after all! You two-timing scoundrels!"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha cross_smile
 with charachange
 mi "Don't say that, it was completely unrelated. We wanted to celebrate you joining the council!"
@@ -10161,7 +10173,7 @@ mi "Don't say that, it was completely unrelated. We wanted to celebrate you join
 hi "But—{w=0.3}{nw}"
 show shizu cross_rage
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_grin
 with characlose
 mi "No buts! You're coming with us!"
@@ -10177,7 +10189,7 @@ with charachange
 "Misha laughs giddily as she and Shizune exchange sly looks behind my back."
 show shizu basic_angry_close
 with charachange
-shi "…!"
+shi "...!"
 mi "Ah, I don't think you have a choice in this, Hicchan! Hahahaha!"
 show misha hips_grin at twoleft
 show shizu basic_angry at tworight
@@ -10185,23 +10197,23 @@ with charadistant
 mi "There are two of us, so don't even try to get away, now! Don't take us lightly!"
 show shizu behind_frown
 with charachange
-shi "…!"
+shi "...!"
 mi "Hicchan, it's your duty to help us, anyway! As a member of the Student Council!"
 hi "All right, all right! How could I forget?"
 hi "But, seriously, aren't there other people who can help you?"
 show misha perky_confused
 with charachange
 mi "Like who, Hicchan?"
-mi "You were fine with helping us yesterday…"
+mi "You were fine with helping us yesterday..."
 hi "Yesterday is not today!"
 hi "And anyone who isn't me!"
 hi "Why don't you have anyone else in the council?"
 show shizu cross_wut
 with charachange
-shi "…!"
+shi "...!"
 show misha cross_laugh
 with charachange
-mi "That's what we'd like to know! …Aha… Ahahahahaha!"
+mi "That's what we'd like to know! ...Aha... Ahahahahaha!"
 "Misha's laughter explodes through the hall. She doesn't notice the grimace on my face at all. That's right, it's just the two of them, isn't it?"
 hi "Oh, right. Okay, I'll help you."
 show misha hips_grin
@@ -10210,7 +10222,7 @@ with charachange
 mi "That's my Hicchan! I knew we could trust you~!"
 show shizu behind_smile
 with charachange
-shi "…!"
+shi "...!"
 mi "So predictable~."
 stop music fadeout 2.0
 scene bg school_council
@@ -10222,17 +10234,17 @@ play music music_ease fadein 4.0
 show shizu behind_blank at tworight
 show misha perky_smile at twoleft
 with charaenter
-mi "Hahaha~! Really? Well, there are a lot of them, so maybe…"
+mi "Hahaha~! Really? Well, there are a lot of them, so maybe..."
 show shizu basic_angry
 with charachange
-shi "…!"
+shi "...!"
 show misha perky_confused
 with charachange
 mi "Eh? No?"
 mi "How do you know that, Shicchan?"
 show shizu behind_frown
 with charachange
-shi "…!"
+shi "...!"
 mi "Really?"
 hi "Don't tell me she's actually considered it?!"
 show misha hips_grin
@@ -10242,19 +10254,19 @@ with charachange
 "So she has considered it."
 show shizu basic_normal2
 with charachange
-shi "…!"
-mi "Ahaha! That's… irrelevant, Hicchan! Can you get on with making the signs, please?"
+shi "...!"
+mi "Ahaha! That's... irrelevant, Hicchan! Can you get on with making the signs, please?"
 hi "All right, all right."
 hi "I feel sort of lied to, though. I thought you said it wouldn't be that much work?"
 show shizu behind_blank
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_smile
 with charachange
 mi "Ah, well, Shicchan meant it wouldn't be that much work for us."
 show shizu basic_normal
 with charachange
-shi "…!"
+shi "...!"
 mi "Someone has to supervise you while you do this, you know, to make sure you're doing it right. And those people will be us."
 hi "So what are you two going to do?"
 show misha cross_laugh
@@ -10263,7 +10275,7 @@ with charachange
 mi "Watch you! Hahahaha~!"
 show shizu adjust_happy
 with charachange
-shi "…!"
+shi "...!"
 show misha perky_smile
 with charachange
 mi "No, that was just a joke, Hicchan. We'll help out too, of course. The Student Council is really supposed to have a lot more people."
@@ -10273,7 +10285,7 @@ mi "This is just a bad year. Fewer people than usual, even though we already did
 mi "And then there's just a lot more work than before, too."
 show shizu behind_smile
 with charachange
-shi "…!"
+shi "...!"
 show misha perky_smile
 with charachange
 mi "Besides, Shicchan likes working with you. And so do I!"
@@ -10293,7 +10305,7 @@ with charaenter
 "She smiles, tossing it expertly into a trash can along with another empty box of tacks."
 show shizu behind_smile_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_grin_ss
 with charachange
 mi "So you're out too, Hicchan? Don't worry, Shicchan says she'll get some more."
@@ -10318,7 +10330,7 @@ with charachange
 hi "Wait a second, so what did you two do for the past 20 minutes?"
 show shizu adjust_happy_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_grin_ss
 with charachange
 mi "Ahaha~! Nothing, of course! What could we do? We had no tacks, Hicchan!"
@@ -10329,7 +10341,7 @@ with charachange
 hi "I see. So you decided to take a break. Clever."
 show shizu adjust_smug_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_grin_ss
 with charachange
 mi "Oh, we know it was clever."
@@ -10374,7 +10386,7 @@ hi "Childhood friends?"
 hi "Next-door neighbors?"
 show misha perky_sad_ss
 with charachange
-mi "Haha… Sorry, Hicchan, it's not anything like that, even if it would be cuter that way."
+mi "Haha... Sorry, Hicchan, it's not anything like that, even if it would be cuter that way."
 show misha perky_smile_ss
 with charachange
 mi "When I came to this school, they just placed me next to Shicchan, and she looked like a very serious person."
@@ -10419,12 +10431,12 @@ with charaenter
 "At that moment, Shizune steps back into the room, looking slightly annoyed and sipping offhandedly from a juicebox."
 show shizu adjust_happy_ss
 with charachange
-shi "…"
+shi "..."
 play sound sfx_dropstuff
 "She throws two boxes of tacks on the floor with a wry smile."
 show shizu basic_normal2_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha sign_smile_ss
 with charachange
 mi "Ah, Shicchan."
@@ -10435,28 +10447,28 @@ with charachange
 "Misha opens her mouth to speak, but then quickly closes it as Shizune suddenly crumples her juicebox with a crunch like the sound of breaking bones."
 show shizu basic_angry_ss
 with charachange
-shi "…!"
+shi "...!"
 show shizu adjust_angry_ss
 with charachange
-shi "…"
+shi "..."
 show shizu behind_frown_ss
 with charachange
-shi "…!"
+shi "...!"
 "I can tell that each harsh, quaking hand gesture is most likely an epithet."
 hi "What's she saying?"
 show misha perky_confused_ss
 with charachange
-mi "It was just very hard to get these…"
+mi "It was just very hard to get these..."
 show shizu basic_angry_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha sign_confused_ss
 with charachange
-mi "I guess that is an understatement, Shicchan…"
+mi "I guess that is an understatement, Shicchan..."
 "Shizune calms down a bit, straightening her glasses and lightly brushing her bangs back with one finger."
 show shizu adjust_happy_ss
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_ss
 with charachange
 mi "It really wasn't a big deal in retrospect? That's forward thinking of you!"
@@ -10476,14 +10488,14 @@ with charaenter
 "Shizune falls into a nearby chair, cracking her knuckles systematically and letting out a muted yawn."
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "That's all for today, I guess! That's a good thing, Shicchan, I'm very tired, too."
 hi "That took longer than expected."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "You agree? Hahaha, we didn't expect it to take so long either! Not as planned!"
@@ -10494,12 +10506,12 @@ mi "Aww, I'm so hungry. I just realized I haven't eaten all day."
 hi "I think they already stopped serving dinner."
 show misha perky_confused
 with charachange
-mi "This can't be happening! Hicchan, can you think of any way we could… obtain food?"
+mi "This can't be happening! Hicchan, can you think of any way we could... obtain food?"
 hi "Obtain food?"
 "I don't like her tone of voice."
 show shizu adjust_happy
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Why not order out? Oh, that's right, I guess I could do that."
@@ -10515,13 +10527,13 @@ with charachange
 mi "Ahahaha~! Hicchan, you should have just said so in the first place!"
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "What's that? It's your treat? That's great! That's great!"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha cross_laugh
 with charachange
 mi "Wahaha, that's true, if it wasn't for you, we wouldn't be here so late, Shicchan!"
@@ -10542,14 +10554,14 @@ with charachange
 mi "All right, all right! And you, Shicchan?"
 show shizu basic_normal2
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile
 with charachange
 mi "A Chinese omelette? Okay, then."
 hi "Hey, Misha, does that really mean “omelette”? Can I see that again?"
 show misha hips_grin
 with charachange
-mi "Sure! Haha! Like this, like this…"
+mi "Sure! Haha! Like this, like this..."
 show misha sign_smile
 with charachange
 show misha perky_smile
@@ -10566,7 +10578,7 @@ with charachange
 mi "Shrimp fried rice!"
 show misha hips_grin
 with charachange
-mi "I'm going to get soup and a stir-fry, you say that like this…"
+mi "I'm going to get soup and a stir-fry, you say that like this..."
 show misha sign_smile
 with charachange
 show misha perky_smile
@@ -10576,7 +10588,7 @@ show misha perky_smile:
     pause 0 "misha cross_laugh" with Dissolve(0.5, alpha=True)
 with None
 extend " Wahahahaha~!"
-hi "Well, I don't know in how many situations I'll need to remember such an exact number…"
+hi "Well, I don't know in how many situations I'll need to remember such an exact number..."
 mi "Ahahahaha! Okay~! I'm going to order now, unless anyone wants something else. No objections? All right all right, then!"
 scene bg school_council_ni
 show shizu behind_frustrated at tworight
@@ -10593,13 +10605,13 @@ with charachange
 mi "That's exactly it! Hahahahahaha!"
 show shizu basic_angry
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "I'm overstating it?"
 show shizu behind_blank
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Haha! That's right, Shicchan! Hey, Hicchan, did you know that once we've collected a hundred pairs of chopsticks from ordering out, we'll be able to take over the universe?"
@@ -10612,7 +10624,7 @@ with charachange
 mi "She was really mad about that!"
 show shizu adjust_blush
 with charachange
-shi "…!"
+shi "...!"
 "I let out a laugh as Shizune turns bright red with indignation. I didn't know she had such a childish side."
 stop music fadeout 5.0
 scene bg school_council_ni
@@ -10666,12 +10678,12 @@ with locationchange
 "Unlike last time I saw her here, I quietly take a seat in a beanbag. The noise is enough to catch her attention, but not startle her."
 "This delicate routine that must be followed each and every time I try to talk to her almost feels like hunting game."
 hi "Is that the same book as before?"
-ha "Y-yes… I'm almost finished…"
+ha "Y-yes... I'm almost finished..."
 hi "Cool."
-"I wonder if I should…"
+"I wonder if I should..."
 hi "Do you mind if I borrow it when you're finished?"
 "My mouth is faster than my mind, it seems."
-ha "S-sure… you m-may not like it but…"
+ha "S-sure... you m-may not like it but..."
 hi "I'm sure it can't be that bad. After all, you've stuck with it, haven't you?"
 ha "I-I guess."
 scene bg school_library
@@ -10685,53 +10697,53 @@ with charaenter
 show hanako basic_worry
 with charachange
 "She nods before taking her eyes off her book. She must have been really into it after all."
-ha "Lilly said she had to go and… meet someone…"
+ha "Lilly said she had to go and... meet someone..."
 hi "Oh?"
 show hanako basic_normal
 with charachange
-ha "A-Akira. Her sister…"
-hi "Sister? I haven't heard her talk about her family…"
+ha "A-Akira. Her sister..."
+hi "Sister? I haven't heard her talk about her family..."
 show hanako cover_distant
 with charachange
-ha "She… she and Akira used to live together."
+ha "She... she and Akira used to live together."
 hi "I thought all the students lived in the dorms?"
 show hanako cover_worry
 with charachange
-ha "T-they… I mean we… don't have to."
-hi "But it's easier, right? I mean, there's food here and you're close to school… I don't think I've ever been to class on time so often in my life."
+ha "T-they... I mean we... don't have to."
+hi "But it's easier, right? I mean, there's food here and you're close to school... I don't think I've ever been to class on time so often in my life."
 show hanako cover_smile
 with charachange
 "Her badly hidden smile proves quite rewarding."
 "In the back of my mind I know I have a bit of homework to catch up on, but it's quite comfortable in here. No one can find me and force me into working for their pet project, either."
-"Though now that I'm thinking about the festival, another question comes up…"
+"Though now that I'm thinking about the festival, another question comes up..."
 hi "Hey, Hanako, what are you doing for the festival?"
 stop music fadeout 0.2
 show hanako def_shock
 with charachange
 "For a split second I think that Hanako is about to throw her book in the air from shock."
-ha "S-sorry…?"
+ha "S-sorry...?"
 hi "I was just asking what you're doing for the festival tomorrow. Anything planned?"
 show hanako def_worry
 with charachange
-ha "I… I don't know."
+ha "I... I don't know."
 "Hanako answers in the way that people do when they don't want you to ask any more questions. I take it large crowds and loud music aren't really her “thing.”"
 hi "Oh, okay."
-"Change the subject, change the subject…"
+"Change the subject, change the subject..."
 play music music_happiness fadein 4.0
 hi "So, what's Lilly's sister like?"
 show hanako basic_normal
 with charachange
-ha "She… she's nice. She's pretty like Lilly, but she dresses… business-like…"
+ha "She... she's nice. She's pretty like Lilly, but she dresses... business-like..."
 hi "Business-like?"
 show hanako basic_distant
 with charachange
-ha "She… she's always wearing a suit…"
+ha "She... she's always wearing a suit..."
 hi "Ah, I see. And that makes her less pretty somehow?"
 show hanako emb_emb
 with charachange
 "Hanako gives an embarrassed shake of her head."
-ha "N-no… just… different."
-"I'll admit it, this has got me intrigued. To hear Hanako talk about someone other than Lilly is a first, and to be complimentary about it too…"
+ha "N-no... just... different."
+"I'll admit it, this has got me intrigued. To hear Hanako talk about someone other than Lilly is a first, and to be complimentary about it too..."
 "But as I try to picture this mystery sister, all I can think of is Lilly in a suit. And I can't imagine that not being attractive. Not at all."
 hi "Well, one day you'll have to introduce me to her."
 show hanako basic_bashful
@@ -10749,7 +10761,7 @@ hi "Do you think Lilly would be back by now? I think I might head back to my dor
 "I can feel myself nodding off as I read my book."
 show hanako basic_smile_ss at center
 with charaenter
-ha "O-okay. I… I might stay here a little longer."
+ha "O-okay. I... I might stay here a little longer."
 "Looking at Hanako's book, I can see that she is only a few pages away from completing it."
 "For a moment I consider hanging around until she finishes, but once again my stomach turns, emitting a gurgling sound."
 hi "Sure thing. Well I'm going to head off before it gets dark. I'll see you around, okay?"
@@ -10776,7 +10788,7 @@ with charachange
 ha "N-night."
 scene bg school_hallway2
 with locationchange
-"I leave her to finish her book and head back to the dorms and the promise of food…"
+"I leave her to finish her book and head back to the dorms and the promise of food..."
 stop music fadeout 3.0
 $ suppress_window_after_timeskip = True
 scene black
@@ -10805,7 +10817,7 @@ with locationchange
 "I'm curious if he has any plans, since everyone is doing something."
 "Then again, I can picture him having built a soundproof shelter in his room."
 "Or possibly something like a fort, complete with “No Girls Allowed” sign."
-"… and with the “Girls” crossed out and “body” crudely scrawled underneath it."
+"... and with the “Girls” crossed out and “body” crudely scrawled underneath it."
 stop music fadeout 2.0
 play sound sfx_doorknock2
 "Knocking on his door which is luckily devoid of any kind of sign, I hear again the unsettling clicking of at least ten locks being pulled back. The door opens up a crack."
@@ -10831,19 +10843,19 @@ hi "What?"
 ke "What what? Is today special? Why are they there? Who are?"
 show kenji tsun
 with charachange
-ke "I can hear them. It's loud… don't tell me… Has the invasion begun?"
+ke "I can hear them. It's loud... don't tell me... Has the invasion begun?"
 "He suddenly looks more alarmed."
 show kenji neutral
 with charachange
 ke "What day is it, man?"
-hi "Yeah I guess you can't see the big wooden booths outside, and people selling stuff…"
+hi "Yeah I guess you can't see the big wooden booths outside, and people selling stuff..."
 ke "What the hell are you talking about? I have my curtains closed at all times to thwart the snipers."
-hi "Uhh, it's the festival. You know that… right?"
+hi "Uhh, it's the festival. You know that... right?"
 show kenji tsun
 with charachange
-ke "Oh shit, that's today? Ah, damn. Ah… damn. Dammit."
+ke "Oh shit, that's today? Ah, damn. Ah... damn. Dammit."
 ke "I can't believe I forgot, I don't have my fort finished yet. This is bad."
-ke "This is going to be a very bad day… It's good you told me this, man. This is going to be a bad day."
+ke "This is going to be a very bad day... It's good you told me this, man. This is going to be a bad day."
 hi "Why?"
 show kenji neutral
 with charachange
@@ -10861,7 +10873,7 @@ ke "I can't believe this. So that's what today was."
 ke "Damn, and I couldn't even prepare for it."
 show kenji tsun
 with charachange
-ke "I couldn't even brace myself and now it's here and I can't do anything. You should have told me this earlier, dude. I mean, at least, I know, but… I could have known earlier! Imagine what I could have accomplished…"
+ke "I couldn't even brace myself and now it's here and I can't do anything. You should have told me this earlier, dude. I mean, at least, I know, but... I could have known earlier! Imagine what I could have accomplished..."
 hi "Sorry. I thought you knew."
 hi "So I guess you're not going to do anything today?"
 hi "The weather is even good. Yesterday was really windy, so I thought today would be cold. It's not, though, so there's no reason to just stay inside. Yeah, you should check the festival out."
@@ -10886,11 +10898,11 @@ hi "They're both girls."
 play music music_tension
 show kenji rage
 with charachange
-ke "Really? Are they cute? Damn, no, wait… are they cute?"
-ke "No! It doesn't matter! I heard the Student Council president is insane… that whoever it is never talks and only gives orders through flunkies."
+ke "Really? Are they cute? Damn, no, wait... are they cute?"
+ke "No! It doesn't matter! I heard the Student Council president is insane... that whoever it is never talks and only gives orders through flunkies."
 show kenji tsun
 with charachange
-ke "Shit, they're the same in every school… Sounds like a cold-hearted bitch. Bitches everywhere."
+ke "Shit, they're the same in every school... Sounds like a cold-hearted bitch. Bitches everywhere."
 ke "If it's two girls, they outnumber you two-against-one. That is a dangerous situation, dude. Who knows what can happen."
 ke "Damn, the Student Council is just two women, but they hold so much power."
 ke "They must be stopped."
@@ -10909,7 +10921,7 @@ ke "Are you out of your mind?"
 ke "That blind broad is up to no good; I can feel it in my spleen, man. Her presence is like a dark shadow that's in the way of my great vision."
 ke "As expected of blind people."
 hi "What."
-hi "Besides, I thought that you were also…"
+hi "Besides, I thought that you were also..."
 show kenji neutral
 with charachange
 "He holds up his hand to interrupt me."
@@ -10942,13 +10954,13 @@ with charachange
 ke "It doesn't matter."
 ke "Tread carefully man, tread carefully."
 label en_A38d:
-hi "I wonder… I'm kinda hungry, but I made this deal that I try to take better care of myself. Be healthier, you know."
+hi "I wonder... I'm kinda hungry, but I made this deal that I try to take better care of myself. Be healthier, you know."
 hi "Dunno if I should steer clear of the takoyaki, or head straight in."
 show kenji tsun
 with charachange
 ke "Deal? Sounds ominous. So what are you getting in return?"
 hi "Nothing, I guess? It's not that kind of a deal."
-hi "You know Emi, from our year? We kinda agreed to watch each other's backs and…"
+hi "You know Emi, from our year? We kinda agreed to watch each other's backs and..."
 show kenji rage
 with charachange
 ke "Aieeeeeeee!"
@@ -11016,14 +11028,14 @@ with Dissolve(0.7)
 mi "We just came to make sure you're coming along with us to the festival."
 show shizu basic_angry_close at tworight
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile at twoleft
 with charachange
 mi "Don't renege on your promise~!"
 hi "Promise? I don't think I promised anything."
 show shizu cross_angry_close
 with charachange
-shi "…"
+shi "..."
 show misha hips_frown
 with charachange
 mi "Stop trying to get out of it!"
@@ -11046,16 +11058,16 @@ hi "Huh?"
 "I think my heart just skipped a beat."
 show misha perky_smile
 with charachange
-mi "I don't have the aim to knock the dolls off their pedestals in that one game… and Shicchan refuses to throw things."
+mi "I don't have the aim to knock the dolls off their pedestals in that one game... and Shicchan refuses to throw things."
 hi "Oh."
 "Shizune stares at me, immediately noticing my disappointment. She uncrosses her arms and adjusts her glasses."
 show shizu adjust_happy_close
 with charachange
-shi "…"
+shi "..."
 mi "What did you think we meant? I refuse to throw anything."
 show misha perky_confused
 with charachange
-mi "Why, Shicchan? That is weird…"
+mi "Why, Shicchan? That is weird..."
 show misha perky_smile
 with charachange
 mi "Well, anyway, Hicchan, you've thrown a ball before, right~, right~? So! You have to come with us!"
@@ -11064,12 +11076,12 @@ hi "Heh, I'd feel offended if I didn't know you guys were joking."
 hi "You're joking, right?"
 show shizu behind_frown_close
 with charachange
-shi "…"
+shi "..."
 mi "It is what it is, Hicchan~! It is what it is what it is what it is what it is!"
 hi "Well that's reassuring."
 show shizu basic_normal2_close
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile_close at closeleft
 with characlose
 mi "Come on, let's go! The deaf band is setting up outside your window."
@@ -11096,7 +11108,7 @@ play music music_running
 show shizu basic_normal2 at tworight
 show misha perky_smile at twoleft
 with charaenter
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "Well, we should get something to eat. Hungry, Hicchan?"
@@ -11108,21 +11120,21 @@ mi "That's okay, there are other fried foods!"
 hi "Are there any foods that aren't fried?"
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 mi "Candy. Junk food is the essence of celebrations!"
 show misha cross_laugh
 with charachange
 mi "Wahahahaha!"
 show shizu behind_smile
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin
 with charachange
 mi "Come on, I - I mean, Shicchan - will treat you to one thing~!"
 mi "One?"
 show shizu adjust_smug
 with charachange
-shi "…!"
+shi "...!"
 show misha sign_smile
 with charachange
 mi "Just one~! Only so you can build up energy for your throwing arm!"
@@ -11135,7 +11147,7 @@ mi "Ah, but it doesn't look like all the booths are done setting up yet, so you 
 "I can smell food cooking, and it's only making me hungrier by the second."
 show shizu behind_frustrated
 with charachange
-shi "…"
+shi "..."
 show misha perky_confused
 with charachange
 mi "Come on, Hicchan, the food is already disappearing fast! If you want takoyaki, we need to move now!"
@@ -11175,7 +11187,7 @@ mi "Eh? Hicchan, you aren't going to eat your food?"
 hi "No, I'm going to eat it."
 show shizu adjust_smug
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile
 with charachange
 mi "I hope you aren't chickening out because it's too hot."
@@ -11199,7 +11211,7 @@ mi "Ahahaha~! Come on, Hicchan, let's go play some games!"
 hi "Are they even done setting up?"
 show shizu adjust_happy_close_ss
 with charachange
-shi "…"
+shi "..."
 show misha cross_grin_ss
 with charachange
 mi "No, but it doesn't matter, it doesn't matter~! Come on, Hicchan, before it gets too crowded!"
@@ -11212,16 +11224,16 @@ mi "Come on! Come on! The prizes look really great this year, really really~! Wo
 "Misha flashes her best “cute” look, which is admittedly pretty cute. I look at Shizune, expecting her to do the same, but she just looks at me like I'm insane."
 show shizu cross_wut_close_ss
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_close_ss
 with characlose
 mi "Misha, stop doing that!"
 show misha perky_confused_close_ss
 with charachange
-mi "Wait… I'm Misha…"
+mi "Wait... I'm Misha..."
 show shizu basic_normal2_close_ss
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile_close_ss
 with charachange
 mi "Hicchan, hurry up, you've been holding that piece of takoyaki for like a thousand years!"
@@ -11243,13 +11255,13 @@ with charachange
 "Before I can even fully process what just happened, Misha bursts into laughter, and Shizune smiles at me, probably the closest I've ever seen her come to laughing."
 show shizu adjust_happy_close_ss
 with charachange
-shi "…!"
+shi "...!"
 mi "Well, that takes care of that~! Wahaha! Hahahaha!"
 stop music fadeout 6.0
 "Shizune grabs my right hand, and Misha grabs my left."
 show shizu behind_smile_close_ss
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_close_ss
 with charachange
 mi "You're coming with us! There's a lot to do tonight, you should try harder to enjoy it!"
@@ -11267,7 +11279,7 @@ hi "Hey, do they have that goldfish scooping game here?"
 show shizu behind_smile_ss at tworight
 show misha hips_smile_ss at twoleft
 with charaenter
-shi "…"
+shi "..."
 mi "Of course! I didn't know you liked that game, Hicchan!"
 hi "Well, I've always wanted to try it. It doesn't seem too hard."
 show misha hips_grin_ss
@@ -11278,17 +11290,17 @@ with charachange
 mi "Wahahaha~! Okay, okay! We'll see! It should be around here somewhere!"
 show shizu basic_normal_ss
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_ss
 with charachange
 mi "But, where are you going to keep your fish? Do you have a bowl for it?"
-hi "Well, no…"
+hi "Well, no..."
 show misha hips_grin_ss
 with charachange
 mi "Maybe he'll eat it!"
 show shizu adjust_smug_ss
 with charachange
-shi "…"
+shi "..."
 show misha cross_laugh_ss
 with charachange
 mi "Hahahahahaha! Ahahahahahaha!!"
@@ -11317,7 +11329,7 @@ $ renpy.music.set_volume(0.6,2.0, "ambient")
 show shizu behind_smile_ss at Slide(0.8,0.5,0.7,0.5,1.0)
 show misha perky_smile_ss at Slide(0.2,0.5,0.3,0.5,1.0)
 with Dissolve(1.0)
-shi "…"
+shi "..."
 show misha hips_grin_ss at twoleft
 with charachange
 mi "Haha~! It was nothing, nothing at all, really~! Yeah, this is great, I think the best festival we've put together yet!"
@@ -11327,7 +11339,7 @@ mi "Shiraki, we'd like to play this, that's okay, right?"
 show misha hips_grin_ss
 with charachange
 mi "Of course~, it would be really great if you would just give your cute, hard working Student Council representatives a prize, for all the hours we put in to make all of this possible!"
-"Shiraki" "Hahaha, haha… No."
+"Shiraki" "Hahaha, haha... No."
 "If anything, Shiraki has balls."
 hi "Hey, I built this stall, it was a backbreaking job, too. I wasted two hours of my life, I think I deserve at least a free round."
 show misha hips_frown_ss
@@ -11335,11 +11347,11 @@ with charachange
 mi "And me!"
 show shizu basic_angry_ss at tworight
 with charachange
-shi "…"
+shi "..."
 mi "Me too!"
 show misha perky_confused_ss
 with charachange
-mi "Ah…"
+mi "Ah..."
 "After some hesitation, he eventually gives in, and hands us each four balls with a shrug."
 show misha hips_grin_ss
 show shizu behind_blank_ss
@@ -11348,10 +11360,10 @@ with charachange
 hi "What gives?"
 hi "Don't tell me that after making such a big deal out of it, you two aren't going to even play?"
 hi "Not after the way we ganged up on Shiraki."
-"Shiraki" "Yeah…"
+"Shiraki" "Yeah..."
 show shizu basic_frown_ss
 with charachange
-shi "…"
+shi "..."
 show misha sign_smile_ss
 with charachange
 mi "You stay out of this, please~!"
@@ -11360,7 +11372,7 @@ with charachange
 "Shizune turns to me and begins waving her hand dismissively. Misha appears torn between translating for her and consoling the booth operator."
 show shizu adjust_smug_ss
 with charachange
-shi "…!"
+shi "...!"
 show misha hips_grin_ss
 with charachange
 mi "Ahahaha! Hicchan, where's your sense of chivalry? Besides, I - Shicchan, have a policy against throwing balls!"
@@ -11382,7 +11394,7 @@ mi "That's not very fair!"
 hi "This must be why it's four balls for 50 yen. How devious."
 show shizu basic_angry_ss
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile_ss
 with charachange
 mi "Come on, Hicchan, you can knock them down! You have eleven more chances! Go!"
@@ -11423,16 +11435,16 @@ hide stuffedcat
 with None
 show shizu basic_normal2_ss
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_ss
 with charachange
 mi "Hicchan, congratulations~! What are you going to do with that doll?"
 "There is no right answer. I have to tread carefully."
-hi "I… do not know."
-mi "Wellllll~ I'll take it, if you don't want it…"
+hi "I... do not know."
+mi "Wellllll~ I'll take it, if you don't want it..."
 show shizu adjust_smug_ss
 with charachange
-shi "…"
+shi "..."
 show misha cross_grin_ss
 with charachange
 mi "Unless you want to keep it for yourself, Hicchan. I didn't know you liked dolls. How delicate."
@@ -11442,7 +11454,7 @@ with charachange
 mi "Can I have it, then?"
 show shizu behind_blank_ss
 with charachange
-shi "…"
+shi "..."
 "Their eyes are drilling into my soul."
 "This is a decision I don't want to make. I turn back to the booth."
 hi "Hey, you have more than one of this doll?"
@@ -11462,11 +11474,11 @@ mi "Say, Hicchan, can you at least put the doll down while you throw the balls?"
 hi "No."
 show shizu adjust_smug_ss
 with charachange
-shi "…"
+shi "..."
 mi "There's only one more left, you had better get it! If you fail, I'll kill you~!"
 show shizu behind_smile_ss
 with charachange
-shi "…"
+shi "..."
 mi "What a clever way to duck out of giving me the doll, though! And by me, I mean me~!"
 show shizu adjust_happy_ss
 with charachange
@@ -11479,7 +11491,7 @@ mi "Ahahahaha~! Just kidding!"
 show shizu behind_smile_ss
 show misha perky_smile_ss
 with charachange
-shi "…"
+shi "..."
 mi "Thank you, Hicchan. Shicchan seems happy, Hicchan~! But, you're going to win one for me, too, right?"
 hi "That is what I'm trying to do, isn't it?"
 stop music fadeout 5.0
@@ -11532,7 +11544,7 @@ with charachange
 mi "Don't strain yourself. If you're that sick, you'll just make yourself sicker."
 show shizu basic_normal2_close_ss at tworight
 with charachange
-shi "…"
+shi "..."
 show misha hips_smile_close_ss
 with charachange
 mi "Look, the festival is just getting started, and we've been playing games for a while. We can take a little break if you're tired."
@@ -11550,7 +11562,7 @@ $ renpy.music.set_volume(1.0,2.0, "ambient")
 show shizu behind_smile_ni at tworight
 show misha perky_smile_ni at twoleft
 with charaenter
-shi "…"
+shi "..."
 mi "Hicchan, we're both feeling kinda hungry. How about you?"
 hi "I'm not as hungry as I could be, but I do want something to eat."
 show misha hips_smile_ni
@@ -11559,7 +11571,7 @@ mi "That's good enough, Hicchan~! So, what should we get to eat?"
 hi "It doesn't really matter to me."
 show shizu adjust_happy_ni
 with charachange
-shi "…"
+shi "..."
 show misha hips_grin_ni
 with charachange
 mi "Ah! How about sandwiches, then? And we'll need something to drink, too! Misha'll get everything!"
@@ -11571,7 +11583,7 @@ with charachange
 "Shizune looks at me and smiles, and I realize she might be trying to cheer me up with a joke. I laugh."
 show shizu adjust_happy_ni
 with charachange
-shi "…"
+shi "..."
 show misha perky_smile_ni
 with charachange
 mi "Hicchan, it's getting kind of crowded, so we might not be able to eat here. It's getting kind of loud, too."
@@ -11581,7 +11593,7 @@ mi "Maybe we should go eat up on the roof."
 hi "That's fine with me. It might be a nice view, and there could be a little breeze."
 show misha hips_grin_ni
 with charachange
-mi "Okay then! I guess I should get the food and drinks now… So I'll see you two then~!"
+mi "Okay then! I guess I should get the food and drinks now... So I'll see you two then~!"
 hide misha
 with charaexit
 stop music fadeout 6.0
@@ -11596,11 +11608,11 @@ with Dissolve(0.5)
 "Shizune tugs at my sleeve impatiently and crosses her arms, frowning as if to show displeasure at me for getting distracted."
 show shizu basic_angry_close_ni at center
 with charachange
-shi "…"
+shi "..."
 hi "You know I don't know how to read sign language."
 show shizu behind_frown_close_ni
 with charachange
-shi "…"
+shi "..."
 "Come to think of it, isn't it kind of stupid of me to have said that to a deaf person? She wouldn't have heard it."
 show shizu behind_blank_close_ni
 with charachange
@@ -11634,7 +11646,7 @@ mi "So, Hicchan, what do you think of the festival? It's nice, isn't it?"
 hi "Yeah."
 show shizu adjust_happy_close_ni
 with charachange
-shi "…"
+shi "..."
 mi "The stars are nice tonight. This couldn't have been a more perfect day."
 play music music_serene fadein 5.0
 $ renpy.music.set_volume(0.1, 2.0, "ambient")
@@ -11650,7 +11662,7 @@ with locationchange
 "Looking at Shizune and Misha, I wonder if maybe I should ask one of them out some day. I wonder if it would be worth the risk."
 "The golden hands moving across the face of the delicate watch on Shizune's wrist catch my eye, and I see that it's getting kind of late. But the festivities are still going strong."
 "Shizune is still holding the stuffed cat I won by the paw. She notices me looking at it."
-shi "…?"
+shi "...?"
 "Offhandedly, she offers it to me. I smile, wanting to ask her what I would do with it, but she wouldn't be able to understand me."
 "I shake my head and try my best to tell her to keep it, hoping she'll understand."
 "As I look out towards the school, I can see before me so many people, all of which are happy and cheerful."
@@ -11661,7 +11673,7 @@ shi "…?"
 hi "I can't understand you, Shizune."
 hi "Well, whatever. I wonder if we both consider ourselves at fault for this. Anyway, I'm sorry for not being able to understand."
 hi "You know, I'm almost, almost glad that you tried to coerce me into coming here. If I attempt to date you, though, I might have to think more about that side of you."
-hi "No, actually… I'm glad. Today was nice."
+hi "No, actually... I'm glad. Today was nice."
 hi "You would be cuter if you smiled more, you have a nice smile."
 stop music fadeout 5.0
 show shizu behind_frustrated_close_ni at center
@@ -11709,7 +11721,7 @@ with Dissolve(5.0)
 "I feel warm and alive, even in this chilly night air."
 stop music fadeout 4.0
 "The image of Shizune standing forcefully before the stars themselves, denying my self-pity, does not leave my mind easily."
-"If… if it only takes a moment for there to be love, I think I may be falling in love with her."
+"If... if it only takes a moment for there to be love, I think I may be falling in love with her."
 "Just a little bit."
 window hide
 label en_A39:
@@ -11727,7 +11739,7 @@ with None
 "Try to integrate with all the other sideshow acts."
 "Honestly, I should at least make an attempt to keep up the somewhat friendly personality I've had the past week."
 "Maybe get something to eat, my stomach suggests."
-"It's almost lunchtime… I could at least grab something from one of the stalls outside."
+"It's almost lunchtime... I could at least grab something from one of the stalls outside."
 play music music_soothing fadein 1.0
 play ambient sfx_crowd_outdoors fadein 1.0
 scene bg school_courtyard
@@ -11740,7 +11752,7 @@ with locationskip
 "I almost want to yell at them."
 "But at the same time, can I deny that I've been doing the same thing all week?"
 "A wave of something like disgust sweeps over me; guilt for my own narrow-mindedness."
-"…"
+"..."
 $ renpy.music.set_volume(0.6,2.0, "ambient")
 scene bg school_stalls1
 with locationchange
@@ -11759,9 +11771,9 @@ emi "Breakfast?"
 show emi sad_angry
 with charachange
 emi "You mean you just got up?"
-hi "Er…"
+hi "Er..."
 "Suddenly sleeping all morning feels like a crime."
-hi "No, I meant lunch… honest."
+hi "No, I meant lunch... honest."
 "She's not buying it."
 hi "Brunch?"
 show emi basic_annoyed_close
@@ -11773,7 +11785,7 @@ hi "Hey, that's my breakfast!"
 show emi sad_annoyed_close
 with charachange
 emi "What happened to it being your lunch?"
-hi "That's my… whatever, it's my food!"
+hi "That's my... whatever, it's my food!"
 "Emi places her hands on her hips and begins lecturing me."
 show emi basic_annoyed_close
 with charachange
@@ -11803,10 +11815,10 @@ emi "Maybe, but not if you're sleeping the day away all the time!"
 "A devious look suddenly crosses her face."
 show emi basic_grin_close
 with charachange
-emi "Of course, if you'd been following a routine from the beginning you wouldn't be in this situation…"
+emi "Of course, if you'd been following a routine from the beginning you wouldn't be in this situation..."
 stop music fadeout 6.0
 hi "Hey, I've had a pretty eventful week, you know!"
-hi "For example, I almost died! And there was a lot of meeting people, and then I was on a roof for a while…"
+hi "For example, I almost died! And there was a lot of meeting people, and then I was on a roof for a while..."
 show emi sad_annoyed_close
 with charachange
 emi "Which is no excuse for slacking off, you know."
@@ -11833,7 +11845,7 @@ hi "You don't need to convince me again."
 "But delicious!"
 "There are more important things than deliciousness, aren't there?"
 "Like staying alive?"
-"If Emi weren't here browbeating me for my poor decisions, I'd probably…"
+"If Emi weren't here browbeating me for my poor decisions, I'd probably..."
 "Hey, wait a second."
 "A sudden question springs to mind."
 hi "Hey, why the hell have you taken such an interest in my well-being?"
@@ -11851,9 +11863,9 @@ emi "I owe you for not getting angry."
 show emi basic_happy_close
 with charachange
 emi "And I told the nurse I would, anyway."
-"Uh… huh. Crazy little running girl wants to make me healthy."
+"Uh... huh. Crazy little running girl wants to make me healthy."
 "Well, I suppose there are worse fates."
-hi "Okay, that sounds… fine."
+hi "Okay, that sounds... fine."
 hi "Thanks for your concern."
 hi "Tomorrow morning, then?"
 stop music fadeout 1.0
@@ -11879,7 +11891,7 @@ hi "I was not!"
 show emi sad_annoyed_close
 with charachange
 "Another glare."
-hi "Okay, maybe I was going to get a little…"
+hi "Okay, maybe I was going to get a little..."
 "The glare continues."
 hi "Okay, a lot."
 "Jesus, I'm a danger to myself and others, aren't I?"
@@ -11900,7 +11912,7 @@ hi "What do you want to do?"
 show emi basic_confused_close
 with charachange
 "Emi thinks for a minute."
-emi "Well, I promised Rin I'd stop by her mural…"
+emi "Well, I promised Rin I'd stop by her mural..."
 show emi basic_grin_close
 with charachange
 emi "So let's do that!"
@@ -11934,11 +11946,11 @@ with charachange
 emi "It'll be all my fault, and I don't want to deal with that kind of guilt."
 emi "Besides, after the last time I really don't think I need to see that again, especially because the nurse will totally say it's all my fault."
 play music music_soothing fadein 8.0
-hi "N… nah, I'm fine."
+hi "N... nah, I'm fine."
 hi "Guess I need to start running after all."
 show emi basic_closedgrin
 with charachange
-emi "And you wanted to keep eating your greasy… whatever it was."
+emi "And you wanted to keep eating your greasy... whatever it was."
 show emi excited_proud
 with charachange
 emi "See? It's a good thing I found you, right?"
@@ -12049,7 +12061,7 @@ play music music_ease fadein 9.0
 "We find a nice spot on the grass and sit down to eat our purchases."
 "Well, my purchases, anyway. Somehow I've wound up paying for all the food."
 "Surprisingly, my (unfried) food is pretty good."
-"Silence falls as Emi and I eat and Rin stares at… something or other, occasionally eating a bite or two of her food."
+"Silence falls as Emi and I eat and Rin stares at... something or other, occasionally eating a bite or two of her food."
 "I finish my meal first, and lay back on the grass."
 "Emi glances up from her food."
 show emi basic_confused
@@ -12093,7 +12105,7 @@ emi "Well don't cause any random acts of God, then."
 "Ergo, the dietary portion starts tomorrow too, ergo I can have something unhealthy today."
 "A sort of final farewell to all the stuff I used to eat with wild abandon before the hospital."
 hi "Actually, I suppose I should head back to my room."
-hi "I had some homework to do, and if I'm going to run in the morning I should make it an early night…"
+hi "I had some homework to do, and if I'm going to run in the morning I should make it an early night..."
 show emi basic_annoyed
 with charachange
 "Those narrowed eyes again."
@@ -12124,7 +12136,7 @@ show rin relaxed_surprised
 with charachange
 "Rin nods in agreement."
 rin "I won't say “See you tomorrow” because that would be like predicting the future, and I'm pretty sure I can't do that."
-hi "…"
+hi "..."
 hi "Okay."
 hi "Bye, you two."
 "I feel oddly glad that I decided to leave my room today."
@@ -12169,13 +12181,13 @@ with locationskip
 "A feeling of guilt passes through me, but it soon goes away."
 "I'm just a lowly transfer student, after all."
 "Some visitors are already strolling around the grounds."
-"There are some young families with the perturbed parents trying to keep up with their overenthusiastic offspring…"
-"…a few students of our own accompanied by their parents…"
-"…and a lot of old and young people who are here for no reason I can imagine."
+"There are some young families with the perturbed parents trying to keep up with their overenthusiastic offspring..."
+"...a few students of our own accompanied by their parents..."
+"...and a lot of old and young people who are here for no reason I can imagine."
 play sound sfx_warningbell
 "The carillon bursts into life and the principal's squeaky voice announces the opening of the festival over the PA system."
 "Everyone applauds politely if a bit unenthusiastically."
-"A school festival… we didn't really have festivals at my old high school. It feels kind of old-fashioned, especially considering the school I came from, but it's still somewhat exciting."
+"A school festival... we didn't really have festivals at my old high school. It feels kind of old-fashioned, especially considering the school I came from, but it's still somewhat exciting."
 "A day off feels sweet after the first week of hard work, despite me lying on the hospital bed for four months prior to this."
 "I recall even wishing that I could go to math lessons during my stint at the hospital."
 "I can't remember the program for the festival, even though Mutou went through it during class just the other day."
@@ -12237,7 +12249,7 @@ hi "What's that?"
 rin "It's nothing."
 show bg mural at Slide(0.45,0.45,.6,0.6,25.0, time_warp=acdc_warp)
 with None
-"Anyway…"
+"Anyway..."
 "The wall is so wide I have to turn my neck from side to side to see the entire painting."
 "It's hard to consider it as a single piece. The elements don't seem to fit together, but I guess they do create some kind of a whole."
 "Abstract as it is, I have no idea what it's supposed to be portraying, but it looks nice. That's enough for me."
@@ -12265,7 +12277,7 @@ hi "What about you? Are you happy with the mural? 'Cause I kind of participated,
 "Rin tilts her head, biting her lower lip."
 show rin negative_sad_close
 with charachange
-rin "I think it came out decently. It's not bad but it's not good either. It just… is. I guess I'm all right at being empty-minded."
+rin "I think it came out decently. It's not bad but it's not good either. It just... is. I guess I'm all right at being empty-minded."
 hi "Can I ask something else? What does the painting really portray? I thought about it yesterday, when you said that it doesn't portray anything."
 hi "But that's a logical fallacy, isn't it? You can't make something out of nothing, not even art."
 show rin negative_annoyed_close
@@ -12280,9 +12292,9 @@ with charachange
 rin "No, wait. I just thought up a better way to say it: It portrays itself."
 show rin basic_deadpannormal_close
 with charachange
-rin "So… its muralness is at the maximum, at least as far as I can do, so if you think it has some meaning, I think that's the same as this one has."
+rin "So... its muralness is at the maximum, at least as far as I can do, so if you think it has some meaning, I think that's the same as this one has."
 "That makes no sense."
-"Meaning… I feel the corners of my mouth turning upwards into a smile that's just a tiny bit bothered."
+"Meaning... I feel the corners of my mouth turning upwards into a smile that's just a tiny bit bothered."
 stop music fadeout 5.0
 scene mural all
 with flash
@@ -12311,7 +12323,7 @@ hi "You don't like socializing much, do you?"
 show rin basic_awayabsent_close
 with charachange
 rin "No, I don't."
-hi "I guess… me neither, in the end."
+hi "I guess... me neither, in the end."
 show rin basic_deadpan_close
 with charachange
 rin "You should go if you want to."
@@ -12361,7 +12373,7 @@ with charachange
 rin "The middle could be better."
 show rin negative_annoyed_close
 with charachange
-rin "Usually I like in-betweens, but this was a pain in my butt. Not literally of course… then again I did get that too. I guess it was literally after all."
+rin "Usually I like in-betweens, but this was a pain in my butt. Not literally of course... then again I did get that too. I guess it was literally after all."
 hi "Don't be so critical of yourself."
 show rin basic_deadpannormal_close
 with charachange
@@ -12375,11 +12387,11 @@ with locationchange
 stop music fadeout 5.0
 play sound sfx_rustling
 centered "*shuffle shuffle*"
-"…"
+"..."
 centered "*fidget*"
 play sound sfx_rustling
 centered "*shuffle*"
-"…"
+"..."
 scene bg mural at Transform(xalign=0.6)
 show rin negative_annoyed_close at tworight
 with locationchange
@@ -12425,7 +12437,7 @@ stop music fadeout 4.0
 "Not wanting to meet Rin's eyes, I turn my face aside, pretending I'm looking at someone's parents."
 "From the corner of my eye I see Rin turning on her heel and walking off without further ado."
 "I feel like going to hide under some rock."
-"I wonder how long Rin will be gone… or if she will return at all."
+"I wonder how long Rin will be gone... or if she will return at all."
 scene bg mural at Transform(xalign=0.6)
 with shorttimeskip
 play music music_dreamy fadein 3.0
@@ -12450,7 +12462,7 @@ hi "How is that related to headache?"
 show rin basic_deadpansurprised_close_ss
 with charachange
 rin "It's not. I ask because I am."
-"…"
+"..."
 "Her oblivious seriousness melts my irritation with its ridiculousness, and I find the corners of my mouth turning slightly upwards again."
 hi "You know what? So am I."
 hi "I'll go get some food for us. What do you want? My treat."
@@ -12491,7 +12503,7 @@ rin "That must be it."
 "The wall offers a bit of blessed shade as the sun revolves around the dome of the sky."
 "But the afternoon is already slowly making way for the evening so our lunch becomes more of a dinner. Or whatever the word is for an irregular meal like this."
 "Despite what I decide to call it, it certainly hits the spot. I haven't eaten a bit since forever."
-"…"
+"..."
 "My appetite filled, I let out a satisfied sigh. Rin hasn't eaten all of hers but seems to be done with her food as well."
 "I lean back, taking in the atmosphere. The crowd has thinned already, but the activities are still going. Everyone seems to be enjoying themselves."
 "And why not? It's warm, the kind of perfect summer day when it's hot but not too hot for comfort."
@@ -12589,7 +12601,7 @@ hi "You fell asleep on top of me. Twice."
 show rin basic_absent_close_ni
 with charachange
 rin "You didn't like it?"
-hi "Err…, well…"
+hi "Err..., well..."
 show rin basic_absent_close_ni:
     ease 1.0 ypos 1.0
 "Despite the inconclusive stammering, Rin sits upright, drawing herself away from me."
@@ -12608,9 +12620,9 @@ rin "I really do like fireworks, even though looking at them makes me feel kinda
 show rin negative_sad_close_ni
 with charachange
 rin "It's like they were not even real."
-"…"
+"..."
 hi "They are real, I can tell you that."
-hi "All of this is… real, you know?"
+hi "All of this is... real, you know?"
 hi "If you think about it, nothing really lasts for long. Even something like my life or yours is just a blink of an eye in the history of everything, like one of those rockets. Poof, and we're gone."
 hi "But we're here, aren't we?"
 "Yeah, this is reality. Rin, sitting next to me, the loud bangs of the fireworks, the vast, unlimited sky. These things are definitely real, even though they won't stay here forever."
@@ -12618,8 +12630,8 @@ hi "But we're here, aren't we?"
 show rin negative_spaciness_close_ni
 with charachange
 rin "I don't really know what I should say next."
-hi "It's all right… maybe I'm just talking to myself."
-hi "But you know, fireworks are pretty… but in the end isn't it somehow silly to spend so much money on a fraction of a second worth of pretty sparkles?"
+hi "It's all right... maybe I'm just talking to myself."
+hi "But you know, fireworks are pretty... but in the end isn't it somehow silly to spend so much money on a fraction of a second worth of pretty sparkles?"
 show rin negative_sad_close_ni at Slide(0.9,0.5,0.7,0.5,1.0)
 with None
 show rin relaxed_doubt_close_ni at Slide(0.9,0.5,0.7,0.5,1.0)
@@ -12650,9 +12662,9 @@ show rin basic_absent_ni at tworight
 with charachange
 "Rin stands up as well and turns to face me, with an expectant gaze on her tired features."
 "Although she seems to have trouble focusing her eyes, she is looking straight at me, something I feel has not occurred too often in the past week."
-hi "Umm…so…"
+hi "Umm...so..."
 "I suddenly realize we have been almost on a date here, as if by accident. Even if we did nothing."
-"But it wasn't… so why blood is rushing to my cheeks and my speech stammering?"
+"But it wasn't... so why blood is rushing to my cheeks and my speech stammering?"
 "I don't know what I should say, especially since it seems Rin is waiting for me to say something, but luckily she solves my problem for me."
 show rin basic_deadpannormal_ni
 with charachange
@@ -12661,8 +12673,8 @@ hide rin
 with charaexit
 "She gives me one more lingering look, measuring me from tip to toe, turns around on her heel and skips off, disappearing into the crowd."
 stop music fadeout 7.0
-"…"
-hi "Okay… Good night."
+"..."
+hi "Okay... Good night."
 "I'm left standing there, giving my response to the cooling night air."
 "Sigh."
 "The festival turned out to be nothing like I expected."
@@ -12700,7 +12712,7 @@ play sound sfx_warningbell
 "It's quite amusing to contrast the pleasant smiles of the older folk against the alternatively pained and bored grimaces of their younger charges. The students, on the other hand, seem to pay it little heed."
 "Nevertheless, as the address finally ends, all are united in polite - if not overly enthusiastic - applause, and then get back to business."
 "Slipping a hand in my pocket to look as relaxed as possible, I casually glance around for something to do."
-"…It's somewhat difficult to see very far with all the people around."
+"...It's somewhat difficult to see very far with all the people around."
 "I decide to fall back on a tried and trusted rule: go where everyone else seems to be gathering. Right now, that's the school courtyard and surroundings."
 play sound sfx_can_clatter
 "Throwing the used plate into a trash can, I make my way towards the school building."
@@ -12730,7 +12742,7 @@ show lilly basic_smileclosed at center
 with charaenter
 li "Sorry about that, we're having a few problems. What would you like?"
 "It takes me a second to remember what I'd come here for. My eyes quickly dart to the side to read the menu sitting on the counter."
-hi "Oh, uh, I guess some… miso soup?"
+hi "Oh, uh, I guess some... miso soup?"
 show lilly basic_surprised
 with charachange
 li "Ah, is that Hisao?"
@@ -12754,7 +12766,7 @@ li "That's right. She's going to try and round up a few more of our classmates t
 hi "Here's the money for the soup."
 show lilly basic_smile
 with charachange
-li "Soup… oh, right, coming right up."
+li "Soup... oh, right, coming right up."
 "Lilly turns and calls for a bowl of miso soup as I hand over the money for it."
 show lilly basic_reminisce
 with charachange
@@ -12766,7 +12778,7 @@ hi "Thanks. I'll come back to drop off the bowl."
 show lilly basic_smile
 with charachange
 li "Thank you, Hisao. Oh, there is one other thing. Have you seen Hanako?"
-hi "Hanako… no, not today. Why?"
+hi "Hanako... no, not today. Why?"
 show lilly basic_sad
 with charachange
 "She gives a small sigh of abject disappointment."
@@ -12794,7 +12806,7 @@ with locationchange
 "Despite most of them seeming quite relaxed as they work, Lilly still appears to be somewhat stressed."
 label en_A41a:
 stop music fadeout 4.0
-"…Right. I know what I'll do. Even if it's just one person, I'll make the festival more enjoyable for her."
+"...Right. I know what I'll do. Even if it's just one person, I'll make the festival more enjoyable for her."
 "As I place the bowl on the counter, I call out to Lilly."
 show lilly basic_smile at center
 with charaenter
@@ -12813,7 +12825,7 @@ show lilly basic_pout
 with charachange
 "She puffs her cheeks disapprovingly. It looks kind of cute, and in complete contradiction to her usually reserved nature."
 "It takes a few seconds for me to get what she's taking issue with. Whoops."
-hi "Ah… um, I didn't mean to…"
+hi "Ah... um, I didn't mean to..."
 show lilly basic_giggle
 with charachange
 "Lilly giggles at me, exposing her teasing for what it is."
@@ -12821,7 +12833,7 @@ li "You're still not used to the school, are you?"
 "She got me."
 show lilly basic_reminisce
 with charachange
-li "Still… I kind of need to stay with our stall. It's taken until just now to even get everything unpacked."
+li "Still... I kind of need to stay with our stall. It's taken until just now to even get everything unpacked."
 "I guess her reluctance shouldn't overly surprise me, considering how much work she's put into this."
 hi "Everything seems to be running fine now, though. Besides, you've got extra help on hand, anyway."
 show lilly basic_surprised
@@ -12830,7 +12842,7 @@ with charachange
 "Student" "Go on Lils, you've earned yourself a break. We can hold down the fort, for now."
 show lilly basic_displeased
 with charachange
-li "If you say it's okay, then I suppose so…"
+li "If you say it's okay, then I suppose so..."
 show lilly basic_reminisce
 with charachange
 li "But, if you need any help—"
@@ -12842,13 +12854,13 @@ with charaexit
 hi "So, I guess we should search for Hanako. Where to, first?"
 show lilly cane_reminisce at center
 with charaenter
-li "Hmm…"
+li "Hmm..."
 "The both of us go quiet for a moment to think."
 hi "Maybe she's in her dorm room?"
 li "I doubt it. She doesn't keep too many things in there, so she'd have nothing to do."
 show lilly cane_satisfied
 with charachange
-li "…Ah! The library?"
+li "...Ah! The library?"
 "As good a place as any to search for an avid reader, I suppose."
 hi "The library it is. We'll check there first, then."
 $ renpy.music.set_volume(0.2, 1.0, channel="ambient")
@@ -12884,12 +12896,12 @@ hi "I'd assumed that most of the students here lived in the dormitories once the
 show lilly cane_reminisce
 with charachange
 "Lilly's expression becomes somewhat harder to read, my questioning evidently touching on a delicate point."
-li "Well… How should I say…"
+li "Well... How should I say..."
 show lilly cane_weaksmile
 with charachange
-li "Everyone… has their reasons."
+li "Everyone... has their reasons."
 "Something tells me that one of those with “reasons” is Hanako, hence her tiptoeing around the answer. My own predicament is yet another such case."
-"I guess it's a choice everyone here would have to make for themselves… or, in my instance, have made for them."
+"I guess it's a choice everyone here would have to make for themselves... or, in my instance, have made for them."
 hi "It can't be helped, I suppose. At least Yamaku itself seems like a nice place."
 show lilly cane_smile
 with charachange
@@ -12898,7 +12910,7 @@ hi "What about you, though?"
 show lilly cane_surprised
 with charachange
 "My reversal of Lilly's statement takes her by surprise."
-li "I've been here for a while, so…"
+li "I've been here for a while, so..."
 hi "It's not that. You just seemed pretty depressed about Akira."
 show lilly cane_smileclosed
 with charachange
@@ -12929,18 +12941,18 @@ with charamove
 show lilly cane_smile at twoleft
 show hanako basic_normal at tworight
 with charaenter
-ha "Hisao… Lilly?"
+ha "Hisao... Lilly?"
 hi "Just thought we'd drop by. Lilly just managed to escape from the noodle stall, with a little help."
 show lilly cane_pout
 with charachange
-li "That wasn't really an escape…"
+li "That wasn't really an escape..."
 show hanako emb_downsmile
 show lilly cane_surprised
 with charachange
 "Hanako gives a small giggle, briefly surprising both of us."
 show hanako basic_bashful
 with charachange
-ha "I just thought that… Lilly might not be enjoying the festival."
+ha "I just thought that... Lilly might not be enjoying the festival."
 hi "Well, now we can enjoy it together, right?"
 show lilly cane_smileclosed
 with charachange
@@ -12988,13 +13000,13 @@ with dissolve
 "For minutes on end, Hanako and I watch the fireworks overhead as Lilly blissfully listens to them with her eyes shut."
 "Red, green, yellow, star-shaped, circular and patterned, and all manner of shapes and colors fill the air, one after the other, and dance across the sky."
 "No place near where I lived put on such lavish displays. Festivals like this were a thing of the past in such a metropolitan area."
-"To be seeing such a sight with these two… it's probably the happiest I've been in a long while."
+"To be seeing such a sight with these two... it's probably the happiest I've been in a long while."
 scene bg school_gardens2_ni
 show lilly basic_weaksmile_ni at twoleft
 show hanako basic_distant_ni at tworight
 show fireshine
 with charachange
-li "So… that's it. The festival's finally ending."
+li "So... that's it. The festival's finally ending."
 hi "Yeah."
 "She gives a delicate, wistful sigh."
 show lilly basic_concerned_ni
@@ -13068,7 +13080,7 @@ scene bg school_library
 with locationchange
 "As I enter the library, the noise of the festival fades into a dull background noise, and soon I am in the reading area at the rear of the room."
 "Behind one of the partitioned desks I see the top of a head, with straight, dark hair catching my eye."
-hi "Hey, Hanako. I had a feeling I'd find you here…"
+hi "Hey, Hanako. I had a feeling I'd find you here..."
 show hanako def_shock:
     pause 0 xpos 0.5 ypos 1.0 xanchor 0.5 yanchor 0.9
     easein 0.5 yanchor 1.0
@@ -13082,7 +13094,7 @@ ha "O-oh. Do you want to sit down?"
 hi "Actually, I am feeling a little hungry. Would you to like to get something to eat from one of the stands?"
 show hanako defarms_worry
 with charachange
-ha "Um… I… I brought some food so…"
+ha "Um... I... I brought some food so..."
 "I shouldn't be surprised, but it was worth a try. Expecting her to go outside today was a long shot."
 hi "How about we eat in the tea room? I passed by it on the way here, and no one was around."
 hi "We can make some food there, and it'll be a little more comfortable. What do you say?"
@@ -13095,7 +13107,7 @@ with charachange
 hi "Good to go?"
 show hanako basic_normal
 with charachange
-ha "Y…yeah."
+ha "Y...yeah."
 stop music fadeout 2.0
 scene bg school_hallway2
 with locationchange
@@ -13116,30 +13128,30 @@ show hanako defarms_worry
 with charachange
 "She stops dead in her tracks."
 ha "W-what?"
-hi "I dunno… it looked like you were tripping or something…"
+hi "I dunno... it looked like you were tripping or something..."
 play music music_another fadein 0.5
 show hanako emb_blushing
 with charachange
 "A pink blush rises into her cheeks as her gaze returns to the floor."
 show hanako emb_downtimid
 with charachange
-ha "It… it's nothing."
+ha "It... it's nothing."
 hi "You know, when you say “nothing” like that, people are inspired to ask further questions."
 "For a second I don't think she is going to answer."
-"Prepared to leave it be, I almost set off walking again, when…"
+"Prepared to leave it be, I almost set off walking again, when..."
 show hanako emb_emb
 with charachange
-ha "It's a… a game."
+ha "It's a... a game."
 hi "Game?"
 show hanako emb_downsmile
 with charachange
-ha "Do you… see the floor here?"
+ha "Do you... see the floor here?"
 "What a bizarre question. The floor looks just like any other floor; covered in those tiles made up from squares of linoleum."
 "Nothing noteworthy."
 hi "Well, yes. What about it?"
 show hanako emb_downtimid
 with charachange
-ha "Sometimes… when there's no one around… I only step on the darker ones…"
+ha "Sometimes... when there's no one around... I only step on the darker ones..."
 "Hanako's voice trails off as her explanation continues, until I can barely hear her voice over the roaring silence of the empty hall."
 hi "Darker ones?"
 "Shuffling her feet, Hanako points the toe of her shoe at a tile that is barely a shade darker than the others."
@@ -13150,7 +13162,7 @@ hi "Oh, right, so these ones are no good?"
 "I point out a nearby tile."
 show hanako emb_emb
 with charachange
-ha "Y-yeah. Something… something like that."
+ha "Y-yeah. Something... something like that."
 hi "Oh, I see. Do you play this game a lot?"
 show hanako emb_downsad
 with charachange
@@ -13177,20 +13189,20 @@ with locationchange
 "Without thinking, I walk to the windowsill and inhale deeply. I sometimes forget how clean the air is here compared to back home."
 show hanako basic_bashful at center
 with charaenter
-ha "Do… would you like some tea?"
+ha "Do... would you like some tea?"
 hi "That would be great, thanks."
 hide hanako
 with charaexit
 "It occurs to me that this is the first time I've been alone with Hanako without her trying to be somewhere else."
 "Turning from the window, I watch as she makes a simple pot of tea and arranges some sandwiches onto a plate."
 "I've seen her do this before a number of times, but this time she seems slightly different."
-"It's like she's…{w} calm."
+"It's like she's...{w} calm."
 "Eventually she places the small tray on the table and pours two cups of tea."
 "The fresh scent of brewed tea mingles with the breeze, and for a second I feel like I'm the only one in the world."
 hi "I think I know why you like this room now."
 show hanako defarms_worry at center
 with charaenter
-ha "Um… I don't know what you mean."
+ha "Um... I don't know what you mean."
 hi "Well, there are quite a few people out there, but in here it's like another world."
 hi "You can pretend that there's no one around for miles."
 show hanako emb_downtimid
@@ -13210,16 +13222,16 @@ with charachange
 ha "Y-yeah."
 show hanako basic_bashful
 with charachange
-ha "Say… do you play chess?"
+ha "Say... do you play chess?"
 hi "Chess? I've played it a bit, I guess."
 hi "I take it you've played before?"
 show hanako basic_distant
 with charachange
-ha "A little…"
+ha "A little..."
 hide hanako
 with charaexit
 "Without saying anything more, Hanako moves to one of the cupboards and digs out a small chess set."
-ha "Do… do you want…"
+ha "Do... do you want..."
 hi "Sure, why not?"
 "I cut her off, but she doesn't seem to mind it."
 scene bg school_miyagi
@@ -13237,27 +13249,27 @@ hi "You're not bad at this, are you?"
 "I pick up a piece and examine it. It looks relatively new, yet worn for its age."
 show hanako basic_smile_close
 with charachange
-ha "I… I guess not."
+ha "I... I guess not."
 hi "Does Lilly play?"
 show hanako def_worry_close
 with charachange
 "The absence of Hanako's answer causes me to think about my question."
-ha "A… A bit…"
-ha "T-this is the first time I've played against someone… other than her, or…"
+ha "A... A bit..."
+ha "T-this is the first time I've played against someone... other than her, or..."
 show hanako emb_downsad_close
 with charachange
-"Or…?"
+"Or...?"
 "She cuts herself off abruptly, leaving the answer hanging in the air. Someone she knew before coming to Yamaku, maybe."
 hi "Well then, I'm honored to have played against you."
 show hanako emb_smile_close
 with charachange
-ha "Um… can we play again?"
+ha "Um... can we play again?"
 "She asks as if she were asking me to cut off my own hands. The spirit of competition's gotten into her?"
-hi "Sure. Though don't expect me to go easy on you this time…"
+hi "Sure. Though don't expect me to go easy on you this time..."
 "Not that I was before, mind. She seems to appreciate the competitive tone."
 show hanako emb_downsmile_close
 with charachange
-ha "S… same here…"
+ha "S... same here..."
 stop music fadeout 2.0
 label en_A43:
 scene bg school_dormhallway at bgright
@@ -13317,7 +13329,7 @@ play music music_rain fadein 1.0
 "That is, if I weren't suddenly in such a foul mood."
 "At the moment, it's more annoying than anything else."
 "Well, it can't be helped. I decide to stick with my original plan and eat, then I guess I have to at least see what Kenji is up to on the roof."
-"…"
+"..."
 scene bg school_stalls2 at Fullpan(8.0)
 with locationchange
 "I do a slow circle around the grounds to kill some time, looking at the stalls, but not feeling like playing any of the games any more."
@@ -13403,14 +13415,14 @@ hi "Aren't you a bit too young to drink alcohol?"
 show kenji tsun
 with charachange
 ke "I'm 20, y'know."
-hi "…you're not."
+hi "...you're not."
 show kenji neutral
 with charachange
 ke "I am and so are you."
 hi "What? That's absurd."
 show kenji tsun
 with charachange
-ke "Hey, at least YOU get something out of it, all I get is this bottle of whiskey…"
+ke "Hey, at least YOU get something out of it, all I get is this bottle of whiskey..."
 "He's rambling incoherently, but I decide to play along."
 hi "So why do you have a bottle of whiskey?"
 show kenji happy
@@ -13418,9 +13430,9 @@ with charachange
 ke "My mom couldn't come visit for the festival, so she sent me some expensive Single Malt instead."
 hi "A likely story."
 ke "Want some?"
-hi "…"
+hi "..."
 "It's not like I have anything to lose. This day can't possibly get worse."
-hi "…why not."
+hi "...why not."
 hide kenji
 with charaexit
 show bg school_roof at center
@@ -13488,7 +13500,7 @@ show ev kenji_rooftop_large:
 hi "I see your point. But land in Japan has always been expensive."
 show ev kenji_rooftop_large:
     ease 1.0 crop (288, 376, 800, 600)
-ke "…And the price of land generally goes up when a country starts undergoing industrialization. …But no! It's because of women! Correlation equals causation, you know."
+ke "...And the price of land generally goes up when a country starts undergoing industrialization. ...But no! It's because of women! Correlation equals causation, you know."
 show ev kenji_rooftop_large:
     ease 1.0 crop (1024, 260, 800, 600)
 hi "I thought correlation didn't equal causation. Well, whatever, maybe you're right."
@@ -13504,7 +13516,7 @@ show kenji rage_ni:
 with locationchange
 "He stands up, impressing me because I'm fairly sure I couldn't even if I wanted. He yells extremely loudly as if he's lost the concept of volume. I wince and almost want to cover my ears."
 stop music fadeout 2.0
-ke "Aaagh, how nice it would have been if I could have been down there… But no. You see, thinking like that is a trap, you think you're missing out on something, but at the end of that road is nothing but despair…"
+ke "Aaagh, how nice it would have been if I could have been down there... But no. You see, thinking like that is a trap, you think you're missing out on something, but at the end of that road is nothing but despair..."
 show kenji tsun_ni at center
 with charachange
 play music music_sadness fadein 1.5
@@ -13527,7 +13539,7 @@ ke "Yeah, I just blew your mind, huh? See, I have never told that to anyone."
 "It's true, the thought does blow my mind. Suddenly, I want the bottle. I take it from Kenji and knock back as much as I can."
 show kenji tsun_ni
 with charachange
-ke "I was more innocent back then, and I thought she was sane, unlike most women. But then one day, we engaged in… sexual intercourse."
+ke "I was more innocent back then, and I thought she was sane, unlike most women. But then one day, we engaged in... sexual intercourse."
 ke "It was pretty okay, but then immediately following the event that is the point of all such things, something strange and scary happened."
 show kenji tsun_ni at tworight
 show bg school_roof_ni at bgleft
@@ -13536,34 +13548,34 @@ with charamove
 ke "I started feeling incredibly tired and sleepy! That isn't normal, man! What the fuck?"
 ke "I mean, normally, that would be a high-tension, adrenaline-pumping moment of anyone's life, but my energy levels were dropping like a brick!"
 ke "Something sinister was in the works, I could feel it."
-ke "That is when I knew… that women are dangerous, sapping the life force of all men through the one commodity that is almost solely theirs to control!"
+ke "That is when I knew... that women are dangerous, sapping the life force of all men through the one commodity that is almost solely theirs to control!"
 ke "Sickening."
 show kenji neutral_ni
 with charachange
-ke "Yeah, you're better off, dude…"
+ke "Yeah, you're better off, dude..."
 "Kenji was right, this really is the day of despair. I drink more to avoid having to process what he just said."
-ke "Now I am the last sane man in an insane world… when other people realize it, there will be a war, a great war between men and the forces of feminism."
-ke "But the problem is that not all men would fight on my side… shit sucks. I could set the bar kinda low, any men are fine. But not the dudes raised by their mom or their sister, that's for sure."
+ke "Now I am the last sane man in an insane world... when other people realize it, there will be a war, a great war between men and the forces of feminism."
+ke "But the problem is that not all men would fight on my side... shit sucks. I could set the bar kinda low, any men are fine. But not the dudes raised by their mom or their sister, that's for sure."
 show kenji tsun_ni
 with charachange
 ke "And nobody into dickgirl porn."
-hi "Ha… That situation seems unlikely to me, like it wouldn't happen, like… like it's not very likely to happen."
+hi "Ha... That situation seems unlikely to me, like it wouldn't happen, like... like it's not very likely to happen."
 "The alcohol must be working."
 "Regardless, I still feel depressed that I'm up here today."
 "I wasn't really looking forward to the festival with the same excitement as the rest of the school, but still."
 "It would have been nice to have gone with someone. From up here, it certainly sounded like everyone's having fun. Maybe I am missing out."
 "It's just that there was no one I could have gone with."
 "Or maybe there was. So many opportunities, looking back on it now, and I must have squandered so many of them."
-ke "Damn, this is true despair… The worst part is that sometimes I feel like I have no choices in my life, you know?"
+ke "Damn, this is true despair... The worst part is that sometimes I feel like I have no choices in my life, you know?"
 ke "Like I never have a chance to make a decision, shit just happens."
-ke "Like it was all preprogrammed. Like fate… or something. Like there is no way I can have a say in what I do."
+ke "Like it was all preprogrammed. Like fate... or something. Like there is no way I can have a say in what I do."
 stop music fadeout 0.2
 show kenji rage_ni
 with vpunch
 ke "Quick, ask me a question!"
-hi "Uh…"
+hi "Uh..."
 ke "Now!"
-hi "I can't really…"
+hi "I can't really..."
 show kenji tsun_ni
 with charachange
 ke "See? This is just another example of it! Damn! Shit! Damn! Do you see? Now, when I'm trying to go against my destiny and take charge of my life, the opportunity isn't even there."
@@ -13591,7 +13603,7 @@ with Pause(0.5)
 "Suddenly, Kenji sits up, clumsily pats himself clean, and puts his hand out towards me to reach for the bottle. I put it in his hand."
 show kenji tsun_ni at Transform(xpos=0.7, xanchor=0.5, ypos=1.0, yanchor=0.7)
 with charachange
-ke "What the hell? Damn, you killed almost the entire bottle. See, it's like I have no options in life…"
+ke "What the hell? Damn, you killed almost the entire bottle. See, it's like I have no options in life..."
 ke "Is this how it's going to be for the rest of time?"
 hi "Well, I'm pretty sure it's not going to be like that for the rest of time."
 "Whatever he's talking about. My head is spinning. I get up and lean against the fence, hoping it'll help me focus a little."
@@ -13629,7 +13641,7 @@ with characlose
 show kenji happy_close_ni
 with charachange
 ke "What's the matter with you? Not in the mood for love?"
-hi "To be frank… no."
+hi "To be frank... no."
 show bg school_roof_ni at Slide(0.75,0.75,1.0,1.0,0.5, time_warp=_ease_time_warp)
 show kenji happy_close_ni at Slide(0.5,0.5,0.3,0.5,0.5, time_warp=_ease_time_warp)
 with None
@@ -13647,7 +13659,7 @@ hi "What the hell, stop leaning in like that, it bothers me."
 ke "Leaning in like what? Hey, you shouldn't lean against the fence like that, it's kind of unsafe."
 "I try to move away from Kenji, but my balance isn't so good."
 "Reeling from the dizziness, I grab at one of the fenceposts, but then feel it give way as soon as I put my weight on it."
-"…this isn't good. Though my alcohol-addled brain doesn't seem to be quite able of registering why."
+"...this isn't good. Though my alcohol-addled brain doesn't seem to be quite able of registering why."
 show black behind bg
 with None
 show n_vignette:
@@ -13669,7 +13681,7 @@ show nightsky rotation
 with None
 "There seems to be a bit of wind now. Somehow it makes me feel almost weightless."
 "I feel dazed, like my mind has gone blank."
-hi "I am… falling…?"
+hi "I am... falling...?"
 "I can see the night sky as I turn over in the air. The bottle floats out of my fingertips and disappears into thin air as I fall."
 "I realize that this is the fitting end to a truly, truly bad day."
 window hide

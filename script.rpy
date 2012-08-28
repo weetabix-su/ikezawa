@@ -150,7 +150,20 @@ init:
 	image emi basic_happy_gym = "sprites/emi/emi_basic_happy_gym.png"
 	image emi basic_closedgrin_gym = "sprites/emi/emi_basic_closedgrin_gym.png"
 	image emi basic_closedsweat_gym = "sprites/emi/emi_basic_closedsweat_gym.png"
+	image emi basic_closedhappy_gym = "sprites/emi/emi_basic_closedhappy_gym.png"
+	image emi basic_confused_gym = "sprites/emi/emi_basic_confused_gym.png"
+	image emi basic_grin_gym = "sprites/emi/emi_basic_grin_gym.png"
+	image emi basic_annoyed_gym = "sprites/emi/emi_basic_annoyed_gym.png"
 	image emi excited_sad_gym = "sprites/emi/emi_excited_sad_gym.png"
+	image emi excited_laugh_gym = "sprites/emi/emi_excited_laugh_gym.png"
+	image emi excited_proud_gym = "sprites/emi/emi_excited_proud_gym.png"
+	image emi excited_joy_gym = "sprites/emi/emi_excited_joy_gym.png"
+	image emi excited_amused_gym = "sprites/emi/emi_excited_amused_gym.png"
+	image emi sad_shy_gym = "sprites/emi/emi_sad_shy_gym.png"
+	image emi sad_grin_gym = "sprites/emi/emi_sad_grin_gym.png"
+	##Gym Uniform - Closeup
+	image emi excited_proud_gym_close = "sprites/emi/close/emi_excited_proud_gym_close.png"
+	image emi excited_laugh_gym_close = "sprites/emi/close/emi_excited_laugh_gym_close.png"
 	#Rin Tezuka
 	image rin relaxed_surprised = "sprites/rin/rin_relaxed_surprised.png"
 	image rin relaxed_nonchalant = "sprites/rin/rin_relaxed_nonchalant.png"
@@ -251,6 +264,9 @@ init:
 	image bg school_classroomart = "bgs/school_classroomart_cent.jpg"
 	image bg school_classroomart_left = "bgs/school_classroomart_left.jpg"
 	image bg school_classroomart_right = "bgs/school_classroomart_right.jpg"
+	image bg school_track = "bgs/school_track_cent.jpg"
+	image bg school_track_running = "bgs/school_track_running_cent.jpg"
+	image bg school_track_on = "bgs/school_track_on_cent.jpg"
 	image bg suburb_roadcenter = "bgs/suburb_roadcenter_cent.jpg"
 	image bg suburb_shanghaiext = "bgs/suburb_shanghaiext_cent.jpg"
 	image bg suburb_shanghaiint = "bgs/suburb_shanghaiint_cent.jpg"
@@ -321,6 +337,7 @@ label start:
 	$a8aTrigger = false
 	$a10bTrigger = false
 	$a10cTrigger = false
+	$a17aTrigger = false
 	#Hentai Switch
 	scene black
 	"WARNING: 'Katawa Shoujo' contains adult content."
