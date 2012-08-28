@@ -3733,151 +3733,132 @@ label en_A18:
 	"As if there was some need to conserve words and breath and sound."
 	scene bg school_dormext_half_ni
 	"We stay there late into the evening until it becomes too dark to paint properly."
-	scene black
+#	TEMPORARY STOP
+	$renpy.quit()
 label en_A19:
-window hide None
-scene black
-with dissolve
-play sound sfx_alarmclock
-stop ambient
-show bg school_dormhisao
-with openeye
-play music music_dreamy fadein 2.0
-window show
-"The sound of an alarm pulls me out of a fitful slumber and into the unpleasant state of wakefulness."
-"I linger under the blanket for a few minutes, gathering energy to rise up while making excuses as for why I already haven't."
-"Honestly, I wouldn't mind staying here for all day. School is surprisingly exhausting after a long pause, and the culture shock still has not faded, I think."
-"Still, despite getting an impression that skipping class is easy here, I don't think they are going to let me get away that easily."
-"And the nurse is bound to keep breathing down my neck with the talk of exercising as well."
-"So eventually I do rise up, swallow the morning medications and put on my old soccer clothing."
-"Thanks to my condition, I was exempted from taking part in gym classes at Yamaku, so I didn't get issued with a gym outfit."
-"I'd order some to cover such a contingency, but wearing my old soccer clothes is kind of nostalgic."
-"I can't use them for that any more, so maybe they can get a new life this way. A bit like me."
+	scene black
+#	play sound "sfx/alarmclock.ogg"
+	show bg school_dormhisao
+	play music "bgm/Raindrops_and_Puddles.ogg"	#WEETABIX NOTE: Music Variable [music_dreamy] is used, re-read port extracts and verify if BGM is correct
+	"The sound of an alarm pulls me out of a fitful slumber and into the unpleasant state of wakefulness."
+	"I linger under the blanket for a few minutes, gathering energy to rise up while making excuses as for why I already haven't."
+	"Honestly, I wouldn't mind staying here for all day. School is surprisingly exhausting after a long pause, and the culture shock still has not faded, I think."
+	"Still, despite getting an impression that skipping class is easy here, I don't think they are going to let me get away that easily."
+	"And the nurse is bound to keep breathing down my neck with the talk of exercising as well."
+	"So eventually I do rise up, swallow the morning medications and put on my old soccer clothing."
+	"Thanks to my condition, I was exempted from taking part in gym classes at Yamaku, so I didn't get issued with a gym outfit."
+	"I'd order some to cover such a contingency, but wearing my old soccer clothes is kind of nostalgic."
+	"I can't use them for that any more, so maybe they can get a new life this way. A bit like me."
+	#WEETABIX NOTE: CHECK [en_A17] CHOICES. VERIFY WHICH GOES WHERE. NO A17 TRIGGER PRESENT IN INITIAL COMMIT. EDIT INITIAL SCRIPT.RPY TO ADD A17 TRIGGER.
 label en_A19a:
-"After all, if I'm going to start taking care of myself, I can't afford to slack around. I'll start from the basics."
-"Basics which include keeping the rest of my body in shape along with what little I can do to strengthen my heart."
-"Maybe then I can go back to something approaching a normal life; or at least something where I'm less likely to fall over dead at any minute."
-stop music fadeout 2.0
+	"After all, if I'm going to start taking care of myself, I can't afford to slack around. I'll start from the basics."
+	"Basics which include keeping the rest of my body in shape along with what little I can do to strengthen my heart."
+	"Maybe then I can go back to something approaching a normal life; or at least something where I'm less likely to fall over dead at any minute."
+	play music "bgm/blank.ogg"
+	jump en_A19c
 label en_A19b:
-"Seems a bit stupid to me, really."
-"But I suppose this way at least I can tell the nurse honestly that I'm doing something about my health."
-"Not that I was ever much of a runner to begin with."
-"Can't hurt to try, I guess."
-stop music fadeout 2.0
+	"Seems a bit stupid to me, really."
+	"But I suppose this way at least I can tell the nurse honestly that I'm doing something about my health."
+	"Not that I was ever much of a runner to begin with."
+	"Can't hurt to try, I guess."
+	play music "bgm/blank.ogg"
+	jump en_A19c
 label en_A19c:
-show bg school_track
-with locationskip
-$ renpy.music.set_volume(1.0, 0.0, channel="ambient")
-play ambient sfx_emijogging fadein 0.1
-"I'm surprised to discover that I'm not the only one present at the track."
-"Not just that, but it's a face I've seen before."
-"The prosthetic-legged girl who bowled me over in the hallway yesterday is running on the track lithely, like a half-mechanical gazelle."
-"What was her name again? It was a short one, but I can't remember."
-"She seems to be running laps at a somewhat easy lope, her prosthetic legs clacking rhythmically on the hard track surface."
-"I wonder what reason she has for running this early in the morning. Maybe it's something akin to mine, and the nurse is oppressing the poor girl to jog just like he is oppressing me."
-"I certainly wouldn't be here if it weren't for my health, and his prompting me to do so."
-"And even with things being like they are, it's only because I wanted to get it out of the way early."
-"The fact that I would be less likely to encounter someone who would witness my pitiful attempts to get in shape was merely a happy accident."
-"I'd leave, but it seems that my former assailant noticed me on her last lap."
-"She waves at me cheerfully and jogs over."
-show emi basic_grin_gym at Slide(0.7,0.5,0.5,0.5,1.0,_ease_in_time_warp)
-with charaenter
-stop ambient
-emi_ "Good morning! Your name is Hisao, right?"
-play music music_emi fadein 2.0
-"She grins, seemingly pleased that she'd remembered my name."
-show emi basic_closedgrin_gym at center
-with charachange
-emi_ "You may not remember me."
-show emi basic_grin_gym
-with charachange
-emi_ "Emi? I knocked you over in the hall yesterday."
+	#WEETABIX NOTE: NO NEW DECLARED IMAGE DATA FROM THIS POINT ON. WILL RESULT IN ERROR WHEN EXECUTED IN RENPSP.
+	show bg school_track
+	#WEETABIX NOTE: [ambient] channel commented out for future purposes.
+#	$ renpy.music.set_volume(1.0, 0.0, channel="ambient")
+#	play ambient sfx_emijogging fadein 0.1
+	"I'm surprised to discover that I'm not the only one present at the track."
+	"Not just that, but it's a face I've seen before."
+	"The prosthetic-legged girl who bowled me over in the hallway yesterday is running on the track lithely, like a half-mechanical gazelle."
+	"What was her name again? It was a short one, but I can't remember."
+	"She seems to be running laps at a somewhat easy lope, her prosthetic legs clacking rhythmically on the hard track surface."
+	"I wonder what reason she has for running this early in the morning. Maybe it's something akin to mine, and the nurse is oppressing the poor girl to jog just like he is oppressing me."
+	"I certainly wouldn't be here if it weren't for my health, and his prompting me to do so."
+	"And even with things being like they are, it's only because I wanted to get it out of the way early."
+	"The fact that I would be less likely to encounter someone who would witness my pitiful attempts to get in shape was merely a happy accident."
+	"I'd leave, but it seems that my former assailant noticed me on her last lap."
+	"She waves at me cheerfully and jogs over."
+	show emi basic_grin_gym
+#	stop ambient
+	emi_ "Good morning! Your name is Hisao, right?"
+	play music "bgm/Standing_Tall.ogg"
+	"She grins, seemingly pleased that she'd remembered my name."
+	show emi basic_closedgrin_gym at center
+	emi_ "You may not remember me."
+	show emi basic_grin_gym
+	emi_ "Emi? I knocked you over in the hall yesterday."
+	#WEETABIX NOTE: Check Hanako/Lilly route trigger and jump to en_A19i if false.
 label en_A19i:
-show emi excited_circle_gym
-with charachange
-emi "“Miss Ibarazaki?”"
-"She imitates Misha “imitating” Shizune, failing to get the same kind of subdued lilt into her high-pitched voice."
+	show emi excited_circle_gym
+	emi "'Miss Ibarazaki?'"
+	"She imitates Misha 'imitating' Shizune, failing to get the same kind of subdued lilt into her high-pitched voice."
+	jump en_A19j
 label en_A19j:
-hi "How could I forget such a er, blunt introduction?"
-show emi sad_shy_gym
-with charachange
-"Emi has the decency to look vaguely apologetic for a moment before giggling."
-show emi sad_grin_gym
-with charachange
-emi "Yeah, sorry about that. Again."
-hi "Hmm, well, so long as you don't make a habit of it, I suppose I'll be fine."
-show emi basic_happy_gym
-with charachange
-emi "Great!"
-"I'm not sure she realized I was joking."
-hi "So the “spy-consultant” the nurse was talking about… is that actually you?"
-show emi basic_closedgrin_gym
-with charachange
-emi "That's right!"
-hi "Oh."
-hi "I was expecting someone from the nursing staff, to be honest."
-show emi basic_confused_gym
-with charachange
-emi "What, are you saying I don't look like I could be a spy?"
-hi "No, this is more like a relief. I was afraid he would have someone to watch my every move."
-hi "Unless you are here to do exactly that."
-show emi excited_laugh_gym
-with charachange
-emi "No, I'm here for my own reasons, the nurse just asked me if I had seen “a messy-haired transfer student who looks like he's kinda lost” around the track."
-hi "So why are you down here?"
-"Emi strikes a dramatic pose."
-show emi basic_happy_gym
-with charachange
-emi "Training!"
-hi "For what?"
-show emi basic_closedhappy_gym
-with charachange
-emi "Track!"
-hi "Ah, I see. You're on the track team, then?"
-"Emi nods enthusiastically."
-show emi excited_proud_gym
-with charachange
-emi "Yep! I'm one of the better runners, too!"
-"And modest about it, too."
-show emi basic_grin_gym
-with charachange
-emi "Hey, you should join up!"
-emi "It's good exercise, you know."
-"I think that much activity is probably out of the question for me."
-hi "Nah, I'm not even sure that I really like running all that much."
-hi "Plus I'm just not into organized sports, you know?"
-"It's true. I never even really got that much into soccer."
-"I mean I'd run around with my friends and all, but that was really the only reason I ever played."
-"It wasn't for the glory to be found on the field, that's for sure."
-"Emi seems to understand my meaning."
-show emi basic_confused_gym
-with charachange
-emi "I see, I see. Not that into the whole organization thing."
-show emi excited_proud_gym
-with charachange
-emi "But now that you're here, I guess we're going to run together, huh?"
-hi "What? Er, sure, I guess."
-"Emi seems pleased."
-show emi excited_joy_gym
-with charachange
-emi "Are you going to warm up?"
-hi "Real men don't warm up."
-show emi basic_annoyed_gym
-with charachange
-emi "Oh no, you always should warm up! Bad Hisao!"
-show emi excited_proud_gym_close
-with characlose
-"She scolds me enthusiastically, but then smiles and leans closer."
-emi "I hate warming up too."
-show emi excited_laugh_gym_close
-with charachange
-"She laughs suddenly."
-emi "Heck, and I don't even have to stretch my legs!"
-play sound sfx_gymbounce
-show emi gymbounce
-with charadistant
-"As if to confirm her statement she bounces up and down a couple of times, giving a passing impression of standing on a pair of springs. Her legblades seem to be quite elastic."
-emi "Let's go!"
+	hi "How could I forget such a er, blunt introduction?"
+	show emi sad_shy_gym
+	"Emi has the decency to look vaguely apologetic for a moment before giggling."
+	show emi sad_grin_gym
+	emi "Yeah, sorry about that. Again."
+	hi "Hmm, well, so long as you don't make a habit of it, I suppose I'll be fine."
+	show emi basic_happy_gym
+	emi "Great!"
+	"I'm not sure she realized I was joking."
+	hi "So the 'spy-consultant' the nurse was talking about... is that actually you?"
+	show emi basic_closedgrin_gym
+	emi "That's right!"
+	hi "Oh."
+	hi "I was expecting someone from the nursing staff, to be honest."
+	show emi basic_confused_gym
+	emi "What, are you saying I don't look like I could be a spy?"
+	hi "No, this is more like a relief. I was afraid he would have someone to watch my every move."
+	hi "Unless you are here to do exactly that."
+	show emi excited_laugh_gym
+	emi "No, I'm here for my own reasons, the nurse just asked me if I had seen “a messy-haired transfer student who looks like he's kinda lost” around the track."
+	hi "So why are you down here?"
+	"Emi strikes a dramatic pose."
+	show emi basic_happy_gym
+	emi "Training!"
+	hi "For what?"
+	show emi basic_closedhappy_gym
+	emi "Track!"
+	hi "Ah, I see. You're on the track team, then?"
+	"Emi nods enthusiastically."
+	show emi excited_proud_gym
+	emi "Yep! I'm one of the better runners, too!"
+	"And modest about it, too."
+	show emi basic_grin_gym
+	emi "Hey, you should join up!"
+	emi "It's good exercise, you know."
+	"I think that much activity is probably out of the question for me."
+	hi "Nah, I'm not even sure that I really like running all that much."
+	hi "Plus I'm just not into organized sports, you know?"
+	"It's true. I never even really got that much into soccer."
+	"I mean I'd run around with my friends and all, but that was really the only reason I ever played."
+	"It wasn't for the glory to be found on the field, that's for sure."
+	"Emi seems to understand my meaning."
+	show emi basic_confused_gym
+	emi "I see, I see. Not that into the whole organization thing."
+	show emi excited_proud_gym
+	emi "But now that you're here, I guess we're going to run together, huh?"
+	hi "What? Er, sure, I guess."
+	"Emi seems pleased."
+	show emi excited_joy_gym
+	emi "Are you going to warm up?"
+	hi "Real men don't warm up."
+	show emi basic_annoyed_gym
+	emi "Oh no, you always should warm up! Bad Hisao!"
+	show emi excited_proud_gym_close
+	"She scolds me enthusiastically, but then smiles and leans closer."
+	emi "I hate warming up too."
+	show emi excited_laugh_gym_close
+	"She laughs suddenly."
+	emi "Heck, and I don't even have to stretch my legs!"
+#	play sound "sfx/gymbounce.ogg"
+#	show emi gymbounce	#WEETABIX NOTE: Locate similar image. If possible, simulate animation present in PC version.
+	"As if to confirm her statement she bounces up and down a couple of times, giving a passing impression of standing on a pair of springs. Her legblades seem to be quite elastic."
+	emi "Let's go!"
 stop music fadeout 1.0
 play ambient sfx_emijogging fadein 0.3
 scene bg school_track_running
@@ -13728,5 +13709,3 @@ hi "I am… falling…?"
 window hide
 stop music fadeout 0.1
 play sound sfx_crunchydeath
-#	TEMPORARY STOP
-	$renpy.quit()
