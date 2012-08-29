@@ -127,6 +127,7 @@ init:
 	image lilly cane_cheerful = "sprites/lilly/lilly_cane_cheerful.png"
 	image lilly cane_listen = "sprites/lilly/lilly_cane_listen.png"
 	image lilly cane_concerned = "sprites/lilly/lilly_cane_concerned.png"
+    image lilly cane_displeased = "sprites/lilly/lilly_cane_displeased.png"
 	#Yuuko Shirakawa
 	image yuuko neutral_down = "sprites/yuuko/yuuko_neutral_down.png"
 	image yuuko neurotic_up = "sprites/yuuko/yuuko_neurotic_up.png"

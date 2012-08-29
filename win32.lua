@@ -5,7 +5,7 @@ ROOT_FOLDER = System.currentDirectory()
 RENPSP_FOLDER = ROOT_FOLDER.."/renpsp"
 
 -- folder to store game dirs
-GAMES_FOLDER = ROOT_FOLDER
+GAMES_FOLDER = ROOT_FOLDER -- "../games"
 
 -- SHOULD be "LPE"/"LPP"/"WIN"
 CURRENT_SYSTEM = "WIN"

@@ -4082,202 +4082,145 @@ label en_A20:
 	"That is time I will never get back. I'll get him for this somehow."
 	"But right now, I have to get to class."
 label en_A21:
-scene bg school_scienceroom
-play music music_normal fadein 2.0
-"I'm the first person in class today, although I think I'm a little too early. Then again, sitting alone here for twenty minutes sure beats having to suffer that time with Kenji."
-"The combination of fatigue, frustration and boredom starts making me feel very tired."
-"I black out for a second, waking up when my head hits the surface of my desk. Rubbing my forehead, I realize this is as good a reason as any to stay up for now and stop coming to class so early later."
-"Eventually, I hear a tapping noise outside in the hallway, and Lilly's tall figure appears in the doorway. She's not in this class, so she must have some other business. Maybe she's looking for Hanako."
-"Lilly stops at the door, looking hesitant as if she was a vampire who can't come in unless invited. I consider doing so because she looks rather lonesome standing there."
-"She steps in on her own accord though, after straightening her skirt and shirt collar as if it was of importance to look prim when entering our classroom."
-show lilly cane_concerned at left
-with charamoveinleft
-li "Excuse me."
-"She calls into the quiet classroom with a probing, delicate voice. I realize the silence might unnerve her because of her blindness so I break it."
-hi "Good morning, Lilly."
-show lilly cane_surprised at left
-with charachange
-show lilly cane_surprised at center
-show bg school_scienceroom at bgright
-with charamove
-li "Hisao? Good morning. I didn't hear you come in."
-"I wonder if she thinks it's suspicious I didn't say anything to her before. It's likely. If I were to tell too big a lie now, it would sink me."
-hi "Well, I was already here, just asleep until now."
-show lilly cane_listen
-with charachange
-li "Oh. Have you seen Hanako today, by any chance?"
-hi "No, she seems to come in only just before the bells ring... or after that. Do you want me to tell her something for you?"
-show lilly cane_weaksmile
-with charachange
-li "No, it's fine. It's strange, but I think we're the only two people in the school right now. I didn't hear anyone else on my way here."
-hi "I shouldn't have gotten up so early today, I guess."
-show lilly cane_smile
-with charachange
-li "You're chastising yourself for doing something that other people should? Punctuality is a good thing. I think so, anyway."
-show lilly cane_concerned
-with charachange
-li "It's a very busy morning today. The festival is coming up soon, and today is the deadline for event registration, budget reports, and any other official paperwork."
-show lilly cane_weaksmile
-with charachange
-li "It could be that everyone is trying to complete the necessary forms at the last minute. Maybe that is why it's so quiet today."
-play sound sfx_doorslam
-show lilly cane_surprised
-with vpunch
-mi "Hi~ hi~!"
-show shizu behind_blank at offscreenright
-show misha hips_grin at offscreenright
-with None
-show lilly cane_surprised at left
-show misha hips_grin at center
-show shizu behind_blank at right
-show bg school_scienceroom at bgleft
-with charamove
-hide misha
-show misha hips_grin behind shizu
-with None
-"Misha pops into the room with Shizune as if on cue, shouting with a loudness that makes Lilly visibly flinch."
-show misha hips_smile
-with charachange
-mi "Hi, Hicchan~!"
-hi "Hi."
-show shizu behind_smile
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "Look, it's the class representative~! Hello~!"
-show lilly cane_smile
-with charachange
-"Lilly smiles, probably amused by Misha's - or Shizune's - use of the word “look.”"
-show lilly cane_smile
-with charachange
-li "Good morning."
-show shizu adjust_smug
-with charachange
-shi "..."
-show misha cross_smile
-with charachange
-mi "Of course, you're not the representative of this class, right, right~?"
-show lilly cane_weaksmile
-with charachange
-li "I'm not."
-"Lilly seems a little more guarded in her answers to Shizune than she was with me the other day. I guess they really don't get along at all."
-"Then I realize that Lilly might actually not know Shizune is present and she's trying to detect whether or not she is, to know who she is talking to."
-"For all she knows, she's talking to Misha, but knowing that she and Shizune are practically inseparable, she might expect Shizune being the one that actually “talks.”"
-"Damn, how complicated. I decide to help Lilly out, for my own peace of mind more than anything else."
-hi "You're here early, Shizune."
-show shizu basic_angry
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "You were here even earlier than us!"
-"Misha puffs out her cheeks angrily. Why is she getting angry? Does she feel emotions on Shizune's behalf, too?"
-"It's not that weird, though, that Shizune didn't like my little comment. It's true, I was here earlier than them, so me saying something like that could definitely be misinterpreted as anything."
-"Especially to Shizune, who doesn't have the benefit of hearing tone to gauge intent."
-"Before I can start weighing whether or not I should apologize, Shizune has already moved on."
-show shizu adjust_smug
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Class rep~! It's a good thing you're here~! We have to talk."
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "The festival is coming up in three days, right? Every other class has already handed in their projected budget reports for their events! Even the first-years! Except you~!"
-show misha cross_laugh
-with charachange
-mi "Wahaha~!"
-show lilly cane_surprised
-with charachange
-li "There is still time to hand it in, isn't there?"
-stop music fadeout 2.0
-show shizu cross_angry
-with charachange
-shi "..."
-show misha cross_frown
-with charachange
-mi "Today! The deadline is today! You're certainly taking your time, aren't you? If I had it my way, I'd have had all of the necessary paperwork days ago, but someone~! had to say “the deadline, please extend it~!”"
-show lilly cane_displeased
-with charachange
-li "Yes, that was me. Planning something on this scale is not a small task, and a week is too small a time frame to expect a whole class to work out such a complex issue completely."
-show shizu adjust_angry
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "Do you want to know what's harder than distributing the funds for one class' event? Handling the same matter for every class in the school and then some~! The one who does that is me!"
-"Misha puts her hands on her hips and stands up straight. Wow, she is really getting into the role. Lilly doesn't look like she's very amused, though."
-hi "Hey, Shizune, aren't you being a little too hard on her? There's still a whole day left."
-show lilly cane_weaksmile
-with charachange
-li "Please, Hisao. It's all right."
-"Lilly seems happy I'm taking her side, but a bit conflicted that I might not think she can take care of herself."
-show lilly cane_listen
-with charachange
-li "If this is about the budget, then I'm disappointed you think I have forgotten about it. I understand how important it is."
-show shizu behind_frustrated
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "Then~! Can I have it, please?"
-hi "Shizune, she might not have it on her at this exact second."
-show lilly cane_displeased
-with charachange
-li "It's not here right now. I asked two students to take care of it for me. Students from my class."
-"She emphasizes the last sentence much to my surprise. She knows about Shizune and Misha's efforts to rope me into the Student Council?"
-"I guess word must've gotten around, so now she's using me as ammo against Shizune. This just gets better and better..."
-show shizu cross_angry
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "It was your responsibility~! A budget report isn't something you should just be delegating away; as class rep, it's your job to be on top of things! This kind of disregard for proper procedure is really just terrible~!"
-show lilly cane_listen
-with charachange
-li "They completed it, being capable of doing so, but the students have been sick recently, so they could not come to school and give it back to me. If you want, I will apologize on their behalf for getting sick."
-show misha hips_grin
-with charachange
-mi "Okay~!"
-"Although Misha misses Lilly's little jab entirely, Shizune doesn't, and she seems torn between being offended by Lilly's daring and jumping for joy at the prospect of a challenge."
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Lilly, don't they live here at the school? That's a five minute walk, you know~."
-mi "What could they possibly have that prevents them from taking five minutes out of their busy lives... to drop off something that will affect the enjoyment of their entire class?"
-show shizu adjust_angry
-with charachange
-"Lilly opens her mouth to say something, but Shizune closes the gap between them and starts signing furiously, waving her hands around like an orchestra conductor."
-"Misha tries her best to convey the same passion, but can't seem to lose her normal cheerful tone. The result is interesting and somewhat surreal."
-shi "..."
-show misha cross_frown
-with charachange
-mi "And what's with that attitude~? I said that it's not something you should be delegating away; are you the class representative or aren't you?"
-show misha hips_frown
-with charachange
-mi "Tell me the names of those two students, they should have your job if you can't even handle something this simple yourself."
-show lilly cane_displeased
-with charachange
-li "One form isn't the full extent of what I am supposed to take care of."
-"Lilly's tone is growing slightly impatient, but she is doing a good job of not letting Shizune see how unsettled she is becoming. She's playing her cards close to her chest."
-"Shizune, on the other hand, wraps her fingers cheerfully along the edge of her glasses, knowing Lilly can neither hear nor see how excited she is."
-show shizu adjust_smug
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "Of course, you do so much, class rep~! It must be so difficult being you~!"
-show lilly cane_listen
-with charachange
-"Lilly tightens her lips at Misha's words, clearly understanding the intent behind them even though Misha delivers them without even a hint of the sarcasm which they were meant to have."
-"Shizune and Lilly don't like each other, that much is clear, but this seems a little much. It seems like Lilly has had enough and is ready to push back."
-play music music_tension
+    scene bg school_scienceroom
+;   play music music_normal fadein 2.0  #WEETABIX NOTE: Refer to strings script file for name of [music_normal] variable
+    "I'm the first person in class today, although I think I'm a little too early. Then again, sitting alone here for twenty minutes sure beats having to suffer that time with Kenji."
+    "The combination of fatigue, frustration and boredom starts making me feel very tired."
+    "I black out for a second, waking up when my head hits the surface of my desk. Rubbing my forehead, I realize this is as good a reason as any to stay up for now and stop coming to class so early later."
+    "Eventually, I hear a tapping noise outside in the hallway, and Lilly's tall figure appears in the doorway. She's not in this class, so she must have some other business. Maybe she's looking for Hanako."
+    "Lilly stops at the door, looking hesitant as if she was a vampire who can't come in unless invited. I consider doing so because she looks rather lonesome standing there."
+    "She steps in on her own accord though, after straightening her skirt and shirt collar as if it was of importance to look prim when entering our classroom."
+    show lilly cane_concerned at left
+    li "Excuse me."
+    "She calls into the quiet classroom with a probing, delicate voice. I realize the silence might unnerve her because of her blindness so I break it."
+    hi "Good morning, Lilly."
+    scene bg school_scienceroom_right
+    show lilly cane_surprised at center
+    li "Hisao? Good morning. I didn't hear you come in."
+    "I wonder if she thinks it's suspicious I didn't say anything to her before. It's likely. If I were to tell too big a lie now, it would sink me."
+    hi "Well, I was already here, just asleep until now."
+    show lilly cane_listen
+    li "Oh. Have you seen Hanako today, by any chance?"
+    hi "No, she seems to come in only just before the bells ring... or after that. Do you want me to tell her something for you?"
+    show lilly cane_weaksmile
+    li "No, it's fine. It's strange, but I think we're the only two people in the school right now. I didn't hear anyone else on my way here."
+    hi "I shouldn't have gotten up so early today, I guess."
+    show lilly cane_smile
+    li "You're chastising yourself for doing something that other people should? Punctuality is a good thing. I think so, anyway."
+    show lilly cane_concerned
+    li "It's a very busy morning today. The festival is coming up soon, and today is the deadline for event registration, budget reports, and any other official paperwork."
+    show lilly cane_weaksmile
+    li "It could be that everyone is trying to complete the necessary forms at the last minute. Maybe that is why it's so quiet today."
+;   play sound "sfx/doorslam.ogg"
+    show lilly cane_surprised
+    mi "Hi~ hi~!"
+    scene bg school_scienceroom_left
+    show lilly cane_surprised at left
+    show misha hips_grin at center
+    show shizu behind_blank at right
+    "Misha pops into the room with Shizune as if on cue, shouting with a loudness that makes Lilly visibly flinch."
+    show misha hips_smile
+    mi "Hi, Hicchan~!"
+    hi "Hi."
+    show shizu behind_smile at right
+    shi "..."
+    show misha hips_grin
+    mi "Look, it's the class representative~! Hello~!"
+    show lilly cane_smile at left
+    "Lilly smiles, probably amused by Misha's - or Shizune's - use of the word “look.”"
+    li "Good morning."
+    show shizu adjust_smug at right
+    shi "..."
+    show misha cross_smile
+    mi "Of course, you're not the representative of this class, right, right~?"
+    show lilly cane_weaksmile at left
+    li "I'm not."
+    "Lilly seems a little more guarded in her answers to Shizune than she was with me the other day. I guess they really don't get along at all."
+    "Then I realize that Lilly might actually not know Shizune is present and she's trying to detect whether or not she is, to know who she is talking to."
+    "For all she knows, she's talking to Misha, but knowing that she and Shizune are practically inseparable, she might expect Shizune being the one that actually “talks.”"
+    "Damn, how complicated. I decide to help Lilly out, for my own peace of mind more than anything else."
+    hi "You're here early, Shizune."
+    show shizu basic_angry at right
+    shi "..."
+    show misha hips_frown
+    mi "You were here even earlier than us!"
+    "Misha puffs out her cheeks angrily. Why is she getting angry? Does she feel emotions on Shizune's behalf, too?"
+    "It's not that weird, though, that Shizune didn't like my little comment. It's true, I was here earlier than them, so me saying something like that could definitely be misinterpreted as anything."
+    "Especially to Shizune, who doesn't have the benefit of hearing tone to gauge intent."
+    "Before I can start weighing whether or not I should apologize, Shizune has already moved on."
+    show shizu adjust_smug at right
+    shi "..."
+    show misha hips_smile
+    mi "Class rep~! It's a good thing you're here~! We have to talk."
+    show shizu behind_frown at right
+    shi "..."
+    show misha hips_grin
+    mi "The festival is coming up in three days, right? Every other class has already handed in their projected budget reports for their events! Even the first-years! Except you~!"
+    show misha cross_laugh
+    mi "Wahaha~!"
+    show lilly cane_surprised at left
+    li "There is still time to hand it in, isn't there?"
+    play music "bgm/blank.ogg"
+    show shizu cross_angry at right
+    shi "..."
+    show misha cross_frown
+    mi "Today! The deadline is today! You're certainly taking your time, aren't you? If I had it my way, I'd have had all of the necessary paperwork days ago, but someone~! had to say “the deadline, please extend it~!”"
+    show lilly cane_displeased at left
+    li "Yes, that was me. Planning something on this scale is not a small task, and a week is too small a time frame to expect a whole class to work out such a complex issue completely."
+    show shizu adjust_angry at right
+    shi "..."
+    show misha hips_frown
+    mi "Do you want to know what's harder than distributing the funds for one class' event? Handling the same matter for every class in the school and then some~! The one who does that is me!"
+    "Misha puts her hands on her hips and stands up straight. Wow, she is really getting into the role. Lilly doesn't look like she's very amused, though."
+    hi "Hey, Shizune, aren't you being a little too hard on her? There's still a whole day left."
+    show lilly cane_weaksmile at left
+    li "Please, Hisao. It's all right."
+    "Lilly seems happy I'm taking her side, but a bit conflicted that I might not think she can take care of herself."
+    show lilly cane_listen at left
+    li "If this is about the budget, then I'm disappointed you think I have forgotten about it. I understand how important it is."
+    show shizu behind_frustrated at right
+    shi "..."
+    show misha hips_grin
+    mi "Then~! Can I have it, please?"
+    hi "Shizune, she might not have it on her at this exact second."
+    show lilly cane_displeased at left
+    li "It's not here right now. I asked two students to take care of it for me. Students from my class."
+    "She emphasizes the last sentence much to my surprise. She knows about Shizune and Misha's efforts to rope me into the Student Council?"
+    "I guess word must've gotten around, so now she's using me as ammo against Shizune. This just gets better and better..."
+    show shizu cross_angry at right
+    shi "..."
+    show misha hips_frown
+    mi "It was your responsibility~! A budget report isn't something you should just be delegating away; as class rep, it's your job to be on top of things! This kind of disregard for proper procedure is really just terrible~!"
+    show lilly cane_listen at left
+    li "They completed it, being capable of doing so, but the students have been sick recently, so they could not come to school and give it back to me. If you want, I will apologize on their behalf for getting sick."
+    show misha hips_grin
+    mi "Okay~!"
+    "Although Misha misses Lilly's little jab entirely, Shizune doesn't, and she seems torn between being offended by Lilly's daring and jumping for joy at the prospect of a challenge."
+    show shizu behind_frown at right
+    shi "..."
+    show misha hips_smile
+    mi "Lilly, don't they live here at the school? That's a five minute walk, you know~."
+    mi "What could they possibly have that prevents them from taking five minutes out of their busy lives... to drop off something that will affect the enjoyment of their entire class?"
+    show shizu adjust_angry at right
+    "Lilly opens her mouth to say something, but Shizune closes the gap between them and starts signing furiously, waving her hands around like an orchestra conductor."
+    "Misha tries her best to convey the same passion, but can't seem to lose her normal cheerful tone. The result is interesting and somewhat surreal."
+    shi "..."
+    show misha cross_frown
+    mi "And what's with that attitude~? I said that it's not something you should be delegating away; are you the class representative or aren't you?"
+    show misha hips_frown
+    mi "Tell me the names of those two students, they should have your job if you can't even handle something this simple yourself."
+    show lilly cane_displeased at left
+    li "One form isn't the full extent of what I am supposed to take care of."
+    "Lilly's tone is growing slightly impatient, but she is doing a good job of not letting Shizune see how unsettled she is becoming. She's playing her cards close to her chest."
+    "Shizune, on the other hand, wraps her fingers cheerfully along the edge of her glasses, knowing Lilly can neither hear nor see how excited she is."
+    show shizu adjust_smug at right
+    shi "..."
+    show misha hips_grin
+    mi "Of course, you do so much, class rep~! It must be so difficult being you~!"
+    show lilly cane_listen at left
+    "Lilly tightens her lips at Misha's words, clearly understanding the intent behind them even though Misha delivers them without even a hint of the sarcasm which they were meant to have."
+    "Shizune and Lilly don't like each other, that much is clear, but this seems a little much. It seems like Lilly has had enough and is ready to push back."
+    play music "bgm/Hokabi.ogg" #WEETABIX NOTE: verify [music_tension]
 $ wdt_off(False)
 scene black
 with Dissolve(0.2)
