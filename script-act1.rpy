@@ -4217,210 +4217,174 @@ label en_A21:
     play music "bgm/High_Tension.ogg"
 	scene black
 	$renpy.pause(0.2)
-;	play sound "sfx/draw.ogg"
+#	play sound "sfx/draw.ogg"
 	show showdown_lilly_slice
-	$renpy.pause(0.2)
-;	play sound "sfx/draw.ogg"
+	$renpy.pause(0.4)   #WEETABIX NOTE: Originally 0.2 seconds
+#	play sound "sfx/draw.ogg"
 	show showdown_shizu_slice
-	$renpy.pause(0.2)
-;	play sound "sfx/thunder.ogg"
+	$renpy.pause(0.4)   #WEETABIX NOTE: Originally 0.2 seconds
+#	play sound "sfx/thunder.ogg"
 #	TEMPORARY STOP
 	$renpy.quit()
-scene ev showdown
-with Fade(0.2, 0.0, 3.0, color="#FFF")
-play sound sfx_slide2
-show ev showdown_large:
-    pause 0 size (800,600) crop (0, 0, 2400, 1800) subpixel True
-    easeout 0.2 crop (280, 100, 800, 600)
-with None
-window show
-li "I was actually just discussing the budget report before you came by. You must be very talented to have finished all your student council duties so quickly that you can track me down to make sure I don't forget my own."
-play sound sfx_slide
-show ev showdown_large:
-    ease 0.2 crop (1400,160, 800, 600)
-with None
-mi "Are you accusing me of slacking off? It seems like you're confusing me with yourself~!"
-play sound sfx_slide2
-show ev showdown_large:
-    ease 0.2 crop (280,100, 800, 600)
-with None
-li "I don't think so. That would be a very difficult thing for me to do; comparing myself to you."
-play sound sfx_slide2
-show ev showdown_large:
-    ease 0.2 crop (1400,160, 800, 600)
-with None
-mi "You're right, the difference between us is like heaven and hell."
-play sound sfx_slide
-show ev showdown_large:
-    ease 0.2 crop (280,100, 800, 600)
-with None
-li "And it's not hard to guess which one you might represent."
-$ _window = False
-play sound sfx_thunder
-scene ev showdown
-with Fade(0.2, 0.0, 1.5, color="#FFF")
-window show
-"The air between them ripples with the heat of their enmity. Well, not really. They can't disguise it any more, though. Even Misha looks like she's beginning to understand the real nature of this conversation."
-stop music fadeout 5.0
-scene bg school_scienceroom
-show lilly cane_listen at left
-show misha perky_confused at center
-show shizu basic_angry at right
-with flash
-shi "..."
-show misha sign_confused
-with charachange
-mi "Hicchan~! Don't you slack off either~!"
-hi "What are you talking about?"
-show shizu basic_frown
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Aren't you taking part in the festival, Hicchan? You are, aren't you? Then~! I hope you're going to do a lot more to make sure it goes smoothly than this person~!"
+    #WEETABIX NOTE: Blind edits and cleaning from this point onwards. All [ev showdown_large] crops will be added later on.
+    scene white
+    $renpy.pause(0.2)
+    scene ev showdown
+    $renpy.pause(3)
+#   play sound "sfx/slide2.ogg"
+    show ev showdown_large:
+        pause 0 size (800,600) crop (0, 0, 2400, 1800) subpixel True
+        easeout 0.2 crop (280, 100, 800, 600)
+    li "I was actually just discussing the budget report before you came by. You must be very talented to have finished all your student council duties so quickly that you can track me down to make sure I don't forget my own."
+#   play sound "sfx/slide.ogg"
+    show ev showdown_large:
+        ease 0.2 crop (1400,160, 800, 600)
+    mi "Are you accusing me of slacking off? It seems like you're confusing me with yourself~!"
+#   play sound "sfx/slide2.ogg"
+    show ev showdown_large:
+        ease 0.2 crop (280,100, 800, 600)
+    li "I don't think so. That would be a very difficult thing for me to do; comparing myself to you."
+#   play sound "sfx/slide2.ogg"
+    show ev showdown_large:
+        ease 0.2 crop (1400,160, 800, 600)
+    mi "You're right, the difference between us is like heaven and hell."
+    play sound "sfx/slide.ogg"
+    show ev showdown_large:
+        ease 0.2 crop (280,100, 800, 600)
+    li "And it's not hard to guess which one you might represent."
+#   play sound "sfx/thunder.ogg"
+    scene white
+    $renpy.pause(0.2)
+    scene ev showdown
+    $renpy.pause(1.5)
+    "The air between them ripples with the heat of their enmity. Well, not really. They can't disguise it any more, though. Even Misha looks like she's beginning to understand the real nature of this conversation."
+    play music "bgm/blank.ogg"
+    scene white
+    $renpy.pause(0.2)
+    scene bg school_scienceroom
+    show lilly cane_listen at left
+    show misha perky_confused at center
+    show shizu basic_angry at right
+    shi "..."
+    show misha sign_confused
+    mi "Hicchan~! Don't you slack off either~!"
+    hi "What are you talking about?"
+    show shizu basic_frown at right
+    shi "..."
+    show misha hips_smile
+    mi "Aren't you taking part in the festival, Hicchan? You are, aren't you? Then~! I hope you're going to do a lot more to make sure it goes smoothly than this person~!"
 label en_choiceA21:
-menu:
-    with menueffect
     "I don't understand why Shizune is suddenly getting mad at me."
-    "Don't drag me into this! I've done my part!":
-        return m1
-    "Hey, come on. Cut me and Lilly some slack...":
-        return m2
+    #WEETABIX NOTE: Jumps on menu choices not set yet. Will read imachine script in case of trigger-related routing.
+    menu:
+        "Don't drag me into this!":
+            return m1
+        "Cut me and Lilly some slack...":
+            return m2
 label en_A21a:
-hi "Why am I being dragged into this, again? I've done more than enough, I think."
-hi "If you're angry with Lilly, that has nothing to do with me."
-show lilly cane_reminisce
-with charachange
-li "Now, wait just a second... are you implying the president is more right in scolding me than yourself?"
-"Ah damn, I think I could've worded that better."
-hi "No, I don't know about that but... I mean..."
-show shizu behind_frown
-with charachange
-shi "..."
-show misha perky_confused
-with charachange
-mi "What are you saying, Hicchan?"
-hi "It's just that I hardly think it's fair you can say that, seeing that I've helped you guys."
-"The mood has changed. This is like a showdown between two gunfighters now. Well, it was like that before too, but this time Shizune's focus is on me."
-"And so is Lilly's, though she keeps quiet. I'm afraid I inadvertently pissed her off."
-show shizu cross_angry
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "Are you saying I'm wrong?"
-"What a dangerous situation."
-hi "It's too early to argue with you. ...Yes, I think it's unfair of you to get on my case."
-show shizu behind_frustrated
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Hicchan, you want too much~! But~! You have a point. Okay, okay okay~! You're not lazy, Hicchan."
-show misha hips_laugh
-with charachange
-mi "Hahaha~!"
-"Shizune pushes her glasses up with her thumb, almost approvingly."
-show shizu adjust_happy
-with charachange
-shi "..."
-show misha perky_smile
-with charachange
-mi "That's good! If you're not useless, you shouldn't let anyone say you are~! But the next time I say it, it'll really be because you are disappointing me like Miss Class Rep here, so don't let this go to your head!"
-show lilly cane_displeased
-with charachange
-"Lilly takes the jab silently, a venomous visage frozen on her face."
-show misha hips_smile
-with charachange
-mi "Class rep~! Shicchan says: 'Don't forget that report, please~!'"
-li "I won't."
-show lilly cane_listen
-with charachange
-li "Would that be all?"
-show misha hips_grin
-with charachange
-mi "Yup~!"
-li "Then, good day to you all."
-"Her voice would cut the air of the classroom into half, if it was more tangible."
-hide lilly
-with charaexit
-"Lilly leaves the room, understandably in a bad mood but still managing to be as poised and calm as usual."
-show misha hips_grin at twoleft
-show shizu adjust_happy at tworight
-show bg school_scienceroom at bgleft
-with charamove
-hi "Shizune, you really did go a little too far today."
-show misha perky_smile
-with charachange
-mi "It's true, Shicchan, just a little~."
-"If I had been expecting Shizune to grudgingly admit I have a point there as well, I think I was expecting too much. She doesn't respond."
-show shizu basic_normal2
-with charachange
-shi "..."
-show misha cross_laugh
-with charachange
-mi "Hahaha~! Shicchan thinks you should mind your own business."
-show misha hips_smile
-with charachange
-mi "Hicchan, we have a few last minute things to take care of before class~! We might be late, so~! Can you please cover for us?"
-hi "Yeah."
-show misha cross_grin
-with charachange
-mi "Perfect~! Yay~! Okay~! Thanks, Hicchan!"
-hide misha
-hide shizu
-with charaexit
-"They walk outside even though there are only ten minutes left before the bell will ring, signaling the start of class."
+    hi "Why am I being dragged into this, again? I've done more than enough, I think."
+    hi "If you're angry with Lilly, that has nothing to do with me."
+    show lilly cane_reminisce at left
+    li "Now, wait just a second... are you implying the president is more right in scolding me than yourself?"
+    "Ah damn, I think I could've worded that better."
+    hi "No, I don't know about that but... I mean..."
+    show shizu behind_frown at right
+    shi "..."
+    show misha perky_confused
+    mi "What are you saying, Hicchan?"
+    hi "It's just that I hardly think it's fair you can say that, seeing that I've helped you guys."
+    "The mood has changed. This is like a showdown between two gunfighters now. Well, it was like that before too, but this time Shizune's focus is on me."
+    "And so is Lilly's, though she keeps quiet. I'm afraid I inadvertently pissed her off."
+    show shizu cross_angry at right
+    shi "..."
+    show misha hips_frown
+    mi "Are you saying I'm wrong?"
+    "What a dangerous situation."
+    hi "It's too early to argue with you. ...Yes, I think it's unfair of you to get on my case."
+    show shizu behind_frustrated at right
+    shi "..."
+    show misha hips_smile
+    mi "Hicchan, you want too much~! But~! You have a point. Okay, okay okay~! You're not lazy, Hicchan."
+    show misha hips_laugh
+    mi "Hahaha~!"
+    "Shizune pushes her glasses up with her thumb, almost approvingly."
+    show shizu adjust_happy at right
+    shi "..."
+    show misha perky_smile
+    mi "That's good! If you're not useless, you shouldn't let anyone say you are~! But the next time I say it, it'll really be because you are disappointing me like Miss Class Rep here, so don't let this go to your head!"
+    show lilly cane_displeased at left
+    "Lilly takes the jab silently, a venomous visage frozen on her face."
+    show misha hips_smile
+    mi "Class rep~! Shicchan says: 'Don't forget that report, please~!'"
+    li "I won't."
+    show lilly cane_listen at left
+    li "Would that be all?"
+    show misha hips_grin
+    mi "Yup~!"
+    li "Then, good day to you all."
+    "Her voice would cut the air of the classroom into half, if it was more tangible."
+    hide lilly
+    "Lilly leaves the room, understandably in a bad mood but still managing to be as poised and calm as usual."
+    scene bg school_scienceroom_left
+    show misha hips_grin at twoleft
+    show shizu adjust_happy at tworight
+    hi "Shizune, you really did go a little too far today."
+    show misha perky_smile at twoleft
+    mi "It's true, Shicchan, just a little~."
+    "If I had been expecting Shizune to grudgingly admit I have a point there as well, I think I was expecting too much. She doesn't respond."
+    show shizu basic_normal2 at tworight
+    shi "..."
+    show misha cross_laugh at twoleft
+    mi "Hahaha~! Shicchan thinks you should mind your own business."
+    show misha hips_smile at twoleft
+    mi "Hicchan, we have a few last minute things to take care of before class~! We might be late, so~! Can you please cover for us?"
+    hi "Yeah."
+    show misha cross_grin at twoleft
+    mi "Perfect~! Yay~! Okay~! Thanks, Hicchan!"
+    hide misha
+    hide shizu
+    "They walk outside even though there are only ten minutes left before the bell will ring, signaling the start of class."
 label en_A21b:
-hi "Hey, I'm the new guy, remember?"
-hi "It's not like I could've done much, even if I wanted."
-show lilly cane_displeased
-with charachange
-li "That's right, you shouldn't expect a transfer student to jump right into it on his first week."
-"Lilly taking my side feels oddly comforting so I decide to back her up too."
-hi "Yeah you're being unreasonable with us both."
-show shizu behind_frustrated
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "Excuses, excuses. Miss Class Rep has had plenty of time to deal with her report."
-mi "And we repeatedly offered you a position to help with the student council work, but you refused to commit yourself to making the festival a success."
-hi "Yeah, but as I said back then, I'm not sure if..."
-"I don't have time for this right now; no matter what I do, it will mean being drawn into a confrontation with Shizune, and that is what she wants."
-hi "Whatever. Forget it."
+    hi "Hey, I'm the new guy, remember?"
+    hi "It's not like I could've done much, even if I wanted."
+    show lilly cane_displeased at left
+    li "That's right, you shouldn't expect a transfer student to jump right into it on his first week."
+    "Lilly taking my side feels oddly comforting so I decide to back her up too."
+    hi "Yeah you're being unreasonable with us both."
+    show shizu behind_frustrated at right
+    shi "..."
+    show misha hips_frown
+    mi "Excuses, excuses. Miss Class Rep has had plenty of time to deal with her report."
+    mi "And we repeatedly offered you a position to help with the student council work, but you refused to commit yourself to making the festival a success."
+    hi "Yeah, but as I said back then, I'm not sure if..."
+    "I don't have time for this right now; no matter what I do, it will mean being drawn into a confrontation with Shizune, and that is what she wants."
+    hi "Whatever. Forget it."
 label en_A21c:
-"I turn my back at them."
-hide shizu
-hide misha
-with charaexit
-show lilly cane_displeased at center
-show bg school_scienceroom at bgright
-with charamove
-hi "Lilly, class is going to be starting soon, so we can talk more later. I'll tell Hanako you were looking for her."
-"I can feel Shizune freezing. Maybe this is the first time she has ever been ignored in such a blunt manner."
-show lilly cane_smile
-with charachange
-li "Thank you, Hisao. I'll leave now, then."
-"She gives me the sweetest smile I've seen all week, and turns on her heels to make her exit."
-hide lilly
-with charaexit
-"As soon as Lilly walks out the door, I suddenly start feeling reluctant about turning to face Shizune."
-"I can feel her eyes burning into my back, and can't bring myself to look at her. She must be furious. I keep expecting Misha to say something to alleviate the tension, but it really is wanting too much."
-"In the end, I go back to my seat and listen to the sound of Shizune's footsteps as she marches out of the room. She doesn't return until a few minutes before class."
+    "I turn my back at them."
+    hide shizu
+    hide misha
+    scene bg school_scienceroom_right
+    show lilly cane_displeased at center
+    hi "Lilly, class is going to be starting soon, so we can talk more later. I'll tell Hanako you were looking for her."
+    "I can feel Shizune freezing. Maybe this is the first time she has ever been ignored in such a blunt manner."
+    show lilly cane_smile
+    li "Thank you, Hisao. I'll leave now, then."
+    "She gives me the sweetest smile I've seen all week, and turns on her heels to make her exit."
+    hide lilly
+    "As soon as Lilly walks out the door, I suddenly start feeling reluctant about turning to face Shizune."
+    "I can feel her eyes burning into my back, and can't bring myself to look at her. She must be furious. I keep expecting Misha to say something to alleviate the tension, but it really is wanting too much."
+    "In the end, I go back to my seat and listen to the sound of Shizune's footsteps as she marches out of the room. She doesn't return until a few minutes before class."
 label en_A21d:
-hide shizu
-hide misha
-hide lilly
-with charaexit
-"I turn my back at them."
-"I get back to my seat and shut my ears from the finale of the argument between Lilly and Shizune."
-"Eventually, Lilly leaves our classroom and Shizune and Misha seat themselves, without talking to me."
-"I can feel Shizune's eyes burning into my back. She is probably angry at me, but I'm just as angry with her."
-"I don't get why she had to drag me into the argument."
+    hide shizu
+    hide misha
+    hide lilly
+    "I turn my back at them."
+    "I get back to my seat and shut my ears from the finale of the argument between Lilly and Shizune."
+    "Eventually, Lilly leaves our classroom and Shizune and Misha seat themselves, without talking to me."
+    "I can feel Shizune's eyes burning into my back. She is probably angry at me, but I'm just as angry with her."
+    "I don't get why she had to drag me into the argument."
 label en_A22:
-scene bg school_scienceroom at bgleft
-with shorttimeskip
+scene bg school_scienceroom_left
 play music music_daily fadein 0.5
 "Hanako doesn't come to the morning class at all, leaving her seat looking empty and lonely in the back of the classroom."
 "I have to tell her that Lilly was looking for her if I see her later."
