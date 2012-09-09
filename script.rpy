@@ -306,6 +306,9 @@ init:
 	image ev shizu_shanghai_smirklaugh = "event/shizu_shanghai_smirklaugh.jpg"
 	image ev shizu_shanghai_smirknormal = "event/shizu_shanghai_smirknormal.jpg"
 	image ev rin_eating = "event/rin_eating.jpg"
+	image ev showdown = "event/lilly_shizu_showdown.jpg"
+	image ev showdown_lilly = "event/showdown_lilly.jpg"
+	image ev showdown_shizu = "event/showdown_shizu.jpg"
 	#5. VFX
 	image heartattack alpha = "vfx/heart_attack.png"
 	image wallodrugs = "vfx/wallodrugs.png"

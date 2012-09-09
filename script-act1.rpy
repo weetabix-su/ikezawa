@@ -4222,33 +4222,24 @@ label en_A21:
 	show showdown_shizu_slice
 	$renpy.pause(0.4)   #WEETABIX NOTE: Originally 0.2 seconds
 #	play sound "sfx/thunder.ogg"
-#	TEMPORARY STOP
-	$renpy.quit()
-    #WEETABIX NOTE: Blind edits and cleaning from this point onwards. All [ev showdown_large] crops will be added later on.
     scene white
     $renpy.pause(0.2)
     scene ev showdown
     $renpy.pause(3)
 #   play sound "sfx/slide2.ogg"
-    show ev showdown_large:
-        pause 0 size (800,600) crop (0, 0, 2400, 1800) subpixel True
-        easeout 0.2 crop (280, 100, 800, 600)
+    show ev showdown_lilly
     li "I was actually just discussing the budget report before you came by. You must be very talented to have finished all your student council duties so quickly that you can track me down to make sure I don't forget my own."
 #   play sound "sfx/slide.ogg"
-    show ev showdown_large:
-        ease 0.2 crop (1400,160, 800, 600)
+    show ev showdown_shizu
     mi "Are you accusing me of slacking off? It seems like you're confusing me with yourself~!"
 #   play sound "sfx/slide2.ogg"
-    show ev showdown_large:
-        ease 0.2 crop (280,100, 800, 600)
+    show ev showdown_lilly
     li "I don't think so. That would be a very difficult thing for me to do; comparing myself to you."
 #   play sound "sfx/slide2.ogg"
-    show ev showdown_large:
-        ease 0.2 crop (1400,160, 800, 600)
+    show ev showdown_shizu
     mi "You're right, the difference between us is like heaven and hell."
     play sound "sfx/slide.ogg"
-    show ev showdown_large:
-        ease 0.2 crop (280,100, 800, 600)
+    show ev showdown_lilly
     li "And it's not hard to guess which one you might represent."
 #   play sound "sfx/thunder.ogg"
     scene white
@@ -4341,6 +4332,9 @@ label en_A21a:
     hide misha
     hide shizu
     "They walk outside even though there are only ten minutes left before the bell will ring, signaling the start of class."
+#	TEMPORARY STOP
+	$renpy.quit()
+	#WEETABIX NOTE: Routing A22 onwards is WIP
 	jump en_A22
 label en_A21b:
     hi "Hey, I'm the new guy, remember?"
@@ -4357,6 +4351,9 @@ label en_A21b:
     hi "Yeah, but as I said back then, I'm not sure if..."
     "I don't have time for this right now; no matter what I do, it will mean being drawn into a confrontation with Shizune, and that is what she wants."
     hi "Whatever. Forget it."
+#	TEMPORARY STOP
+	$renpy.quit()
+	#WEETABIX NOTE: Routing A22 onwards is WIP
 	if a10bTrigger == true:
 		jump en_A21c
 	elseif a10bTrigger == false:
