@@ -4398,52 +4398,41 @@ label en_A21d:
 			jump en_A24
 label en_A22:
 	scene bg school_scienceroom_left
-	play music music_daily fadein 0.5
+	play music "bgm/Daylight.ogg"
 	"Hanako doesn't come to the morning class at all, leaving her seat looking empty and lonely in the back of the classroom."
 	"I have to tell her that Lilly was looking for her if I see her later."
 	"After the events of this morning, class is pretty boring in comparison. I turn the pages of my textbook lazily."
 	"We've been covering the same amount of pages each day, so reading ahead is more or less giving myself a preview of what tomorrow's lesson will be about."
 	"The clock at the front of the room sounds unbearably loud. The teacher hasn't said anything in over seven minutes, instead opting to cover the board in rows and rows of equations taken directly from the book."
 	"The rhythmic clashing of chalk on blackboard seems to synchronize perfectly with the ticking of the clock."
-	show misha cross_smile_close at offscreenleft
-	with None
-	show misha cross_smile_close at Transform(xpos=0.1, xanchor=0.5)
-	show bg school_scienceroom at center
-	with charamove
+	scene bg school_scienceroom
+	show misha cross_smile_close
 	"I start to copy down the equations just to pass the time, not noticing Misha's head poking over my shoulder until she is almost on top of me."
 	hi "What are you doing?"
 	"I try to strike a balance between being quiet enough to not draw attention to myself but loud enough to draw hers."
-	show misha cross_grin_close
-	with charachange
+	scene bg school_scienceroom_right
 	show misha cross_grin_close at twoleft
-	show bg school_scienceroom at bgright
-	with charamove
 	mi "What are you doing, Hicchan~?"
 	"Panic shoots through me as Misha starts talking at her normal volume, and I sputter out a hasty reply, still keeping my voice down despite the fact that she just blew any hope of being discreet I may have had."
 	hi "I'm copying down that stuff, what are you doing? Why so loud?"
-	show misha perky_confused_close
-	with charachange
+	show misha perky_confused_close at twoleft
 	mi "Aw~, really? But it's all in the book... That's why no one else is copying it down~!"
 	hi "I know, why are you so loud?"
-	show misha hips_grin_close
-	with charachange
+	show misha hips_grin_close at twoleft
 	mi "Why are you so quiet, Hicchan? It's hard to hear you."
 	"I look around to see if anyone is noticing our conversation and it's pretty obvious that everyone has, even the teacher."
 	show shizu behind_smile at right
-	with charamoveinright
 	"Shizune smiles coyly and I start to wonder if Misha is doing this because she told her to."
 	"Is it because of what happened between her and Lilly earlier?"
 	"This is what I get for trying to be reasonable? For trying to take the middle path? Shizune is way too prideful, although by now I should know to expect that kind of behavior from her."
 	hi "Why are you doing this?"
-	show misha perky_confused_close
-	with charachange
+	show misha perky_confused_close at twoleft
 	mi "Huh?"
 	"Misha is totally oblivious to the awkward stare the teacher is giving both of us, while trying to balance her textbook on one finger. For a brief second it looks as if things could get ugly, but the teacher simply looks away, as if it's not worth the trouble."
 	"I guess this is a good thing, and I slump back in my seat in relief."
-	scene bg school_scienceroom at bgright
-	with shorttimeskip
+	scene bg school_scienceroom_right
 	"The rest of day passes by uneventfully, and this time I'm able to appreciate that it does."
-	play sound sfx_normalbell
+#	play sound "sfx/normalbell.ogg"
 	"When the bell rings, I'm not in a hurry, so I stay for a while, reviewing what we covered in class today. I prefer to leave last anyway, so I don't have to deal with crowding in the hallways."
 	"I notice Shizune and Misha have also stayed behind, talking to someone from another class."
 	"Shizune's signing so fast that her hands make noises like swords cutting through the air."
@@ -4456,60 +4445,45 @@ label en_A22:
 	"Luckily for her, their business is soon finished and the girls sit down on their seats again."
 	show shizu behind_blank at tworight
 	show misha perky_sad at twoleft
-	with charaenter
 	mi "Uwaaah! I'm so tired!"
 	"She's hanging her head limply on her desk, looking exhausted."
 	hi "Festival preparations must be tough for you."
 	"Indeed, the people in this school seem to be taking the festival very seriously. Whenever I see people idling around before and after classes they're always talking about their plans for it."
 	"It's kind of neat to see everyone being so enthusiastic about it."
 	"I'm probably the only one who doesn't have something to do."
-	show shizu basic_normal
-	show misha perky_confused
-	with charachange
+	show shizu basic_normal at tworight
+	show misha perky_confused at twoleft
 	"Shizune starts signing at me and Misha perks up, looking at her hands with slightly unfocused eyes."
-	show shizu behind_frown
-	with charachange
+	show shizu behind_frown at tworight
 	shi "..."
 	"She signs with harsh, heavy, dramatic strokes."
 	"Misha translates her signing into speech for me."
 	"She does it so well it's almost like Shizune is actually speaking, transmitting her thoughts directly through Misha."
-	show misha cross_frown
-	with charachange
+	show misha cross_frown at twoleft
 	mi "Well, we're in the Student Council, you know, so we're pretty busy."
 	hi "Sarcasm?"
-	show misha perky_confused
-	with charachange
+	show misha perky_confused at twoleft
 	mi "Huh?"
 	"The tone of Shizune's actions make me think she is 'speaking' with disdain, but Misha interprets it normally, replacing whatever intent may have been there with her own chipper twist on things. It's still disorienting, I don't think I'll ever get used to it."
 	hi "Never mind."
 	hi "How could I forget, with you two trying to get me to join at least twice a day?"
-	show misha cross_laugh
-	with charachange
+	show misha cross_laugh at twoleft
 	mi "Hahaha~! But, Hicchan, some could say the work is too much."
-	show shizu basic_normal2
-	with charachange
-	show misha perky_sad
-	with charachange
+	show shizu basic_normal2 at tworight
+	show misha perky_sad at twoleft
 	mi "It'd be nice if students were to show a little more support for their leadership, some appreciation to the ones who are working so hard to make it all possible."
-	show shizu behind_frown
-	with charachange
-	show misha perky_smile
-	with charachange
+	show shizu behind_frown at tworight
+	show misha perky_smile at twoleft
 	mi "Maybe, for example, a little help. That's asking too much, is it? Yep~! Help would be appreciated~! From students like you~!"
-	show shizu adjust_angry
-	with charachange
-	show misha hips_frown
-	with charachange
+	show shizu adjust_angry at tworight
+	show misha hips_frown at twoleft
 	mi "If students would show their dedication and school spirit, and offer some help, well, I don't exactly need it..."
-	show shizu behind_smile
-	with charachange
-	show misha hips_smile
-	with charachange
+	show shizu behind_smile at tworight
+	show misha hips_smile at twoleft
 	mi "But I wouldn't necessarily refuse it... So~! it would be nice if someone would..."
-	stop music fadeout 2.0
-	show shizu adjust_blush
-	show misha perky_confused
-	with charachange
+	play music "bgm/blank.ogg"
+	show shizu adjust_blush at tworight
+	show misha perky_confused at twoleft
 	mi "Oh? Hello~!"
 	show shizu adjust_blush at offscreenleft
 	show misha perky_confused at Transform(xanchor=0.5, xpos=-0.45)
