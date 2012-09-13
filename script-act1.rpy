@@ -4332,9 +4332,6 @@ label en_A21a:
     hide misha
     hide shizu
     "They walk outside even though there are only ten minutes left before the bell will ring, signaling the start of class."
-#	TEMPORARY STOP
-	$renpy.quit()
-	#WEETABIX NOTE: Routing A22 onwards is WIP
 	jump en_A22
 label en_A21b:
     hi "Hey, I'm the new guy, remember?"
@@ -4353,12 +4350,11 @@ label en_A21b:
     hi "Whatever. Forget it."
 #	TEMPORARY STOP
 	$renpy.quit()
-	#WEETABIX NOTE: Routing A22 onwards is WIP
 	if a10bTrigger == true:
 		jump en_A21c
 	elseif a10bTrigger == false:
 		jump en_A21d
-label en_A21c:
+label en_A21c:  #WEETABIX NOTE: Succession of A21b with Hanako-Lilly Trigger
     "I turn my back at them."
     hide shizu
     hide misha
@@ -4373,14 +4369,8 @@ label en_A21c:
     "As soon as Lilly walks out the door, I suddenly start feeling reluctant about turning to face Shizune."
     "I can feel her eyes burning into my back, and can't bring myself to look at her. She must be furious. I keep expecting Misha to say something to alleviate the tension, but it really is wanting too much."
     "In the end, I go back to my seat and listen to the sound of Shizune's footsteps as she marches out of the room. She doesn't return until a few minutes before class."
-	if a10cTrigger == true:
-		jump en_A23
-	elseif a10cTrigger == false:
-		if a10bTrigger == false:
-			jump en_A23a
-		elseif a10bTrigger == true:
-			jump en_A24
-label en_A21d:
+	jump en_A23
+label en_A21d:  #WEETABIX NOTE: Succession of A21b
     hide shizu
     hide misha
     hide lilly
@@ -4389,13 +4379,7 @@ label en_A21d:
     "Eventually, Lilly leaves our classroom and Shizune and Misha seat themselves, without talking to me."
     "I can feel Shizune's eyes burning into my back. She is probably angry at me, but I'm just as angry with her."
     "I don't get why she had to drag me into the argument."
-	if a10cTrigger == true:
-		jump en_A23
-	elseif a10cTrigger == false:
-		if a10bTrigger == false:
-			jump en_A23a
-		elseif a10bTrigger == true:
-			jump en_A24
+	jump en_A23
 label en_A22:
 	scene bg school_scienceroom_left
 	play music "bgm/Daylight.ogg"
@@ -4534,599 +4518,601 @@ label en_A22:
 	elseif a10cTrigger == true:
 		jump en_A22b
 label en_A22a:
-show misha hips_grin at Transform(xanchor=0.5, xpos=0.15)
-mi "She might be slacking off somewhere, just like Hicchan~! Wahaha~!"
-"Damn, what is it with Shizune and her need to point out stuff like this?"
-if a10cTrigger == true:
-	jump en_A23
-elseif a10cTrigger == false:
-	if a10bTrigger == false:
-		jump en_A23a
-	elseif a10bTrigger == true:
-		jump en_A24
-label en_A22b:
-scene bg school_scienceroom at bgleft
-show shizu behind_frown at Transform(xanchor=0.5, xpos=0.35)
-show misha hips_frown at Transform(xanchor=0.5, xpos=0.15)
-show hanako emb_timid at Transform(xanchor=0.5, xpos=0.97)
-with None
-mi "She might be slacking off somewhere~! What a useless woman~!"
-show hanako emb_downtimid
-with charachange
-hide hanako
-with easeoutright
-"Hanako nods quickly and retreats with haste, obviously to avoid any further contact with Shizune. Unfortunately, this turns their attention fully back to me."
-stop music fadeout 2.0
-show shizu behind_frown at tworight
-show misha hips_frown at twoleft
-show bg school_scienceroom at bgright
-with charamove
-show misha hips_grin
-show shizu behind_smile
-with charachange
-mi "But Hicchan is not useless, right? Right? He said so himself~! Wahaha~!"
-"I can see where this is going, and I do not want any part of it, not after that experience yesterday."
-hi "Well, good luck with your preparations..."
-"I start packing my bag, ready to make a break for the exit."
-"Unfortunately I'm all the way on the other side of the room."
-"The short distance to the doorway seems like a vast No Man's Land to me now."
-show misha perky_smile
-show shizu behind_blank
-with charachange
-play music music_shizune fadein 4.0
-show bg school_scienceroom at bgleft
-show shizu behind_blank at center
-show misha perky_smile at Transform(xalign=-0.15)
-with charamove
-show bg school_scienceroom at center
-show shizu behind_blank at tworight
-show misha perky_smile at twoleft
-with charamove
-"Shizune and Misha both start maneuvering slowly in front of me, cutting off my route of escape in an unsettlingly cautious way that makes me think of ship-to-ship combat."
-show misha hips_grin
-with charachange
-mi "I think Shicchan is saying that you should help us, Hicchan~!"
-hi "Gee, I wouldn't know, she's so subtle."
-show misha perky_confused
-with charachange
-mi "But~! that's the intent, so, please? I can't keep up, we have to actually build stalls for the festival, almost all of them all by ourselves, can you believe that?"
-show misha perky_sad
-with charachange
-mi "Hammering boards together, over and over again, for hours, it's really hard!"
-mi "I'm so used to it I was doing swinging motions in class, and I didn't even know it!"
-"She bangs her desk a few times, imitating hammer blows."
-mi "It's so repetitive, I can't stand it! And yesterday, I actually hammered all the boards on top of each other..."
-mi "It was just a stack of boards all nailed together, and then I had to take it apart and do it all over again, and I got yelled at and laughed at~!"
-hi "Uh..."
-show misha perky_smile
-with charachange
-mi "So..."
-show misha hips_grin_close
-with characlose
-"She clamps a hand down on my shoulder and grins, quickly running her tongue across her teeth mischievously."
-mi "Do you have any plans for today, Hicchan?"
-mi "I wonder if you do~."
-hi "Sure I have plans..."
-show misha perky_confused_close
-with characlose
-mi "Really~?"
-mi "You're going to help us, right?"
-"I notice her hands are moving constantly."
-"She's signing everything we both say so that Shizune can understand."
-"Shizune is being somewhat quiet today. Is she still angry? Well, probably at least a bit. I can see it in her eyes. But, this could also just be another way of trying to guilt me into lending her a hand."
-"I have to find a way out of this."
-hi "Hey, I should go now, to the library. You know, homework..."
-hi "I should get going, shouldn't I? I have to be diligent, because I'm a new student, and all, so I have to make a good first impression, right? Yeah..."
-hi "See you later, then!"
-show misha perky_confused_close at offscreenleft
-show shizu behind_blank at twoleft
-show bg school_scienceroom at bgleft
-with ease
-hide misha
-show misha perky_confused_close at offscreenleft behind shizu
-show shizu basic_normal2 at offscreenright
-show bg school_scienceroom at center
-with ease_accel
-show shizu cross_angry_close at tworight
-show bg school_scienceroom at bgright
-with ease_decel
-"I turn to bolt for the door, but Shizune is blocking my path, her arms crossed over her chest and a stern expression on her face."
-show shizu basic_angry_close
-with charadistant
-"She wags a finger tauntingly and begins signing to Misha with the manner of a squad leader giving directions to his fellow soldiers."
-show shizu basic_angry
-with charadistant
-show misha perky_smile at twoleft
-with charamove
-mi "It didn't seem like you were in any rush to get to the library, Hicchan~!"
-show misha hips_grin
-with charachange
-mi "That's right, Shicchan~, it does seem like he was probably going to slack off for the rest of the day."
-show misha hips_laugh
-with charachange
-mi "Hahaha~! Wahaha~! You're surrounded~!"
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Let's go to the student council room~!"
-"She lets out a chuckle, and then breaks into laughter."
-show misha cross_laugh
-with charachange
-mi "I'm sorry, Hicchan, I feel bad, but this works out for everyone, right?"
-show shizu basic_normal2
-with charachange
-shi "..."
-show misha sign_smile
-with charachange
-mi "That's right, Shicchan! Yes~, that's a good point too."
-show shizu behind_blank
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Yes, this is beneficial to everyone, it solves all our problems."
-show shizu basic_frown
-with charachange
-shi "..."
-show misha hips_frown
-with charachange
-mi "Yeah yeah~!, I also thought he'd be more appreciative of our efforts."
-show misha hips_frown_close
-show shizu basic_frown_close
-with characlose
-"They pull themselves closer, as if they are about to pounce."
-hi "Hey guys, two-on-one isn't very fair, is it?"
-show shizu behind_blank_close
-with charachange
-shi "..."
-"She keeps looking forward, impassive, then gives a sinister smile."
-show shizu basic_sparkle_close
-show misha hips_grin_close
-with characlose
-mi "Come on, we have a lot of work to do! Let's go to the student council room~!"
-hi "Gee, I don't know..."
-show misha cross_laugh_close
-with characlose
-"Misha laughs."
-show misha hips_grin_close
-with characlose
-mi "Deja vu~?"
-"She chortles, before letting out another laugh."
-show misha cross_laugh_close
-with characlose
-mi "Hahaha, you know, my horoscope said it'd be a good day for me today."
-show misha perky_smile_close
-with characlose
-mi "And now that you're going to help—{w=.5}{nw}"
-show shizu adjust_smug_close
-with charachange
-"Shizune signs quickly to her."
-show misha hips_grin_close
-with charachange
-mi "Right~!, I mean, now that you've decided to help us, completely of your own free will, I'll be able to take it easy! Lucky~, huh?"
-"I open my mouth to say something but then realize there's no point."
-"I refocus on trying to think of a way out of this. No, their actions are clearly deliberate, there's no sense in attempting to reason with them."
-"You can't reason with madmen. I frown, and they don't even notice my discontent, further proving my suspicions."
-"They seem pretty relaxed now. I guess they think they've already won, so they're letting their guard down."
-stop music fadeout 2.5
-"That's kind of arrogant."
-"They pass forward in front of me as they move through the doorway,"
-hide shizu
-hide misha
-with charaexit
-"And I stealthily walk backwards back into the classroom as they step into the hallway, turning towards the stairwell."
-"I let out a sigh of relief and quickly pack the rest of my stuff so I can make my escape."
-play sound sfx_doorslam
-"The classroom door slams shut."
-play music music_running fadein 0.5
-with None
-show shizu cross_angry at offscreenright 
-with None
-with None
-show misha cross_frown at offscreenleft 
-with None
-show shizu cross_angry at tworight
-show misha cross_frown at twoleft
-with ease
-shi "..."
-mi "That wasn't very nice, there. Hahaha, you really got us good, though. Didn't he, Shicchan?"
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "Right, right... ...Hahaha!"
-show misha cross_frown
-with charachange
-mi "What was that about? I thought you said you'd help us!"
-mi "And then you bailed on us! And you thought you would get away with it, didn't you?"
-show misha cross_laugh
-with charachange
-"The indignant expression vanishes and she begins to laugh hysterically, calming down only after an aggravated look from Shizune."
-show misha cross_grin
-with charachange
-mi "Oh, ah... Yeah~, you thought you could get away with it! But, a criminal always returns to the scene of the crime!"
-"I didn't even manage to leave the classroom in the first place. No, wait, I didn't even agree to help in the first place."
-show misha perky_smile
-with charachange
-mi "Not very bright, are you, criminal? Thinking you can just shirk your duties like that... How low, Hicchan~!"
-hi "I'm a criminal? What did I do? What's the charge? What am I guilty of?"
-show misha hips_grin
-with charachange
-mi "That's for the courts to decide, criminal! I don't think we have to tell you that!"
-show misha perky_smile
-with charachange
-mi "Besides, you're the criminal here, you know what you did!"
-hi "Have you ever read 'The Trial,' by Kafka?"
-show misha hips_grin
-with charachange
-mi "No, what's that, Hicchan~? What does that have to do with this?"
-hi "I read it a few months ago. It's about these people who run a kangaroo court on a guy who just wants to live his life. They refuse to leave him alone, and he can't fight the power."
-show shizu basic_frown
-with charachange
-shi "..."
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "Hicchan, what does that have to do with anything?"
-show misha sign_confused
-with charachange
-mi "Hey~!, what does that mean?"
-"She turns back to me after signing back and forth for a lengthy amount of time."
-show misha hips_frown
-with charachange
-mi "You know, we're both a little disappointed in you. You've let us down, Hisao."
-show shizu basic_frown
-with charachange
-shi "..."
-mi "Dropped the ball."
-show shizu behind_frown
-with charachange
-shi "..."
-mi "Left us hanging. And out in the cold~."
-show shizu cross_angry
-with charachange
-shi "..."
-show misha sign_smile
-with charachange
-mi "Is that any way to treat a person? To run away from your responsibilities, to abandon your comrades?"
-show misha hips_frown
-with charachange
-mi "We think you owe it to us to honor your commitment."
-hi "What? But I didn't commit to anything~!"
-"My breathing catches in my throat and I momentarily start choking."
-show shizu basic_frown
-with charachange
-shi "..."
-show misha cross_smile
-with charachange
-mi "That's not true, Hicchan! You said you are not useless, you definitely said it, yes, definitely, definitely definitely~!"
-show misha hips_grin
-with charachange
-mi "We are calling you on those words now~! You better prepare to show you are not a useless guy!"
-mi "Your honor will be soiled forever if you try to get out of this~!"
-mi "So for the rest of the day, we are going to hang out together, just the three of us, and work hard!"
-show shizu behind_frown
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "You can't fool us!"
-mi "You should be happy, you're doing your school a great service. Ask not what your school can do for you..."
-mi "But what you can do for your school!"
-show misha cross_laugh
-with charachange
-mi "Hahaha!"
-mi "Hahahahahahaha!"
-"How depressing."
-show misha cross_grin
-with charachange
-mi "Cheer up, cheer up, Hicchan!"
-"She slaps me hard across the back with enough strength to knock the air out of my lungs. I gasp to breathe."
-mi "Besides, aren't you happy you get to spend the day with two cute girls?"
-show misha hips_laugh
-with charachange
-mi "Hahahaha!"
-"I guess they are right. I did blurt those words out."
-stop music fadeout 3.0
-"Accepting my fate, I follow them to the student council room..."
-scene bg school_council_ss
-with shorttimeskip
-play sound sfx_hammer
-play music music_tranquil fadein 3.0
-"...And hammer the final nail into the stall. It took all of the afternoon, and dinner time is nearly over. But it is done now."
-show shizu basic_normal_ss at center
-with charaenter
-"Shizune pulls out a roll of measuring tape and a small level, and inspects it thoroughly."
-show shizu behind_smile_ss
-with charachange
-"She smiles, looking pleased, then motions for Misha to come over."
-show shizu adjust_happy_ss
-with charachange
-shi "..."
-show shizu adjust_happy_ss at tworight
-show bg school_council_ss at bgright
-with charamove
-show misha perky_smile_ss at twoleft  behind shizu
-with charaenter
-mi "She says you did a very good job. In fact, you might actually have a gift for this."
-show misha hips_smile_ss
-with charachange
-mi "Wow, I'm impressed, too. And that was fast, have you done this before?"
-hi "No. Never."
-hi "Never before."
-hi "And I never will again."
-show shizu behind_smile_ss
-with charachange
-shi "..."
-mi "Well, our quota for the day is six stalls. In a few minutes, me and Shicchan should finish this one."
-show misha hips_grin_ss
-with charachange
-mi "That means~... four more to go!"
-show misha sign_smile_ss
-with charachange
-mi "We're making good time, she says~!"
-show misha hips_grin_ss
-with charachange
-mi "Isn't this great fun?"
-hi "What?"
-"I could think of a million things I'd rather do, but I suppose everyone has to do their share for the festival, even me."
-hi "You're both lucky that I'm helping you two out, if I really didn't want to, I could have gotten out of it easily."
-show shizu basic_normal2_ss
-with charachange
-shi "..."
-show misha perky_smile_ss
-with charachange
-mi "Really, Hicchan?"
-show shizu adjust_smug_ss
-with charachange
-shi "..."
-show misha cross_laugh_ss
-with charachange
-mi "Wahaha~! Shicchan thinks you are just running your mouth! Japanese people have no flight or fight reflex, Hicchan~!"
-"Shizune tents her fingers deviously."
-show shizu basic_happy_ss
-with charachange
-shi "..."
-show misha hips_grin_ss
-with charachange
-mi "Definitely~! Definitely, definitely~! If you really wanted to escape, you would have taken immediate action~! That is how you know someone is serious; when they have no doubts, no regrets!"
-show shizu basic_normal_ss
-with charachange
-shi "..."
-show misha sign_smile_ss
-with charachange
-mi "Maybe it was a bad idea to tell you that, since now Hicchan knows what to do next time~."
-"But, just the fact that she is all right with telling me this shows me that she doubts I'll be able to act on it."
-"That only makes me want to do it more, and I almost want the opportunity to do so to arise again. But if that happens, she might get me again somehow."
-show shizu behind_smile_ss
-with charachange
-shi "..."
-show misha perky_smile_ss
-with charachange
-mi "Shicchan says she is happy now."
-stop music fadeout 1.5
-scene bg school_council_ni
-with shorttimeskip
-play music music_dreamy fadein 0.5
-"Much, much later in the evening, we are looking at six completed stalls."
-"With the pride of a job well done, we sit back and admire the fruits of our labor, not sharing a word between us. Just admiring."
-"I realize I'm feeling quite thirsty."
-hi "Hey, isn't there a vending machine out in the hall? They're on all day, right?"
-show misha hips_smile at center
-with charaenter
-mi "Yeah, the drinks are very cheap, too. We usually get something from there on days like this."
-"I dig around in my pocket, and find a single hundred yen coin."
-hi "Is this enough? I'm feeling kind of thirsty."
-show misha hips_grin
-with charachange
-mi "A hundred yen? You can get any drink in the machine with that."
-hi "That's good, that's very good, then."
-show misha hips_grin at twoleft
-show bg school_council_ni at bgleft
-with charamove
-show shizu adjust_happy at tworight
-with charaenter
-shi "..."
-show misha sign_smile
-with charachange
-mi "Ah, wait a second."
-show misha hips_grin
-with charachange
-mi "Hm? What is it, Shicchan? Do you want him to get you a drink too? Hahaha!"
-show shizu behind_smile
-with charachange
-shi "..."
-show misha perky_smile
-with charachange
-mi "Hicchan, you've really helped us out, so today I - I mean Shicchan, will treat you."
-show misha perky_confused
-with charachange
-mi "Hey, what about me?"
-show shizu adjust_smug
-with charachange
-shi "..."
-show misha perky_smile
-with charachange
-mi "What would you like? I'm feeling thirsty myself?"
-show misha perky_confused
-with charachange
-mi "So am I!"
-hi "Hm, I don't know. Anything's fine. I guess the melon soda."
-show shizu behind_smile
-with charachange
-shi "..."
-show misha perky_sad
-with charachange
-mi "Hey, wait, Shicchan! I also want a drink!"
-hide shizu
-with charaexit
-show misha perky_sad at center
-show bg school_council_ni at center
-with charamove
-mi "Aw...!"
-show misha perky_confused
-with charachange
-mi "You know, it's times like this that I think she is just teasing me."
-hi "That's probably it. I'm sure she'll get you something, right?"
-mi "Yeah, she usually does. But... you never know..."
-hi "Heh."
-show misha perky_confused at twoleft
-show bg school_council_ni at bgleft
-with charamove
-show shizu basic_normal2 at tworight  behind misha
-with charaenter
-"Shizune comes back with two melon sodas and a can of fruit juice."
-"She hands me one of the sodas, and the other to Misha."
-show misha hips_grin
-with charachange
-mi "Thanks, Shicchan~! I had total faith that you'd get me one, I knew I could count on you! Wahahaha!"
-show misha perky_confused
-with charachange
-mi "But how did you know this was what I wanted? I usually get something else."
-show shizu behind_smile
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "What? You knew I'd want to try it? And that I like these kinds of childish things? Hahahaha!"
-show misha hips_laugh
-with charachange
-mi "Hahahaha!"
-"I gesture my thanks to Shizune, who smiles and nods."
-show shizu adjust_happy
-with charachange
-shi "..."
-stop music fadeout 4.0
-show misha sign_smile
-with charachange
-mi "Hey, Hicchan..."
-hi "Yes?"
-show shizu behind_smile
-with charachange
-shi "..."
-show misha perky_smile
-with charachange
-mi "We've been spending a lot of time together. Already, in such a short time, we've done so much."
-mi "We should both stop beating around the bush. What I'm trying to say is,"
-"It sounds a lot like she's going to ask me out, but that can't be it. Nevertheless, my heart is beating like a jackhammer. Damn, this reminds me of another similar scene earlier this year."
-"I try to say something, but my brains can't decide whether to stop her or to tell her to continue."
-"I feel myself blushing all the way to the ears."
-show shizu adjust_smug
-with charachange
-shi "..."
-show misha hips_smile
-with charachange
-mi "What I'm trying to say is..."
-show misha hips_grin
-with charachange
-play music music_ease
-mi "Would you like to join the Student Council?"
-hi "Ah, what a disappointment."
-show misha cross_laugh
-show shizu adjust_blush
-with charachange
-mi "Hahaha! Hahahaha! Hahahahaha! Wahaha! Hahahaha!"
-mi "Did you think she wanted to ask you out, Hicchan?"
-mi "Hahahaha! Hahaha! Hahaha! Hahahaha!"
-mi "Hahahahahahahaha!"
-"I feel very embarrassed right now, I can feel myself getting even redder in the face."
-"Shizune also tries to hide a blush after Misha translates, and then puts a few sheets of paper in front of me."
-show shizu behind_frustrated
-with charachange
-shi "..."
-show misha cross_grin
-with charachange
-mi "So, how about it? All the paperwork is right here."
-show misha cross_smile
-with charachange
-mi "And you are sitting down, anyway. You look very at home here. Drinks and everything~!"
-show shizu basic_normal
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "What do you say?"
-"She quiets down a little and asks again a little more solemnly."
-show misha cross_smile
-with charachange
-mi "Hicchan, what do you say?"
-show misha sign_smile
-with charachange
-mi "You don't exactly hate this, right?"
-"I'm more than a little surprised by this sudden change of tone. I don't really know how to react to it."
-"For one thing, she isn't shouting uproariously with no regard for tact."
-"Before, I'm sure she knew already that I was going to say no."
-"This time, she seems actually serious."
-show misha perky_smile
-with charachange
-mi "I think maybe you should join. Not just because we could use your help, but, well, you're hanging out with us anyway."
-mi "I think Shicchan would like it if you would join as well. It's not like you hate us or anything, right?"
-show misha perky_sad
-with charachange
-mi "It wouldn't hurt if you joined. And I'd appreciate it if you would."
-"She seems to be having a hard time getting her words out, which is strange for someone talkative like Misha."
-"For some reason, I'm almost troubled by it."
-show shizu behind_blank
-with charachange
-"My eyes drift over to Shizune, who stares back at me tentatively, absentmindedly cleaning her fingernails."
-show misha perky_smile
-with charachange
-mi "If you don't want to join, I promise we won't ask again, but if you did, we would be really happy."
-"Both Shizune and Misha seem to be unable to look me in the eye."
-"I can't lie, the thought of being around two such cute girls is something that I couldn't possibly pass up."
-"I'm not looking forward to this kind of work every day, but there should be less after the festival."
-"At least, I hope so."
-hi "All right. I guess it can't hurt, so, why not?"
-show shizu adjust_happy
-with charachange
-shi "..."
-show misha hips_grin
-with charachange
-mi "Wonderful. Wonderful! Ahahaha~!"
-"Shizune tents her fingers in satisfaction."
-show shizu basic_happy
-with charachange
-shi "..."
-show misha perky_smile
-with charachange
-mi "She'll fill everything out, Hicchan. Congratulations, you are officially a member of the Student Council now!"
-hi "Great. I'm not looking forward to a lot of work."
-hi "To be honest, I've never done any student council activities before."
-hi "But maybe it'll be a positive experience?"
-"Misha starts to clap, laughing exuberantly as she does."
-show misha hips_laugh
-with charachange
-mi "Congratulations, Hicchan!"
-show shizu adjust_smug
-with charachange
-shi "..."
-mi "Congratulations!"
-show shizu behind_smile
-with charachange
-shi "..."
-mi "Congratulations!"
-show shizu adjust_happy
-with charachange
-shi "..."
-mi "Congratulations!"
-hi "I get the message."
-"I can't help but smile, finding such a display childishly cute."
-show misha hips_grin
-with charachange
-mi "The Student Council is always busy, you know! But for today, we're done. See you tomorrow, Hicchan!"
-show misha hips_smile
-with charachange
-mi "We still have work left, so we'll be counting on you!"
-stop music fadeout 4.0
-scene bg school_hallway3
-with locationchange
-"I leave the room, feeling totally wiped out. The grounds are totally deserted, and the school looks pretty ominous this late. The council office is the only window with lights on any more."
-"Is this what the Student Council will be like? My body might not be able to take it."
+    show misha hips_grin at Transform(xanchor=0.5, xpos=0.15)
+    mi "She might be slacking off somewhere, just like Hicchan~! Wahaha~!"
+    "Damn, what is it with Shizune and her need to point out stuff like this?"
+    jump en_A23
+label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
+    #WEETABIX NOTE: Indented for easier routing reference, sprite declaration cleanup still required
+    scene bg school_scienceroom at bgleft
+    show shizu behind_frown at Transform(xanchor=0.5, xpos=0.35)
+    show misha hips_frown at Transform(xanchor=0.5, xpos=0.15)
+    show hanako emb_timid at Transform(xanchor=0.5, xpos=0.97)
+    with None
+    mi "She might be slacking off somewhere~! What a useless woman~!"
+    show hanako emb_downtimid
+    with charachange
+    hide hanako
+    with easeoutright
+    "Hanako nods quickly and retreats with haste, obviously to avoid any further contact with Shizune. Unfortunately, this turns their attention fully back to me."
+    stop music fadeout 2.0
+    show shizu behind_frown at tworight
+    show misha hips_frown at twoleft
+    show bg school_scienceroom at bgright
+    with charamove
+    show misha hips_grin
+    show shizu behind_smile
+    with charachange
+    mi "But Hicchan is not useless, right? Right? He said so himself~! Wahaha~!"
+    "I can see where this is going, and I do not want any part of it, not after that experience yesterday."
+    hi "Well, good luck with your preparations..."
+    "I start packing my bag, ready to make a break for the exit."
+    "Unfortunately I'm all the way on the other side of the room."
+    "The short distance to the doorway seems like a vast No Man's Land to me now."
+    show misha perky_smile
+    show shizu behind_blank
+    with charachange
+    play music music_shizune fadein 4.0
+    show bg school_scienceroom at bgleft
+    show shizu behind_blank at center
+    show misha perky_smile at Transform(xalign=-0.15)
+    with charamove
+    show bg school_scienceroom at center
+    show shizu behind_blank at tworight
+    show misha perky_smile at twoleft
+    with charamove
+    "Shizune and Misha both start maneuvering slowly in front of me, cutting off my route of escape in an unsettlingly cautious way that makes me think of ship-to-ship combat."
+    show misha hips_grin
+    with charachange
+    mi "I think Shicchan is saying that you should help us, Hicchan~!"
+    hi "Gee, I wouldn't know, she's so subtle."
+    show misha perky_confused
+    with charachange
+    mi "But~! that's the intent, so, please? I can't keep up, we have to actually build stalls for the festival, almost all of them all by ourselves, can you believe that?"
+    show misha perky_sad
+    with charachange
+    mi "Hammering boards together, over and over again, for hours, it's really hard!"
+    mi "I'm so used to it I was doing swinging motions in class, and I didn't even know it!"
+    "She bangs her desk a few times, imitating hammer blows."
+    mi "It's so repetitive, I can't stand it! And yesterday, I actually hammered all the boards on top of each other..."
+    mi "It was just a stack of boards all nailed together, and then I had to take it apart and do it all over again, and I got yelled at and laughed at~!"
+    hi "Uh..."
+    show misha perky_smile
+    with charachange
+    mi "So..."
+    show misha hips_grin_close
+    with characlose
+    "She clamps a hand down on my shoulder and grins, quickly running her tongue across her teeth mischievously."
+    mi "Do you have any plans for today, Hicchan?"
+    mi "I wonder if you do~."
+    hi "Sure I have plans..."
+    show misha perky_confused_close
+    with characlose
+    mi "Really~?"
+    mi "You're going to help us, right?"
+    "I notice her hands are moving constantly."
+    "She's signing everything we both say so that Shizune can understand."
+    "Shizune is being somewhat quiet today. Is she still angry? Well, probably at least a bit. I can see it in her eyes. But, this could also just be another way of trying to guilt me into lending her a hand."
+    "I have to find a way out of this."
+    hi "Hey, I should go now, to the library. You know, homework..."
+    hi "I should get going, shouldn't I? I have to be diligent, because I'm a new student, and all, so I have to make a good first impression, right? Yeah..."
+    hi "See you later, then!"
+    show misha perky_confused_close at offscreenleft
+    show shizu behind_blank at twoleft
+    show bg school_scienceroom at bgleft
+    with ease
+    hide misha
+    show misha perky_confused_close at offscreenleft behind shizu
+    show shizu basic_normal2 at offscreenright
+    show bg school_scienceroom at center
+    with ease_accel
+    show shizu cross_angry_close at tworight
+    show bg school_scienceroom at bgright
+    with ease_decel
+    "I turn to bolt for the door, but Shizune is blocking my path, her arms crossed over her chest and a stern expression on her face."
+    show shizu basic_angry_close
+    with charadistant
+    "She wags a finger tauntingly and begins signing to Misha with the manner of a squad leader giving directions to his fellow soldiers."
+    show shizu basic_angry
+    with charadistant
+    show misha perky_smile at twoleft
+    with charamove
+    mi "It didn't seem like you were in any rush to get to the library, Hicchan~!"
+    show misha hips_grin
+    with charachange
+    mi "That's right, Shicchan~, it does seem like he was probably going to slack off for the rest of the day."
+    show misha hips_laugh
+    with charachange
+    mi "Hahaha~! Wahaha~! You're surrounded~!"
+    show shizu behind_frown
+    with charachange
+    shi "..."
+    show misha hips_smile
+    with charachange
+    mi "Let's go to the student council room~!"
+    "She lets out a chuckle, and then breaks into laughter."
+    show misha cross_laugh
+    with charachange
+    mi "I'm sorry, Hicchan, I feel bad, but this works out for everyone, right?"
+    show shizu basic_normal2
+    with charachange
+    shi "..."
+    show misha sign_smile
+    with charachange
+    mi "That's right, Shicchan! Yes~, that's a good point too."
+    show shizu behind_blank
+    with charachange
+    shi "..."
+    show misha hips_smile
+    with charachange
+    mi "Yes, this is beneficial to everyone, it solves all our problems."
+    show shizu basic_frown
+    with charachange
+    shi "..."
+    show misha hips_frown
+    with charachange
+    mi "Yeah yeah~!, I also thought he'd be more appreciative of our efforts."
+    show misha hips_frown_close
+    show shizu basic_frown_close
+    with characlose
+    "They pull themselves closer, as if they are about to pounce."
+    hi "Hey guys, two-on-one isn't very fair, is it?"
+    show shizu behind_blank_close
+    with charachange
+    shi "..."
+    "She keeps looking forward, impassive, then gives a sinister smile."
+    show shizu basic_sparkle_close
+    show misha hips_grin_close
+    with characlose
+    mi "Come on, we have a lot of work to do! Let's go to the student council room~!"
+    hi "Gee, I don't know..."
+    show misha cross_laugh_close
+    with characlose
+    "Misha laughs."
+    show misha hips_grin_close
+    with characlose
+    mi "Deja vu~?"
+    "She chortles, before letting out another laugh."
+    show misha cross_laugh_close
+    with characlose
+    mi "Hahaha, you know, my horoscope said it'd be a good day for me today."
+    show misha perky_smile_close
+    with characlose
+    mi "And now that you're going to help—{w=.5}{nw}"
+    show shizu adjust_smug_close
+    with charachange
+    "Shizune signs quickly to her."
+    show misha hips_grin_close
+    with charachange
+    mi "Right~!, I mean, now that you've decided to help us, completely of your own free will, I'll be able to take it easy! Lucky~, huh?"
+    "I open my mouth to say something but then realize there's no point."
+    "I refocus on trying to think of a way out of this. No, their actions are clearly deliberate, there's no sense in attempting to reason with them."
+    "You can't reason with madmen. I frown, and they don't even notice my discontent, further proving my suspicions."
+    "They seem pretty relaxed now. I guess they think they've already won, so they're letting their guard down."
+    stop music fadeout 2.5
+    "That's kind of arrogant."
+    "They pass forward in front of me as they move through the doorway,"
+    hide shizu
+    hide misha
+    with charaexit
+    "And I stealthily walk backwards back into the classroom as they step into the hallway, turning towards the stairwell."
+    "I let out a sigh of relief and quickly pack the rest of my stuff so I can make my escape."
+    play sound sfx_doorslam
+    "The classroom door slams shut."
+    play music music_running fadein 0.5
+    with None
+    show shizu cross_angry at offscreenright 
+    with None
+    with None
+    show misha cross_frown at offscreenleft 
+    with None
+    show shizu cross_angry at tworight
+    show misha cross_frown at twoleft
+    with ease
+    shi "..."
+    mi "That wasn't very nice, there. Hahaha, you really got us good, though. Didn't he, Shicchan?"
+    show shizu behind_frown
+    with charachange
+    shi "..."
+    show misha hips_grin
+    with charachange
+    mi "Right, right... ...Hahaha!"
+    show misha cross_frown
+    with charachange
+    mi "What was that about? I thought you said you'd help us!"
+    mi "And then you bailed on us! And you thought you would get away with it, didn't you?"
+    show misha cross_laugh
+    with charachange
+    "The indignant expression vanishes and she begins to laugh hysterically, calming down only after an aggravated look from Shizune."
+    show misha cross_grin
+    with charachange
+    mi "Oh, ah... Yeah~, you thought you could get away with it! But, a criminal always returns to the scene of the crime!"
+    "I didn't even manage to leave the classroom in the first place. No, wait, I didn't even agree to help in the first place."
+    show misha perky_smile
+    with charachange
+    mi "Not very bright, are you, criminal? Thinking you can just shirk your duties like that... How low, Hicchan~!"
+    hi "I'm a criminal? What did I do? What's the charge? What am I guilty of?"
+    show misha hips_grin
+    with charachange
+    mi "That's for the courts to decide, criminal! I don't think we have to tell you that!"
+    show misha perky_smile
+    with charachange
+    mi "Besides, you're the criminal here, you know what you did!"
+    hi "Have you ever read 'The Trial,' by Kafka?"
+    show misha hips_grin
+    with charachange
+    mi "No, what's that, Hicchan~? What does that have to do with this?"
+    hi "I read it a few months ago. It's about these people who run a kangaroo court on a guy who just wants to live his life. They refuse to leave him alone, and he can't fight the power."
+    show shizu basic_frown
+    with charachange
+    shi "..."
+    show shizu behind_frown
+    with charachange
+    shi "..."
+    show misha hips_smile
+    with charachange
+    mi "Hicchan, what does that have to do with anything?"
+    show misha sign_confused
+    with charachange
+    mi "Hey~!, what does that mean?"
+    "She turns back to me after signing back and forth for a lengthy amount of time."
+    show misha hips_frown
+    with charachange
+    mi "You know, we're both a little disappointed in you. You've let us down, Hisao."
+    show shizu basic_frown
+    with charachange
+    shi "..."
+    mi "Dropped the ball."
+    show shizu behind_frown
+    with charachange
+    shi "..."
+    mi "Left us hanging. And out in the cold~."
+    show shizu cross_angry
+    with charachange
+    shi "..."
+    show misha sign_smile
+    with charachange
+    mi "Is that any way to treat a person? To run away from your responsibilities, to abandon your comrades?"
+    show misha hips_frown
+    with charachange
+    mi "We think you owe it to us to honor your commitment."
+    hi "What? But I didn't commit to anything~!"
+    "My breathing catches in my throat and I momentarily start choking."
+    show shizu basic_frown
+    with charachange
+    shi "..."
+    show misha cross_smile
+    with charachange
+    mi "That's not true, Hicchan! You said you are not useless, you definitely said it, yes, definitely, definitely definitely~!"
+    show misha hips_grin
+    with charachange
+    mi "We are calling you on those words now~! You better prepare to show you are not a useless guy!"
+    mi "Your honor will be soiled forever if you try to get out of this~!"
+    mi "So for the rest of the day, we are going to hang out together, just the three of us, and work hard!"
+    show shizu behind_frown
+    with charachange
+    shi "..."
+    show misha hips_smile
+    with charachange
+    mi "You can't fool us!"
+    mi "You should be happy, you're doing your school a great service. Ask not what your school can do for you..."
+    mi "But what you can do for your school!"
+    show misha cross_laugh
+    with charachange
+    mi "Hahaha!"
+    mi "Hahahahahahaha!"
+    "How depressing."
+    show misha cross_grin
+    with charachange
+    mi "Cheer up, cheer up, Hicchan!"
+    "She slaps me hard across the back with enough strength to knock the air out of my lungs. I gasp to breathe."
+    mi "Besides, aren't you happy you get to spend the day with two cute girls?"
+    show misha hips_laugh
+    with charachange
+    mi "Hahahaha!"
+    "I guess they are right. I did blurt those words out."
+    stop music fadeout 3.0
+    "Accepting my fate, I follow them to the student council room..."
+    scene bg school_council_ss
+    with shorttimeskip
+    play sound sfx_hammer
+    play music music_tranquil fadein 3.0
+    "...And hammer the final nail into the stall. It took all of the afternoon, and dinner time is nearly over. But it is done now."
+    show shizu basic_normal_ss at center
+    with charaenter
+    "Shizune pulls out a roll of measuring tape and a small level, and inspects it thoroughly."
+    show shizu behind_smile_ss
+    with charachange
+    "She smiles, looking pleased, then motions for Misha to come over."
+    show shizu adjust_happy_ss
+    with charachange
+    shi "..."
+    show shizu adjust_happy_ss at tworight
+    show bg school_council_ss at bgright
+    with charamove
+    show misha perky_smile_ss at twoleft  behind shizu
+    with charaenter
+    mi "She says you did a very good job. In fact, you might actually have a gift for this."
+    show misha hips_smile_ss
+    with charachange
+    mi "Wow, I'm impressed, too. And that was fast, have you done this before?"
+    hi "No. Never."
+    hi "Never before."
+    hi "And I never will again."
+    show shizu behind_smile_ss
+    with charachange
+    shi "..."
+    mi "Well, our quota for the day is six stalls. In a few minutes, me and Shicchan should finish this one."
+    show misha hips_grin_ss
+    with charachange
+    mi "That means~... four more to go!"
+    show misha sign_smile_ss
+    with charachange
+    mi "We're making good time, she says~!"
+    show misha hips_grin_ss
+    with charachange
+    mi "Isn't this great fun?"
+    hi "What?"
+    "I could think of a million things I'd rather do, but I suppose everyone has to do their share for the festival, even me."
+    hi "You're both lucky that I'm helping you two out, if I really didn't want to, I could have gotten out of it easily."
+    show shizu basic_normal2_ss
+    with charachange
+    shi "..."
+    show misha perky_smile_ss
+    with charachange
+    mi "Really, Hicchan?"
+    show shizu adjust_smug_ss
+    with charachange
+    shi "..."
+    show misha cross_laugh_ss
+    with charachange
+    mi "Wahaha~! Shicchan thinks you are just running your mouth! Japanese people have no flight or fight reflex, Hicchan~!"
+    "Shizune tents her fingers deviously."
+    show shizu basic_happy_ss
+    with charachange
+    shi "..."
+    show misha hips_grin_ss
+    with charachange
+    mi "Definitely~! Definitely, definitely~! If you really wanted to escape, you would have taken immediate action~! That is how you know someone is serious; when they have no doubts, no regrets!"
+    show shizu basic_normal_ss
+    with charachange
+    shi "..."
+    show misha sign_smile_ss
+    with charachange
+    mi "Maybe it was a bad idea to tell you that, since now Hicchan knows what to do next time~."
+    "But, just the fact that she is all right with telling me this shows me that she doubts I'll be able to act on it."
+    "That only makes me want to do it more, and I almost want the opportunity to do so to arise again. But if that happens, she might get me again somehow."
+    show shizu behind_smile_ss
+    with charachange
+    shi "..."
+    show misha perky_smile_ss
+    with charachange
+    mi "Shicchan says she is happy now."
+    stop music fadeout 1.5
+    scene bg school_council_ni
+    with shorttimeskip
+    play music music_dreamy fadein 0.5
+    "Much, much later in the evening, we are looking at six completed stalls."
+    "With the pride of a job well done, we sit back and admire the fruits of our labor, not sharing a word between us. Just admiring."
+    "I realize I'm feeling quite thirsty."
+    hi "Hey, isn't there a vending machine out in the hall? They're on all day, right?"
+    show misha hips_smile at center
+    with charaenter
+    mi "Yeah, the drinks are very cheap, too. We usually get something from there on days like this."
+    "I dig around in my pocket, and find a single hundred yen coin."
+    hi "Is this enough? I'm feeling kind of thirsty."
+    show misha hips_grin
+    with charachange
+    mi "A hundred yen? You can get any drink in the machine with that."
+    hi "That's good, that's very good, then."
+    show misha hips_grin at twoleft
+    show bg school_council_ni at bgleft
+    with charamove
+    show shizu adjust_happy at tworight
+    with charaenter
+    shi "..."
+    show misha sign_smile
+    with charachange
+    mi "Ah, wait a second."
+    show misha hips_grin
+    with charachange
+    mi "Hm? What is it, Shicchan? Do you want him to get you a drink too? Hahaha!"
+    show shizu behind_smile
+    with charachange
+    shi "..."
+    show misha perky_smile
+    with charachange
+    mi "Hicchan, you've really helped us out, so today I - I mean Shicchan, will treat you."
+    show misha perky_confused
+    with charachange
+    mi "Hey, what about me?"
+    show shizu adjust_smug
+    with charachange
+    shi "..."
+    show misha perky_smile
+    with charachange
+    mi "What would you like? I'm feeling thirsty myself?"
+    show misha perky_confused
+    with charachange
+    mi "So am I!"
+    hi "Hm, I don't know. Anything's fine. I guess the melon soda."
+    show shizu behind_smile
+    with charachange
+    shi "..."
+    show misha perky_sad
+    with charachange
+    mi "Hey, wait, Shicchan! I also want a drink!"
+    hide shizu
+    with charaexit
+    show misha perky_sad at center
+    show bg school_council_ni at center
+    with charamove
+    mi "Aw...!"
+    show misha perky_confused
+    with charachange
+    mi "You know, it's times like this that I think she is just teasing me."
+    hi "That's probably it. I'm sure she'll get you something, right?"
+    mi "Yeah, she usually does. But... you never know..."
+    hi "Heh."
+    show misha perky_confused at twoleft
+    show bg school_council_ni at bgleft
+    with charamove
+    show shizu basic_normal2 at tworight  behind misha
+    with charaenter
+    "Shizune comes back with two melon sodas and a can of fruit juice."
+    "She hands me one of the sodas, and the other to Misha."
+    show misha hips_grin
+    with charachange
+    mi "Thanks, Shicchan~! I had total faith that you'd get me one, I knew I could count on you! Wahahaha!"
+    show misha perky_confused
+    with charachange
+    mi "But how did you know this was what I wanted? I usually get something else."
+    show shizu behind_smile
+    with charachange
+    shi "..."
+    show misha hips_grin
+    with charachange
+    mi "What? You knew I'd want to try it? And that I like these kinds of childish things? Hahahaha!"
+    show misha hips_laugh
+    with charachange
+    mi "Hahahaha!"
+    "I gesture my thanks to Shizune, who smiles and nods."
+    show shizu adjust_happy
+    with charachange
+    shi "..."
+    stop music fadeout 4.0
+    show misha sign_smile
+    with charachange
+    mi "Hey, Hicchan..."
+    hi "Yes?"
+    show shizu behind_smile
+    with charachange
+    shi "..."
+    show misha perky_smile
+    with charachange
+    mi "We've been spending a lot of time together. Already, in such a short time, we've done so much."
+    mi "We should both stop beating around the bush. What I'm trying to say is,"
+    "It sounds a lot like she's going to ask me out, but that can't be it. Nevertheless, my heart is beating like a jackhammer. Damn, this reminds me of another similar scene earlier this year."
+    "I try to say something, but my brains can't decide whether to stop her or to tell her to continue."
+    "I feel myself blushing all the way to the ears."
+    show shizu adjust_smug
+    with charachange
+    shi "..."
+    show misha hips_smile
+    with charachange
+    mi "What I'm trying to say is..."
+    show misha hips_grin
+    with charachange
+    play music music_ease
+    mi "Would you like to join the Student Council?"
+    hi "Ah, what a disappointment."
+    show misha cross_laugh
+    show shizu adjust_blush
+    with charachange
+    mi "Hahaha! Hahahaha! Hahahahaha! Wahaha! Hahahaha!"
+    mi "Did you think she wanted to ask you out, Hicchan?"
+    mi "Hahahaha! Hahaha! Hahaha! Hahahaha!"
+    mi "Hahahahahahahaha!"
+    "I feel very embarrassed right now, I can feel myself getting even redder in the face."
+    "Shizune also tries to hide a blush after Misha translates, and then puts a few sheets of paper in front of me."
+    show shizu behind_frustrated
+    with charachange
+    shi "..."
+    show misha cross_grin
+    with charachange
+    mi "So, how about it? All the paperwork is right here."
+    show misha cross_smile
+    with charachange
+    mi "And you are sitting down, anyway. You look very at home here. Drinks and everything~!"
+    show shizu basic_normal
+    with charachange
+    shi "..."
+    show misha hips_grin
+    with charachange
+    mi "What do you say?"
+    "She quiets down a little and asks again a little more solemnly."
+    show misha cross_smile
+    with charachange
+    mi "Hicchan, what do you say?"
+    show misha sign_smile
+    with charachange
+    mi "You don't exactly hate this, right?"
+    "I'm more than a little surprised by this sudden change of tone. I don't really know how to react to it."
+    "For one thing, she isn't shouting uproariously with no regard for tact."
+    "Before, I'm sure she knew already that I was going to say no."
+    "This time, she seems actually serious."
+    show misha perky_smile
+    with charachange
+    mi "I think maybe you should join. Not just because we could use your help, but, well, you're hanging out with us anyway."
+    mi "I think Shicchan would like it if you would join as well. It's not like you hate us or anything, right?"
+    show misha perky_sad
+    with charachange
+    mi "It wouldn't hurt if you joined. And I'd appreciate it if you would."
+    "She seems to be having a hard time getting her words out, which is strange for someone talkative like Misha."
+    "For some reason, I'm almost troubled by it."
+    show shizu behind_blank
+    with charachange
+    "My eyes drift over to Shizune, who stares back at me tentatively, absentmindedly cleaning her fingernails."
+    show misha perky_smile
+    with charachange
+    mi "If you don't want to join, I promise we won't ask again, but if you did, we would be really happy."
+    "Both Shizune and Misha seem to be unable to look me in the eye."
+    "I can't lie, the thought of being around two such cute girls is something that I couldn't possibly pass up."
+    "I'm not looking forward to this kind of work every day, but there should be less after the festival."
+    "At least, I hope so."
+    hi "All right. I guess it can't hurt, so, why not?"
+    show shizu adjust_happy
+    with charachange
+    shi "..."
+    show misha hips_grin
+    with charachange
+    mi "Wonderful. Wonderful! Ahahaha~!"
+    "Shizune tents her fingers in satisfaction."
+    show shizu basic_happy
+    with charachange
+    shi "..."
+    show misha perky_smile
+    with charachange
+    mi "She'll fill everything out, Hicchan. Congratulations, you are officially a member of the Student Council now!"
+    hi "Great. I'm not looking forward to a lot of work."
+    hi "To be honest, I've never done any student council activities before."
+    hi "But maybe it'll be a positive experience?"
+    "Misha starts to clap, laughing exuberantly as she does."
+    show misha hips_laugh
+    with charachange
+    mi "Congratulations, Hicchan!"
+    show shizu adjust_smug
+    with charachange
+    shi "..."
+    mi "Congratulations!"
+    show shizu behind_smile
+    with charachange
+    shi "..."
+    mi "Congratulations!"
+    show shizu adjust_happy
+    with charachange
+    shi "..."
+    mi "Congratulations!"
+    hi "I get the message."
+    "I can't help but smile, finding such a display childishly cute."
+    show misha hips_grin
+    with charachange
+    mi "The Student Council is always busy, you know! But for today, we're done. See you tomorrow, Hicchan!"
+    show misha hips_smile
+    with charachange
+    mi "We still have work left, so we'll be counting on you!"
+    stop music fadeout 4.0
+    scene bg school_hallway3
+    with locationchange
+    "I leave the room, feeling totally wiped out. The grounds are totally deserted, and the school looks pretty ominous this late. The council office is the only window with lights on any more."
+    "Is this what the Student Council will be like? My body might not be able to take it."
+    if a10bTrigger == true:
+    	jump en_A24
+	elseif a10bTrigger == false:
+		if a17aTrigger == true:
+            jump en_A24a
+        elseif a17aTrigger == false:
+            jump en_A24b
 label en_A23:
 scene bg school_scienceroom at bgleft
 with shorttimeskip

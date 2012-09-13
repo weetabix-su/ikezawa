@@ -352,9 +352,9 @@ label start:
 	#Boolean Triggers
 	$a1bTrigger = false
 	$a8aTrigger = false
-	$a10bTrigger = false
-	$a10cTrigger = false
-	$a17aTrigger = false
+	$a10bTrigger = false    #Hanako-Lilly Route Trigger
+	$a10cTrigger = false    #Shizune-Misha Route Trigger
+	$a17aTrigger = false    #First Run Trigger
 	#Hentai Switch
 	scene black
 	"WARNING: 'Katawa Shoujo' contains adult content."
