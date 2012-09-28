@@ -14,7 +14,12 @@ Fourth, no sound effects. Music files alone cause a lot of bloat in the Lua Play
 
 Fifth, data exposure. That means, you can alter ANYTHING to the Ikezawa code or media and redistribute it as your own. There are two ways to prevent that: One is using a password-protected ZIP file to encase the content; Two is to wait hard until RenPSP has support for opening RPA files. Both of them are not stellar ideas.
 
-##DISCLAIMER
-RenPSP is an independent release of lolbot from the iichan Eroge Team. RenPSP is NOT affiliated with iichan Eroge unless further specified. weetabix is not affiliated in either iichan Eroge Team, Four Leaf Studios, or the cereal Weetabix. Katawa Shoujo is a release of Four Leaf Studios. Katawa Shoujo, its media, and its scripts are protected by Creative Commons license BY-NC-ND, which this repository is a direct violation of. Use all present data in this repository at your own risk.
+#How do I place this in my PSP?
++ Download
++ Extract folder to ms0:/PSP/GAME/[RenPSP folder]/games
++ Execute
 
-For comments and suggestions regarding this repository, contact weetabix via e-mail [vovo27_miranemiko@yahoo.co.jp], Jabber [weetabix@jabber.org], Twitter [@weetabix_su], or GitHub [@weetabix-su]
+##DISCLAIMER
+RenPSP is an independent release of lolbot from the iichan Eroge Team. RenPSP is NOT affiliated with iichan Eroge unless further specified. weetabix is not affiliated in either iichan Eroge Team, Four Leaf Studios, or the cereal Weetabix. The Ikezawa repository is not affiliated with GitHub's other Ikezawas. Katawa Shoujo is a release of Four Leaf Studios. Katawa Shoujo, its media, and its scripts are protected by Creative Commons license BY-NC-ND, which this repository is a direct violation of. Use all present data in this repository at your own risk.
+
+For comments and suggestions regarding this repository or its contents, contact weetabix via e-mail [vovo27_miranemiko@yahoo.co.jp], Jabber [weetabix@jabber.org], Twitter [@weetabix_su], or GitHub [@weetabix-su]
