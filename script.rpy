@@ -5,7 +5,7 @@ init:
 	image weet cred = "event/portcred.jpg"
 	image weet logo = "event/4lslogo.jpg"
 	image weet title = "event/title.jpg"
-	image act 1 = "event/act/act1.jpg"
+	image act uno = "event/act/act1.jpg"
 	#2. Sprites
 	#Akio Mutou
 	image muto normal = "sprites/muto/muto_normal.png"
