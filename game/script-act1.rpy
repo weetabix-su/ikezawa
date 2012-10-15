@@ -35,7 +35,7 @@ label en_NOP1:
 	"Pathetic."
 	"Iwanako" "Ahmm... yes. I asked a friend to give you that note... I'm so glad you got it."
 	"A shy, joyous smile that makes me so tense I couldn't move a single muscle even if I tried."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg op_snowywoods
 #	play sound "sfx/heart_single_slow.ogg"
 	show heartattack alpha
@@ -113,7 +113,7 @@ label en_NOP1:
 	"The world around me - the canopy of bare branches, the dull winter sky, Iwanako running towards me - all these fade to black."
 	"The last things I remember before slipping away are the sounds of Iwanako screaming for help and the incessant clatter of the branches above..."
 	$renpy.pause(1)
-	stop music
+	play music "bgm/blank.ogg"
 	scene weet title
 	$renpy.pause(4)
 	scene black
@@ -213,7 +213,7 @@ label en_NOP2:
 	"Doctor" "One of my colleagues in another hospital is a graduate."
 	"I don't care. A person doesn't have to be held back by their disability? That's what a disability is."
 	"I really hate that something so important was decided for me. But what can I do about it? A 'normal' life is out of the question now."
-	stop music
+	play music "bgm/blank.ogg"
 	"It's funny, I had always thought my life was actually kind of boring, but now I miss it."
 	"I want to protest. I want to blame this lack of reaction on shock, or fatigue. I could easily yell out something now - something about how I can go back to school anyway. But, no."
 	"I don't say anything. The fact is that I know now it's futile."
@@ -308,7 +308,7 @@ label en_A1c:
 	"Mutou opens the door and enters."
 	hide muto
 	mu "Good morning everyone, sorry I'm late again."
-	stop music
+	play music "bgm/blank.ogg"
 	"I hesitate for a split second at the door, freezing on the spot."
 label en_A2:
 	"Ah, get a grip! This is a big step, I know that... But there isn't any point to worrying so much about it, at least not this soon."
@@ -371,7 +371,7 @@ label en_A2c:
 	show misha perky_smile at center
 	"As he calls out her name, the cute, bubbly looking girl with bright pink hair and gold eyes waves her hand at me. I take a seat next to her, by the window."
 	hi "Hey, I guess you're Hakamichi, right? It's nice to meet you."
-	stop music
+	play music "bgm/blank.ogg"
 	show misha cross_laugh at center
 	"Shizune" "Hahaha~!"
 	"What? I'm caught off guard by her laughter."
@@ -488,7 +488,7 @@ label en_A2f:
 	shi "..."
 	show misha perky_smile at twoleft
 	mi "Ah, and another thing, you don't have to call Shicchan something so formal like 'Hakamichi' or 'class rep' all the time! Just call her Shicchan~!"
-	stop music
+	play music "bgm/blank.ogg"
 	show shizu adjust_blush at tworight
 	shi "..."
 	show misha hips_smile at twoleft
@@ -517,7 +517,7 @@ label en_A2f:
 	show misha perky_smile at twoleft
 	mi "After class, we can take a walk around the grounds together. It's a nice day today! Okay~?"
 	"The assignment is actually very challenging to get through, combining aspects of being both difficult and unnecessarily long."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_scienceroom
 	"Still, we finish it a few minutes earlier than anyone else in the class, despite our late start. Shizune and Misha are really capable."
 	"They're quite different, though. The class rep is as calm and professional as she looks, while Misha is a lot more playful and girlish. Not to mention a little more easily distracted."
@@ -648,7 +648,7 @@ label en_A3d:
 	show shizu behind_smile at tworight
 	mi "You'll be fine from here, right~? We'll be going, then! See you tomorrow!"
 	hi "Yeah, thanks. Bye."
-	stop music
+	play music "bgm/blank.ogg"
 	hide shizu
 	hide misha
 	"A whole building for stuff that has nothing to do with the actual education?"
@@ -732,7 +732,7 @@ label en_A3d:
 	nk "Good. That's it, then. Come meet me if you ever need something."
 	hide nurse
 	scene bg school_nursehall
-	stop music
+	play music "bgm/blank.ogg"
 	"I'm ushered out before I even realize it. A quick visit, indeed."
 label en_A4:
 	scene bg school_courtyard
@@ -767,7 +767,7 @@ label en_A4:
 	"About halfway down the hall, I spy room 119."
 	"The name plates on the rooms adjacent to mine are blank. I guess there are just two of us here."
 #	play sound "sfx/doorknock2.ogg"
-	stop music
+	play music "bgm/blank.ogg"
 	"Light shines from below the door of room 117, so I knock lightly."
 	hi "Hello, is anyone home?"
 	"From inside, I hear a few movements, then the clicking of way more locks than I thought these doors had. After a moment the door squeaks open."
@@ -809,7 +809,7 @@ label en_A4:
 	show kenji tsun
 	ke "Never mind, it doesn't matter."
 	hide kenji
-	stop music
+	play music "bgm/blank.ogg"
 	"With that, he turns, fumbles around for a moment in search of the door handle,"
 #	play sound "sfx/doorslam.ogg"
 	"With that, he turns, fumbles around for a moment in search of the door handle, and shuts the door behind him."
@@ -850,7 +850,7 @@ label en_A4:
 	"With a sigh, I begin my new daily ritual of taking the right number of pills from each bottle, being careful to check the correct dosages."
 	"..."
 	"I lie down again, feeling hollow and uncertain, and after that I keep staring at the blank, unfamiliar ceiling for a long time."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_dormhisao_ni
 	"It doesn't start looking any more familiar, not even after darkness falls and long shadows draw across my room like fingers."
 	"The sheets feel slightly more comfortable, warm and nest-like against the chill that passes for room temperature here."
@@ -885,7 +885,7 @@ label en_A5:
 	"Or, perhaps, people like them are what passes for normal around here?"
 	"Yeah, what does pass for normal around here? What do people do?"
 	"I didn't see a lot of kids hanging around after classes yesterday, so maybe there are clubs. If so, I wonder if I should join one."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_scienceroom_right
 	"All through class, the question remains on my mind, so I decide to ask Shizune about it when we split into groups."
 	"After all, she did say if I had anything I wanted to know, I should ask her."
@@ -964,7 +964,7 @@ label en_A5:
 	"It could have been my eyes playing tricks on me, but I think I saw a suspicious glance exchanged between them. Misha's tone has also changed, although it does that every other word, anyway."
 	hi "Yeah, I was thinking about it."
 	"Misha and Shizune look at each other again."
-	stop music
+	play music "bgm/blank.ogg"
 	"I'm about to ask what they have in mind when something dark flutters in my peripheral vision, catching my attention."
 	"Out of the corner of my eye, I see the girl with long, dark hair get up from her desk and slip silently towards the door."
 	"It doesn't seem like she was working in any group, and no one seems to notice her but me."
@@ -1041,7 +1041,7 @@ label en_A5:
 	show misha hips_laugh at twoleft
 	mi "Hahaha~! That's so plain... Okay~! Let's go!"
 	"Plain? Well I guess..."
-	stop music
+	play music "bgm/blank.ogg"
 	"At my old school, I liked to eat outside, near the back of the building. It was a good spot, but I didn't find it until near the end of my freshman year."
 	"I wonder if there is a similar place to eat here. Misha seems to imply as much."
 	hide misha
@@ -1188,7 +1188,7 @@ label en_A5:
 	"Lunch ends, and we go back to class."
 	hide shizu
 	hide misha
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_scienceroom
 	show hanako def_worry at offscreenright
 	""
@@ -1341,7 +1341,7 @@ label en_A6a:
 	shi "..."
 	mi "..."
 	show shizu basic_normal2_close at tworight
-	stop music
+	play music "bgm/blank.ogg"
 	"Shizune leans forward, suddenly looking a lot less playful and more like the serious person I expected her to be from the start."
 	shi "..."
 	show misha hips_smile at twoleft
@@ -1378,7 +1378,7 @@ label en_A6b:
 	show misha perky_confused at twoleft
 	mi "I mean, Shicchan, not me."
 	show shizu behind_frown at tworight
-	stop music
+	play music "bgm/blank.ogg"
 	shi "..."
 	show misha perky_smile at twoleft
 	mi "Getting control of North America is ambitious, because it provides a five army bonus, but you can attack it from three fronts, so you must defend them all~!"
@@ -1440,7 +1440,7 @@ label en_A6c:
 	hi "No thanks, it's okay. See you tomorrow."
 	show misha hips_grin at twoleft
 	mi "Bye bye!"
-	stop music
+	play music "bgm/blank.ogg"
 label en_A7:
 	scene bg school_staircase2
 	$renpy.pause(1.5)
@@ -1562,7 +1562,7 @@ label en_A7:
 	li "It isn't, though it is encouraged."
 	show tearoom_hisao sigh
 	hi "Ah, good. That's a relief."
-	stop music
+	play music "bgm/blank.ogg"
 	show tearoom_lilly giggle
 	"I've really let down my guard around this girl to let such a thing slip out. The fact seems to slightly amuse her."
 	"Not wanting my tea to get cold, I finally start drinking it as Lilly does the same."
@@ -1610,7 +1610,7 @@ label en_A7:
 	"As she stands up to follow me, she takes hold of a straight, retractable cane that had been slipped in the handle of her bag on the floor."
 	"Compared to the cane the boy in my class had, Lilly's looks much thinner and longer. His must be for support, whereas Lilly's is for navigation."
 	"Together we leave the peaceful room and enter the empty hallway on the way to the library."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_hallway2
 	"Side by side, my pace carefully slowed to match hers, we slowly walk through the hallway."
 	"It doesn't take long for us to arrive at the door to the warm-looking room, apparently situated in the center of the floor rather than either wing."
@@ -1699,7 +1699,7 @@ label en_A7:
 	"It's probably best for all of us if she doesn't keep talking to me."
 	show lilly cane_smileclosed at twoleft
 	li "Very well. Meanwhile, Yuuko, I would have those books if it's all right with you."
-	stop music
+	play music "bgm/blank.ogg"
 	hide yuuko
 	hide lilly
 label en_A8:
@@ -1774,7 +1774,7 @@ label en_A8ab:
 	show hanako emb_sad
 	ha "N-no. It's mine."
 	hi "Oh. So... do you come here often?"
-	stop music
+	play music "bgm/blank.ogg"
 	"..."
 	show hanako emb_blushtimid
 	"A huge, huge blush spreads on Hanako's face and her eyes widen far larger than I thought it was possible for eyes to do."
@@ -1801,7 +1801,7 @@ label en_A8b:
 	"Her speech is stilted and so quiet that it is barely audible even in the still library."
 	"Somehow I think that my 'delinquent' impression of her was wrong."
 	ha_ "H-H-Hanako. I'm... Hanako."
-	stop music
+	play music "bgm/blank.ogg"
 	"..."
 	"I resist the urge to say 'that's a nice name' just to have something to say, but really, it's the only thing that I can think of."
 	"I feel like an idiot. Everyone here must be used to being different to each other, and here I am being all bothered and fussed about that kind of thing."
@@ -1917,7 +1917,7 @@ label en_A8f:
 	yu "I see."
 	"But she doesn't say anything else, and just checks out my books for me."
 	"I guess this is what they call 'tact.'"
-	stop music
+	play music "bgm/blank.ogg"
 label en_A9:
 	scene bg school_dormhallway
 	"Holding the library books with one arm, I trawl my pocket for the key to the door."
@@ -2007,7 +2007,7 @@ label en_A9c:
 	"He turns his head to the left and stares off into the distance at nothing."
 	ke "Why is it like this? I mean, to the untrained eye, it doesn't appear to be that bad, but that is a full 20%%."
 	ke "One would think that a school with such a huge pool of women would be a man's dream. But no!"
-	stop music
+	play music "bgm/blank.ogg"
 	show kenji neutral
 	ke "What I am about to tell you could blow your mind. Are you ready?"
 	"I don't know where this is going, but I think I won't be missing much by cutting out now."
@@ -2025,7 +2025,7 @@ label en_A9c:
 	"Kenji's voice trails off ominously."
 	show kenji neutral
 	ke "That is why you can't trust them. They will string you along, and then kill you, just as they killed me. You will end up just like me."
-	stop music
+	play music "bgm/blank.ogg"
 	hi "Oh, hell no..."
 	"I can't stop myself from blurting it out."
 	show kenji tsun
@@ -2063,7 +2063,7 @@ label en_A9c:
 	ke "Most people don't understand what I'm talking about when I try to explain the vast feminist conspiracy to them. Denial is a terrible thing."
 	ke "Later."
 	hide kenji
-	stop music
+	play music "bgm/blank.ogg"
 	"He claps me on the back and then vanishes into his room so quickly and quietly it's like he didn't even open the door but instead walked right through it like a ghost."
 	scene bg school_dormhisao_ss
 	"I don't know if I can fully digest what just happened, so I give up and just go to my room, kicking off my shoes before falling facefirst into bed."
@@ -2120,7 +2120,7 @@ label en_A10:
 	show hanako emb_downtimid at right
 	show shizu basic_normal2_close at twoleft
 	show misha perky_smile_close at left
-	stop music
+	play music "bgm/blank.ogg"
 	"While I'm reading, I let my eyes wander around the room and catch Hanako trying her hand at solving the problems. It looks like she's working alone."
 	"I can't remember seeing her working with other people before."
 	"Thinking back to how shy she is, it's understandable."
@@ -2208,7 +2208,7 @@ label en_choiceA10c:
 		"Go talk with Hanako.":
 			jump en_A10b
 label en_A10a:
-	stop music
+	play music "bgm/blank.ogg"
 	"I do what I always do when I don't know what to do."
 	"Like now."
 	"I've already started on one of the books I borrowed yesterday, and took it with me to school to fill the empty moments between classes."
@@ -2251,7 +2251,7 @@ label en_A10b:
 	ha "Y-yes."
 	show hanako basic_distant
 	"As if hoping for Lilly to appear, she checks over her shoulder again."
-	stop music
+	play music "bgm/blank.ogg"
 	"I think I'm making her nervous again."
 	hi "I hope I'm not disturbing you right now..."
 	show hanako basic_bashful
@@ -2324,7 +2324,7 @@ label en_A10b:
 	li "Well then, shall we go?"
 	"I'm sure Lilly wouldn't do this so easily if she saw how scared Hanako looks, but it can't be helped now."
 	"Declining after the deal is sealed would only cause confusion and problems."
-	stop music
+	play music "bgm/blank.ogg"
 	jump en_A11c
 label en_A10c:
 	$a10cTrigger = true
@@ -2349,7 +2349,7 @@ label en_A10c:
 	show shizu adjust_smug at tworight
 	shi "..."
 	show misha hips_grin at twoleft
-	stop music
+	play music "bgm/blank.ogg"
 	mi "If you don't have anything specific planned out, do you want to eat lunch with me and Shicchan? Ah, we're going to go to town for lunch, though... Don't worry, Hicchan, it's not that far."
 	hi "Sure, I'll come with you."
 	"And with that, we leave the classroom."
@@ -2380,7 +2380,7 @@ label en_A11a:
 	emi_ "I wasn't looking where I was going, and you just came out of nowhere. Sorry... Sorry!"
 	"She's looking really apologetic, in the hurt puppy way of looking apologetic."
 	"I quickly forget about being angry or anything, since hurt puppies are my weak spot."
-	stop music
+	play music "bgm/blank.ogg"
 	hi "It's okay. Don't worry about it... ouch..."
 #	play sound "sfx/heartfast.ogg"
 	hide emi
@@ -2474,7 +2474,7 @@ label en_A11b:
 	emi "I gotta go!"
 	emi "Teacher'll have my head! I promised to help with printouts, but I went running instead! Sorry, but I've gotta change and everything!"
 #	play sound "sfx/emisprinting.ogg"
-	stop music
+	play music "bgm/blank.ogg"
 	hide emi
 	"Before Misha or Shizune or I can say anything, she's already bolted from where she was a second ago, almost halfway towards the stairwell."
 	scene bg school_hallway3_right
@@ -2547,7 +2547,7 @@ label en_A11x:
 	hi "I'm not telling you to jump for joy just because I'm having lunch with you. I'm not that arrogant."
 	show shizu adjust_happy at tworight
 	show misha cross_grin at twoleft
-	stop music
+	play music "bgm/blank.ogg"
 	"She seems to accept this, and we head for town with Shizune leading the way."
 	jump en_A12
 label en_A11y:
@@ -2565,7 +2565,7 @@ label en_A11y:
 	mi "Wahaha~!"
 	hide misha
 	hide shizu
-	stop music
+	play music "bgm/blank.ogg"
 	"The girls leave for downstairs."
 	"I didn't manage to get far from the third floor hallway before all this commotion struck, literally. I should get going as well."
 	scene bg school_scienceroom
@@ -2612,7 +2612,7 @@ label en_A11d:
 	emi "Aaah! I gotta go!"
 	emi "Teacher'll have my head, I promised to help with printouts but I went running instead! Sorry, but I've gotta change and everything!"
 #	play sound "sfx/emisprinting.ogg"
-	stop music
+	play music "bgm/blank.ogg"
 	hide emi
 	"Before any of us can say a thing, Emi has already bolted away, leaving the hallway eerily quiet."
 	hi "Does that kind of thing happen often around here?"
@@ -2711,7 +2711,7 @@ label en_A12:
 	scene ev shizu_shanghai
 	shi "..."
 	mi "Hicchan, have you thought about joining the Student Council?"
-	stop music
+	play music "bgm/blank.ogg"
 	hi "Huh?"
 	show ev shizu_shanghai_borednormal
 	shi "..."
@@ -2814,7 +2814,7 @@ label en_A12:
 	show misha perky_smile_close at tworight
 	show shizu basic_frown_close at twoleft
 	"I finish off the last of my sandwich, and this makes Misha notice for the first time in a while that she has a parfait. She starts digging in, much to Shizune's chagrin, because I can tell from the way she plays with her fingers that she had a lot to say."
-	stop music
+	play music "bgm/blank.ogg"
 	show shizu behind_blank_close at twoleft
 	"Every time I look at Shizune, she looks back with such focus and intensity. This time is no exception. Her face is expressionless; maybe she is thinking. Eventually, it gives way to a smile."
 	show shizu adjust_happy_close at twoleft
@@ -2917,7 +2917,7 @@ label en_A12:
 	"Shizune waves Yuuko over and points to her empty teacup, indicating that she wants another one, as Misha scrambles to finish her parfait so she can order something else. Maybe I should as well."
 	"I am still hungry, and the portions here are a little on the small side. Most importantly, Shizune is paying for everything. With that in mind, I ask Yuuko for another sandwich."
 	scene bg suburb_shanghaiext
-	stop music
+	play music "bgm/blank.ogg"
 	"By the time we leave the tea shop I've missed not just one class, but two."
 	scene bg suburb_roadcenter
 	"Shizune and Misha seem content to let the whole day pass by, stalling for even more time by suggesting a tour of the town that turns out to cover a two block radius from where we start."
@@ -3061,7 +3061,7 @@ label en_A13:
 	li "Hisao, thank you for sharing lunch with us today."
 	hi "My pleasure, Lilly."
 	hide lilly
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_hallway3_left
 	show hanako emb_timid at center
 	"And with that, we part ways; Lilly entering her classroom and leaving Hanako and I to make off to our own. She's still looking like she wants to run away."
@@ -3126,7 +3126,7 @@ label en_A15:
 	"Or Hanako... it's not like you can ignore her face."
 	hi "But..."
 #	play sound "sfx/doorslam.ogg"
-	stop music
+	play music "bgm/blank.ogg"
 	show muto irritated
 	"I'm interrupted by the door of the classroom suddenly slamming open."
 	scene bg school_scienceroom_left
@@ -3170,7 +3170,7 @@ label en_A15:
 	"She holds her head with both of her hands, looking as despairing as it's possible for a person like her. Without even noticing, she crumples the note she's holding against her hair."
 	mi "I shouldn't even be fetching these things, there is so much to do and we are falling behind the schedule!"
 	show muto smile at twoleft
-	stop music
+	play music "bgm/blank.ogg"
 	"Mutou looks at her gravely and then, suddenly smiles. Smiling doesn't really fit his face. I think it'd be better if he didn't."
 	mu "I wonder if you could get some temporary help?"
 	show muto normal at twoleft
@@ -3207,7 +3207,7 @@ label en_A15:
 	"Please don't sound so smug."
 	"Looking at the list with a number of items ranging from paint to plywood, all written with small, neat handwriting that is undoubtedly Shizune's, I heave a sigh."
 	hi "I'll be going then."
-	stop music
+	play music "bgm/blank.ogg"
 	"Waving the long list limply at the teacher, I exit to the hallway."
 	jump en_A16
 label en_A16:
@@ -3270,7 +3270,7 @@ label en_A16:
 	scene ev rin_eating
 	rin "So, Nakai, what brings you to this place?"
 	hi "Like I said, I was told to look for these things."
-	stop music
+	play music "bgm/blank.ogg"
 	rin "No, the school. From outside you look fine. Is your problem inside?"
 	"I come to a full stop, opening my mouth but not getting a word out."
 	hi "I..."
@@ -3313,7 +3313,7 @@ label en_A16:
 	rin "Pretty much."
 	hi "I see."
 	"..."
-	stop music
+	play music "bgm/blank.ogg"
 	hide rin
 	"With little left to say, Rin resumes her lunch and the conversation dies away, but I keep thinking about what was said."
 	"It's the first time I told anyone else about my condition. All the other people have either known about it already, or heard about it from someone else."
@@ -3378,7 +3378,7 @@ label en_A16:
 	hi "What an intriguing person..."
 	"From inside, I hear a muffled, sing-song voice:"
 	rin "I heard tha~t!"
-	stop music
+	play music "bgm/blank.ogg"
 label en_A17:
 	scene bg school_hallway3
 	show misha hips_grin_close
@@ -3468,7 +3468,7 @@ label en_A17:
 	show rin relaxed_nonchalant at right
 	rin "Maybe I'll postpone my nap. To unforeseen future."
 	hide rin
-	stop music
+	play music "bgm/blank.ogg"
 	"I am about to ask what project she has and what are these apocalyptic consequences, but she walks back into the art classroom."
 	rin "Since you have nothing to do, would you give me a hand?"
 	scene bg school_classroomart
@@ -3539,7 +3539,7 @@ label en_A17:
 	"The stupid grin disappears from his face for a second, then comes back like it was never gone."
 	show nurse grin at twoleft
 	nk "Tezuka, would you give us a second?"
-	stop music
+	play music "bgm/blank.ogg"
 	hide rin
 	scene bg school_lobby_right
 	show nurse neutral_close
@@ -3579,7 +3579,7 @@ label en_A17c:
 	hi "Consultation?"
 	show nurse fabulous_close
 	nk "See you around."
-	stop music
+	play music "bgm/blank.ogg"
 	hide nurse
 	scene bg school_lobby_left
 	show rin basic_awayabsent
@@ -3684,7 +3684,7 @@ label en_A18:
 	show rin basic_amused at tworight
 	rin "Let's do it then."
 	hide rin
-	stop music
+	play music "bgm/blank.ogg"
 	"So she sits on an empty wooden box and very naturally picks up a wide brush between the toes of her bare right foot."
 	"I open a few of the cans and pour some of the contents into shallow bowls for mixing."
 	"The thick paints flow lazily from the can to the bowl, like syrup."
@@ -3720,7 +3720,7 @@ label en_A18:
 	show rin negative_spaciness_close at tworight
 	"..."
 	"Despite the impossibility of mixing a color like the change of seasons or any other nonsense that's being imposed on me, I find myself enjoying it more than I thought I would."
-	stop music fadeout 7.0
+	play music "bgm/blank.ogg" fadeout 7.0
 	scene bg school_dormext_start_ss
 	"Seeing a painting being born on the plastered wall feels like magic."
 	"I spend the moments I have between mixing paints crouching down on the paving and just looking at her work."
@@ -3754,14 +3754,14 @@ label en_A19a:
 	"After all, if I'm going to start taking care of myself, I can't afford to slack around. I'll start from the basics."
 	"Basics which include keeping the rest of my body in shape along with what little I can do to strengthen my heart."
 	"Maybe then I can go back to something approaching a normal life; or at least something where I'm less likely to fall over dead at any minute."
-	stop music
+	play music "bgm/blank.ogg"
 	jump en_A19c
 label en_A19b:
 	"Seems a bit stupid to me, really."
 	"But I suppose this way at least I can tell the nurse honestly that I'm doing something about my health."
 	"Not that I was ever much of a runner to begin with."
 	"Can't hurt to try, I guess."
-	stop music
+	play music "bgm/blank.ogg"
 	jump en_A19c
 label en_A19c:
 	show bg school_track
@@ -3861,7 +3861,7 @@ label en_A19j:
 	show emi basic_grin_gym	#WEETABIX NOTE: [gymbounce] is used in the PC version. Until then, use only basic_grin_gym
 	"As if to confirm her statement she bounces up and down a couple of times, giving a passing impression of standing on a pair of springs. Her legblades seem to be quite elastic."
 	emi "Let's go!"
-	stop music
+	play music "bgm/blank.ogg"
 #	play ambient "sfx/emijogging.ogg"
 	scene bg school_track_running
 	"So we both take off around the track, and I can immediately see that she wasn't lying about being good at running."
@@ -3915,7 +3915,7 @@ label en_A19f:
 	show emi basic_closedgrin_gym
 	emi "See you later, Hisao!"
 	hi "Er, yeah. See ya."
-	stop music
+	play music "bgm/blank.ogg"
 #	play ambient "sfx/emisprinting.ogg"
 	hide emi
 #	stop ambient fadeout 2.0
@@ -4069,7 +4069,7 @@ label en_A20:
 	ke "..."
 	ke "I'll think of something."
 	"I give him my practiced frown and it looks kind of silly reflected in his glasses. He either doesn't notice or doesn't see, anyway, so I get dressed and run back to my room, feeling as though an eternity has passed since I woke up."
-	stop music
+	play music "bgm/blank.ogg"
 	scene bg school_dormhisao
 	"That is time I will never get back. I'll get him for this somehow."
 	"But right now, I have to get to class."
@@ -4152,7 +4152,7 @@ label en_A21:
     mi "Wahaha~!"
     show lilly cane_surprised at left
     li "There is still time to hand it in, isn't there?"
-    stop music
+    play music "bgm/blank.ogg"
     show shizu cross_angry at right
     shi "..."
     show misha cross_frown
@@ -4247,7 +4247,7 @@ label en_A21:
     scene ev showdown
     $renpy.pause(1.5)
     "The air between them ripples with the heat of their enmity. Well, not really. They can't disguise it any more, though. Even Misha looks like she's beginning to understand the real nature of this conversation."
-    stop music
+    play music "bgm/blank.ogg"
     scene white
     $renpy.pause(0.2)
     scene bg school_scienceroom
@@ -4465,7 +4465,7 @@ label en_A22:
 	show shizu behind_smile at tworight
 	show misha hips_smile at twoleft
 	mi "But I wouldn't necessarily refuse it... So~! it would be nice if someone would..."
-	stop music
+	play music "bgm/blank.ogg"
 	show shizu adjust_blush at tworight
 	show misha perky_confused at twoleft
 	mi "Oh? Hello~!"
@@ -4535,7 +4535,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     hide hanako
     with easeoutright
     "Hanako nods quickly and retreats with haste, obviously to avoid any further contact with Shizune. Unfortunately, this turns their attention fully back to me."
-    stop music fadeout 2.0
+    play music "bgm/blank.ogg" fadeout 2.0
     show shizu behind_frown at tworight
     show misha hips_frown at twoleft
     show bg school_scienceroom at bgright
@@ -4689,7 +4689,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     "I refocus on trying to think of a way out of this. No, their actions are clearly deliberate, there's no sense in attempting to reason with them."
     "You can't reason with madmen. I frown, and they don't even notice my discontent, further proving my suspicions."
     "They seem pretty relaxed now. I guess they think they've already won, so they're letting their guard down."
-    stop music fadeout 2.5
+    play music "bgm/blank.ogg" fadeout 2.5
     "That's kind of arrogant."
     "They pass forward in front of me as they move through the doorway,"
     hide shizu
@@ -4811,7 +4811,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     with charachange
     mi "Hahahaha!"
     "I guess they are right. I did blurt those words out."
-    stop music fadeout 3.0
+    play music "bgm/blank.ogg" fadeout 3.0
     "Accepting my fate, I follow them to the student council room..."
     scene bg school_council_ss
     with shorttimeskip
@@ -4888,7 +4888,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     show misha perky_smile_ss
     with charachange
     mi "Shicchan says she is happy now."
-    stop music fadeout 1.5
+    play music "bgm/blank.ogg" fadeout 1.5
     scene bg school_council_ni
     with shorttimeskip
     play music music_dreamy fadein 0.5
@@ -4980,7 +4980,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     show shizu adjust_happy
     with charachange
     shi "..."
-    stop music fadeout 4.0
+    play music "bgm/blank.ogg" fadeout 4.0
     show misha sign_smile
     with charachange
     mi "Hey, Hicchan..."
@@ -5101,7 +5101,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     show misha hips_smile
     with charachange
     mi "We still have work left, so we'll be counting on you!"
-    stop music fadeout 4.0
+    play music "bgm/blank.ogg" fadeout 4.0
     scene bg school_hallway3
     with locationchange
     "I leave the room, feeling totally wiped out. The grounds are totally deserted, and the school looks pretty ominous this late. The council office is the only window with lights on any more."
@@ -5183,7 +5183,7 @@ show misha sign_smile
 with charachange
 mi "That's why there must be no flaws, no... errr I think that was 'incumbrances,' no nothing that might make the festival short of perfect."
 "Shizune's passionate speech and Misha's enacting are really oddly fitting of them."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 show shizu adjust_blush
 show misha perky_confused
 with charachange
@@ -5240,7 +5240,7 @@ with None
 hide hanako
 with charamoveoutright
 "Hanako nods quickly and retreats with haste."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 show misha hips_grin
 with charachange
 mi "What were we talking about? Oh yeah, we are really working hard to make the festival happen."
@@ -5272,7 +5272,7 @@ with locationchange
 rin "Wait."
 "She doesn't even turn to check who it is."
 "I'll wait."
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 "..."
 "..."
 "..."
@@ -5508,10 +5508,10 @@ rin "No. Not yet."
 "For all her oddity, Rin is pretty cool after all."
 hi "I'll be going anyway."
 hi "Have fun."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "Rin has already grasped a brush and is dipping it into fresh paint, so of course she can't hear me any more or doesn't answer anything even if she does."
 label en_A24:
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 scene bg school_scienceroom at bgleft
 show hanako emb_timid at Transform (xanchor=0.5, xpos=0.97)
 show shizu behind_frown at Transform(xanchor=0.5, xpos=0.35)
@@ -5615,7 +5615,7 @@ with locationchange
 "The rest of the walk up to Lilly's classroom continues in strained silence, while I rue her inability to socialize at all."
 scene bg school_hallway3
 with locationskip
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 $ renpy.music.set_volume(0.1, 0.0, channel="ambient")
 play ambient sfx_crowd_indoors fadein 2.0
 "After we make our way up the stairs, the noise coming from Lilly's classroom is audible from halfway down the hallway. I wasn't expecting such a din at all."
@@ -5722,7 +5722,7 @@ with charachange
 ke "Oh. Er, hey. I guess that's okay."
 "As soon as Hanako enters the equation, his demeanor takes a complete about-face. His sudden faux-hospitality is slightly unsettling."
 "Oh, right. Women. On second thoughts, this may not have been a great idea after all."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_room32 at bgleft
 show kenji neutral_close at left
 show hanako basic_distant_close at right
@@ -5775,7 +5775,7 @@ with charachange
 ke "We gotta stick together, man. This is a harsh school, a harsh world."
 hi "Yes, very harsh."
 "He misses my true meaning as he leans back, satisfied I'm sympathetic to his cause. I'd better get down to work."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 stop ambient fadeout 2.0
 scene bg school_room32
 show kenji neutral_close at left
@@ -5924,7 +5924,7 @@ with locationskip
 "As we come up to the dormitories, it eventually comes time to leave for our respective rooms."
 hi "See you Lilly, Hanako."
 "The two both give polite nods before setting off to the women's dorms, just next to the guys'."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 hide lilly
 hide hanako
 with charaexit
@@ -6026,7 +6026,7 @@ menu:
     "Take it easy.":
         return m2
 label en_A25a:
-stop music fadeout 10.0
+play music "bgm/blank.ogg" fadeout 10.0
 "I let Emi go with her own pace, and she doesn't show mercy, pulling half a lap ahead of me in an instant."
 "I don't blame her."
 "I mean, it's not as if I'm really putting up any sort of real fight out here, is it?"
@@ -6078,7 +6078,7 @@ play ambient sfx_emipacing
 "I'd answer it, but I'm having a lot of trouble thinking at present."
 "She's so {b}fast{/b}."
 "How the hell does she keep it—{w=.5}{nw}"
-stop music fadeout 0.2
+play music "bgm/blank.ogg" fadeout 0.2
 play sound sfx_heartfast
 show heartattack alpha
 with Dissolve (0.1)
@@ -6164,7 +6164,7 @@ with vpunch
 "Heck, I'd really rather not have anyone concerned about my condition, though at this point, it seems to be too late for that as well."
 "I'd like to be able to deal with the whole thing on my own, without being a bother to anyone else."
 "While I'm wishing for things, I'd rather not have this condition in the first place."
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 scene bg school_nurseoffice at bgleft
 with locationskip
 show emi basic_shock_gym at tworight
@@ -6229,7 +6229,7 @@ nk "So how does it feel?"
 hi "I don't know. Nothing much. Tired, but it might be just from the exercise."
 nk "You should stay here for a few hours and rest, and we'll see how you feel after that."
 "I am not going to object, so I lie down on the infirmary bed."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_nurseoffice at left
 with shorttimeskip
 "A thoroughly miserable Emi comes in after getting an earful from the nurse in the other room."
@@ -6276,7 +6276,7 @@ with shorttimeskip
 "The nurse is shuffling around on the other side of the curtains he drew to give me privacy. I can see his shadow shifting about in the sunlight."
 "He has opened the window of his office. It's windy outside."
 "The clean white curtains flutter in the breeze in a heavy, lazy motion, like waves. Light sifts through them slowly, half absorbing into the fabric."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 scene darkgrey
 with shuteye
 "I close my eyes. The breeze on my face feels like the soft fabric of the curtains."
@@ -6370,7 +6370,7 @@ nk "Stay out of trouble, you hear me? I don't think it was anything but a scare,
 "I hear you."
 scene bg school_nursehall
 with locationchange
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "There is some way to get to the school building straight from the auxiliary building, but I'm not keen to find out and possibly get lost, so I go out from the exit that I know works."
 scene bg school_courtyard
 with locationchange
@@ -6467,7 +6467,7 @@ label en_A26b:
 scene bg school_dormhallway
 show kenji happy_close at center
 with None
-stop music fadeout 0.3
+play music "bgm/blank.ogg" fadeout 0.3
 play sound sfx_doorslam
 show kenji tsun_close
 with vpunch
@@ -6525,7 +6525,7 @@ mi "Aren't you happy, Hicchan, to be able to help the whole~ school~! You are li
 hi "Well... I guess I did promise so..."
 show shizu adjust_happy
 with charachange
-stop music fadeout 7.0
+play music "bgm/blank.ogg" fadeout 7.0
 "I've neglected Shizune, and only now do I notice her in the corner of my vision, peering around my room over my shoulder, her analytical eyes darting from object to object..."
 "This is kinda intrusive, the feeling of being exposed crawls in my balls. Luckily I don't have dirty laundry on the floor or anything like that."
 show shizu behind_smile
@@ -6652,7 +6652,7 @@ mi "You're carrying all our books to school~! Right, Shicchan~? Right~!"
 show misha sign_smile
 with charachange
 mi "Okay, Hicchan~! Get ready~!"
-stop music fadeout 7.0
+play music "bgm/blank.ogg" fadeout 7.0
 scene bg school_courtyard
 with shorttimeskip
 "Carrying three bags instead of one, I think about the day that's ahead of me. Of us."
@@ -6701,7 +6701,7 @@ with charachange
 mi "But..."
 hi "Damn it! Sometimes, I wish you two would just stop playing around so much. It's not funny all the time. You know that, right?"
 "I say it way more strongly than I meant to, almost yelling straight at Misha's face. She flinches and freezes in mid-sign, and even Shizune reacts to it even though she didn't hear me."
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 "I guess my angry face said all that needs to be said to her."
 show misha perky_sad
 show shizu behind_blank
@@ -6721,7 +6721,7 @@ label en_A26e:
 show kenji tsun_close
 with charachange
 ke "Whatever, man."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 hide kenji
 with charaexit
 "He swiftly enters his lair, finally letting me go to the class."
@@ -6796,7 +6796,7 @@ menu:
     "I don't want to talk about it, okay?":
         return m2
 label en_A27b:
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "God damn it. She just doesn't know when to stop."
 hi "Yeah fine. Whatever. I'll tell you. I was having a great time."
 hi "I had a heart attack first thing in the morning and then hung out with the head nurse for a few hours for kicks."
@@ -6899,7 +6899,7 @@ show misha perky_confused_close at offscreenleft
 with charamove
 hide misha
 with None
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "Misha luckily understands that I'm serious, a stroke of luck that I could tell what I mean so clearly even she got it. She retreats to translate our discussion to Shizune."
 "Neither of them talk to me after that."
 label en_A27i:
@@ -6907,7 +6907,7 @@ hi "Fine, I'll come with you, but get off my back for the rest of the class, oka
 show misha hips_grin_close
 with charachange
 mi "It's a deal, Hicchan~!"
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 show bg school_scienceroom at center
 show misha hips_grin_close at offscreenleft
 with charamove
@@ -6953,7 +6953,7 @@ mu "But what I meant was more the—{w=.5}{nw}"
 play sound sfx_normalbell
 "The remainder of his sentence is buried beneath the ring of the lunch bells, and everyone starts packing their things."
 "Mutou deliberates for a moment, but since almost nobody seems to pay attention any more, he gives up and sits down."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_hallway3
 show crowd
 with locationchange
@@ -6962,7 +6962,7 @@ play ambient sfx_crowd_indoors fadein 0.3
 label en_A27f:
 scene bg school_scienceroom
 with shorttimeskip
-stop music fadeout 2.0    
+play music "bgm/blank.ogg" fadeout 2.0    
 "Misha, and by proxy, Shizune, doesn't bother me for the entire morning."
 play sound sfx_normalbell
 "When the bell rings, I don't even look at the two of them as I walk out of the class."
@@ -7160,7 +7160,7 @@ shi "..."
 show misha hips_smile
 with charachange
 mi "Of course we're coming too, of course; we'll be right behind you!"
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 scene bg school_hallway3
 with locationchange
 "Reassured, I start heading back to class, but the period is almost halfway over, so I start thinking it would be pointless halfway there and pass the difference between this class and the next drinking juice in the hallway."
@@ -7259,7 +7259,7 @@ show emi excited_proud
 with charachange
 emi "I have super extra lunch today, as promised! Let's go upstairs!"
 label en_A29b:
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 stop ambient fadeout 1.0
 scene bg school_staircase1
 with locationchange
@@ -7302,7 +7302,7 @@ show rin relaxed_nonchalant
 with charachange
 "Rin has turned her gaze towards the clouds drifting above the school."
 rin "I didn't know you knew this person, Emi."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 "..."
 "The awkward silence lasts only for a few seconds until Emi lets out a tiny giggle, shrugging the coincidence off."
 show emi basic_closedgrin
@@ -7530,7 +7530,7 @@ emi "If you don't eat more, you're going to fade away!"
 show rin relaxed_boredom_close
 with charachange
 "Rin shrugs, as if this is an acceptable risk."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 hi "Come on, we'd better get going."
 stop ambient fadeout 2.0
 scene bg school_staircase1
@@ -7560,7 +7560,7 @@ hi "It's okay, I think I know where everything is. Thanks anyway."
 hide yuuko
 with charaexit
 "I suppose I'll grab another book or two while I'm here. There's not much else to do, and after reading so much during my stay in the hospital, it's become a hard habit to break."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 "I wander down to the fiction section towards the back of the library, scanning the bookshelves for anything that catches my eye."
 "As I do, I look over to the corner where Hanako had been the last time I was here, not really expecting anything to come of it."
 scene ev hana_library_read_std
@@ -7585,7 +7585,7 @@ with locationskip
 "I wonder why I can't shake the feeling of being an outsider like Alice, despite most everyone being so hospitable and friendly with me."
 "Turning another page, my mind starts drifting further away from the book. It's quiet, I can hear my heartbeat thumping against the fabric of my shirt."
 "For some reason, it makes me feel really bad like it has since that time in the forest with Iwanako. Like I was locked in a cage with something nasty and scary."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 scene bg school_dormhisao_ni
 with Dissolve(3.0)
 "I put the book down for a while and stare at the ceiling, taking my time to shake off the feeling."
@@ -7675,7 +7675,7 @@ hi "I guess that's a good take on it."
 scene bg suburb_roadcenter_ss
 show lilly cane_reminisce_ss at center
 with shorttimeskip
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 "Walking on down the road, she seems to become somewhat unsettled. Before I can ask what's on her mind, she seems to collect herself and speaks up about something else."
 show lilly cane_weaksmile_ss
 with charachange
@@ -7763,7 +7763,7 @@ with locationchange
 show bg suburb_roadcenter_ni at center
 show rin relaxed_nonchalant_ni at right
 with charamoveinright
-stop music fadeout 8.0
+play music "bgm/blank.ogg" fadeout 8.0
 hi "Rin? What're you doing out here so late?"
 show lilly cane_surprised_ni at center
 with charaenter
@@ -7899,7 +7899,7 @@ with charachange
 "Rin considers this rather simple deduction for a moment, then nods."
 show rin basic_absent_ni
 with charachange
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 rin "Okay."
 scene bg school_road_ni
 with shorttimeskip
@@ -7947,7 +7947,7 @@ menu:
         return m2
 label en_A30a:
 $ renpy.music.set_volume(0.1, 1.0, channel="ambient")
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 hi "I... I'm fine."
 hi "There's nothing to worry about, the hill is just surprisingly steep, don't you think?"
 hi "I wonder what they have the school so high up here for anyway, don't we have students in wheelchairs and everything?"
@@ -8011,7 +8011,7 @@ show lilly cane_weaksmile_ni
 with charachange
 "I try to offer a reassuring smile but then I realize the futility. Without knowing this, Lilly smiles at me reassuringly but doesn't say anything further."
 $ renpy.music.set_volume(0.5, 5.0, channel="ambient")
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_dormext_half_ni
 show rin relaxed_surprised_ni at tworight
 show lilly cane_weaksmile_ni at twoleft
@@ -8055,7 +8055,7 @@ rin "Leave me. I'm going to need to work for a while."
 show rin negative_angry_ni
 with charachange
 rin "Leave me."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 hide rin
 with charaexit
 show lilly cane_concerned_ni at center
@@ -8120,7 +8120,7 @@ stop sound fadeout 6.0
 "I wonder if she was born as rowdy as she is, or if she is 'making up' for Shizune's lack of voice."
 show muto normal at center
 with charaenter
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 mu "Nakai, can I speak to you for a moment?"
 "I'm so engrossed in thinking about Misha that I don't even notice Mutou approaching my desk."
 hi "Sure... what's this about?"
@@ -8219,7 +8219,7 @@ mu "I don't think any of my students have ever said that to me before."
 play sound sfx_dooropen
 scene bg school_scienceroom
 with locationchange
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 "A few of the students jump at the sound of the door, rapidly trying to pretend that they are working on the questions on the board."
 play sound sfx_doorclose
 "Some don't even bother, their heads slumped on the desk as they nap. Thankfully, it would appear that Mutou does not even notice them."
@@ -8284,7 +8284,7 @@ with charachange
 label en_A31e:
 hide hanako
 with charaexit
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "After about ten minutes of restlessly shuffling in her seat and trying to read, Hanako closes her book and leaves too."
 "As should I, since the assignment is all but finished and there is nothing else to do in the classroom."
 scene bg school_dormhisao
@@ -8299,7 +8299,7 @@ show hanako emb_downtimid at right
 with None
 hide hanako
 with charaexit
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "After about ten minutes of restlessly shuffling in her seat and trying to read, Hanako closes her book and leaves too."
 "As should I, since the assignment is all but finished and there is nothing else to do in the classroom."
 "Not that I have anything to do anywhere else either."
@@ -8352,7 +8352,7 @@ play ambient sfx_crowd_indoors fadein 0.3
 scene bg school_staircase2
 with locationchange
 "The stairs slow Emi down a little bit. Maybe it's hard to climb with her legs, or maybe she's finally run out of breath."
-stop music fadeout 7.0
+play music "bgm/blank.ogg" fadeout 7.0
 scene bg school_hallway3
 show crowd
 with locationchange
@@ -8462,7 +8462,7 @@ emi "And stared at her toes."
 show emi basic_closedhappy
 with charachange
 "She giggles again in a way that makes me think she doesn't know what's funny about it, it just is."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 show emi basic_grin
 with charachange
 emi "All that time."
@@ -8588,7 +8588,7 @@ emi "I promised to help with our class project, though, so I'll be back a bit la
 show rin basic_deadpannormal
 with charachange
 "Rin nods, and so Emi leaves."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 hide emi
 with charaexit
 show rin basic_deadpannormal at center
@@ -8618,7 +8618,7 @@ with charaexit
 "I can't help but feel disoriented; the new school, lifestyle and people around me contribute heavily to this sensation."
 "I'm trying my best to fit into existing social circles, and most of the people I've met have been really nice."
 "It still feels like I'm an outsider, though; like I don't belong."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 "I shake the feeling off, realizing that I'm spacing out. I have neither turned a page of the book, nor done anything for Rin."
 "She is trying to pour some paint from a big can using only her feet, having not bothered to ask me. Or maybe she did, and I didn't hear it."
 "Either way, it looks very unstable."
@@ -8741,7 +8741,7 @@ no "I just stopped by to remind you to not run off by yourself, tomorrow. I've i
 show nomiya smile
 with charachange
 no "I hope I'll see you on Monday, then, Nakai."
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 hide nomiya
 with charaexit
 show rin basic_deadpannormal at center
@@ -8834,7 +8834,7 @@ rin "You know, how she just talks talks talks about nothing for hours. It's like
 show rin basic_deadpandelight
 with charachange
 rin "You are kinda the same, but not really. It's very helpful if you stay here."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 "I am not sure if that's a compliment or not. It's probably neither; with Rin being the overtly neutral person she is."
 hi "So is there anything specific you'd like me to do to make you not think?"
 show rin basic_deadpan
@@ -8888,7 +8888,7 @@ with charachange
 scene bg school_dormext_half_ss
 with locationchange
 "Rin continues her work and I stay with her: I like to watch her paint, and I'm going to be a member of the same club she's in, now."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 $ renpy.music.set_volume(0.5,0.0, "ambient")
 play ambient sfx_cicadas fadein 3.0
 scene bg school_dormext_full_ni
@@ -8915,7 +8915,7 @@ with charachange
 no "Also, Monday's club meeting is off, since I'm going out of town. I guess you kids can do something among yourselves, if you want to."
 hide nomiya
 with charaexit
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 show rin basic_deadpannormal at center
 show bg school_dormext_half at bgleft
 with charamove
@@ -8932,7 +8932,7 @@ scene bg school_dormext_half at bgright
 show rin basic_deadpan at tworight
 show emi basic_annoyed at twoleft
 with None
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 show emi basic_closedgrin
 with charachange
 emi "We need to go get more, then."
@@ -8992,7 +8992,7 @@ hi "I should... get in shape?"
 show emi basic_closedgrin
 with charachange
 emi "Well, that's it, then."
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 show emi basic_annoyed
 with charachange
 "She gives me a serious look."
@@ -9113,7 +9113,7 @@ hi "Oh! I guess we should get that paint for Rin, huh?"
 show emi basic_shock
 with charachange
 emi "Oh no! It slipped my mind!"
-stop music fadeout 8.0
+play music "bgm/blank.ogg" fadeout 8.0
 scene bg school_dormext_half_ss
 with shorttimeskip
 "By the time we get the paint and get back to the mural, Rin's already wandered off."
@@ -9128,7 +9128,7 @@ $ suppress_window_after_timeskip = True
 scene black
 with Dissolve(3.0)
 label en_A34b:
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 "Damn, why do all these people insist on meddling with my matters? I guess the nurse is allowed, even obliged but..."
 hi "You know, I don't think that would be a good idea."
 hi "This is my problem, I don't really want to make anyone else involved."
@@ -9190,7 +9190,7 @@ with shorttimeskip
 "Having seen a fair portion of town, even including the houses perched on the hills around the outskirts, I decide to take a walk around the park before heading back."
 "Living in the city all my life, the total lack of smartly-dressed businessmen and fashionably-dressed girls strikes me as incredibly unusual."
 "All that's to be seen are the odd elderly person shuffling along the sidewalk and assorted busily chatting pairs of middle-aged women outside of small storefronts."
-stop music fadeout 8.0
+play music "bgm/blank.ogg" fadeout 8.0
 "Walking along the road to the park quickly distracts me from them, though, making me realize that I perhaps pushed myself further than I should have done to see as much as I could."
 "As my breath begins to wheeze and my chest tightens more and more, I give up on the prospect of soldiering on."
 play ambient sfx_parkambience fadein 1.0
@@ -9376,7 +9376,7 @@ hi "Yeah. Ended up walking all over town, despite only planning on taking a shor
 play sound sfx_teacup
 "Without further ado, Lilly starts on her cup of strong-smelling tea."
 "I guess I'd better get going back to Yamaku. There's only so long I can stall studying for, and I want to get a good night's sleep before the festival."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "Standing from my seat, I take the coffee-stained cup from the table."
 show lilly basic_surprised
 with charachange
@@ -9420,7 +9420,7 @@ li "It's a difficult subject to try and think about objectively, given that I've
 "That said, those rare moments she seems to slightly lower her guard are the most insightful into how she thinks."
 "Reaching forward for my drink, I realize something I probably should've noticed earlier."
 "...I think I'm starting to become kind of curious about her."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_gate_ni
 with shorttimeskip
 play ambient sfx_cicadas fadein 0.5
@@ -9542,7 +9542,7 @@ mi "Hahaha!"
 show misha hips_smile
 with charachange
 "This is a kind of coercion that is new to me. Only two pretty girls could pull it off."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "I allow myself to relax a bit. Maybe I'm being too paranoid; it seems like they may really just want to hang out."
 "Nevertheless..."
 hi "No tricks?"
@@ -9624,7 +9624,7 @@ show misha hips_smile
 show shizu behind_smile_close
 with charachange
 mi "Great~!"
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg suburb_shanghaiint
 with shorttimeskip
 "We make it to the tea shop with a fifteen-minute walk. It seems that we are the only customers around."
@@ -9746,7 +9746,7 @@ with charaexit
 show shizu behind_blank at Slide(0.2,0.5,0.3,0.5,1.0)
 show misha perky_smile_close at Slide(0.8,0.5,0.7,0.5,1.0)
 with Dissolve(1.0)
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 mi "Hicchan, do you have any plans for tomorrow?"
 "Misha takes a gulp of her tea, something sounding suspiciously high class even though it looks like ordinary tea."
 "She drinks with incredible recklessness considering how hot it is. The exact opposite of Shizune or Lilly."
@@ -9965,7 +9965,7 @@ window show
 "I wonder if it's too late to go back to the shop and ask Misha for directions."
 "But then again, I gave her a hard time for not knowing the way here, so I can't allow her to score off me for not knowing the way back."
 "And if I ask her, Shizune could see it as a victory. No, it's not necessary."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "The school is on top of a damn hill, how hard could it be to find?"
 "I may be slightly directionally challenged, but I'm sure that even I can do this."
 scene bg school_courtyard
@@ -10104,7 +10104,7 @@ show shizu behind_smile
 with charachange
 shi "...!"
 mi "So predictable~."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_council
 with locationskip
 "When we get to the student council room, my jaw drops. The number of signs, backing boards, and signposts is insane."
@@ -10170,7 +10170,7 @@ show misha perky_smile
 with charachange
 mi "Besides, Shicchan likes working with you. And so do I!"
 mi "We've accomplished a lot more than we normally could, you know."
-stop music fadeout 7.0
+play music "bgm/blank.ogg" fadeout 7.0
 "I can accept that. Lately, they've been looking a little fatigued every time I see them."
 "Student council work is apparently a 24-hour-a-day thing, and from what I've seen and heard, there are just the two of them. Well, I guess I make it three."
 "They must work almost nonstop. I wonder how much time they spend working in this room, when I don't see them."
@@ -10237,7 +10237,7 @@ show shizu behind_smile_ss
 with charachange
 hide shizu
 with charaexit
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "I turn immediately to Shizune, who gives me a curt wave and a surprisingly cheery smile before quickly vanishing out the door."
 show misha cross_grin_ss at twoleft
 with charachange
@@ -10355,7 +10355,7 @@ mi "It really wasn't a big deal in retrospect? That's forward thinking of you!"
 show misha hips_smile_ss
 with charachange
 mi "All right then, I guess the two of us should get back to work, Hicchan!"
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 hi "Sure, why not."
 scene bg school_council_ni
 with shorttimeskip
@@ -10506,7 +10506,7 @@ show shizu adjust_blush
 with charachange
 shi "...!"
 "I let out a laugh as Shizune turns bright red with indignation. I didn't know she had such a childish side."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 scene bg school_council_ni
 with shorttimeskip
 "When the food arrives, I dig in heartily, drinking one of the tiny cans of soda Shizune bought for us from one of the vending machines in the hall."
@@ -10529,7 +10529,7 @@ scene bg school_scienceroom at bgleft
 with None
 "The library seems as good a place as any to go. Hanako looked as if she was taken pretty off-guard by Lilly leaving, so she might want someone to talk to."
 "Slinging my bag over my shoulder, I make my way out of the classroom."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 scene bg school_hallway2
 with locationchange
 "I walk down the hallway to the library, past a multitude of closed doors."
@@ -10597,7 +10597,7 @@ with charachange
 "In the back of my mind I know I have a bit of homework to catch up on, but it's quite comfortable in here. No one can find me and force me into working for their pet project, either."
 "Though now that I'm thinking about the festival, another question comes up..."
 hi "Hey, Hanako, what are you doing for the festival?"
-stop music fadeout 0.2
+play music "bgm/blank.ogg" fadeout 0.2
 show hanako def_shock
 with charachange
 "For a split second I think that Hanako is about to throw her book in the air from shock."
@@ -10630,7 +10630,7 @@ show hanako basic_bashful
 with charachange
 ha "O-okay."
 "Our brief conversation ends as abruptly as it started, and we both return to our novels."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 scene bg school_library_ss
 with shorttimeskip
 "The passage of time is marked only by the gradual movement of the patch of light cast through the window."
@@ -10669,7 +10669,7 @@ ha "N-night."
 scene bg school_hallway2
 with locationchange
 "I leave her to finish her book and head back to the dorms and the promise of food..."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 $ suppress_window_after_timeskip = True
 scene black
 with Dissolve(3.0)
@@ -10698,7 +10698,7 @@ with locationchange
 "Then again, I can picture him having built a soundproof shelter in his room."
 "Or possibly something like a fort, complete with 'No Girls Allowed' sign."
 "... and with the 'Girls' crossed out and 'body' crudely scrawled underneath it."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 play sound sfx_doorknock2
 "Knocking on his door which is luckily devoid of any kind of sign, I hear again the unsettling clicking of at least ten locks being pulled back. The door opens up a crack."
 show kenji neutral at Slide(0.0,0.3,0.0,0.2,0.5)
@@ -10771,7 +10771,7 @@ hi "I'm going to have to hang out with the Student Council, since I lost a bet."
 hi "I could skip going, but it'd be a waste. And I want to go, too. I mean, you know, today does seem pretty exciting. If anything, it'll be interesting."
 show kenji tsun
 with charachange
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 ke "The Student Council? What? That's still around?"
 ke "Isn't it like, two dudes?"
 hi "They're both girls."
@@ -10868,7 +10868,7 @@ hi "Okay."
 show kenji neutral
 with charachange
 ke "Later, dude."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 hide kenji
 with charaexit
 "The door slowly closes with a low creak and I don't know how to feel about what Kenji just said."
@@ -10972,7 +10972,7 @@ show shizu basic_normal2_close at tworight behind misha
 with None
 show shizu adjust_blush_close
 with charachange
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "Shizune looks at the both of us, blushing slightly and fiddling with her glasses impatiently."
 "I'm not used to this kind of casual contact, but I have nothing against it. How could I object?"
 play ambient sfx_crowd_outdoors fadein 1.0
@@ -11054,7 +11054,7 @@ with Dissolve(1.0)
 show misha hips_grin at twoleft
 show shizu basic_normal at tworight
 with charachange
-stop music fadeout 12.0
+play music "bgm/blank.ogg" fadeout 12.0
 "However, before I can even put it in my mouth, Shizune and Misha begin eating eagerly, Shizune taking quick but delicate bites out of the takoyaki while Misha eats with relish like a small child."
 "I guess at the end of the day, both of them are just kids like any other student here."
 "This is kind of nice. I don't think I've had a chance like this in a long time to just hang out with other people and enjoy their company."
@@ -11137,7 +11137,7 @@ show shizu adjust_happy_close_ss
 with charachange
 shi "...!"
 mi "Well, that takes care of that~! Wahaha! Hahahaha!"
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 "Shizune grabs my right hand, and Misha grabs my left."
 show shizu behind_smile_close_ss
 with charachange
@@ -11259,7 +11259,7 @@ mi "Ahahaha! Hicchan, where's your sense of chivalry? Besides, I - Shicchan, hav
 show misha hips_smile_ss
 with charachange
 mi "Ah, sorry, Hicchan. I don't know if my aim is that good, either. You must be pretty good at these things, though, right, right? It shouldn't be a problem for you!"
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "This looks simple enough. The bottles aren't even that far away, the only challenge is that these are wiffle balls."
 play sound sfx_impact
 "I throw one at the bottles hard, and it bounces off unceremoniously."
@@ -11374,7 +11374,7 @@ with charachange
 shi "..."
 mi "Thank you, Hicchan. Shicchan seems happy, Hicchan~! But, you're going to win one for me, too, right?"
 hi "That is what I'm trying to do, isn't it?"
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 show shizu behind_smile_ss at Slide(0.7,0.5,0.8,0.5,1.0, time_warp=_ease_out_time_warp)
 show misha perky_smile_ss at Slide(0.3,0.5,0.2,0.5,1.0, time_warp=_ease_out_time_warp)
 with None
@@ -11402,7 +11402,7 @@ play sound sfx_pillow
 "I feel depressed by that, and angry as well. In the end, I care about my life, and I enjoy it, and now it's more transient than ever before."
 "I wonder what it is that will finally do me in. It could be anything, if I'm this weak and pathetic: a bad fall, a punch to the chest, a stray baseball."
 "I've now lost my will to keep playing this game, but I keep playing anyway."
-stop music
+play music "bgm/blank.ogg"
 $ renpy.music.set_volume(0.0,0.0, "ambient")
 play sound sfx_heartfast
 show heartattack alpha
@@ -11476,7 +11476,7 @@ with charachange
 mi "Okay then! I guess I should get the food and drinks now... So I'll see you two then~!"
 hide misha
 with charaexit
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 "Misha gives a clumsy wave and then runs off."
 "Before, I didn't notice how the paper lanterns look illuminating the dark night, but now that I'm able to see it, it's really an amazing sight."
 "Fireflies float overhead, their soft glow making it look as if it's snowing lights in the night sky."
@@ -11555,7 +11555,7 @@ hi "Well, whatever. I wonder if we both consider ourselves at fault for this. An
 hi "You know, I'm almost, almost glad that you tried to coerce me into coming here. If I attempt to date you, though, I might have to think more about that side of you."
 hi "No, actually... I'm glad. Today was nice."
 hi "You would be cuter if you smiled more, you have a nice smile."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 show shizu behind_frustrated_close_ni at center
 show bg misc_sky_ni at right
 with charaenter
@@ -11599,7 +11599,7 @@ with Dissolve(5.0)
 "All the while still gently holding on to the stuffed cat's paw."
 "I start feeling tired and I tell her that I'll see her and Misha tomorrow, without even realizing that she can't hear me, and then start walking back to the dorms."
 "I feel warm and alive, even in this chilly night air."
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "The image of Shizune standing forcefully before the stars themselves, denying my self-pity, does not leave my mind easily."
 "If... if it only takes a moment for there to be love, I think I may be falling in love with her."
 "Just a little bit."
@@ -11638,7 +11638,7 @@ scene bg school_stalls1
 with locationchange
 "I push the thoughts aside, concentrating on the pangs of hunger that burn my guts like a wildfire."
 "The scent of something fried leads me to the promised land, where I can get some lunch."
-stop music fadeout 0.6
+play music "bgm/blank.ogg" fadeout 0.6
 "I'm just getting my order when a loud voice interrupts me."
 show emi basic_annoyed at Slide(0.7,0.5,0.5,0.5,0.5)
 with charaenter
@@ -11696,7 +11696,7 @@ emi "Maybe, but not if you're sleeping the day away all the time!"
 show emi basic_grin_close
 with charachange
 emi "Of course, if you'd been following a routine from the beginning you wouldn't be in this situation..."
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 hi "Hey, I've had a pretty eventful week, you know!"
 hi "For example, I almost died! And there was a lot of meeting people, and then I was on a roof for a while..."
 show emi sad_annoyed_close
@@ -11748,7 +11748,7 @@ emi "And I told the nurse I would, anyway."
 hi "Okay, that sounds... fine."
 hi "Thanks for your concern."
 hi "Tomorrow morning, then?"
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 hide emi
 with charaexit
 "I figure that ends the conversation, so I turn to leave."
@@ -11802,7 +11802,7 @@ scene bg school_courtyard
 show crowd
 with locationchange
 "I give a nod of assent and find myself almost dragged bodily through the crowd as Emi races to our destination."
-stop music fadeout 6.0
+play music "bgm/blank.ogg" fadeout 6.0
 stop ambient fadeout 2.0
 scene bg school_dormext_full at bgright
 with locationchange
@@ -11924,7 +11924,7 @@ with charachange
 rin "Okay, but we should hurry before they notice I'm gone."
 "Somehow I don't think they'd care."
 "Whoever they are."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 $ renpy.music.set_volume(0.6,0.0, "ambient")
 play ambient sfx_crowd_outdoors fadein 1.0
 scene bg school_stalls1 at Fullpan(8.0)
@@ -12021,7 +12021,7 @@ hi "Okay."
 hi "Bye, you two."
 "I feel oddly glad that I decided to leave my room today."
 "Not a bad way to start my second week here, I suppose."
-stop music fadeout 9.0
+play music "bgm/blank.ogg" fadeout 9.0
 play ambient sfx_crowd_outdoors fadein 1.0
 scene bg school_stalls1
 with locationchange
@@ -12107,7 +12107,7 @@ rin "Teacher was happy that I finished the mural."
 hi "He should be."
 show rin basic_awayabsent
 with charachange
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 rin "But I wonder if it's finished after all."
 hi "Oh?"
 show rin basic_deadpanupset
@@ -12175,7 +12175,7 @@ with charachange
 rin "So... its muralness is at the maximum, at least as far as I can do, so if you think it has some meaning, I think that's the same as this one has."
 "That makes no sense."
 "Meaning... I feel the corners of my mouth turning upwards into a smile that's just a tiny bit bothered."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 scene mural all
 with flash
 "I have never understood art in the deepest meaning of the word."
@@ -12264,7 +12264,7 @@ with locationchange
 "This is the pinnacle of social failure. A whole free day, a festival right outside my doorstep, and what do I do?"
 "Sit here with Rin; two bystanders with nothing to do except to think what a pity it is to be just a bystander."
 "Even realizing how pitiful it is, I don't do anything. I don't stand up and take off for a day of fun."
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 play sound sfx_rustling
 centered "*shuffle shuffle*"
 "..."
@@ -12313,7 +12313,7 @@ rin "That's why you should stay here while I go and look for Emi."
 hi "Yes."
 hide rin
 with charaexit
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "Not wanting to meet Rin's eyes, I turn my face aside, pretending I'm looking at someone's parents."
 "From the corner of my eye I see Rin turning on her heel and walking off without further ado."
 "I feel like going to hide under some rock."
@@ -12421,7 +12421,7 @@ with locationchange
 "I try to fight against the drowsy feeling that is overwhelming me, to no avail."
 scene black
 with shuteye
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 $ renpy.music.stop(channel=6,fadeout=2.0)
 with Pause(4)
 $ renpy.music.set_volume(1.0, 0.2, "ambient")
@@ -12552,7 +12552,7 @@ rin "Good night, Hisao."
 hide rin
 with charaexit
 "She gives me one more lingering look, measuring me from tip to toe, turns around on her heel and skips off, disappearing into the crowd."
-stop music fadeout 7.0
+play music "bgm/blank.ogg" fadeout 7.0
 "..."
 hi "Okay... Good night."
 "I'm left standing there, giving my response to the cooling night air."
@@ -12616,7 +12616,7 @@ with locationchange
 "From her expression and the fact that both she and the teacher seem to be in a state of mild confusion, it appears that there's been some problem in coordination."
 "Before I can stare any longer, the girl behind the counter pops up again, only to look back and ask where the spare change box is."
 "Lilly pauses for a moment, before she and the girl switch places at the counter and the teacher quickly walks off somewhere."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 show bg school_stalls2 at left
 show lilly basic_smileclosed at center
 with charaenter
@@ -12685,7 +12685,7 @@ with locationchange
 "It seems the teacher's mission paid off: there are now over a dozen students helping, and much of the unpacking has been done."
 "Despite most of them seeming quite relaxed as they work, Lilly still appears to be somewhat stressed."
 label en_A41a:
-stop music fadeout 4.0
+play music "bgm/blank.ogg" fadeout 4.0
 "...Right. I know what I'll do. Even if it's just one person, I'll make the festival more enjoyable for her."
 "As I place the bowl on the counter, I call out to Lilly."
 show lilly basic_smile at center
@@ -12837,7 +12837,7 @@ hi "Well, now we can enjoy it together, right?"
 show lilly cane_smileclosed
 with charachange
 "The two nod happily before we set out of the library and towards the festivities."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_stalls1_ni
 with shorttimeskip
 $ renpy.music.set_volume(0.5,0.0, "ambient")
@@ -12911,7 +12911,7 @@ hi "You mind if I join you two for tea every now and again?"
 show lilly behind_cheerful_close_ni
 with charachange
 li "It would be a pleasure, Hisao."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 stop ambient fadeout 2.0
 window hide
 label en_A42:
@@ -12932,7 +12932,7 @@ hi "Will do. Have a good one. And make sure you take a break, okay?"
 show lilly basic_smile
 with charachange
 li "I will if I can. See you later, Hisao."
-stop music fadeout 10.0
+play music "bgm/blank.ogg" fadeout 10.0
 $ renpy.music.set_volume(1.0,1.0, "ambient")
 scene bg school_courtyard
 show crowd
@@ -12988,7 +12988,7 @@ hi "Good to go?"
 show hanako basic_normal
 with charachange
 ha "Y...yeah."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene bg school_hallway2
 with locationchange
 "We walk side-by-side from the library to the tea room."
@@ -13058,7 +13058,7 @@ with charachange
 hi "Well then, let's go."
 hide hanako
 with charaexit
-stop music fadeout 5.0
+play music "bgm/blank.ogg" fadeout 5.0
 "We set off down the hall, and this time I notice that Hanako is paying a little less attention to the floor."
 "I wonder; just how lonely does someone have to be to come up with a game like that?"
 "But, before I realize what I'm doing, I find myself trying to aim each step so it lands on the correct tiles."
@@ -13150,12 +13150,12 @@ hi "Sure. Though don't expect me to go easy on you this time..."
 show hanako emb_downsmile_close
 with charachange
 ha "S... same here..."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 label en_A43:
 scene bg school_dormhallway at bgright
 show kenji happy at center
 with None
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 "What am I going to do? I don't have any plans. In hindsight, that's really stupid."
 "Maybe I should've asked a girl out? Then again, all things considered, I don't think I could've done anything like that. It's only my first week."
 "A week that I have wasted being awkward around almost everyone, stumbling all over myself trying to get the hang of this place."
@@ -13184,7 +13184,7 @@ ke "It's the perfect place, nobody ever goes up there."
 show kenji neutral
 with charachange
 ke "Meet me there in one hour. I have to prepare."
-stop music fadeout 1.0
+play music "bgm/blank.ogg" fadeout 1.0
 show kenji neutral at Slide(0.5,0.5,0.4,0.5,0.5, time_warp=_ease_out_time_warp)
 with None
 hide kenji
@@ -13260,7 +13260,7 @@ scene bg school_roof at bgright
 with locationchange
 "The festival noise is surprisingly muted up here, and the rooftop looks deserted, as expected."
 "Near a place where the cyclone fence has collapsed, there is a pile of blankets that seems oddly out of place."
-stop music fadeout 3.0
+play music "bgm/blank.ogg" fadeout 3.0
 "Wait."
 play sound sfx_rustling
 "Did that pile just move a little?"
@@ -13350,7 +13350,7 @@ with charachange
 ke "Damn, I forgot to bring my graphs."
 "I decide to play a drinking game with myself. Every time Kenji mentions 'female conspiracy', I'll take a swig."
 $ wdt_off(False)
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 scene black
 with delayblinds
 centered "Four or five hours, or possibly several days later:\n{w}(I lost track)"
@@ -13395,7 +13395,7 @@ show kenji rage_ni:
     easein 1.0 yanchor 1.0
 with locationchange
 "He stands up, impressing me because I'm fairly sure I couldn't even if I wanted. He yells extremely loudly as if he's lost the concept of volume. I wince and almost want to cover my ears."
-stop music fadeout 2.0
+play music "bgm/blank.ogg" fadeout 2.0
 ke "Aaagh, how nice it would have been if I could have been down there... But no. You see, thinking like that is a trap, you think you're missing out on something, but at the end of that road is nothing but despair..."
 show kenji tsun_ni at center
 with charachange
@@ -13449,7 +13449,7 @@ hi "Ha... That situation seems unlikely to me, like it wouldn't happen, like... 
 ke "Damn, this is true despair... The worst part is that sometimes I feel like I have no choices in my life, you know?"
 ke "Like I never have a chance to make a decision, shit just happens."
 ke "Like it was all preprogrammed. Like fate... or something. Like there is no way I can have a say in what I do."
-stop music fadeout 0.2
+play music "bgm/blank.ogg" fadeout 0.2
 show kenji rage_ni
 with vpunch
 ke "Quick, ask me a question!"
@@ -13565,5 +13565,5 @@ hi "I am... falling...?"
 "I can see the night sky as I turn over in the air. The bottle floats out of my fingertips and disappears into thin air as I fall."
 "I realize that this is the fitting end to a truly, truly bad day."
 window hide
-stop music fadeout 0.1
+play music "bgm/blank.ogg" fadeout 0.1
 play sound sfx_crunchydeath
