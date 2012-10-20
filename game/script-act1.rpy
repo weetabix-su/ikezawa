@@ -224,7 +224,7 @@ label en_NOP2:
 	"That is all I can think of to get me through this. At least I still have something; even if it's a 'special school,' it's something. It's a fresh start, and my life isn't over. It would be a mistake to just resign myself to thinking that."
 	"At the very least, I'll try to see what my new life will look like."
 label en_A1:
-	scene act 1
+	scene act uno
 	play music "bgm/acttrans.ogg"
 	$renpy.pause(10)
 	scene bg school_gate
