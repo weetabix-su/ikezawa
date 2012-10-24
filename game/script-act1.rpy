@@ -4469,125 +4469,95 @@ label en_A22:
 	show shizu adjust_blush at tworight
 	show misha perky_confused at twoleft
 	mi "Oh? Hello~!"
+    scene bg school_scienceroom_left
 	show shizu adjust_blush at offscreenleft
-	show misha perky_confused at Transform(xanchor=0.5, xpos=-0.45)
-	show bg school_scienceroom at bgleft
-	with charamove
-	show hanako emb_timid at Transform(xanchor=0.5, xpos=0.93)
-	with charamoveinright
-	play music music_pearly fadein 1.0
+	show misha perky_confused at twoleft        #Actual: Transform(xanchor=0.5, xpos=-0.45)
+	show hanako emb_timid at offscreenright     #Actual: Transform(xanchor=0.5, xpos=0.93)
+	play music music_pearly #WEETABIX NOTE: Define 'music_pearly' in KS source files
 	"I look over my shoulder and see Hanako peering timidly into the classroom, most of her body hidden behind the door."
-	show misha perky_smile at Transform(xanchor=0.5, xpos=0.15)
-	with charamove
+	show misha perky_smile at 3four             #Actual: Transform(xanchor=0.5, xpos=0.15)
 	mi "Hey! Playing delinquent again?"
-	show hanako emb_blushtimid
-	with charachange
+	show hanako emb_blushtimid at offscreenright
 	"Hanako blushes hard at Misha's straightforward jab, even if it was only in jest."
-	show shizu basic_angry at Transform(xanchor=0.5, xpos=0.35)
-	with charamove
+	show shizu basic_angry at tworight          #Actual: Transform(xanchor=0.5, xpos=0.35)
 	shi "..."
-	show hanako emb_downsad
-	with charachange
-	show hanako emb_downsad at Transform(xanchor=0.5, xpos=0.97)
-	with charamove
+	show hanako emb_downsad at offscreenright   #Actual: Transform(xanchor=0.5, xpos=0.97)
 	"Shizune stares at her probingly, causing Hanako to look down and start backing away to the point where only her fingers can be seen wrapped nervously around the edge of the door."
 	"Maybe she is showing her dislike of Hanako by association of her dislike of Lilly."
 	"It appears so, and Hanako probably knows it as well."
 	"They seem to have momentarily forgotten about trying to get me to stay for the rest of the day."
 	hi "What is it, Hanako?"
-	show hanako emb_timid
-	with charachange
+	show hanako emb_timid at offscreenright
 	ha "H... has Lilly been here?"
 	mi "Sorry, Satou is not here. She, eh, came by in the morning though."
-	show hanako emb_downtimid
-	with charachange
+	show hanako emb_downtimid at offscreenright
 	"Hanako keeps looking uneasily at Shizune, who stares back at her with her usual studying gaze. What is she trying to do?"
 	"Of course Shizune isn't going to look away, and she is intimidating enough as it is, so I can only imagine how terrified Hanako would be."
 	"It is a little funny though, watching Hanako's reaction to Shizune's normal behavior. This is what happens when two people of two different extremes meet, it seems."
-	show hanako emb_timid
-	with charachange
+	show hanako emb_timid at offscreenright
 	ha "Do... do you know where she is?"
 	show shizu behind_frown
-	with charachange
 	shi "..."
-	show misha hips_frown
-	with charachange
+	show misha hips_frown at 3four
 	mi "If she has any sense in her head, she's in her classroom, working on their festival project. But who knows where that woman is loitering at."
 	if a10cTrigger == false:
 		jump en_A22a
 	elseif a10cTrigger == true:
 		jump en_A22b
 label en_A22a:
-    show misha hips_grin at Transform(xanchor=0.5, xpos=0.15)
+    show misha hips_grin at 3four           #Actual: Transform(xanchor=0.5, xpos=0.15)
     mi "She might be slacking off somewhere, just like Hicchan~! Wahaha~!"
     "Damn, what is it with Shizune and her need to point out stuff like this?"
     jump en_A23
 label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     #WEETABIX NOTE: Indented for easier routing reference, sprite declaration cleanup still required
-    scene bg school_scienceroom at bgleft
-    show shizu behind_frown at Transform(xanchor=0.5, xpos=0.35)
-    show misha hips_frown at Transform(xanchor=0.5, xpos=0.15)
-    show hanako emb_timid at Transform(xanchor=0.5, xpos=0.97)
-    with None
+    scene bg school_scienceroom_left
+    show shizu behind_frown at tworight     #Actual: Transform(xanchor=0.5, xpos=0.35)
+    show misha hips_frown at 3four          #Actual: Transform(xanchor=0.5, xpos=0.15)
+    show hanako emb_timid at offscreenright #Actual: Transform(xanchor=0.5, xpos=0.97)
     mi "She might be slacking off somewhere~! What a useless woman~!"
-    show hanako emb_downtimid
-    with charachange
     hide hanako
-    with easeoutright
     "Hanako nods quickly and retreats with haste, obviously to avoid any further contact with Shizune. Unfortunately, this turns their attention fully back to me."
-    play music "bgm/blank.ogg" fadeout 2.0
+    play music "bgm/blank.ogg"
     show shizu behind_frown at tworight
     show misha hips_frown at twoleft
-    show bg school_scienceroom at bgright
-    with charamove
-    show misha hips_grin
-    show shizu behind_smile
-    with charachange
+    $renpy.pause(0.6)   #WEETABIX NOTE: How long do these scene transitions take anyway?
+    show bg school_scienceroom_right
+    show misha hips_grin at twoleft
+    show shizu behind_smile at tworight
     mi "But Hicchan is not useless, right? Right? He said so himself~! Wahaha~!"
     "I can see where this is going, and I do not want any part of it, not after that experience yesterday."
     hi "Well, good luck with your preparations..."
     "I start packing my bag, ready to make a break for the exit."
     "Unfortunately I'm all the way on the other side of the room."
     "The short distance to the doorway seems like a vast No Man's Land to me now."
-    show misha perky_smile
-    show shizu behind_blank
-    with charachange
-    play music music_shizune fadein 4.0
-    show bg school_scienceroom at bgleft
-    show shizu behind_blank at center
-    show misha perky_smile at Transform(xalign=-0.15)
-    with charamove
-    show bg school_scienceroom at center
+    show misha perky_smile at twoleft
+    show shizu behind_blank at tworight
+    play music "bgm/The_Student_Council.ogg"
+    scene bg school_scienceroom
     show shizu behind_blank at tworight
     show misha perky_smile at twoleft
-    with charamove
     "Shizune and Misha both start maneuvering slowly in front of me, cutting off my route of escape in an unsettlingly cautious way that makes me think of ship-to-ship combat."
-    show misha hips_grin
-    with charachange
+    show misha hips_grin at twoleft
     mi "I think Shicchan is saying that you should help us, Hicchan~!"
     hi "Gee, I wouldn't know, she's so subtle."
-    show misha perky_confused
-    with charachange
+    show misha perky_confused at twoleft
     mi "But~! that's the intent, so, please? I can't keep up, we have to actually build stalls for the festival, almost all of them all by ourselves, can you believe that?"
-    show misha perky_sad
-    with charachange
+    show misha perky_sad at twoleft
     mi "Hammering boards together, over and over again, for hours, it's really hard!"
     mi "I'm so used to it I was doing swinging motions in class, and I didn't even know it!"
     "She bangs her desk a few times, imitating hammer blows."
     mi "It's so repetitive, I can't stand it! And yesterday, I actually hammered all the boards on top of each other..."
     mi "It was just a stack of boards all nailed together, and then I had to take it apart and do it all over again, and I got yelled at and laughed at~!"
     hi "Uh..."
-    show misha perky_smile
-    with charachange
+    show misha perky_smile at twoleft
     mi "So..."
-    show misha hips_grin_close
-    with characlose
+    show misha hips_grin_close at twoleft
     "She clamps a hand down on my shoulder and grins, quickly running her tongue across her teeth mischievously."
     mi "Do you have any plans for today, Hicchan?"
     mi "I wonder if you do~."
     hi "Sure I have plans..."
-    show misha perky_confused_close
-    with characlose
+    show misha perky_confused_close at twoleft
     mi "Really~?"
     mi "You're going to help us, right?"
     "I notice her hands are moving constantly."
@@ -4597,6 +4567,7 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     hi "Hey, I should go now, to the library. You know, homework..."
     hi "I should get going, shouldn't I? I have to be diligent, because I'm a new student, and all, so I have to make a good first impression, right? Yeah..."
     hi "See you later, then!"
+    #WEETABIX NOTE: Now let's set camp here, then carry on after this commit, okay?
     show misha perky_confused_close at offscreenleft
     show shizu behind_blank at twoleft
     show bg school_scienceroom at bgleft
