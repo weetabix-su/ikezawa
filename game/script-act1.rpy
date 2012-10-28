@@ -1742,7 +1742,7 @@ label en_A8a:
 	"..."
 	if a1bTrigger == true:
 		jump en_A8aa
-	elseif a1bTrigger == false:
+	elif a1bTrigger == false:
 		jump en_A8ab
 label en_A8aa:
 	hi "I did a self-introduction too."
@@ -1866,7 +1866,7 @@ label en_A8c:
 	yu "What did you do?"
 	if a8aTrigger == true:
 		jump en_A8d
-	elseif a8aTrigger == false:
+	elif a8aTrigger == false:
 		jump en_A8e
 label en_A8d:
 	hi "Nothing! I just... talked to her. Tried to get to know her. Didn't even manage to get started."
@@ -2177,12 +2177,12 @@ label en_A10:
 	if attractionSC > 1:
 		if attractionHanako > 1:
 			jump en_choiceA10a
-		elseif attractionHanako < 2:
+		elif attractionHanako < 2:
 			jump en_choiceA10b
-	elseif attractionSC < 2:
+	elif attractionSC < 2:
 		if attractionHanako > 1:
 			jump en_choiceA10c
-		elseif attractionHanako < 2:
+		elif attractionHanako < 2:
 			jump en_A10a
 label en_choiceA10a:
 	"What to do..."
@@ -2437,7 +2437,7 @@ label en_A11a:
 	emi_ "That's good! I was--"
 	if a10bTrigger == true:
 		jump en_A11d
-	elseif a10bTrigger == false:
+	elif a10bTrigger == false:
 		jump en_A11b
 label en_A11b:
 	"I feel a hand on my shoulder at the same time the girl's eyes widen in horror and whatever she was saying gets interrupted by a very horrified?"
@@ -2498,7 +2498,7 @@ label en_A11b:
 	"I wouldn't call that great, but I let it slide this one time."
 	if a10cTrigger == true:
 		jump en_A11x
-	elseif a10cTrigger == false:
+	elif a10cTrigger == false:
 		jump en_A11y
 label en_A11x:
 	show shizu adjust_happy at tworight
@@ -3748,7 +3748,7 @@ label en_A19:
 	"I can't use them for that any more, so maybe they can get a new life this way. A bit like me."
 	if a17aTrigger == true:
 		jump en_A19a
-	elseif a17aTrigger == false:
+	elif a17aTrigger == false:
 		jump en_A19b
 label en_A19a:
 	"After all, if I'm going to start taking care of myself, I can't afford to slack around. I'll start from the basics."
@@ -3790,7 +3790,7 @@ label en_A19c:
 	emi_ "Emi? I knocked you over in the hall yesterday."
 	if a10bTrigger == false:
 		jump en_A19i
-	elseif a10bTrigger == true:
+	elif a10bTrigger == true:
 		jump en_A19j
 label en_A19i:
 	show emi excited_circle_gym
@@ -3869,7 +3869,7 @@ label en_A19j:
 	"I find myself concentrating more on running properly."
 	if a17aTrigger == true:
 		jump en_A19d
-	elseif a17aTrigger == false:
+	elif a17aTrigger == false:
 		jump en_A19e
 label en_A19d:
 	"Hands spread, right?"
@@ -3921,7 +3921,7 @@ label en_A19f:
 #	stop ambient fadeout 2.0
 	if a17aTrigger == True:
 		jump en_A19g
-	elseif a17aTrigger == False:
+	elif a17aTrigger == False:
 		jump en_A19h
 label en_A19g:
 	"I'm not sure whether this morning's experiment was a success or a failure, but I'll admit that I do feel slightly good about getting out there this morning."
@@ -4075,7 +4075,7 @@ label en_A20:
 	"But right now, I have to get to class."
 label en_A21:
     scene bg school_scienceroom
-	play music "bgm/School_Days.ogg"
+    play music "bgm/School_Days.ogg"
     "I'm the first person in class today, although I think I'm a little too early. Then again, sitting alone here for twenty minutes sure beats having to suffer that time with Kenji."
     "The combination of fatigue, frustration and boredom starts making me feel very tired."
     "I black out for a second, waking up when my head hits the surface of my desk. Rubbing my forehead, I realize this is as good a reason as any to stay up for now and stop coming to class so early later."
@@ -4103,7 +4103,7 @@ label en_A21:
     li "It's a very busy morning today. The festival is coming up soon, and today is the deadline for event registration, budget reports, and any other official paperwork."
     show lilly cane_weaksmile
     li "It could be that everyone is trying to complete the necessary forms at the last minute. Maybe that is why it's so quiet today."
-;   play sound "sfx/doorslam.ogg"
+#   play sound "sfx/doorslam.ogg"
     show lilly cane_surprised
     mi "Hi~ hi~!"
     scene bg school_scienceroom_left
@@ -4348,11 +4348,9 @@ label en_A21b:
     hi "Yeah, but as I said back then, I'm not sure if..."
     "I don't have time for this right now; no matter what I do, it will mean being drawn into a confrontation with Shizune, and that is what she wants."
     hi "Whatever. Forget it."
-#	TEMPORARY STOP
-	$renpy.quit()
 	if a10bTrigger == true:
 		jump en_A21c
-	elseif a10bTrigger == false:
+	elif a10bTrigger == false:
 		jump en_A21d
 label en_A21c:  #WEETABIX NOTE: Succession of A21b with Hanako-Lilly Trigger
     "I turn my back at them."
@@ -4473,7 +4471,7 @@ label en_A22:
 	show shizu adjust_blush at offscreenleft
 	show misha perky_confused at twoleft        #Actual: Transform(xanchor=0.5, xpos=-0.45)
 	show hanako emb_timid at offscreenright     #Actual: Transform(xanchor=0.5, xpos=0.93)
-	play music music_pearly #WEETABIX NOTE: Define 'music_pearly' in KS source files
+	play music music_pearly		#WEETABIX NOTE: Define 'music_pearly' in KS source files
 	"I look over my shoulder and see Hanako peering timidly into the classroom, most of her body hidden behind the door."
 	show misha perky_smile at 3four             #Actual: Transform(xanchor=0.5, xpos=0.15)
 	mi "Hey! Playing delinquent again?"
@@ -4502,7 +4500,7 @@ label en_A22:
 	mi "If she has any sense in her head, she's in her classroom, working on their festival project. But who knows where that woman is loitering at."
 	if a10cTrigger == false:
 		jump en_A22a
-	elseif a10cTrigger == true:
+	elif a10cTrigger == true:
 		jump en_A22b
 label en_A22a:
     show misha hips_grin at 3four           #Actual: Transform(xanchor=0.5, xpos=0.15)
@@ -5079,10 +5077,10 @@ label en_A22b: #WEETABIX NOTE: A22 succession with Shizune-Misha Trigger
     "Is this what the Student Council will be like? My body might not be able to take it."
     if a10bTrigger == true:
     	jump en_A24
-	elseif a10bTrigger == false:
+	elif a10bTrigger == false:
 		if a17aTrigger == true:
             jump en_A24a
-        elseif a17aTrigger == false:
+        elif a17aTrigger == false:
             jump en_A24b
 label en_A23:
 scene bg school_scienceroom at bgleft
