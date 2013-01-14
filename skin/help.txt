@@ -22,29 +22,6 @@ CONTROLS:
 
 ----
 
-[JUNIPER'S KNOT]
-A NaNoRenO 2012 Release
-by Dischan Media
-
-STAFF:
-Terrence Smith  - Writer, Audio Director
-Jeremy Miller   - Editor, Programmer
-Saimon Ma       - Artist, Visual Director
-Kristian Jensen - Musician
-Anton Prydatko  - Programmer (iOS)
-
-SPECIAL THANKS:
-Tom Rothamel (a.k.a. PyTom)
-
-
-Copyright 2012, Dischan Media
-All Rights Reserved
-
-Ported by Mikko Luis Saavedra (weetabix)
-With Permission from Dischan Media
-
-----
-
 Windows version of RenPSP is based on LuaPlayer 0.20.
 
 It emulates PSP's keys with keyboard this way:
