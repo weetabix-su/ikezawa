@@ -358,6 +358,7 @@ label start:
 	$a10cTrigger = false    #Shizune-Misha Route Trigger
 	$a17aTrigger = false    #First Run Trigger
         if persistent.hymenBreak == true:
+            $hentaiTrigger = persistent.hentaiTrigger
             jump intro
         else:
             jump hswitch
@@ -368,11 +369,13 @@ label hswitch:
 	menu:
 		"Yes":
 			$persistent.hentaiTrigger = true
+                        $hentaiTrigger = true
                         $persistent.hymenBreak = true
                         $persistent.HanaBonus = false
 			jump intro
 		"No":
 			$persistent.hentaiTrigger = false
+                        $hentaiTrigger = false
                         $persistent.hymenBreak = true
                         $persistent.HanaBonus = false
 			jump intro
@@ -403,9 +406,12 @@ label reelmenu:
                 jump en_NOP1
             "Load Game":
                 scene weet mnmenu_notext
-                "Loading save..." "" "Press X to continue."
-                $renpy.block_rollback()
-                $self:Load()
+                "Save loading through this main menu is disabled temporarily. You may press the [Start] button and select the chibi Lilly icon with the red box." "" "Press X to continue."
+                scene weet mnmenu
+                jump reelmenu
+            #    "Loading save..." "" "Press X to continue."
+            #    $renpy.block_rollback()
+            #    $self:Load()
             "Settings":
                 jump settings
             "Quit":
@@ -415,19 +421,21 @@ label settings:
             "Adult Content":
                 menu:
                     "Enable":
-                        if persistent.hentaiTrigger == false:
+                        if hentaiTrigger == false:
+                            $hentaiTrigger = true
                             $persistent.hentaiTrigger = true
                             "Adult Content enabled successfully." "" "Press X to continue."
                             jump settings
-                        elif persistent.hentaiTrigger == true
+                        elif hentaiTrigger == true
                             "Adult Content already enabled." "" "Press X to continue."
                             jump settings
                     "Disable":
-                        if persistent.hentaiTrigger == true:
+                        if hentaiTrigger == true:
+                            $hentaiTrigger = false
                             $persistent.hentaiTrigger = false
                             "Adult Content disabled successfully." "" "Press X to continue."
                             jump settings
-                        elif persistent.hentaiTrigger == false
+                        elif hentaiTrigger == false
                             "Adult Content already disabled." "" "Press X to continue."
                             jump settings
             "Language":
