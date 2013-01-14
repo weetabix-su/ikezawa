@@ -5,6 +5,8 @@ init:
 	image weet cred = "event/portcred.jpg"
 	image weet logo = "event/4lslogo.jpg"
 	image weet title = "event/title.jpg"
+        image weet mnmenu = "event/menu.jpg"
+        image weet mnmenu_notext = "event/menu_notext.jpg"
 	image act uno = "event/act/act1.jpg"
 	#2. Sprites
 	#Akio Mutou
@@ -355,16 +357,24 @@ label start:
 	$a10bTrigger = false    #Hanako-Lilly Route Trigger
 	$a10cTrigger = false    #Shizune-Misha Route Trigger
 	$a17aTrigger = false    #First Run Trigger
+        if persistent.hymenBreak == true:
+            jump intro
+        else:
+            jump hswitch
+label hswitch:
 	#Hentai Switch
 	scene black
-	"WARNING: 'Katawa Shoujo' contains adult content."
-	"Would you like to enable adult content? (Note: THIS SETTING CANNOT BE CHANGED LATER)"
+	"WARNING: 'Katawa Shoujo' contains adult content." "" "Would you like to enable adult content?"
 	menu:
 		"Yes":
-			$hentaiTrigger = true
+			$persistent.hentaiTrigger = true
+                        $persistent.hymenBreak = true
+                        $persistent.HanaBonus = false
 			jump intro
 		"No":
-			$hentaiTrigger = false
+			$persistent.hentaiTrigger = false
+                        $persistent.hymenBreak = true
+                        $persistent.HanaBonus = false
 			jump intro
 label intro:
 	scene weet warn
@@ -372,7 +382,62 @@ label intro:
 	scene weet cred
 	$renpy.pause(2)
 	scene weet logo
-	$renpy.pause(2)
+        play sound "bgm/4ls.wav"
+	$renpy.pause(8)
+        jump mnmenu
+label mnmenu:
+        if persistent.HanaBonus == true:
+            play music "bgm/Ikezawa.ogg"
+        elif persistent.HanaBonus == false:
+            play music "bgm/Wiosna.ogg"
+        scene weet mnmenu_notext
+        $renpy.pause(2)
+        scene weet mnmenu
+        $renpy.pause(1)
+        "'Katawa Shoujo' by Four Leaf Studios" "" "ported by weetabix for the RenPSP"
+        jump reelmenu
+label reelmenu:
+        menu:
+            "New Game":
+                $renpy.block_rollback()
+                jump en_NOP1
+            "Load Game":
+                scene weet mnmenu_notext
+                "Loading save..." "" "Press X to continue."
+                $renpy.block_rollback()
+                $self:Load()
+            "Settings":
+                jump settings
+            "Quit":
+                $renpy.quit()
+label settings:
+        menu:
+            "Adult Content":
+                menu:
+                    "Enable":
+                        if persistent.hentaiTrigger == false:
+                            $persistent.hentaiTrigger = true
+                            "Adult Content enabled successfully." "" "Press X to continue."
+                            jump settings
+                        elif persistent.hentaiTrigger == true
+                            "Adult Content already enabled." "" "Press X to continue."
+                            jump settings
+                    "Disable":
+                        if persistent.hentaiTrigger == true:
+                            $persistent.hentaiTrigger = false
+                            "Adult Content disabled successfully." "" "Press X to continue."
+                            jump settings
+                        elif persistent.hentaiTrigger == false
+                            "Adult Content already disabled." "" "Press X to continue."
+                            jump settings
+            "Language":
+                "Language translations for 'Katawa Shoujo' are still under development." "" "Press X to continue."
+                jump settings
+            "Cheat Code":
+                "Cheat codes are disabled until the RenPSP VN engine has polished its OSK input function." "" "Press X to continue."
+                jump settings
+            "Exit":
+                jump reelmenu
 label en_NOP1:
 	scene black
 	scene bg op_snowywoods
