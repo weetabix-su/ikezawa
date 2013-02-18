@@ -348,6 +348,8 @@ init:
 	##WHO THE FUCK ARE YOU???
 	define mystery = Character('???')
 label start:
+        #Developer Mode Switch
+        $devmode = true
 	#Character Factor Variables
 	$attractionSC = 0
 	$attractionHanako = 0
@@ -380,19 +382,48 @@ label hswitch:
                         $persistent.HanaBonus = false
 			jump intro
 label intro:
-	scene weet warn
-	$renpy.pause(4)
-	scene weet cred
-	$renpy.pause(2)
-	scene weet logo
-        play sound "bgm/4ls.wav"
-	$renpy.pause(8)
-        jump mnmenu
+        if devmode == true:
+            "Celebrations! You have accessed developer mode, which enables certain customizations in the game."
+            "Select a feature to customize."
+            menu:
+                "Main Menu BGM":
+                    "Pick one of the following:" "+ Sebastian Skaf's \"Wiosna\"" "+ Connor Kirchin's \"Ikezawa\""
+                    menu:
+                        "Wiosna":
+                            scene weet warn
+                            $renpy.pause(4)
+                            scene weet cred
+                            $renpy.pause(2)
+                            scene weet logo
+                            play sound "bgm/4ls.wav"
+                            $renpy.pause(8)
+                            play music "bgm/Wiosna.ogg"
+                            jump mnmenu
+                        "Ikezawa":
+                            scene weet warn
+                            $renpy.pause(4)
+                            scene weet cred
+                            $renpy.pause(2)
+                            scene weet logo
+                            play sound "bgm/4ls.wav"
+                            $renpy.pause(8)
+                            play music "bgm/Ikezawa.ogg"
+                            jump mnmenu
+        elif devmode == false:
+            scene weet warn
+            $renpy.pause(4)
+            scene weet cred
+            $renpy.pause(2)
+            scene weet logo
+            play sound "bgm/4ls.wav"
+            $renpy.pause(8)
+            if persistent.HanaBonus == true:
+                play music "bgm/Ikezawa.ogg"
+                jump mnmenu
+            elif persistent.HanaBonus == false:
+                play music "bgm/Wiosna.ogg"
+                jump mnmenu
 label mnmenu:
-        if persistent.HanaBonus == true:
-            play music "bgm/Ikezawa.ogg"
-        elif persistent.HanaBonus == false:
-            play music "bgm/Wiosna.ogg"
         scene weet mnmenu_notext
         $renpy.pause(2)
         scene weet mnmenu
@@ -407,7 +438,10 @@ label reelmenu:
             "Load Game":
                 "Loading save..." "" "Press X to continue."
                 $renpy.block_rollback()
-                $renpy.load()
+                $loadtest = renpy.load()
+                if loadtest == false:
+                    "Failed to load save file. Returning to main menu." "" "Press X to continue."
+                    jump reelmenu
             "Settings":
                 jump settings
             "Quit":
