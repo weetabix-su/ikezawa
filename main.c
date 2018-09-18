@@ -1,7 +1,8 @@
 #include <pspkernel.h>
 #include <pspdebug.h>
+#include "glib2d.h"
 
-PSP_MODULE_INFO("Hello World", 0, 1, 0);
+PSP_MODULE_INFO("ikezawa graphics test", 0, 0, 1);
 
 int exit_callback(int arg1, int arg2, void *common)
 {
@@ -30,9 +31,24 @@ int SetupCallbacks(void)
 
 int main()
 {
-  pspDebugScreenInit();
+  // INITIALIZE
   SetupCallbacks();
-  pspDebugScreenPrintf("Hello internet!\n\nLet me be the first one to say that it's great to be back working on PSP stuff.\n\nThis port has been long overdue, and with the power of the actual SDK I hope to deliver a port that is as close to the original.\n\nThank you for your support.");
-  sceKernelSleepThread();
+  // ADD BACON
+  g2dTexture* hana = g2dTexLoad("game/sprites/hanako/hanako_basic_normal_cas.png", G2D_SWIZZLE);
+  // LOOP
+  while(1){
+    g2dClear(WHITE);	// CLEAR SCREEN
+    // DRAW
+    g2dBeginRects(hana);
+    if (hana == NULL) g2dSetColor(RED);
+    g2dSetCoordMode(G2D_CENTER);
+    g2dSetAlpha(255);
+    g2dSetScaleWH(hana == NULL ? 120 : hana->w, hana == NULL ? 272 : hana->h);
+    g2dSetCoordXY(G2D_SCR_W/2, G2D_SCR_H/2);
+    g2dAdd();
+    g2dEnd();
+    g2dFlip(G2D_VSYNC);	// FLIP SCREEN
+  }
+  sceKernelExitGame();
   return 0;
 }

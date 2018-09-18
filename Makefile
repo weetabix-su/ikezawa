@@ -1,4 +1,4 @@
-OBJS   = main.o
+OBJS   = main.o glib2d.o
 
 INCDIR   =
 CFLAGS   = -G0 -Wall -O2 -Wextra
@@ -7,7 +7,7 @@ ASFLAGS  = $(CFLAGS)
 
 LIBDIR  =
 LDFLAGS =
-LIBS    = -lm
+LIBS    = -lpng -ljpeg -lz -lpspgu -lm -lpspvram
 
 BUILD_PRX = 1 
 
@@ -21,3 +21,6 @@ PSP_EBOOT_SFO = metadata/PARAM.SFO
 
 PSPSDK=$(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
+
+%.o: %.png
+	bin2o $< $@ $(*F)
