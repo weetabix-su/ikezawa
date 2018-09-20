@@ -7,7 +7,7 @@ ASFLAGS  = $(CFLAGS)
 
 LIBDIR  =
 LDFLAGS =
-LIBS    = -lpng -ljpeg -lz -lpspgu -lm -lpspvram
+LIBS    = -lpng -ljpeg -lz -lpspgum -lpspgu -lpsprtc -lm -lpspvram 
 
 BUILD_PRX = 1 
 
@@ -21,6 +21,3 @@ PSP_EBOOT_SFO = metadata/PARAM.SFO
 
 PSPSDK=$(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
-
-%.o: %.png
-	bin2o $< $@ $(*F)
