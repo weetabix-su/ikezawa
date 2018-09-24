@@ -3,6 +3,7 @@
 #include <pspdebug.h>
 #include <psprtc.h>
 #include <pspctrl.h>
+#include <math.h>
 #include "glib2d.h"
 
 PSP_MODULE_INFO("ikezawa graphics test", 0, 0, 2);
@@ -40,28 +41,52 @@ int main()
   g2dTexture* bg = g2dTexLoad("game/event/lilly_train/train_scenery.jpg", G2D_SWIZZLE);
   g2dTexture* pole = g2dTexLoad("game/event/lilly_train/train_scenery_fg.png", G2D_SWIZZLE);
   g2dTexture* fg = g2dTexLoad("game/event/lilly_train/lilly_trainride.png", G2D_SWIZZLE);
-  float bg_x = 0, pole_x = 0;
+  float bg_x = 0.0f, pole_x = 480.0f, fg_waveClock = 0;
   u64 last_tick, curr_tick;
 	sceRtcGetCurrentTick(&last_tick);
 	u32 tick_frequency = sceRtcGetTickResolution();
 	int framecount = 0;
-  float curr_fps = 0.0f, curr_ms = 1.0f;
+  float curr_fps = 0.0f, curr_ms = 0.0f;
   // LOOP
   while(1){
     curr_fps = 1.0f / curr_ms;
-    g2dClear(BLACK);	// CLEAR SCREEN
-    // DRAW BG
+    g2dClear(WHITE);	// CLEAR SCREEN
+    //DRAW BG
     if (bg == NULL) bg_x = 0;
     else{
-      if (bg_x <= -((bg->w) - 480.0f)) bg_x = 0;
-      else bg_x -= ((bg->w) - 480.0f) * (2.0f / curr_fps);
+      if (bg_x <= -725.0f) bg_x = 0;
+      else bg_x -= 725.0f * (2.0f / curr_fps);
     }
     g2dBeginRects(bg);
     if (bg == NULL) g2dSetColor(BLUE);
     g2dSetCoordMode(G2D_UP_LEFT);
     g2dSetAlpha(255);
-    g2dSetScaleWH(bg == NULL ? 480 : bg->w, bg == NULL ? 272 : bg->h);
+    g2dSetScaleWH(bg == NULL ? 480 : 1205, 272);
     g2dSetCoordXY(bg_x, 0);
+    g2dAdd();
+    g2dEnd();
+    //DRAW POLE
+    if (pole == NULL) pole_x = 480.0f;
+    else{
+      if (pole_x <= -5920) pole_x = 480.0f;
+      else pole_x -= 5920 * (0.3f / curr_fps);
+    }
+    g2dBeginRects(pole);
+    if (pole == NULL) g2dSetColor(ORANGE);
+    g2dSetCoordMode(G2D_UP_LEFT);
+    g2dSetAlpha(255);
+    g2dSetScaleWH(55, 272);
+    g2dSetCoordXY(pole_x, 0);
+    g2dAdd();
+    g2dEnd();
+    //DRAW FG
+    if (fg_waveClock >= 4.0f) fg_waveClock = 0.0f;
+    else fg_waveClock += (1.0f / curr_fps);
+    g2dBeginRects(fg);
+    g2dSetCoordMode(G2D_UP_LEFT);
+    g2dSetAlpha(fg == NULL ? 128 : 255);
+    g2dSetScaleWH(fg == NULL ? 480 : fg->w, fg == NULL ? 272 : fg->h);
+    g2dSetCoordXY(0, fg == NULL ? 0 : (-9) * (sin(fmod((fg_waveClock / 2.0f), 2) * M_PI) + 1.0f) / 2.0f);
     g2dAdd();
     g2dEnd();
     g2dFlip(G2D_VSYNC);	// FLIP SCREEN
