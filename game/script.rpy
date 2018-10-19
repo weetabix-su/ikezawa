@@ -456,13 +456,13 @@ label settings:
                             $persistent.hentaiTrigger = true
                             "Adult Content enabled successfully." "" "Press X to continue."
                             jump settings
-                        elif hentaiTrigger == true
+                        elif hentaiTrigger == true:
                             "Adult Content already enabled." "" "Press X to continue."
                             jump settings
                     "Disable":
                         if hentaiTrigger == true:
                             $hentaiTrigger = false
-                            $persistent.hentaiTrigger = false
+                            $persistent.hentaiTrigger = false:
                             "Adult Content disabled successfully." "" "Press X to continue."
                             jump settings
                         elif hentaiTrigger == false
@@ -585,7 +585,33 @@ label en_NOP1:
     "The last things I remember before slipping away are the sounds of Iwanako screaming for help and the incessant clatter of the branches above..."
     $renpy.pause(1)
     play music "bgm/blank.ogg"
-    scene weet title
+    scene ev intro1
+    $renpy.pause(2)
+    scene ev intro2
+    $renpy.pause(2)
+    scene ev intro3
+    $renpy.pause(2)
+    scene ev intro4
+    $renpy.pause(2)
+    scene ev intro5
+    $renpy.pause(2)
+    scene ev intro6
+    $renpy.pause(2)
+    scene ev intro7
+    $renpy.pause(2)
+    scene ev intro8
+    $renpy.pause(2)
+    scene ev intro9
+    $renpy.pause(2)
+    scene ev introa
+    $renpy.pause(2)
+    scene ev introb
+    $renpy.pause(2)
+    scene ev introc
+    $renpy.pause(2)
+    scene ev introd
+    $renpy.pause(2)
+    $renpy.pause(4)
     $renpy.pause(4)
     scene black
 label en_NOP2:
