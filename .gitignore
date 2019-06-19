@@ -1,0 +1,6 @@
+game/
+.elf
+*.o
+*.elf
+*.PBP
+.vscode
